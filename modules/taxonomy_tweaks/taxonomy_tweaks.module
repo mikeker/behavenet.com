@@ -1,0 +1,133 @@
+<?php
+// $Id:
+
+/**
+ * @file
+ * Taxonomy Tweaks module for Behavenet.com
+ */
+
+/**
+ * Implements hook_perm()
+ * @return array of permissions exposed by this module
+ *
+ * Exposes the following permissions:
+ *    - permission one: what this permission can do
+function taxonomy_tweaks_perm() {
+  return array('administer behavenet');
+}
+ */
+
+
+/**
+ * Implements hook_menu()
+ * @return array with the menu structure provided by this module
+function taxonomy_tweaks_menu() {
+  $items = array();
+
+  return $items;
+}
+ */
+
+ 
+function taxonomy_tweaks_form_views_exposed_form_alter(&$form, &$form_state) {
+  // Update search field to an autocomplete
+}
+
+/**
+ * Implements hook_form_FORM_NAME_alter
+ * @param $form - array containing the form structure
+ * @param $form_state - current state of the form
+ * @return none
+ * @see http://api.drupal.org/api/function/hook_form_alter/6
+ */
+function taxonomy_tweaks_form_taxonomy_manager_form_alter(&$form, &$form_state) {
+  $form['term_data']['tweaks'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Behavenet options'),
+    '#weight' => 20,
+  );
+  $tid = $form['term_data']['tid']['#value'];
+  $acro = taxonomy_tweaks_is_acronym($tid);
+  $form['term_data']['tweaks']['intro'] = array(
+    '#value' => '<p>The term is ' . ($acro ? '' : 'not ') . 'an acronym for another term.</p>',
+  );
+  $form['term_data']['tweaks']['is_acronym'] = array(
+    '#type' => 'hidden',
+    '#value' => $acro ? '0' : '1',  // flip current results
+  );
+  $form['term_data']['tweaks']['change'] = array(
+    '#type' => 'submit',
+    '#value' => $acro ? 'Remove Acronym Setting' : 'Set As Acronym',
+    '#submit' => array('taxonomy_tweaks_submit'),
+  );
+  $form['term_data']['tweaks']['break'] = array(
+    '#value' => '<div class="clear-break"></div>',
+  );
+  $form['term_data']['tweaks']['delete_only'] = array(
+    '#type' => 'submit',
+    '#value' => 'Delete term' ,
+    '#submit' => array('taxonomy_tweaks_submit'),
+  );
+  
+  $orphans = array();
+  if ($children = taxonomy_get_children($tid)) {
+    foreach ($children as $child) {
+      $parents = taxonomy_get_parents($child->tid);
+      if (count($parents) == 1) {
+        $orphans[] = l($child->name, "taxonomy/term/$child->tid");
+      }
+    }
+  }
+  if (count($orphans)) {
+    $form['term_data']['tweaks']['children'] = array(
+      '#value' => '<p>Deleting this term will leave ' . count($orphans) 
+                  . ' orphaned child term(s). Select "Delete Term and Orphans" 
+                    to delete this term and the following orphaned terms:</p>'
+                  . '<ul><li>' . implode ('</li><li>', $orphans) . '</li></ul>',
+    );
+    $form['term_data']['tweaks']['delete_all'] = array(
+      '#type' => 'submit',
+      '#value' => 'Delete term and orphans',
+      '#description' => 'blah blahb blah',
+      '#submit' => array('taxonomy_tweaks_submit'),
+    );
+  }
+}
+
+function taxonomy_tweaks_validate($form, &$form_state) {
+  
+}
+
+function taxonomy_tweaks_submit($form, &$form_state) {
+  // dpr($form_state); exit;
+  $tid = $form_state['values']['term_data']['tid'];
+  $is_acronym = $form_state['values']['term_data']['tweaks']['is_acronym'];
+
+  if ('Delete term and orphans' == $form_state['values']['op']
+    || 'Delete term' == $form_state['values']['op']
+  ) {
+    $del_all = ('Delete term and orphans' == $form_state['values']['op']);
+    $term = taxonomy_get_term($tid);
+    include_once (drupal_get_path('module', 'taxonomy_manager') . '/taxonomy_manager.admin.inc');
+    taxonomy_manager_delete_terms(array($tid), array('delete_orphans' => $del_all));
+    drupal_set_message (t('The term %term has been deleted.', array('%term' => $term->name)));
+    $form_state['redirect'] = '<front>';
+  }
+  else {
+    db_query("
+      REPLACE INTO {tax_tweaks}
+      (tid, is_acronym)
+      VALUES (%d, %d)
+    ", $tid, $is_acronym);
+  }
+}
+
+function taxonomy_tweaks_is_acronym($tid) {
+  $result = db_result(db_query("
+    SELECT tt.is_acronym 
+    FROM {tax_tweaks} AS tt
+    WHERE tt.tid = %d",
+    $tid
+  ));
+  return (!empty($result));
+}

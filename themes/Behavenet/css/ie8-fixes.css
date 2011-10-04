@@ -1,0 +1,12 @@
+/* $Id: ie8-fixes.css 7156 2010-04-24 16:48:35Z chris $ */
+
+/* Acquia Marina - IE8 Fixes */
+
+/*************/
+/* IE8 FIXES */
+/*************/
+
+/* Marina - Icons */
+.block-icon {
+  top: 0;
+}

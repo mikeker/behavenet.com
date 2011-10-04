@@ -1,0 +1,3 @@
+<?php
+
+include_once('behavenet_settings.features.inc');

@@ -1,0 +1,3 @@
+<?php
+
+include_once('trade_name_drugs.features.inc');

@@ -1,0 +1,5 @@
+; $Id:
+name = Import helper functions
+description = Import helper functions 
+core = 6.x
+package = Behavenet

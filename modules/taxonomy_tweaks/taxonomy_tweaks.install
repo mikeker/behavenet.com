@@ -1,0 +1,35 @@
+<?php
+/**
+ * Implementation of hook_schema().
+ */
+function taxonomy_tweaks_schema() {
+  $schema['tax_tweaks'] = array(
+    'description' => 'Holds extra taxonomy data.',
+    'fields' => array(
+      'tid' => array(
+        'description' => '{term_data}.tid',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'is_acronym' => array(
+        'description' => 'TRUE if this term is an acronym for another term',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('tid'),
+  );
+  return $schema;
+}
+
+function taxonomy_tweaks_install() {
+  $debug = drupal_install_schema('taxonomy_tweaks');
+}
+
+function taxonomy_tweaks_uninstall() {
+  drupal_uninstall_schema('taxonomy_tweaks');
+}

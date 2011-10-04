@@ -1,0 +1,5 @@
+; $Id:
+name = Taxonomy Tweaks
+description = Customizations to the Taxonomy term edit page for Behavenet.com  
+core = 6.x
+package = Behavenet

@@ -1,0 +1,23 @@
+@CHARSET "ISO-8859-1";
+
+div.field-type-asin {
+  border: none;
+}
+
+#pid-search #content-inner {
+  overflow: visible;
+  min-height: 800px;
+}
+div#autocomplete {
+  z-index: 100;
+  background-color: red;
+}
+
+dd {
+  margin-bottom: 0;
+}
+
+.dsm-criteria {
+  padding: 15px;
+  border: 1px solid #666;
+}

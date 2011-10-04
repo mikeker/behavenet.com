@@ -1,0 +1,3296 @@
+Movie import:
+  From data_movie_term_relation 
+    bogus movie entry:
+    stdClass Object
+    (
+        [ID] => 327
+        [Movie] => 194
+        [Term] => 929
+    )
+    bogus movie entry:
+    stdClass Object
+    (
+        [ID] => 555
+        [Movie] => 283
+        [Term] => 1178
+    )
+    bogus movie entry:
+    stdClass Object
+    (
+        [ID] => 682
+        [Movie] => 321
+        [Term] => 1983
+    )
+    bogus movie entry:
+    stdClass Object
+    (
+        [ID] => 683
+        [Movie] => 322
+        [Term] => 1983
+    )
+    bogus movie entry:
+    stdClass Object
+    (
+        [ID] => 684
+        [Movie] => 323
+        [Term] => 1983
+    )
+    bogus term entry:
+    stdClass Object
+    (
+        [ID] => 1377
+        [Movie] => 520
+        [Term] => 4270
+    )
+    bogus term entry:
+    stdClass Object
+    (
+        [ID] => 1569
+        [Movie] => 363
+        [Term] => 4129
+    )
+
+
+
+
+
+SELECT t.name, COUNT(t.name) AS cnt
+FROM behave_term_data AS t
+GROUP BY t.name HAVING cnt > 1
+ORDER BY cnt desc;
+
+SELECT o.term, COUNT(o.term) AS cnt
+FROM behave_data_term AS o
+GROUP BY o.term HAVING cnt > 1
+ORDER BY cnt desc;
+
+
+Errors naming combinations from trade drug table:
+  Bogus entry at data_drug_trade_name: ID: 720, Combo ID: 301, drug name: Equagesic
+  Bogus entry at data_drug_trade_name: ID: 1139, Combo ID: 230, drug name: Diprivan®
+  Bogus entry at data_drug_trade_name: ID: 1140, Combo ID: 230, drug name: Ansiven
+  Bogus entry at data_drug_trade_name: ID: 1141, Combo ID: 230, drug name: Disoprivan
+  Bogus entry at data_drug_trade_name: ID: 1142, Combo ID: 230, drug name: Klimofol
+  Bogus entry at data_drug_trade_name: ID: 1143, Combo ID: 230, drug name: Recofol
+  Bogus entry at data_drug_trade_name: ID: 1144, Combo ID: 230, drug name: Recofor
+
+Errors naming combinations from slang table:
+  Bogus entry at data_drug_common_slang_names: ID: 698, Combo ID: 77, slang name: back to back
+  Bogus entry at data_drug_common_slang_names: ID: 699, Combo ID: 77, slang name: bomb
+  Bogus entry at data_drug_common_slang_names: ID: 700, Combo ID: 77, slang name: chasing the dragon
+  Bogus entry at data_drug_common_slang_names: ID: 701, Combo ID: 77, slang name: climax
+  Bogus entry at data_drug_common_slang_names: ID: 702, Combo ID: 77, slang name: eightball
+  Bogus entry at data_drug_common_slang_names: ID: 703, Combo ID: 77, slang name: moonrock
+  Bogus entry at data_drug_common_slang_names: ID: 704, Combo ID: 77, slang name: ready rock
+  Bogus entry at data_drug_common_slang_names: ID: 728, Combo ID: 87, slang name: P-funk
+  Bogus entry at data_drug_common_slang_names: ID: 763, Combo ID: 90, slang name: sheet rocking
+  Bogus entry at data_drug_common_slang_names: ID: 764, Combo ID: 90, slang name: outerlimits
+  Bogus entry at data_drug_common_slang_names: ID: 795, Combo ID: 106, slang name: croak
+  Bogus entry at data_drug_common_slang_names: ID: 796, Combo ID: 106, slang name: fire
+  Bogus entry at data_drug_common_slang_names: ID: 856, Combo ID: 87, slang name: beam me up Scottie
+  Bogus entry at data_drug_common_slang_names: ID: 857, Combo ID: 87, slang name: clicker
+  Bogus entry at data_drug_common_slang_names: ID: 858, Combo ID: 87, slang name: dusty roads
+  Bogus entry at data_drug_common_slang_names: ID: 859, Combo ID: 87, slang name: DOA
+  Bogus entry at data_drug_common_slang_names: ID: 860, Combo ID: 87, slang name: missile basing
+  Bogus entry at data_drug_common_slang_names: ID: 861, Combo ID: 87, slang name: mist
+  Bogus entry at data_drug_common_slang_names: ID: 862, Combo ID: 87, slang name: space base
+  Bogus entry at data_drug_common_slang_names: ID: 863, Combo ID: 87, slang name: sherms
+  Bogus entry at data_drug_common_slang_names: ID: 864, Combo ID: 87, slang name: space cadet
+  Bogus entry at data_drug_common_slang_names: ID: 865, Combo ID: 87, slang name: tragic magic
+  Bogus entry at data_drug_common_slang_names: ID: 866, Combo ID: 87, slang name: space dust
+
+
+
+Errors importing slang terms:
+  laudanum - bogus preparation ID (10)
+
+
+Reestablishing lists after splitting multiple term/defs
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 1979
+      [Gnrc] => 
+      [Term] => 3768
+      [Assoc] => 
+      [Member] => 
+      [List] => 1384
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 4001
+      [Gnrc] => 
+      [Term] => 5658
+      [Assoc] => 
+      [Member] => 2153
+      [List] => 2804
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 4002
+      [Gnrc] => 
+      [Term] => 5659
+      [Assoc] => 
+      [Member] => 2153
+      [List] => 2804
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 4006
+      [Gnrc] => 
+      [Term] => 5663
+      [Assoc] => 
+      [Member] => 2153
+      [List] => 2804
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 5684
+      [Gnrc] => 
+      [Term] => 4085
+      [Assoc] => 2384
+      [Member] => 
+      [List] => 2422
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 5702
+      [Gnrc] => 
+      [Term] => 4098
+      [Assoc] => 2404
+      [Member] => 
+      [List] => 2422
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 5708
+      [Gnrc] => 
+      [Term] => 4108
+      [Assoc] => 2427
+      [Member] => 
+      [List] => 2422
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 5716
+      [Gnrc] => 
+      [Term] => 5918
+      [Assoc] => 2435
+      [Member] => 
+      [List] => 2422
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 5722
+      [Gnrc] => 
+      [Term] => 4129
+      [Assoc] => 2451
+      [Member] => 
+      [List] => 2422
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 5757
+      [Gnrc] => 
+      [Term] => 4167
+      [Assoc] => 2536
+      [Member] => 
+      [List] => 2422
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 5758
+      [Gnrc] => 
+      [Term] => 4168
+      [Assoc] => 2536
+      [Member] => 
+      [List] => 2422
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 5759
+      [Gnrc] => 
+      [Term] => 4169
+      [Assoc] => 2536
+      [Member] => 
+      [List] => 2422
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  Error: bogus Term ID specified: 
+  stdClass Object
+  (
+      [ID] => 5916
+      [Gnrc] => 
+      [Term] => 4206
+      [Assoc] => 
+      [Member] => 
+      [List] => 3015
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  32 became 35
+  done.
+
+Splitting up mutilple terms/definitions relationships
+  adding 1879
+  just added 11221
+  adding 1832
+  just added 11222
+  adding 1685
+  just added 11223
+  adding 1649
+  just added 11225
+  adding 2913
+  just added 11226
+  adding 2975
+  just added 11227
+  adding 3017
+  just added 11228
+  adding 1070
+  just added 11229
+  adding 1020
+  just added 11230
+  adding 992
+  just added 11231
+  adding 977
+  just added 11235
+  adding 972
+  just added 11236
+  adding 873
+  just added 11237
+  adding 835
+  just added 11238
+  adding 1221
+  just added 11239
+  adding 2625
+  just added 11241
+  adding 2278
+  just added 11242
+  adding 2523
+  just added 11243
+  adding 2621
+  just added 11244
+  adding 2273
+  just added 11245
+  adding 1631
+  just added 11246
+  adding 2176
+  just added 11248
+  adding 1545
+  just added 11249
+  adding 2265
+  just added 11251
+  adding 2308
+  just added 11252
+  adding 1470
+  just added 11253
+  adding 2330
+  just added 11254
+  adding 1820
+  just added 11255
+  adding 2444
+  just added 11256
+  adding 2141
+  just added 11257
+  adding 1774
+  just added 11258
+  adding 1716
+  just added 11259
+  adding 2157
+  just added 11260
+  adding 2315
+  just added 11261
+  adding 2666
+  just added 11262
+  adding 1656
+  just added 11263
+  adding 646
+  just added 11264
+  adding 1655
+  just added 11266
+  adding 1625
+  just added 11267
+  adding 1989
+  just added 11269
+  adding 1576
+  just added 11270
+  adding 2883
+  just added 11272
+  adding 1524
+  just added 11273
+  adding 2149
+  just added 11276
+  adding 1512
+  just added 11277
+  adding 1508
+  just added 11279
+  adding 1492
+  just added 11281
+  adding 1494
+  just added 11283
+  adding 2607
+  just added 11285
+  adding 2672
+  just added 11287
+  adding 2258
+  just added 11288
+  adding 2352
+  just added 11289
+  adding 2829
+  just added 11290
+  adding 2042
+  just added 11291
+  adding 2019
+  just added 11292
+  adding 1216
+  just added 11293
+  adding 1209
+  just added 11294
+  adding 2215
+  just added 11295
+  adding 2638
+  just added 11296
+  adding 2985
+  just added 11297
+  adding 1057
+  just added 11298
+  adding 1055
+  just added 11301
+  adding 974
+  just added 11302
+  adding 947
+  just added 11303
+  adding 936
+  just added 11305
+  adding 2187
+  just added 11308
+  adding 2169
+  just added 11310
+  adding 859
+  just added 11311
+  adding 2855
+  just added 11312
+  adding 746
+  just added 11313
+  adding 738
+  just added 11318
+  adding 2286
+  just added 11319
+  adding 2637
+  just added 11320
+  adding 2749
+  just added 11321
+  adding 698
+  just added 11322
+  adding 2281
+  just added 11323
+  adding 2955
+  just added 11324
+  adding 666
+  just added 11325
+  adding 2274
+  just added 11326
+  adding 2208
+  just added 11327
+  adding 2792
+  just added 11328
+  adding 2205
+  just added 11330
+  adding 2804
+  just added 11331
+  adding 2486
+  just added 11334
+  adding 2173
+  just added 11335
+  adding 2642
+  just added 11336
+  adding 2268
+  just added 11338
+  adding 2578
+  just added 11339
+  adding 2651
+  just added 11340
+  adding 2269
+  just added 11341
+  adding 2575
+  just added 11342
+  adding 2784
+  just added 11344
+  adding 2391
+  just added 11346
+  adding 2313
+  just added 11347
+  adding 2264
+  just added 11348
+  adding 2262
+  just added 11349
+  adding 2263
+  just added 11350
+  adding 2259
+  just added 11351
+  adding 2257
+  just added 11352
+  adding 2645
+  just added 11353
+  adding 2331
+  just added 11354
+  adding 2154
+  just added 11355
+  adding 3015
+  just added 11356
+  adding 2477
+  just added 11357
+  adding 2668
+  just added 11358
+  adding 2838
+  just added 11359
+  adding 2568
+  just added 11360
+  adding 2573
+  just added 11361
+  adding 2670
+  just added 11362
+  adding 2590
+  just added 11363
+  adding 2594
+  just added 11364
+  adding 2679
+  just added 11365
+  adding 2615
+  just added 11366
+  adding 2684
+  just added 11367
+  adding 2492
+  just added 11368
+  adding 2507
+  just added 11369
+  adding 2617
+  just added 11370
+  adding 2619
+  just added 11371
+  adding 2660
+  just added 11372
+  adding 2688
+  just added 11373
+  adding 2631
+  just added 11374
+  adding 2635
+  just added 11375
+  adding 2698
+  just added 11376
+  adding 2592
+  just added 11377
+  adding 2998
+  Error: calling add_term on a non-existant term: 2998
+  just added 
+  Error trying to add old term ID: 2998
+  adding 2831
+  just added 11378
+  adding 2988
+  just added 11379
+  adding 2576
+  just added 11380
+  adding 2649
+  just added 11381
+  adding 2585
+  just added 11382
+  adding 2600
+  just added 11383
+  adding 2662
+  just added 11384
+  adding 2832
+  just added 11385
+  adding 2680
+  just added 11386
+  adding 2924
+  just added 11387
+  adding 2938
+  just added 11388
+  done.
+
+
+
+Terms in the definitions table that are missing in the terms table:
+  missing term for congeners
+  missing term for people, places, & things
+  missing term for psychological testing
+  missing term for Computer-Assisted Fluency Establishment and Transfer®
+  missing term for core behaviors (core features)
+  missing term for Dr. Fluency®
+  missing term for anterograde
+  missing term for memory.htm
+  missing term for delusion of grandeur
+  missing term for kindling
+  missing term for psychological birth order postition
+  missing term for "yes, but..."
+  missing term for multiple monitored electroconvulsive therapy
+  missing term for drug.htm
+  missing term for family dtypologies/dimensions
+  missing term for secrets
+  missing term for insight, <i>satori</i>
+  missing term for rational emotive (behaviour) therapy
+  missing term for pharmacotherapy
+
+
+Find duplicate definitions:
+  SELECT *, count(term) as c
+   FROM `behave_data_definitions`
+   GROUP BY term
+   HAVING c > 1
+   ORDER BY c;
+
+Lists import:
+  Using resolved duplicate for Term in ID: 665
+  Using resolved duplicate for Term in ID: 697
+  Using resolved duplicate for Term in ID: 1765
+  Using resolved duplicate for Term in ID: 1785
+  Using resolved duplicate for Term in ID: 1979
+  Using resolved duplicate for List in ID: 2647
+  Using resolved duplicate for Term in ID: 3080
+  Using resolved duplicate for Term in ID: 3086
+  Using resolved duplicate for Term in ID: 3226
+  Using resolved duplicate for Term in ID: 3284
+  Using resolved duplicate for Term in ID: 3361
+  Using resolved duplicate for Term in ID: 3373
+  Using resolved duplicate for List in ID: 3394
+  Using resolved duplicate for Term in ID: 3422
+  Using resolved duplicate for Term in ID: 3577
+  Using resolved duplicate for Term in ID: 3579
+  Using resolved duplicate for Term in ID: 3683
+  Using resolved duplicate for Term in ID: 3706
+  Using resolved duplicate for List in ID: 3833
+  Using resolved duplicate for List in ID: 3834
+  Using resolved duplicate for List in ID: 3835
+  Using resolved duplicate for List in ID: 3836
+  Using resolved duplicate for List in ID: 3837
+  Using resolved duplicate for List in ID: 3838
+  Using resolved duplicate for List in ID: 3839
+  Using resolved duplicate for List in ID: 3840
+  Using resolved duplicate for List in ID: 3841
+  Using resolved duplicate for List in ID: 3842
+  Using resolved duplicate for List in ID: 3843
+  Using resolved duplicate for List in ID: 3844
+  Using resolved duplicate for List in ID: 3845
+  Using resolved duplicate for List in ID: 3846
+  Using resolved duplicate for Term in ID: 3846
+  Using resolved duplicate for List in ID: 3847
+  Using resolved duplicate for List in ID: 3848
+  Using resolved duplicate for List in ID: 3849
+  Using resolved duplicate for List in ID: 3850
+  Using resolved duplicate for List in ID: 3851
+  Using resolved duplicate for List in ID: 3852
+  Using resolved duplicate for List in ID: 3853
+  Using resolved duplicate for List in ID: 3854
+  Using resolved duplicate for Term in ID: 3854
+  Using resolved duplicate for List in ID: 3855
+  Using resolved duplicate for List in ID: 3856
+  Using resolved duplicate for List in ID: 3857
+  Using resolved duplicate for List in ID: 3858
+  Using resolved duplicate for List in ID: 3859
+  Using resolved duplicate for Term in ID: 3859
+  Using resolved duplicate for List in ID: 3860
+  Using resolved duplicate for List in ID: 3861
+  Using resolved duplicate for List in ID: 3862
+  Using resolved duplicate for Term in ID: 3862
+  Using resolved duplicate for List in ID: 3863
+  Using resolved duplicate for List in ID: 3864
+  Using resolved duplicate for List in ID: 3865
+  Using resolved duplicate for List in ID: 3866
+  Using resolved duplicate for List in ID: 3867
+  Using resolved duplicate for List in ID: 3868
+  Using resolved duplicate for List in ID: 3869
+  Using resolved duplicate for List in ID: 3870
+  Using resolved duplicate for List in ID: 3871
+  Using resolved duplicate for List in ID: 3872
+  Using resolved duplicate for List in ID: 3873
+  Using resolved duplicate for List in ID: 3874
+  Using resolved duplicate for Term in ID: 3874
+  Using resolved duplicate for List in ID: 3875
+  Using resolved duplicate for List in ID: 3876
+  Using resolved duplicate for List in ID: 3877
+  Using resolved duplicate for List in ID: 3878
+  Using resolved duplicate for Term in ID: 3878
+  Using resolved duplicate for List in ID: 3879
+  Using resolved duplicate for List in ID: 3880
+  Using resolved duplicate for List in ID: 3881
+  Using resolved duplicate for Term in ID: 3881
+  Using resolved duplicate for List in ID: 3882
+  Using resolved duplicate for List in ID: 3883
+  Using resolved duplicate for List in ID: 3884
+  Using resolved duplicate for List in ID: 3885
+  Using resolved duplicate for List in ID: 3886
+  Using resolved duplicate for List in ID: 3887
+  Using resolved duplicate for List in ID: 3888
+  Using resolved duplicate for List in ID: 3889
+  Using resolved duplicate for List in ID: 3890
+  Using resolved duplicate for List in ID: 3891
+  Using resolved duplicate for List in ID: 3892
+  Using resolved duplicate for Term in ID: 3892
+  Using resolved duplicate for List in ID: 3893
+  Using resolved duplicate for List in ID: 3895
+  Using resolved duplicate for List in ID: 3896
+  Using resolved duplicate for List in ID: 3897
+  Using resolved duplicate for List in ID: 3898
+  Using resolved duplicate for List in ID: 3899
+  Using resolved duplicate for List in ID: 3900
+  Using resolved duplicate for List in ID: 3901
+  Using resolved duplicate for List in ID: 3902
+  Using resolved duplicate for List in ID: 3903
+  Using resolved duplicate for List in ID: 3904
+  Using resolved duplicate for List in ID: 3905
+  Using resolved duplicate for List in ID: 3906
+  Using resolved duplicate for List in ID: 3907
+  Using resolved duplicate for List in ID: 3908
+  Using resolved duplicate for List in ID: 3909
+  Using resolved duplicate for List in ID: 3910
+  Using resolved duplicate for Term in ID: 3910
+  Using resolved duplicate for List in ID: 3911
+  Using resolved duplicate for List in ID: 3912
+  Using resolved duplicate for List in ID: 3913
+  Using resolved duplicate for Term in ID: 3913
+  Using resolved duplicate for List in ID: 3914
+  Using resolved duplicate for List in ID: 3915
+  Using resolved duplicate for List in ID: 3916
+  Using resolved duplicate for List in ID: 3917
+  Using resolved duplicate for List in ID: 3918
+  Using resolved duplicate for List in ID: 3919
+  Using resolved duplicate for List in ID: 3920
+  Using resolved duplicate for Term in ID: 3920
+  Using resolved duplicate for List in ID: 3921
+  Using resolved duplicate for List in ID: 3922
+  Using resolved duplicate for List in ID: 3923
+  Using resolved duplicate for List in ID: 3924
+  Using resolved duplicate for List in ID: 3925
+  Using resolved duplicate for List in ID: 3926
+  Using resolved duplicate for List in ID: 3927
+  Using resolved duplicate for List in ID: 3928
+  Using resolved duplicate for List in ID: 3929
+  Using resolved duplicate for List in ID: 3930
+  Using resolved duplicate for List in ID: 3931
+  Using resolved duplicate for List in ID: 3932
+  Using resolved duplicate for List in ID: 3933
+  Using resolved duplicate for List in ID: 3934
+  Using resolved duplicate for List in ID: 3935
+  Using resolved duplicate for List in ID: 3936
+  Using resolved duplicate for List in ID: 3937
+  Using resolved duplicate for List in ID: 3938
+  Using resolved duplicate for List in ID: 3939
+  Using resolved duplicate for List in ID: 3940
+  Using resolved duplicate for List in ID: 3941
+  Using resolved duplicate for List in ID: 3942
+  Using resolved duplicate for List in ID: 3943
+  Using resolved duplicate for List in ID: 3944
+  Using resolved duplicate for List in ID: 3945
+  Using resolved duplicate for List in ID: 3946
+  Using resolved duplicate for List in ID: 3947
+  Using resolved duplicate for List in ID: 3948
+  Using resolved duplicate for List in ID: 3949
+  Using resolved duplicate for List in ID: 3950
+  Using resolved duplicate for List in ID: 3951
+  Using resolved duplicate for List in ID: 3952
+  Using resolved duplicate for List in ID: 3953
+  Using resolved duplicate for List in ID: 3954
+  Using resolved duplicate for List in ID: 3955
+  Using resolved duplicate for List in ID: 3956
+  Using resolved duplicate for List in ID: 3957
+  Using resolved duplicate for List in ID: 3958
+  Using resolved duplicate for List in ID: 3959
+  Using resolved duplicate for List in ID: 3960
+  Using resolved duplicate for List in ID: 3961
+  Using resolved duplicate for List in ID: 3962
+  Using resolved duplicate for List in ID: 3963
+  Using resolved duplicate for List in ID: 3964
+  Using resolved duplicate for List in ID: 3965
+  Using resolved duplicate for List in ID: 3966
+  Using resolved duplicate for List in ID: 3967
+  Using resolved duplicate for List in ID: 3968
+  Using resolved duplicate for List in ID: 3969
+  Using resolved duplicate for List in ID: 3970
+  Using resolved duplicate for List in ID: 3971
+  Using resolved duplicate for List in ID: 3972
+  Using resolved duplicate for List in ID: 3973
+  Using resolved duplicate for List in ID: 3974
+  Using resolved duplicate for List in ID: 3975
+  Using resolved duplicate for List in ID: 3976
+  Using resolved duplicate for List in ID: 3977
+  Using resolved duplicate for List in ID: 3978
+  Using resolved duplicate for List in ID: 3979
+  Using resolved duplicate for List in ID: 3980
+  Using resolved duplicate for List in ID: 3981
+  Using resolved duplicate for List in ID: 3982
+  Using resolved duplicate for List in ID: 3983
+  Using resolved duplicate for List in ID: 3984
+  Using resolved duplicate for List in ID: 3985
+  Using resolved duplicate for List in ID: 3986
+  Using resolved duplicate for List in ID: 3987
+  Using resolved duplicate for List in ID: 3988
+  Using resolved duplicate for List in ID: 3989
+  Using resolved duplicate for List in ID: 3990
+  Using resolved duplicate for List in ID: 3991
+  Using resolved duplicate for List in ID: 3992
+  Using resolved duplicate for List in ID: 3993
+  Using resolved duplicate for List in ID: 3994
+  Using resolved duplicate for List in ID: 3995
+  Using resolved duplicate for List in ID: 3996
+  Using resolved duplicate for List in ID: 3997
+  Using resolved duplicate for List in ID: 3998
+  Using resolved duplicate for List in ID: 3999
+  Using resolved duplicate for List in ID: 4000
+  Using resolved duplicate for List in ID: 4001
+  Using resolved duplicate for Term in ID: 4001
+  Using resolved duplicate for List in ID: 4002
+  Using resolved duplicate for Term in ID: 4002
+  Using resolved duplicate for List in ID: 4003
+  Using resolved duplicate for List in ID: 4004
+  Using resolved duplicate for List in ID: 4005
+  Using resolved duplicate for List in ID: 4006
+  Using resolved duplicate for Term in ID: 4006
+  Using resolved duplicate for List in ID: 4007
+  Using resolved duplicate for List in ID: 4008
+  Using resolved duplicate for List in ID: 4009
+  Using resolved duplicate for List in ID: 4010
+  Using resolved duplicate for List in ID: 4011
+  Using resolved duplicate for List in ID: 4012
+  Using resolved duplicate for List in ID: 4013
+  Using resolved duplicate for List in ID: 4014
+  Using resolved duplicate for List in ID: 4015
+  Using resolved duplicate for List in ID: 4016
+  Using resolved duplicate for List in ID: 4017
+  Using resolved duplicate for List in ID: 4018
+  Using resolved duplicate for List in ID: 4019
+  Using resolved duplicate for List in ID: 4020
+  Using resolved duplicate for List in ID: 4021
+  Using resolved duplicate for List in ID: 4022
+  Using resolved duplicate for List in ID: 4023
+  Using resolved duplicate for List in ID: 4024
+  Using resolved duplicate for List in ID: 4025
+  Using resolved duplicate for List in ID: 4026
+  Using resolved duplicate for List in ID: 4027
+  Using resolved duplicate for List in ID: 4028
+  Using resolved duplicate for List in ID: 4029
+  Using resolved duplicate for List in ID: 4030
+  Using resolved duplicate for List in ID: 4032
+  Using resolved duplicate for List in ID: 4033
+  Using resolved duplicate for List in ID: 4034
+  Using resolved duplicate for List in ID: 4035
+  Using resolved duplicate for List in ID: 4036
+  Using resolved duplicate for List in ID: 4037
+  Using resolved duplicate for List in ID: 4038
+  Using resolved duplicate for Term in ID: 4038
+  Using resolved duplicate for List in ID: 4039
+  Using resolved duplicate for List in ID: 4040
+  Using resolved duplicate for Term in ID: 4040
+  Using resolved duplicate for List in ID: 4041
+  Using resolved duplicate for List in ID: 4042
+  Using resolved duplicate for List in ID: 4043
+  Using resolved duplicate for List in ID: 4044
+  Using resolved duplicate for List in ID: 4045
+  Using resolved duplicate for List in ID: 4046
+  Using resolved duplicate for List in ID: 4047
+  Using resolved duplicate for List in ID: 4048
+  Using resolved duplicate for List in ID: 4049
+  Using resolved duplicate for List in ID: 4050
+  Using resolved duplicate for List in ID: 4051
+  Using resolved duplicate for List in ID: 4052
+  Using resolved duplicate for List in ID: 4053
+  Using resolved duplicate for List in ID: 4054
+  Using resolved duplicate for List in ID: 4055
+  Using resolved duplicate for List in ID: 4056
+  Using resolved duplicate for List in ID: 4057
+  Using resolved duplicate for Term in ID: 4057
+  Using resolved duplicate for List in ID: 4058
+  Using resolved duplicate for List in ID: 4059
+  Using resolved duplicate for List in ID: 4060
+  Using resolved duplicate for List in ID: 4061
+  Using resolved duplicate for Term in ID: 4061
+  Using resolved duplicate for List in ID: 4062
+  Using resolved duplicate for List in ID: 4063
+  Using resolved duplicate for List in ID: 4064
+  Using resolved duplicate for Term in ID: 4064
+  Using resolved duplicate for List in ID: 4065
+  Using resolved duplicate for Term in ID: 4065
+  Using resolved duplicate for List in ID: 4066
+  Using resolved duplicate for List in ID: 4067
+  Using resolved duplicate for List in ID: 4068
+  Using resolved duplicate for Term in ID: 4122
+  Using resolved duplicate for Term in ID: 4123
+  Using resolved duplicate for Term in ID: 4124
+  Using resolved duplicate for Term in ID: 4127
+  Using resolved duplicate for Term in ID: 4128
+  Using resolved duplicate for Term in ID: 4129
+  Using resolved duplicate for Term in ID: 4130
+  Using resolved duplicate for Term in ID: 4133
+  Using resolved duplicate for Term in ID: 4134
+  Using resolved duplicate for Term in ID: 4138
+  Using resolved duplicate for Term in ID: 4139
+  Using resolved duplicate for Term in ID: 4143
+  Using resolved duplicate for Term in ID: 4146
+  Using resolved duplicate for Term in ID: 4151
+  Using resolved duplicate for Term in ID: 4157
+  Using resolved duplicate for Term in ID: 5304
+  Using resolved duplicate for Term in ID: 5309
+  Using resolved duplicate for Term in ID: 5311
+  Using resolved duplicate for Term in ID: 5326
+  Using resolved duplicate for Term in ID: 5327
+  Using resolved duplicate for Term in ID: 5348
+  Using resolved duplicate for Term in ID: 5387
+  Using resolved duplicate for Term in ID: 5440
+  Using resolved duplicate for Term in ID: 5473
+  Using resolved duplicate for Term in ID: 5482
+  Using resolved duplicate for Term in ID: 5488
+  Using resolved duplicate for Term in ID: 5503
+  Using resolved duplicate for Term in ID: 5519
+  Using resolved duplicate for Term in ID: 5587
+  Using resolved duplicate for Term in ID: 5592
+  Using resolved duplicate for Term in ID: 5594
+  Using resolved duplicate for Term in ID: 5595
+  Using resolved duplicate for Term in ID: 5597
+  Using resolved duplicate for Term in ID: 5604
+  Using resolved duplicate for Term in ID: 5609
+  Using resolved duplicate for Term in ID: 5611
+  Using resolved duplicate for Term in ID: 5613
+  Using resolved duplicate for Term in ID: 5619
+  Using resolved duplicate for Term in ID: 5626
+  Using resolved duplicate for Term in ID: 5634
+  Using resolved duplicate for Term in ID: 5636
+  Using resolved duplicate for Term in ID: 5638
+  Using resolved duplicate for Term in ID: 5640
+  Using resolved duplicate for Term in ID: 5644
+  Using resolved duplicate for Term in ID: 5650
+  Using resolved duplicate for Term in ID: 5654
+  Using resolved duplicate for Term in ID: 5656
+  Using resolved duplicate for Term in ID: 5657
+  Using resolved duplicate for Term in ID: 5684
+  Using resolved duplicate for Term in ID: 5702
+  Using resolved duplicate for Term in ID: 5708
+  Using resolved duplicate for Term in ID: 5716
+  Using resolved duplicate for Term in ID: 5722
+  Using resolved duplicate for Term in ID: 5757
+  Using resolved duplicate for Term in ID: 5758
+  Using resolved duplicate for Term in ID: 5759
+  Using resolved duplicate for Term in ID: 5784
+  Using resolved duplicate for Term in ID: 5788
+  Using resolved duplicate for Term in ID: 5790
+  Using resolved duplicate for Term in ID: 5799
+  Using resolved duplicate for Term in ID: 5804
+  Using resolved duplicate for Term in ID: 5806
+  Using resolved duplicate for Term in ID: 5808
+  Using resolved duplicate for Term in ID: 5810
+  Using resolved duplicate for Term in ID: 5817
+  Using resolved duplicate for Term in ID: 5818
+  Using resolved duplicate for Term in ID: 5822
+  Using resolved duplicate for Term in ID: 5826
+  Using resolved duplicate for Term in ID: 5836
+  Using resolved duplicate for Term in ID: 5890
+  Using resolved duplicate for List in ID: 5895
+  Using resolved duplicate for List in ID: 5905
+  Using resolved duplicate for List in ID: 5913
+  Using resolved duplicate for List in ID: 5914
+  Using resolved duplicate for List in ID: 5915
+  Using resolved duplicate for List in ID: 5916
+  Using resolved duplicate for Term in ID: 5916
+  Using resolved duplicate for List in ID: 5943
+  Using resolved duplicate for List in ID: 5946
+  Using resolved duplicate for Term in ID: 5946
+  Using resolved duplicate for List in ID: 5954
+  Using resolved duplicate for List in ID: 5970
+  Using resolved duplicate for Term in ID: 6002
+  Using resolved duplicate for Term in ID: 6004
+  Using resolved duplicate for Term in ID: 6005
+  Using resolved duplicate for Term in ID: 6011
+  Using resolved duplicate for Term in ID: 6028
+  Using resolved duplicate for Term in ID: 6056
+  Using resolved duplicate for Term in ID: 6086
+  Using resolved duplicate for Term in ID: 6097
+  Using resolved duplicate for Term in ID: 6111
+  Using resolved duplicate for Term in ID: 6128
+  Using resolved duplicate for Term in ID: 6148
+  Using resolved duplicate for Term in ID: 6158
+  Using resolved duplicate for Term in ID: 6161
+  Using resolved duplicate for List in ID: 6199
+  Using resolved duplicate for List in ID: 6201
+  Using resolved duplicate for Term in ID: 6201
+  Using resolved duplicate for List in ID: 6204
+  Using resolved duplicate for List in ID: 6205
+  Using resolved duplicate for List in ID: 6206
+  Using resolved duplicate for List in ID: 6208
+  Using resolved duplicate for List in ID: 6209
+  Using resolved duplicate for List in ID: 6210
+  Using resolved duplicate for List in ID: 6212
+  Using resolved duplicate for List in ID: 6213
+  Using resolved duplicate for List in ID: 6217
+  Using resolved duplicate for List in ID: 6218
+  Using resolved duplicate for List in ID: 6219
+  Using resolved duplicate for List in ID: 6221
+  Using resolved duplicate for List in ID: 6224
+  Using resolved duplicate for List in ID: 6229
+  Using resolved duplicate for List in ID: 6230
+  Using resolved duplicate for Term in ID: 6230
+  Using resolved duplicate for List in ID: 6231
+  Using resolved duplicate for List in ID: 6247
+  Using resolved duplicate for List in ID: 6249
+  Using resolved duplicate for List in ID: 6251
+  Using resolved duplicate for List in ID: 6252
+  Using resolved duplicate for List in ID: 6254
+  Using resolved duplicate for List in ID: 6255
+  Using resolved duplicate for List in ID: 6256
+  Using resolved duplicate for List in ID: 6257
+  Using resolved duplicate for List in ID: 6258
+  Using resolved duplicate for List in ID: 6259
+  Using resolved duplicate for List in ID: 6260
+  Using resolved duplicate for List in ID: 6261
+  Using resolved duplicate for List in ID: 6262
+  Using resolved duplicate for List in ID: 6263
+  Using resolved duplicate for List in ID: 6264
+  Using resolved duplicate for List in ID: 6265
+  Using resolved duplicate for List in ID: 6266
+
+Definition/Terms import:
+  Possible upper/lower case issue? 
+  stdClass Object
+  (
+      [url] => http://www.behavenet.com/capsules/reimb/hcfa.htm
+      [term] => health care financing administration
+      [definition] => This division of the <a href="http://www.os.dhhs.gov/">Department of Health &amp; Human Services</a> administers <a href="titlexviii.htm">Medicare</a> and <a href="titlexix.htm">Medicaid</a>. It was renamed <a href="CMS.htm">Centers for Medicare &amp; Medicaid Services (<acronym title="Centers for Medicare &amp; Medicaid Services">CMS</acronym>)</a> on July 1, 2001.
+      [ID] => 2042
+  )
+  Other possible term ID: 1275
+  Possible upper/lower case issue? 
+  stdClass Object
+  (
+      [url] => http://www.behavenet.com/capsules/treatments/analytic/hypochondriasis.htm
+      [term] => hypochondriasis
+      [definition] => This immature defense mechanism makes use of somatic illness or pain to avoid unacceptable impulses.
+      [ID] => 2169
+  )
+  Other possible term ID: 891
+  Possible upper/lower case issue? 
+  stdClass Object
+  (
+      [url] => http://www.behavenet.com/capsules/treatments/emdr/closure.htm
+      [term] => Closure
+      [definition] => <b>Closure</b> is the <b>seventh phase</b> (<a href="bdyscn.htm">sixth</a>, <a href="reevaluation.htm">eighth</a>) of EMDR treatment. During <b>closure</b> the client is brought to a state of emotional equilibrium if an <a href="adptr.htm">adaptive resolution</a> has not been reached on the material <a href="target.htm">targeted</a> in that session; a thorough debriefing is provided; and the client is reminded to keep a <a href="log.htm">log</a>.
+      [ID] => 2308
+  )
+  Other possible term ID: 444
+  Possible upper/lower case issue? 
+  stdClass Object
+  (
+      [url] => http://www.behavenet.com/capsules/treatments/emdr/desnstzatn.htm
+      [term] => Desensitization
+      [definition] => <b>Desensitization</b> is the name of the <b>fourth phase</b> (<a href="assessment.htm">third</a>, <a href="instl.htm">fifth</a>) of EMDR treatment. It also refers to one of the effects of treatment in which formerly disturbing memories and <a href="cues.htm">cues</a> reach an <a href="adptr.htm">adaptive resolution</a> and are no longer experienced as disturbing. This treatment effect is evaluated as measured by the <a href="suds.htm">SUDS</a>. Phase four generally continues until the SUDS rating of the negative affect reaches O or 1.
+      [ID] => 2313
+  )
+  Other possible term ID: 475
+  Possible upper/lower case issue? 
+  stdClass Object
+  (
+      [url] => http://www.behavenet.com/capsules/treatments/gestalt/Ego.htm
+      [term] => Ego
+      [definition] => -the <i><a href="self.htm"> self</a></i> can function in three ways, as the <i><a href="Id.htm">Id</a></i>, the <b>Ego</b>, the <i><a href="personality.htm">Personality</a></i>. The <b>Ego</b> is an active function, implying <a href="awareness.htm">awareness</a> of my <a href="needs.htm"> needs</a> and taking responsibility for my choices. <i>Losses of ego function </i>are often called '<a href="resistance.htm">resistances</a>'.
+      [ID] => 2573
+  )
+  Other possible term ID: 2159
+  Possible upper/lower case issue? 
+  stdClass Object
+  (
+      [url] => http://www.behavenet.com/capsules/treatments/gestalt/Id.htm
+      [term] => Id
+      [definition] => -in the Gestalt sense, one of the three 'functions' of the <i><a href="self.htm"> self</a></i> - which also consists of the <a href="Ego.htm"><i> ego</i></a> and the <i><a href="personality.htm">personality</a></i>. The <i> self</i> generally functions in the <i>id</i> mode at the beginning of the <i><a href="cycle.htm">cycle</a></i>, during the so-called <i><a href="pre.htm">pre-contact</a></i> phase. For certain writers, assimilation (<a href="postcontact.htm">post-contact</a>) also takes place, out of <a href="awareness.htm">awareness</a>, in the <i>id</i> mode.
+      [ID] => 2590
+  )
+  Other possible term ID: 2170
+  Possible upper/lower case issue? 
+  stdClass Object
+  (
+      [url] => http://www.behavenet.com/capsules/treatments/gestalt/withdrawal.htm
+      [term] => withdrawal
+      [definition] => - the fourth and final stage of the <i><a href="cycle.htm">contact cycle</a> </i> according to Goodman, which enables an experience to be assimilated, (<i><a href="personality.htm">personality</a> function of the <a href="self.htm"> self</a></i>), and creates the sense of <i>identity</i>. Too brutal or slow (<a href="confluence.htm"><i>confluence</i></a>) a <b> withdrawal</b> is a sign of dysfunction, which hinders the development of autonomy.
+      [ID] => 2638
+  )
+  Other possible term ID: 1071
+  Possible upper/lower case issue? 
+  stdClass Object
+  (
+      [url] => http://www.behavenet.com/capsules/treatments/ta/withdrawal.htm
+      [term] => withdrawal
+      [definition] => Mode of <a href="timestructuring.htm">time-structuring</a> in which the individual does not <a href="transaction.htm">transact</a> with others.
+      [ID] => 2985
+  )
+  Other possible term ID: 1071
+  bogus term ID given: 
+  stdClass Object
+  (
+      [url] => http://www.behavenet.com/capsules/treatments/pharmaceutical.htm
+      [term] => pharmaceutical
+      [definition] => http://www.behavenet.com/capsules/treatments/drugs/pharmaceutical.htm
+      [ID] => 2998
+  )
+  bogus entry in definitions table: 
+  stdClass Object
+  (
+      [url] => 
+      [term] => social work
+      [definition] => 
+      [ID] => 3019
+  )
+  bogus entry in definitions table: 
+  stdClass Object
+  (
+      [url] => 
+      [term] => social worker
+      [definition] => 
+      [ID] => 3020
+  )
+  bogus entry in definitions table: 
+  stdClass Object
+  (
+      [url] => 
+      [term] => marriage and family therapist
+      [definition] => 
+      [ID] => 3021
+  )
+  bogus entry in definitions table: 
+  stdClass Object
+  (
+      [url] => 
+      [term] => tobacco dependence
+      [definition] => 
+      [ID] => 3024
+  )
+  bogus entry in definitions table: 
+  stdClass Object
+  (
+      [url] => 
+      [term] => 
+      [definition] => 
+      [ID] => 3025
+  )
+Latest term import:
+  missing parent from: 
+  stdClass Object
+  (
+      [ID] => 1843
+      [Gnrc] => 
+      [Term] => 1251
+      [Assoc] => 1283
+      [Member] => 81
+      [List] => 1384
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 45
+      [Cmpd] => 
+      [Prep] => 
+  )
+  
+  missing parent from: 
+  stdClass Object
+  (
+      [ID] => 2563
+      [Gnrc] => 
+      [Term] => 1472
+      [Assoc] => 
+      [Member] => 157
+      [List] => 
+      [Acro] => 
+      [Syn] => 
+      [Comb] => 
+      [Srce] => 
+      [Credit] => 
+      [Cmpd] => 
+      [Prep] => 
+  )
+  
+Parent of self error: old ID: 696
+Parent of self error: old ID: 1071
+cyclical parent->child relationship detected: old ID: 5771, child Old ID: 5408
+
+
+
+
+
+
+
+
+
+
+Older:
+Synonyms:
+  Error: unable to find a term for amok at 865
+  Error: unable to find a term for central nervous system stimulant at 4340
+  Error: unable to find a term for histamine antagonist at 4553
+  Error: unable to find a term for dip & dab at 4774
+  Error: unable to find a term for fen-phen at 5053
+  Error: unable to find a term for phen-fen at 5054
+  Error: unable to find a term for anxiolytic at 5085
+
+Related terms:
+  bogus entry (term) for  at 4165
+  bogus entry (term) for  at 4166
+  bogus entry (term) for  at 4168
+  bogus entry (term) for  at 4169
+  bogus entry (term) for  at 4189
+  bogus entry (term) for  at 4201
+  bogus entry (term) for  at 4202
+  bogus entry (term) for  at 4324
+  bogus entry (term) for  at 4329
+  bogus entry (term) for  at 4330
+  bogus entry (term) for  at 4333
+  bogus entry (term) for  at 4344
+  bogus entry (term) for  at 4353
+  bogus entry (term) for  at 4358
+  bogus entry (term) for  at 4362
+  bogus entry (term) for  at 4433
+  bogus entry (term) for  at 4441
+  bogus entry (term) for  at 4446
+  bogus entry (term) for  at 4450
+  bogus entry (term) for  at 4475
+  bogus entry (term) for  at 4479
+  bogus entry (term) for  at 4482
+  bogus entry (term) for  at 4485
+  bogus entry (term) for  at 4487
+  bogus entry (term) for  at 4491
+  bogus entry (term) for  at 4495
+  bogus entry (term) for  at 4498
+  bogus entry (term) for  at 4516
+  bogus entry (term) for  at 4521
+  bogus entry (term) for  at 4527
+  bogus entry (term) for  at 4531
+  bogus entry (term) for  at 4540
+  bogus entry (term) for  at 4589
+  bogus entry (term) for  at 4595
+  bogus entry (term) for  at 4596
+  bogus entry (term) for  at 4602
+  bogus entry (term) for  at 4607
+  bogus entry (term) for  at 4615
+  bogus entry (term) for  at 4618
+  bogus entry (term) for  at 4621
+  bogus entry (term) for  at 4626
+  bogus entry (term) for  at 4630
+  bogus entry (term) for  at 4641
+  bogus entry (term) for  at 4646
+  bogus entry (term) for  at 4660
+  bogus entry (term) for  at 4663
+  bogus entry (term) for  at 4666
+  bogus entry (term) for  at 4669
+  bogus entry (term) for  at 4675
+  bogus entry (term) for  at 4680
+  bogus entry (term) for  at 4691
+  bogus entry (term) for  at 4701
+  bogus entry (term) for  at 4708
+  bogus entry (term) for  at 4716
+  bogus entry (term) for  at 4721
+  bogus entry (term) for  at 4726
+  bogus entry (term) for  at 4735
+  bogus entry (term) for  at 4793
+  bogus entry (term) for  at 4798
+  bogus entry (term) for  at 4802
+  bogus entry (term) for  at 4807
+  bogus entry (term) for  at 4813
+  bogus entry (term) for  at 4814
+  bogus entry (term) for  at 4826
+  bogus entry (term) for  at 4830
+  bogus entry (term) for  at 4840
+  bogus entry (term) for  at 4844
+  bogus entry (term) for  at 4850
+  bogus entry (term) for  at 4869
+  bogus entry (term) for  at 4873
+  bogus entry (term) for  at 4874
+  bogus entry (term) for  at 4875
+  bogus entry (term) for  at 4888
+  bogus entry (term) for  at 4890
+  bogus entry (term) for  at 4893
+  bogus entry (term) for  at 4897
+  bogus entry (term) for  at 4900
+  bogus entry (term) for  at 4910
+  bogus entry (term) for  at 4913
+  bogus entry (term) for  at 4918
+  bogus entry (term) for  at 4924
+  bogus entry (term) for  at 4930
+  bogus entry (term) for  at 4933
+  bogus entry (term) for  at 4941
+  bogus entry (term) for  at 4950
+  bogus entry (term) for  at 4957
+  bogus entry (term) for  at 4959
+  bogus entry (term) for  at 4961
+  bogus entry (term) for  at 4963
+  bogus entry (term) for  at 4979
+  bogus entry (term) for  at 4981
+  bogus entry (term) for  at 4998
+  bogus entry (term) for  at 5003
+  bogus entry (term) for  at 5008
+  bogus entry (term) for  at 5014
+  bogus entry (term) for  at 5020
+  bogus entry (term) for  at 5021
+  bogus entry (term) for  at 5022
+  bogus entry (term) for  at 5024
+  bogus entry (term) for  at 5028
+  bogus entry (term) for  at 5033
+  bogus entry (term) for  at 5036
+  bogus entry (term) for  at 5047
+  bogus entry (term) for  at 5055
+  bogus entry (term) for  at 5059
+  bogus entry (term) for  at 5063
+  bogus entry (term) for  at 5076
+  bogus entry (term) for  at 5084
+  bogus entry (term) for  at 5088
+  bogus entry (term) for  at 5092
+  bogus entry (term) for  at 5105
+  bogus entry (term) for  at 5108
+  bogus entry (term) for  at 5122
+  bogus entry (term) for  at 5123
+  bogus entry (term) for  at 5124
+  bogus entry (term) for  at 5163
+  bogus entry (term) for  at 5189
+  bogus entry (term) for  at 5199
+  bogus entry (term) for  at 5201
+  bogus entry (term) for  at 5208
+  bogus entry (term) for  at 5210
+  bogus entry (term) for  at 5216
+  bogus entry (term) for  at 5220
+  bogus entry (term) for  at 5234
+  bogus entry (term) for  at 5242
+  bogus entry (term) for  at 5277
+  1795 entries found, 128 errors. done.
+
+Generic
+  Bogus Member specified: 29
+  Bogus syn specified: 59
+  Done: 316 correct and 0 errors
+  
+updated parents and relations:
+bogus member id in row 1843
+
+bogus member id in row 2563
+
+bogus term id in row 13
+
+Bogus syn specified: 59
+
+Bogus syn specified: 98
+
+Bogus syn specified: 743
+
+Bogus Member specified: 832
+
+Bogus syn specified: 743
+
+Bogus syn specified: 744
+
+bogus term id in row 4
+
+bogus term id in row 5
+
+bogus term id in row 10
+
+bogus term id in row 11
+
+Bogus syn specified: 865
+
+Bogus syn specified: 2635
+
+Bogus syn specified: 2729
+
+Bogus syn specified: 318
+
+bogus term id in row 333
+
+bogus term id in row 334
+
+bogus term id in row 338
+
+Bogus syn specified: 59
+
+Bogus syn specified: 98
+
+Bogus syn specified: 743
+
+Bogus Assoc specified: 1551
+
+Bogus Assoc specified: 1552
+
+Bogus Assoc specified: 1452
+
+Bogus Assoc specified: 1454
+
+bogus term id in row 3828
+
+bogus term id in row 3829
+
+bogus term id in row 3830
+
+bogus term id in row 865
+
+bogus term id in row 866
+
+bogus term id in row 867
+
+bogus term id in row 868
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1134
+
+Bogus Assoc specified: 1136
+
+Bogus Assoc specified: 1137
+
+Bogus Assoc specified: 1612
+
+Bogus Assoc specified: 1613
+
+Bogus syn specified: 1326
+
+Bogus Member specified: 1118
+
+Bogus Member specified: 1127
+
+Bogus syn specified: 748
+
+Bogus syn specified: 1083
+
+Bogus syn specified: 1295
+
+bogus term id in row 916
+
+Bogus syn specified: 748
+
+Bogus syn specified: 1083
+
+Bogus syn specified: 1295
+
+Bogus syn specified: 1083
+
+Bogus syn specified: 1295
+
+Bogus syn specified: 1326
+
+Bogus syn specified: 748
+
+Bogus Assoc specified: 1415
+
+Bogus syn specified: 1326
+
+Bogus syn specified: 2635
+
+Bogus syn specified: 2729
+
+Bogus syn specified: 2729
+
+bogus term id in row 2556
+
+Bogus Assoc specified: 1247
+
+Bogus Assoc specified: 1438
+
+Bogus Assoc specified: 1440
+
+Bogus Assoc specified: 1544
+
+Bogus Assoc specified: 1546
+
+Bogus Assoc specified: 1547
+
+Bogus syn specified: 59
+
+Bogus syn specified: 59
+
+Bogus syn specified: 59
+
+Bogus syn specified: 59
+
+Bogus syn specified: 59
+
+Bogus syn specified: 743
+
+Bogus syn specified: 744
+
+Bogus syn specified: 743
+
+Bogus syn specified: 744
+
+Bogus syn specified: 743
+
+Bogus syn specified: 744
+
+Bogus syn specified: 748
+
+Bogus Assoc specified: 1552
+
+Bogus Member specified: 1353
+
+Bogus Member specified: 1353
+
+Bogus Member specified: 1353
+
+Bogus Member specified: 1353
+
+Bogus Member specified: 1353
+
+Bogus Member specified: 1353
+
+Bogus Member specified: 1353
+
+Bogus Member specified: 1353
+
+Bogus syn specified: 794
+
+Bogus Member specified: 1358
+
+Bogus syn specified: 804
+
+Bogus Member specified: 1354
+
+Bogus syn specified: 804
+
+Bogus syn specified: 845
+
+Bogus syn specified: 857
+
+Bogus syn specified: 859
+
+Bogus syn specified: 857
+
+Bogus syn specified: 859
+
+Bogus syn specified: 857
+
+Bogus syn specified: 859
+
+Bogus syn specified: 900
+
+Bogus syn specified: 900
+
+Bogus syn specified: 900
+
+Bogus syn specified: 900
+
+Bogus syn specified: 900
+
+Bogus syn specified: 900
+
+Bogus syn specified: 900
+
+Bogus syn specified: 900
+
+Bogus syn specified: 1083
+
+Bogus syn specified: 1295
+
+bogus term id in row 917
+
+Bogus Member specified: 1355
+
+Bogus syn specified: 1083
+
+Bogus Assoc specified: 1098
+
+Bogus Assoc specified: 1098
+
+Bogus Member specified: 1118
+
+Bogus Member specified: 1127
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1134
+
+Bogus Assoc specified: 1136
+
+Bogus Assoc specified: 1137
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1134
+
+Bogus Assoc specified: 1136
+
+Bogus Assoc specified: 1137
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1134
+
+Bogus Assoc specified: 1136
+
+Bogus Assoc specified: 1137
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1134
+
+Bogus Assoc specified: 1136
+
+Bogus Assoc specified: 1137
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1134
+
+Bogus Assoc specified: 1136
+
+Bogus Assoc specified: 1137
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1134
+
+Bogus Assoc specified: 1136
+
+Bogus Assoc specified: 1137
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1134
+
+Bogus Assoc specified: 1136
+
+Bogus Assoc specified: 1137
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1134
+
+Bogus Assoc specified: 1136
+
+Bogus Assoc specified: 1137
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1134
+
+Bogus Assoc specified: 1136
+
+Bogus Assoc specified: 1137
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1134
+
+Bogus Assoc specified: 1136
+
+Bogus Assoc specified: 1137
+
+Bogus syn specified: 1128
+
+Bogus syn specified: 1128
+
+Bogus Assoc specified: 1457
+
+Bogus Assoc specified: 1457
+
+Bogus Member specified: 1356
+
+Bogus Member specified: 1357
+
+Bogus Member specified: 1357
+
+Bogus Assoc specified: 1247
+
+Bogus Assoc specified: 1250
+
+Bogus Assoc specified: 1251
+
+Bogus Member specified: 1352
+
+Bogus syn specified: 1295
+
+Bogus syn specified: 1295
+
+Bogus syn specified: 1295
+
+Bogus syn specified: 1326
+
+bogus term id in row 1331
+
+Bogus syn specified: 748
+
+Bogus Assoc specified: 1415
+
+Bogus syn specified: 748
+
+Bogus Assoc specified: 1415
+
+Bogus Assoc specified: 1479
+
+Bogus Assoc specified: 1438
+
+Bogus Assoc specified: 1440
+
+Bogus Assoc specified: 1438
+
+Bogus Assoc specified: 1440
+
+Bogus Assoc specified: 1444
+
+Bogus Assoc specified: 1447
+
+Bogus Assoc specified: 1444
+
+Bogus Assoc specified: 1447
+
+Bogus Assoc specified: 1452
+
+Bogus Assoc specified: 1454
+
+Bogus Assoc specified: 1457
+
+Bogus Assoc specified: 1462
+
+Bogus Assoc specified: 1467
+
+Bogus Assoc specified: 1472
+
+Bogus Assoc specified: 1479
+
+Bogus Assoc specified: 1482
+
+Bogus Assoc specified: 1488
+
+Bogus Assoc specified: 1491
+
+Bogus Assoc specified: 1488
+
+Bogus syn specified: 463
+
+Bogus Assoc specified: 474
+
+Bogus syn specified: 489
+
+Bogus syn specified: 494
+
+Bogus Member specified: 679
+
+cyclical parent-child relationship on 715
+
+cyclical parent-child relationship on 771
+
+cyclical parent-child relationship on 777
+
+cyclical parent-child relationship on 400
+
+Bogus Assoc specified: 1526
+
+Bogus Assoc specified: 1527
+
+Bogus Assoc specified: 1528
+
+Bogus Assoc specified: 1533
+
+Bogus Assoc specified: 1534
+
+Bogus Assoc specified: 1544
+
+Bogus Assoc specified: 1546
+
+Bogus Assoc specified: 1547
+
+Bogus Assoc specified: 1440
+
+Bogus Assoc specified: 1551
+
+Bogus Assoc specified: 1552
+
+Bogus Assoc specified: 1251
+
+Bogus Assoc specified: 1559
+
+Bogus Assoc specified: 1560
+
+Bogus Assoc specified: 1561
+
+Bogus Assoc specified: 1251
+
+Bogus Assoc specified: 1559
+
+Bogus Assoc specified: 1560
+
+Bogus Assoc specified: 1561
+
+Bogus Assoc specified: 1251
+
+Bogus Assoc specified: 1559
+
+Bogus Assoc specified: 1560
+
+Bogus Assoc specified: 1561
+
+Bogus Assoc specified: 1251
+
+Bogus Assoc specified: 1559
+
+Bogus Assoc specified: 1560
+
+Bogus Assoc specified: 1561
+
+Bogus syn specified: 111
+
+Bogus syn specified: 224
+
+Bogus Assoc specified: 1565
+
+Bogus Assoc specified: 1569
+
+Bogus Assoc specified: 1612
+
+Bogus Assoc specified: 1613
+
+Bogus Assoc specified: 1612
+
+Bogus Assoc specified: 1613
+
+Bogus Assoc specified: 1612
+
+Bogus Assoc specified: 1613
+
+Bogus Assoc specified: 1612
+
+Bogus Assoc specified: 1613
+
+Bogus Assoc specified: 1612
+
+Bogus Assoc specified: 1613
+
+bogus term id in row 3825
+
+bogus term id in row 3827
+
+bogus term id in row 3831
+
+Bogus syn specified: 2064
+
+bogus term id in row 2073
+
+Bogus syn specified: 804
+
+Bogus syn specified: 804
+
+bogus term id in row 918
+
+Bogus Assoc specified: 1457
+
+Bogus Assoc specified: 1462
+
+Bogus syn specified: 2669
+
+Bogus syn specified: 794
+
+Bogus Member specified: 1353
+
+Bogus Member specified: 1358
+
+Bogus Member specified: 1354
+
+Bogus Member specified: 1355
+
+Bogus Member specified: 1356
+
+Bogus Member specified: 1357
+
+Bogus Member specified: 1352
+
+bogus term id in row 1349
+
+bogus term id in row 1350
+
+bogus term id in row 1351
+
+bogus term id in row 5025
+
+bogus term id in row 5026
+
+Bogus Assoc specified: 1467
+
+Bogus Assoc specified: 1472
+
+Bogus Assoc specified: 1479
+
+Bogus Assoc specified: 1482
+
+Bogus Assoc specified: 1488
+
+Bogus Assoc specified: 1491
+
+Bogus Assoc specified: 1098
+
+Bogus Assoc specified: 1247
+
+Bogus Assoc specified: 1250
+
+Bogus Assoc specified: 1251
+
+Bogus Assoc specified: 1438
+
+Bogus Assoc specified: 1440
+
+Bogus Assoc specified: 1444
+
+Bogus Assoc specified: 1447
+
+Bogus Assoc specified: 1452
+
+Bogus Assoc specified: 1454
+
+Bogus Assoc specified: 1457
+
+Bogus Assoc specified: 1462
+
+Bogus Assoc specified: 1467
+
+Bogus Assoc specified: 1472
+
+Bogus Assoc specified: 1479
+
+Bogus Assoc specified: 1482
+
+Bogus Assoc specified: 1488
+
+Bogus Assoc specified: 1491
+
+Bogus Assoc specified: 1526
+
+Bogus Assoc specified: 1527
+
+Bogus Assoc specified: 1528
+
+Bogus Assoc specified: 1533
+
+Bogus Assoc specified: 1534
+
+Bogus Assoc specified: 1544
+
+Bogus Assoc specified: 1546
+
+Bogus Assoc specified: 1547
+
+Bogus Assoc specified: 1551
+
+Bogus Assoc specified: 1552
+
+Bogus Assoc specified: 1251
+
+Bogus Assoc specified: 1559
+
+Bogus Assoc specified: 1560
+
+Bogus Assoc specified: 1561
+
+Bogus syn specified: 111
+
+Bogus syn specified: 224
+
+Bogus Assoc specified: 1565
+
+Bogus Assoc specified: 1569
+
+Bogus Assoc specified: 1612
+
+Bogus Assoc specified: 1613
+
+Bogus Member specified: 4840
+
+Bogus Member specified: 4324
+
+Bogus Member specified: 4329
+
+Bogus Member specified: 4330
+
+Bogus Member specified: 4333
+
+Bogus Member specified: 4630
+
+Bogus Member specified: 4888
+
+Bogus Member specified: 5108
+
+Bogus Member specified: 5234
+
+Bogus syn specified: 743
+
+Bogus syn specified: 744
+
+Bogus syn specified: 845
+
+Bogus Assoc specified: 1526
+
+Bogus Assoc specified: 1527
+
+Bogus Assoc specified: 1528
+
+Bogus Assoc specified: 1533
+
+Bogus Assoc specified: 1534
+
+bogus term id in row 1518
+
+Bogus syn specified: 812
+
+Bogus Member specified: 2555
+
+Bogus syn specified: 794
+
+Bogus syn specified: 2635
+
+Bogus syn specified: 2636
+
+Bogus syn specified: 2669
+
+Bogus syn specified: 2729
+
+bogus term id in row 2989
+
+bogus term id in row 2992
+
+Bogus syn specified: 2635
+
+bogus term id in row 3074
+
+Bogus Assoc specified: 1250
+
+Bogus Assoc specified: 1251
+
+Bogus Assoc specified: 1444
+
+Bogus Assoc specified: 1447
+
+Bogus Assoc specified: 1251
+
+Bogus Assoc specified: 1559
+
+Bogus Assoc specified: 1560
+
+Bogus Assoc specified: 1561
+
+Bogus Member specified: 1843
+
+cyclical parent-child relationship on 1456
+
+Bogus syn specified: 1091
+
+bogus term id in row 2537
+
+bogus term id in row 2538
+
+bogus term id in row 2539
+
+bogus term id in row 2540
+
+bogus term id in row 2541
+
+bogus term id in row 2542
+
+bogus term id in row 2543
+
+bogus term id in row 2544
+
+bogus term id in row 2545
+
+bogus term id in row 2546
+
+bogus term id in row 2547
+
+bogus term id in row 2548
+
+bogus term id in row 2093
+
+bogus term id in row 2094
+
+bogus term id in row 2095
+
+bogus term id in row 2096
+
+bogus term id in row 2097
+
+bogus term id in row 2098
+
+bogus term id in row 2099
+
+bogus term id in row 2100
+
+bogus term id in row 2101
+
+bogus term id in row 2102
+
+bogus term id in row 2103
+
+bogus term id in row 2104
+
+bogus term id in row 2105
+
+bogus term id in row 2106
+
+bogus term id in row 2107
+
+bogus term id in row 2108
+
+bogus term id in row 2109
+
+bogus term id in row 2110
+
+bogus term id in row 2111
+
+bogus term id in row 2112
+
+bogus term id in row 2113
+
+bogus term id in row 2114
+
+bogus term id in row 2115
+
+bogus term id in row 2116
+
+bogus term id in row 2118
+
+bogus term id in row 2119
+
+bogus term id in row 2120
+
+bogus term id in row 2121
+
+bogus term id in row 2122
+
+bogus term id in row 2123
+
+bogus term id in row 2124
+
+bogus term id in row 2125
+
+bogus term id in row 2126
+
+bogus term id in row 2127
+
+bogus term id in row 2128
+
+bogus term id in row 2129
+
+bogus term id in row 2130
+
+bogus term id in row 2131
+
+bogus term id in row 2132
+
+bogus term id in row 2133
+
+bogus term id in row 2134
+
+bogus term id in row 2135
+
+bogus term id in row 2136
+
+bogus term id in row 2137
+
+bogus term id in row 2138
+
+bogus term id in row 2139
+
+bogus term id in row 2140
+
+bogus term id in row 2141
+
+bogus term id in row 2142
+
+bogus term id in row 2143
+
+bogus term id in row 2144
+
+bogus term id in row 2145
+
+bogus term id in row 2146
+
+bogus term id in row 2147
+
+bogus term id in row 2148
+
+bogus term id in row 2149
+
+bogus term id in row 2150
+
+bogus term id in row 2151
+
+bogus term id in row 2152
+
+bogus term id in row 2153
+
+bogus term id in row 2154
+
+bogus term id in row 2155
+
+bogus term id in row 2156
+
+bogus term id in row 2157
+
+bogus term id in row 2158
+
+bogus term id in row 2159
+
+bogus term id in row 2160
+
+bogus term id in row 2161
+
+bogus term id in row 2162
+
+bogus term id in row 2163
+
+bogus term id in row 2164
+
+bogus term id in row 2165
+
+bogus term id in row 2166
+
+bogus term id in row 2167
+
+bogus term id in row 2168
+
+bogus term id in row 2169
+
+bogus term id in row 2170
+
+bogus term id in row 2171
+
+bogus term id in row 2172
+
+bogus term id in row 2173
+
+bogus term id in row 2174
+
+bogus term id in row 2175
+
+bogus term id in row 2176
+
+bogus term id in row 2178
+
+bogus term id in row 2179
+
+bogus term id in row 2180
+
+bogus term id in row 2181
+
+bogus term id in row 2182
+
+bogus term id in row 2183
+
+bogus term id in row 2184
+
+bogus term id in row 2185
+
+bogus term id in row 2186
+
+bogus term id in row 2187
+
+bogus term id in row 2188
+
+bogus term id in row 2189
+
+bogus term id in row 2190
+
+bogus term id in row 2191
+
+bogus term id in row 2192
+
+bogus term id in row 2193
+
+bogus term id in row 2194
+
+bogus term id in row 2195
+
+bogus term id in row 2196
+
+bogus term id in row 2197
+
+bogus term id in row 2199
+
+bogus term id in row 2200
+
+bogus term id in row 2201
+
+bogus term id in row 2202
+
+bogus term id in row 2203
+
+bogus term id in row 2204
+
+bogus term id in row 2205
+
+bogus term id in row 2206
+
+bogus term id in row 2207
+
+bogus term id in row 2208
+
+bogus term id in row 2209
+
+bogus term id in row 2210
+
+bogus term id in row 2211
+
+bogus term id in row 2212
+
+bogus term id in row 2213
+
+bogus term id in row 2214
+
+bogus term id in row 2215
+
+bogus term id in row 2216
+
+bogus term id in row 2217
+
+bogus term id in row 2218
+
+bogus term id in row 2219
+
+bogus term id in row 2221
+
+bogus term id in row 2222
+
+bogus term id in row 2223
+
+bogus term id in row 2224
+
+bogus term id in row 2225
+
+bogus term id in row 2226
+
+bogus term id in row 2227
+
+bogus term id in row 2229
+
+bogus term id in row 2230
+
+bogus term id in row 2231
+
+bogus term id in row 2232
+
+bogus term id in row 2233
+
+bogus term id in row 2234
+
+bogus term id in row 2235
+
+bogus term id in row 2236
+
+bogus term id in row 2238
+
+bogus term id in row 2239
+
+bogus term id in row 2241
+
+bogus term id in row 2242
+
+bogus term id in row 2243
+
+bogus term id in row 2244
+
+bogus term id in row 2245
+
+bogus term id in row 2246
+
+bogus term id in row 2247
+
+bogus term id in row 2248
+
+bogus term id in row 2249
+
+bogus term id in row 2251
+
+bogus term id in row 2252
+
+bogus term id in row 2253
+
+bogus term id in row 2254
+
+bogus term id in row 2255
+
+bogus term id in row 2257
+
+bogus term id in row 2258
+
+bogus term id in row 2259
+
+bogus term id in row 2260
+
+bogus term id in row 2261
+
+bogus term id in row 2262
+
+bogus term id in row 2263
+
+bogus term id in row 2264
+
+bogus term id in row 2265
+
+bogus term id in row 2266
+
+bogus term id in row 2267
+
+bogus term id in row 2268
+
+bogus term id in row 2269
+
+bogus term id in row 2270
+
+bogus term id in row 2271
+
+bogus term id in row 2272
+
+bogus term id in row 2273
+
+bogus term id in row 2274
+
+bogus term id in row 2275
+
+bogus term id in row 2276
+
+bogus term id in row 2277
+
+bogus term id in row 2278
+
+bogus term id in row 2279
+
+bogus term id in row 2280
+
+bogus term id in row 2281
+
+bogus term id in row 2282
+
+bogus term id in row 2283
+
+bogus term id in row 2284
+
+bogus term id in row 2285
+
+bogus term id in row 2286
+
+bogus term id in row 2287
+
+bogus term id in row 2288
+
+bogus term id in row 2289
+
+bogus term id in row 2290
+
+bogus term id in row 2291
+
+bogus term id in row 2292
+
+bogus term id in row 2293
+
+bogus term id in row 2294
+
+bogus term id in row 2295
+
+bogus term id in row 2296
+
+bogus term id in row 2297
+
+bogus term id in row 2298
+
+bogus term id in row 2299
+
+bogus term id in row 2300
+
+bogus term id in row 2301
+
+bogus term id in row 2303
+
+bogus term id in row 2304
+
+bogus term id in row 2305
+
+bogus term id in row 2306
+
+bogus term id in row 2307
+
+bogus term id in row 2308
+
+bogus term id in row 2309
+
+bogus term id in row 2310
+
+bogus term id in row 2311
+
+bogus term id in row 2312
+
+bogus term id in row 2313
+
+bogus term id in row 2314
+
+bogus term id in row 2315
+
+bogus term id in row 2316
+
+bogus term id in row 2317
+
+bogus term id in row 2318
+
+bogus term id in row 2319
+
+bogus term id in row 2321
+
+bogus term id in row 2322
+
+bogus term id in row 2323
+
+bogus term id in row 2324
+
+bogus term id in row 2325
+
+bogus term id in row 2326
+
+bogus term id in row 2327
+
+bogus term id in row 2328
+
+bogus term id in row 2329
+
+bogus term id in row 2330
+
+bogus term id in row 2331
+
+bogus term id in row 2332
+
+bogus term id in row 2333
+
+bogus term id in row 2334
+
+bogus term id in row 2335
+
+bogus term id in row 2336
+
+bogus term id in row 2337
+
+bogus term id in row 2338
+
+bogus term id in row 2339
+
+bogus term id in row 2340
+
+bogus term id in row 2341
+
+bogus term id in row 2342
+
+bogus term id in row 2343
+
+bogus term id in row 2344
+
+bogus term id in row 2345
+
+bogus term id in row 2346
+
+bogus term id in row 2347
+
+bogus term id in row 2348
+
+bogus term id in row 2349
+
+bogus term id in row 2350
+
+bogus term id in row 2351
+
+bogus term id in row 2352
+
+bogus term id in row 2353
+
+bogus term id in row 2354
+
+bogus term id in row 2355
+
+bogus term id in row 2356
+
+bogus term id in row 2357
+
+bogus term id in row 2358
+
+bogus term id in row 2359
+
+bogus term id in row 2360
+
+bogus term id in row 2361
+
+bogus term id in row 2362
+
+bogus term id in row 2363
+
+bogus term id in row 2364
+
+bogus term id in row 2365
+
+bogus term id in row 2366
+
+bogus term id in row 2368
+
+bogus term id in row 2369
+
+bogus term id in row 2370
+
+bogus term id in row 2371
+
+bogus term id in row 2372
+
+bogus term id in row 2373
+
+bogus term id in row 2374
+
+bogus term id in row 2375
+
+bogus term id in row 2376
+
+bogus term id in row 2377
+
+bogus term id in row 2378
+
+bogus term id in row 2379
+
+bogus term id in row 2380
+
+bogus term id in row 2381
+
+bogus term id in row 2382
+
+bogus term id in row 2383
+
+bogus term id in row 2384
+
+bogus term id in row 2385
+
+bogus term id in row 2386
+
+bogus term id in row 2387
+
+bogus term id in row 2388
+
+bogus term id in row 2389
+
+bogus term id in row 2390
+
+bogus term id in row 2391
+
+bogus term id in row 2392
+
+bogus term id in row 2393
+
+bogus term id in row 2394
+
+bogus term id in row 2395
+
+bogus term id in row 2396
+
+bogus term id in row 2397
+
+bogus term id in row 2398
+
+bogus term id in row 2399
+
+bogus term id in row 2400
+
+bogus term id in row 2401
+
+bogus term id in row 2402
+
+bogus term id in row 2403
+
+bogus term id in row 2405
+
+bogus term id in row 2406
+
+bogus term id in row 2407
+
+bogus term id in row 2408
+
+bogus term id in row 2409
+
+bogus term id in row 2410
+
+bogus term id in row 2411
+
+bogus term id in row 2412
+
+bogus term id in row 2413
+
+bogus term id in row 2414
+
+bogus term id in row 2415
+
+bogus term id in row 2416
+
+bogus term id in row 2417
+
+bogus term id in row 2418
+
+bogus term id in row 2419
+
+bogus term id in row 2420
+
+bogus term id in row 2421
+
+bogus term id in row 2422
+
+bogus term id in row 2423
+
+bogus term id in row 2425
+
+bogus term id in row 2426
+
+bogus term id in row 2427
+
+bogus term id in row 2428
+
+bogus term id in row 2429
+
+bogus term id in row 2430
+
+bogus term id in row 2431
+
+bogus term id in row 2432
+
+bogus term id in row 2433
+
+bogus term id in row 2434
+
+bogus term id in row 2435
+
+bogus term id in row 2436
+
+bogus term id in row 2437
+
+bogus term id in row 2438
+
+bogus term id in row 2439
+
+bogus term id in row 2440
+
+bogus term id in row 2441
+
+bogus term id in row 2442
+
+bogus term id in row 2443
+
+bogus term id in row 2444
+
+bogus term id in row 2445
+
+bogus term id in row 2446
+
+bogus term id in row 2447
+
+bogus term id in row 2448
+
+bogus term id in row 2449
+
+bogus term id in row 2450
+
+bogus term id in row 2451
+
+bogus term id in row 2452
+
+bogus term id in row 2453
+
+bogus term id in row 2454
+
+bogus term id in row 2455
+
+bogus term id in row 2456
+
+bogus term id in row 2458
+
+bogus term id in row 2459
+
+bogus term id in row 2460
+
+bogus term id in row 2461
+
+bogus term id in row 2462
+
+bogus term id in row 2463
+
+bogus term id in row 2464
+
+bogus term id in row 2465
+
+bogus term id in row 2466
+
+bogus term id in row 2467
+
+bogus term id in row 2468
+
+bogus term id in row 2469
+
+bogus term id in row 2470
+
+bogus term id in row 2472
+
+bogus term id in row 2473
+
+bogus term id in row 2474
+
+bogus term id in row 2475
+
+bogus term id in row 2476
+
+bogus term id in row 2477
+
+bogus term id in row 2478
+
+bogus term id in row 2479
+
+bogus term id in row 2480
+
+bogus term id in row 2481
+
+bogus term id in row 2482
+
+bogus term id in row 2483
+
+bogus term id in row 2484
+
+bogus term id in row 2485
+
+bogus term id in row 2486
+
+bogus term id in row 2487
+
+bogus term id in row 2488
+
+bogus term id in row 2489
+
+bogus term id in row 2490
+
+bogus term id in row 2491
+
+bogus term id in row 2492
+
+bogus term id in row 2493
+
+bogus term id in row 2494
+
+bogus term id in row 2495
+
+bogus term id in row 2496
+
+bogus term id in row 2497
+
+bogus term id in row 2498
+
+bogus term id in row 2499
+
+bogus term id in row 2500
+
+bogus term id in row 2501
+
+bogus term id in row 2502
+
+bogus term id in row 2503
+
+bogus term id in row 2504
+
+bogus term id in row 2505
+
+bogus term id in row 2506
+
+bogus term id in row 2507
+
+bogus term id in row 2508
+
+bogus term id in row 2509
+
+bogus term id in row 2510
+
+bogus term id in row 2511
+
+bogus term id in row 2512
+
+bogus term id in row 2513
+
+bogus term id in row 2514
+
+bogus term id in row 2515
+
+bogus term id in row 2516
+
+bogus term id in row 2517
+
+bogus term id in row 2518
+
+bogus term id in row 2519
+
+bogus term id in row 2520
+
+bogus term id in row 2521
+
+bogus term id in row 2522
+
+bogus term id in row 2523
+
+bogus term id in row 2524
+
+bogus term id in row 2525
+
+bogus term id in row 2526
+
+bogus term id in row 2527
+
+bogus term id in row 2528
+
+bogus term id in row 2529
+
+bogus term id in row 2530
+
+bogus term id in row 2531
+
+bogus term id in row 2532
+
+bogus term id in row 2533
+
+bogus term id in row 2534
+
+bogus term id in row 2536
+
+Bogus syn specified: 2032
+
+bogus term id in row 1020
+
+Bogus syn specified: 2636
+
+bogus term id in row 2987
+
+bogus term id in row 2988
+
+Bogus syn specified: 812
+
+Bogus syn specified: 2729
+
+Bogus syn specified: 1091
+
+Bogus syn specified: 2669
+
+Bogus Member specified: 2555
+
+Bogus syn specified: 794
+
+Bogus syn specified: 2635
+
+Bogus syn specified: 2636
+
+Bogus syn specified: 2669
+
+Bogus syn specified: 2729
+
+Bogus syn specified: 2729
+
+bogus term id in row 2990
+
+bogus term id in row 2991
+
+Bogus syn specified: 2635
+
+bogus term id in row 3073
+
+Bogus Member specified: 2555
+
+Bogus syn specified: 2635
+
+bogus member id in row 3227
+
+bogus member id in row 3236
+
+bogus term id in row 4459
+
+Bogus Member specified: 832
+
+bogus term id in row 3653
+
+bogus term id in row 3654
+
+Bogus Member specified: 3605
+
+Bogus Member specified: 3626
+
+Bogus Member specified: 3612
+
+bogus term id in row 3657
+
+bogus term id in row 3648
+
+bogus term id in row 3649
+
+Bogus Member specified: 3605
+
+Bogus Member specified: 3606
+
+Bogus Member specified: 3607
+
+Bogus Member specified: 3612
+
+Bogus Member specified: 3613
+
+bogus term id in row 3638
+
+Bogus Member specified: 3594
+
+Bogus Member specified: 3595
+
+Bogus Member specified: 3596
+
+Bogus Member specified: 3598
+
+Bogus Member specified: 3602
+
+Bogus Member specified: 3603
+
+Bogus Member specified: 3608
+
+Bogus Member specified: 3609
+
+Bogus Member specified: 3624
+
+Bogus Member specified: 3595
+
+Bogus Member specified: 3614
+
+Bogus Member specified: 3603
+
+Bogus Member specified: 3604
+
+bogus term id in row 3812
+
+bogus term id in row 3815
+
+bogus term id in row 3816
+
+Bogus syn specified: 2729
+
+bogus term id in row 3822
+
+bogus term id in row 3823
+
+Bogus syn specified: 2635
+
+bogus term id in row 3874
+
+bogus term id in row 4006
+
+Bogus syn specified: 5899
+
+Bogus syn specified: 5921
+
+Bogus syn specified: 5928
+
+Bogus syn specified: 5725
+
+cyclical parent-child relationship on 2188
+
+cyclical parent-child relationship on 2198
+
+cyclical parent-child relationship on 4696
+
+cyclical parent-child relationship on 4698
+
+cyclical parent-child relationship on 4695
+
+cyclical parent-child relationship on 4697
+
+cyclical parent-child relationship on 2238
+
+cyclical parent-child relationship on 2241
+
+cyclical parent-child relationship on 4710
+
+cyclical parent-child relationship on 2261
+
+Bogus syn specified: 5972
+
+bogus term id in row 5973
+
+cyclical parent-child relationship on 2791
+
+cyclical parent-child relationship on 2828
+
+cyclical parent-child relationship on 2831
+
+cyclical parent-child relationship on 2832
+
+cyclical parent-child relationship on 2853
+
+cyclical parent-child relationship on 2859
+
+cyclical parent-child relationship on 2875
+
+cyclical parent-child relationship on 2878
+
+cyclical parent-child relationship on 2886
+
+cyclical parent-child relationship on 4850
+
+cyclical parent-child relationship on 2892
+
+cyclical parent-child relationship on 2745
+
+cyclical parent-child relationship on 2905
+
+cyclical parent-child relationship on 2917
+
+cyclical parent-child relationship on 767
+
+cyclical parent-child relationship on 2920
+
+cyclical parent-child relationship on 2927
+
+cyclical parent-child relationship on 2932
+
+cyclical parent-child relationship on 1403
+
+cyclical parent-child relationship on 2938
+
+bogus term id in row 5986
+
+bogus term id in row 6235
+
+bogus term id in row 6236
+
+bogus term id in row 6237
+
+bogus term id in row 6238
+
+bogus term id in row 6239
+
+bogus term id in row 6240
+
+bogus term id in row 6241
+
+bogus term id in row 6242
+
+bogus term id in row 6243
+
+bogus term id in row 6244
+
+bogus term id in row 6245
+
+bogus term id in row 6246
+
+Bogus syn specified: 6202
+
+Bogus syn specified: 6202
+
+Bogus Member specified: 3635
+
+Bogus syn specified: 5972
+
+cyclical parent-child relationship on 2293
+
+cyclical parent-child relationship on 2438
+
+cyclical parent-child relationship on 2660
+
+cyclical parent-child relationship on 706
+
+bogus term id in row 2898
+
+Bogus Assoc specified: 6215
+
+Bogus Member specified: 6216
+
+bogus member id in row 6216
+
+bogus member id in row 6222
+
+bogus member id in row 6226
+
+bogus member id in row 4448
+
+bogus member id in row 4449
+
+bogus member id in row 4452
+
+bogus member id in row 4453
+
+bogus member id in row 4454
+
+bogus member id in row 4455
+
+bogus member id in row 4456
+
+bogus member id in row 4554
+
+bogus member id in row 4555
+
+bogus member id in row 4556
+
+bogus member id in row 4557
+
+bogus member id in row 4753
+
+bogus member id in row 4558
+
+bogus member id in row 4559
+
+bogus member id in row 4560
+
+bogus member id in row 4754
+
+bogus member id in row 4755
+
+bogus term id in row 4457
+
+bogus term id in row 4458
+
+bogus term id in row 4461
+
+bogus term id in row 4462
+
+bogus term id in row 4463
+
+bogus term id in row 4464
+
+bogus term id in row 4465
+
+bogus term id in row 4468
+
+Bogus syn specified: 4774
+
+bogus member id in row 4466
+
+bogus member id in row 4748
+
+bogus member id in row 4781
+
+bogus member id in row 4782
+
+bogus member id in row 4785
+
+bogus member id in row 4786
+
+bogus member id in row 4787
+
+bogus member id in row 4851
+
+bogus member id in row 4852
+
+bogus member id in row 4862
+
+bogus member id in row 4907
+
+bogus member id in row 4908
+
+bogus member id in row 4909
+
+bogus member id in row 4853
+
+bogus member id in row 4854
+
+bogus member id in row 4855
+
+bogus member id in row 4858
+
+Bogus syn specified: 5085
+
+bogus term id in row 4985
+
+bogus term id in row 5167
+
+bogus term id in row 5182
+
+Done: 1941 correct and 559 errors
+
+
+SELECT * FROM `behave_data_term_term_drug_relation` WHERE `Term`=5713 OR `Assoc`=5713 OR `Member`=5713 OR `List`=5713 OR `Syn`=5713
