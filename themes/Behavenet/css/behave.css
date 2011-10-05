@@ -21,3 +21,7 @@ dd {
   padding: 15px;
   border: 1px solid #666;
 }
+
+.dsm-title {
+  display: inline;
+}
