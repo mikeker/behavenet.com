@@ -29,6 +29,17 @@ function terms_display_node_info() {
       'min_word_count' => '0',
       'help' => '',
     ),
+    'dsm_caution' => array(
+      'name' => t('Cautionary statement'),
+      'module' => 'features',
+      'description' => t('The Cautionary statement that appears with many DSM diagnosis'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'has_body' => '0',
+      'body_label' => '',
+      'min_word_count' => '0',
+      'help' => '',
+    ),
   );
   return $items;
 }

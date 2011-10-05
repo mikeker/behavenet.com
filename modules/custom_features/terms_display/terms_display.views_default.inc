@@ -18,11 +18,49 @@ function terms_display_views_default_views() {
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
+    'field_dsm_version_value' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'none',
+      'format' => 'link',
+      'multiple' => array(
+        'group' => 1,
+        'multiple_number' => '1',
+        'multiple_from' => '0',
+        'multiple_reversed' => 0,
+      ),
+      'exclude' => 1,
+      'id' => 'field_dsm_version_value',
+      'table' => 'node_data_field_dsm_version',
+      'field' => 'field_dsm_version_value',
+      'relationship' => 'none',
+    ),
     'title' => array(
       'label' => '',
       'alter' => array(
         'alter_text' => 1,
-        'text' => '<h3>[title]</h3>',
+        'text' => '<h3 class="dsm-title">[title]</h3> <span class="dsm-version">([field_dsm_version_value])</span>',
         'make_link' => 0,
         'path' => '',
         'link_class' => '',
@@ -119,6 +157,42 @@ if ($user->uid) {
       'id' => 'field_dsm_body_value',
       'table' => 'node_data_field_dsm_body',
       'field' => 'field_dsm_body_value',
+      'relationship' => 'none',
+    ),
+    'phpcode_1' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'value' => '<?php
+if (count($data->node_data_field_dsm_version_field_dsm_version_value) > 1) {
+  print \'<p class="dsm-older-criteria">\';
+  print l(\'Older criteria for this diagnosis\', "node/$data->nid");
+  print \'</p>\';
+}
+?>',
+      'exclude' => 0,
+      'id' => 'phpcode_1',
+      'table' => 'customfield',
+      'field' => 'phpcode',
       'relationship' => 'none',
     ),
   ));

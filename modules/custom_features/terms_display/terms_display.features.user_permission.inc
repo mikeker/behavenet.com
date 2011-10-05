@@ -14,6 +14,12 @@ function terms_display_user_default_permissions() {
     ),
   );
 
+  // Exported permission: create dsm_caution content
+  $permissions['create dsm_caution content'] = array(
+    'name' => 'create dsm_caution content',
+    'roles' => array(),
+  );
+
   // Exported permission: delete any dsm content
   $permissions['delete any dsm content'] = array(
     'name' => 'delete any dsm content',
@@ -22,9 +28,21 @@ function terms_display_user_default_permissions() {
     ),
   );
 
+  // Exported permission: delete any dsm_caution content
+  $permissions['delete any dsm_caution content'] = array(
+    'name' => 'delete any dsm_caution content',
+    'roles' => array(),
+  );
+
   // Exported permission: delete own dsm content
   $permissions['delete own dsm content'] = array(
     'name' => 'delete own dsm content',
+    'roles' => array(),
+  );
+
+  // Exported permission: delete own dsm_caution content
+  $permissions['delete own dsm_caution content'] = array(
+    'name' => 'delete own dsm_caution content',
     'roles' => array(),
   );
 
@@ -36,9 +54,21 @@ function terms_display_user_default_permissions() {
     ),
   );
 
+  // Exported permission: edit any dsm_caution content
+  $permissions['edit any dsm_caution content'] = array(
+    'name' => 'edit any dsm_caution content',
+    'roles' => array(),
+  );
+
   // Exported permission: edit own dsm content
   $permissions['edit own dsm content'] = array(
     'name' => 'edit own dsm content',
+    'roles' => array(),
+  );
+
+  // Exported permission: edit own dsm_caution content
+  $permissions['edit own dsm_caution content'] = array(
+    'name' => 'edit own dsm_caution content',
     'roles' => array(),
   );
 
