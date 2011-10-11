@@ -14,6 +14,30 @@ function generic_drugs_ctools_plugin_api() {
 }
 
 /**
+ * Implementation of hook_imagecache_default_presets().
+ */
+function generic_drugs_imagecache_default_presets() {
+  $items = array(
+    'Image-Standard' => array(
+      'presetname' => 'Image-Standard',
+      'actions' => array(
+        '0' => array(
+          'weight' => '0',
+          'module' => 'imagecache',
+          'action' => 'imagecache_scale',
+          'data' => array(
+            'width' => '425',
+            'height' => '350',
+            'upscale' => 0,
+          ),
+        ),
+      ),
+    ),
+  );
+  return $items;
+}
+
+/**
  * Implementation of hook_node_info().
  */
 function generic_drugs_node_info() {

@@ -181,7 +181,7 @@ if (empty($data->amazon_item_node_data_field_general_asin__amazon_item_image_url
 }
 else {
   // Show Amazon item image and link to Amazon\'s site
-  $img = \'<img src="\'
+  $img = \'<img class="amazon-item-image" src="\'
     . $data->amazon_item_node_data_field_general_asin__amazon_item_image_url
     . \'" alt="\'
     . $data->amazon_item_node_data_field_general_asin_title

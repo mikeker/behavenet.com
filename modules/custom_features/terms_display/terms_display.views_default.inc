@@ -121,6 +121,51 @@ if ($user->uid) {
       'field' => 'phpcode',
       'relationship' => 'none',
     ),
+    'phpcode_2' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'value' => '<?php
+$nid = db_result(db_query("
+  SELECT n.nid
+  FROM {node} AS n
+  INNER JOIN {term_node} AS tn
+    ON n.vid = tn.vid
+  WHERE n.type = \'dsm_caution\'
+    AND tn.tid = %d
+", $data->node_data_field_dsm_version_field_dsm_version_value[0][\'value\']));
+if (!empty($nid)) {
+  print \'(\' . l(\'cautionary statement\', "node/$nid") . \')\';
+}
+?>',
+      'exclude' => 0,
+      'id' => 'phpcode_2',
+      'table' => 'customfield',
+      'field' => 'phpcode',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
     'field_dsm_body_value' => array(
       'label' => '',
       'alter' => array(

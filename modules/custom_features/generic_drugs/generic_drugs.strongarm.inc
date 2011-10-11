@@ -33,12 +33,12 @@ function generic_drugs_strongarm() {
   $strongarm->name = 'content_extra_weights_generic';
   $strongarm->value = array(
     'title' => '-5',
-    'revision_information' => '13',
-    'author' => '17',
-    'options' => '18',
-    'comment_settings' => '16',
-    'menu' => '14',
-    'path' => '15',
+    'revision_information' => '14',
+    'author' => '18',
+    'options' => '19',
+    'comment_settings' => '17',
+    'menu' => '15',
+    'path' => '16',
   );
   $export['content_extra_weights_generic'] = $strongarm;
 

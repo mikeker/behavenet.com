@@ -200,7 +200,7 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_compound',
     'type_name' => 'generic',
     'display_settings' => array(
-      'weight' => '9',
+      'weight' => '11',
       'parent' => '',
       'label' => array(
         'format' => 'above',
@@ -263,7 +263,7 @@ function generic_drugs_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Compound',
-      'weight' => '10',
+      'weight' => '11',
       'description' => '',
       'type' => 'nodereference_autocomplete',
       'module' => 'nodereference',
@@ -275,7 +275,7 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_drug_combo',
     'type_name' => 'generic',
     'display_settings' => array(
-      'weight' => '10',
+      'weight' => '12',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -339,7 +339,7 @@ function generic_drugs_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Combination',
-      'weight' => '11',
+      'weight' => '12',
       'description' => '',
       'type' => 'nodereference_select',
       'module' => 'nodereference',
@@ -414,7 +414,7 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_general_terms',
     'type_name' => 'generic',
     'display_settings' => array(
-      'weight' => '11',
+      'weight' => '13',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -463,7 +463,7 @@ function generic_drugs_content_default_fields() {
       'default_value' => NULL,
       'default_value_php' => NULL,
       'label' => 'Terms',
-      'weight' => '12',
+      'weight' => '13',
       'description' => '',
       'type' => 'content_taxonomy_tree',
       'module' => 'content_taxonomy_tree',
@@ -538,9 +538,10 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_generic_active_metabolite',
     'type_name' => 'generic',
     'display_settings' => array(
+      'weight' => '5',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -678,7 +679,7 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_generic_dea',
     'type_name' => 'generic',
     'display_settings' => array(
-      'weight' => '7',
+      'weight' => '9',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -729,7 +730,7 @@ function generic_drugs_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'DEA Number',
-      'weight' => '8',
+      'weight' => '9',
       'description' => '',
       'type' => 'text_textfield',
       'module' => 'text',
@@ -741,17 +742,17 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_generic_graphic',
     'type_name' => 'generic',
     'display_settings' => array(
-      'weight' => '5',
-      'parent' => '',
+      'weight' => '7',
+      'parent' => 'group_media',
       'label' => array(
         'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'hidden',
+        'format' => 'Image-Standard_default',
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'hidden',
+        'format' => 'Image-Standard_default',
         'exclude' => 0,
       ),
       '4' => array(
@@ -796,7 +797,7 @@ function generic_drugs_content_default_fields() {
       'default_image' => NULL,
       'use_default_image' => 0,
       'label' => 'Graphic',
-      'weight' => '6',
+      'weight' => '7',
       'description' => '',
       'type' => 'imagefield_widget',
       'module' => 'imagefield',
@@ -808,7 +809,7 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_generic_medline_url',
     'type_name' => 'generic',
     'display_settings' => array(
-      'weight' => '6',
+      'weight' => '8',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -859,7 +860,7 @@ function generic_drugs_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Medline Plus Web site',
-      'weight' => '7',
+      'weight' => '8',
       'description' => '',
       'type' => 'text_textfield',
       'module' => 'text',
@@ -1006,7 +1007,7 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_generic_sources',
     'type_name' => 'generic',
     'display_settings' => array(
-      'weight' => '8',
+      'weight' => '10',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -1069,7 +1070,7 @@ function generic_drugs_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Sources',
-      'weight' => '9',
+      'weight' => '10',
       'description' => '',
       'type' => 'nodereference_buttons',
       'module' => 'nodereference',
@@ -1139,6 +1140,113 @@ function generic_drugs_content_default_fields() {
     ),
   );
 
+  // Exported field: field_outside_video
+  $fields['generic-field_outside_video'] = array(
+    'field_name' => 'field_outside_video',
+    'type_name' => 'generic',
+    'display_settings' => array(
+      'weight' => '8',
+      'parent' => 'group_media',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'video_video',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'video_video',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'emvideo',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'emvideo',
+    'active' => '1',
+    'widget' => array(
+      'video_width' => '425',
+      'video_height' => '350',
+      'video_autoplay' => 0,
+      'preview_width' => '425',
+      'preview_height' => '350',
+      'preview_autoplay' => 0,
+      'thumbnail_width' => '120',
+      'thumbnail_height' => '90',
+      'thumbnail_default_path' => '',
+      'thumbnail_link_title' => 'See video',
+      'meta_fields' => array(
+        'title' => 0,
+        'description' => 0,
+      ),
+      'providers' => array(
+        'youtube' => 'youtube',
+        'flickr_sets' => 0,
+      ),
+      'default_value' => array(
+        '0' => array(
+          'embed' => '',
+          'value' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'media_flickr_ir_repeat_video' => 'list',
+      'media_flickr_ir_rotatetime_video' => '5',
+      'media_flickr_ir_shownavigation_video' => 1,
+      'media_flickr_ir_showicons_video' => 1,
+      'media_flickr_ir_shuffle_video' => 0,
+      'media_flickr_ir_allowfullscreen_video' => 1,
+      'media_flickr_ir_logo_video' => '',
+      'media_flickr_ir_transition_video' => 'random',
+      'media_flickr_player_video' => 'flash',
+      'media_flickr_playlist_video' => 'right',
+      'media_flickr_playlistsize_video' => '86',
+      'media_flickr_repeat_video' => 'list',
+      'media_flickr_delay_video' => '10',
+      'media_flickr_controlbar_video' => 'none',
+      'media_flickr_allowfullscreen_video' => 1,
+      'media_flickr_logo_video' => '',
+      'media_flickr_ir_repeat_preview' => 'list',
+      'media_flickr_ir_rotatetime_preview' => '5',
+      'media_flickr_ir_shownavigation_preview' => 1,
+      'media_flickr_ir_showicons_preview' => 1,
+      'media_flickr_ir_shuffle_preview' => 0,
+      'media_flickr_ir_allowfullscreen_preview' => 1,
+      'media_flickr_ir_logo_preview' => '',
+      'media_flickr_ir_transition_preview' => 'random',
+      'media_flickr_player_preview' => 'flash',
+      'media_flickr_playlist_preview' => 'right',
+      'media_flickr_playlistsize_preview' => '86',
+      'media_flickr_repeat_preview' => 'list',
+      'media_flickr_delay_preview' => '10',
+      'media_flickr_controlbar_preview' => 'none',
+      'media_flickr_allowfullscreen_preview' => 1,
+      'media_flickr_logo_preview' => '',
+      'label' => 'Outside media',
+      'weight' => '8',
+      'description' => '',
+      'type' => 'emvideo_textfields',
+      'module' => 'emvideo',
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Acronyms');
@@ -1153,6 +1261,7 @@ function generic_drugs_content_default_fields() {
   t('Graphic');
   t('Isomer');
   t('Medline Plus Web site');
+  t('Outside media');
   t('Precursor');
   t('Schedule');
   t('Slang terms');

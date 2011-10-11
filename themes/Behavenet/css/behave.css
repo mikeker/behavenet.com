@@ -25,3 +25,26 @@ dd {
 .dsm-title {
   display: inline;
 }
+
+.float-right {
+  float: right;
+  margin: 0 0 10px 10px;
+  z-index: 10;
+}
+.float-left {
+  float: left;
+  margin: 0 10px 10px 0;
+  z-index: 10;
+}
+
+
+/*
+ * Related media display
+ */
+.view-Media .amazon-item-image {
+  float: left;
+  margin-right: 15px;
+}
+.view-Media .views-row {
+  clear: left;
+}

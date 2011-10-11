@@ -234,10 +234,10 @@ function trade_name_drugs_content_default_fields() {
     'field_name' => 'field_drug_image',
     'type_name' => 'drug',
     'display_settings' => array(
-      'weight' => '1',
-      'parent' => '',
+      'weight' => '2',
+      'parent' => 'group_drug_primary_media',
       'label' => array(
-        'format' => 'inline',
+        'format' => 'hidden',
       ),
       'teaser' => array(
         'format' => 'image_plain',
@@ -289,7 +289,7 @@ function trade_name_drugs_content_default_fields() {
       'default_image' => NULL,
       'use_default_image' => 0,
       'label' => 'Product image',
-      'weight' => '1',
+      'weight' => '2',
       'description' => '',
       'type' => 'imagefield_widget',
       'module' => 'imagefield',
@@ -497,12 +497,87 @@ function trade_name_drugs_content_default_fields() {
     ),
   );
 
+  // Exported field: field_outside_video
+  $fields['drug-field_outside_video'] = array(
+    'field_name' => 'field_outside_video',
+    'type_name' => 'drug',
+    'display_settings' => array(
+      'weight' => '3',
+      'parent' => 'group_drug_primary_media',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'video_video',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'video_video',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'emvideo',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'emvideo',
+    'active' => '1',
+    'widget' => array(
+      'video_width' => '425',
+      'video_height' => '350',
+      'video_autoplay' => 0,
+      'preview_width' => '425',
+      'preview_height' => '350',
+      'preview_autoplay' => 0,
+      'thumbnail_width' => '120',
+      'thumbnail_height' => '90',
+      'thumbnail_default_path' => '',
+      'thumbnail_link_title' => 'See video',
+      'meta_fields' => array(
+        'title' => 0,
+        'description' => 0,
+      ),
+      'providers' => array(
+        'youtube' => 'youtube',
+      ),
+      'default_value' => array(
+        '0' => array(
+          'embed' => '',
+          'value' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Outside media',
+      'weight' => '3',
+      'description' => '',
+      'type' => 'emvideo_textfields',
+      'module' => 'emvideo',
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Combination');
   t('Company');
   t('Generic');
   t('Indications');
+  t('Outside media');
   t('PI URL');
   t('Product image');
   t('URL');
