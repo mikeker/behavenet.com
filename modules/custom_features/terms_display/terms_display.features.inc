@@ -40,6 +40,17 @@ function terms_display_node_info() {
       'min_word_count' => '0',
       'help' => '',
     ),
+    'tax_tweaks_extras' => array(
+      'name' => t('Taxonomy Tweaks Extras'),
+      'module' => 'features',
+      'description' => t('DO NOT CREATE CONTENT OF THIS TYPE.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'has_body' => '0',
+      'body_label' => '',
+      'min_word_count' => '0',
+      'help' => '',
+    ),
   );
   return $items;
 }

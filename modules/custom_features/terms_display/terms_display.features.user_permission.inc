@@ -20,6 +20,12 @@ function terms_display_user_default_permissions() {
     'roles' => array(),
   );
 
+  // Exported permission: create tax_tweaks_extras content
+  $permissions['create tax_tweaks_extras content'] = array(
+    'name' => 'create tax_tweaks_extras content',
+    'roles' => array(),
+  );
+
   // Exported permission: delete any dsm content
   $permissions['delete any dsm content'] = array(
     'name' => 'delete any dsm content',
@@ -34,6 +40,12 @@ function terms_display_user_default_permissions() {
     'roles' => array(),
   );
 
+  // Exported permission: delete any tax_tweaks_extras content
+  $permissions['delete any tax_tweaks_extras content'] = array(
+    'name' => 'delete any tax_tweaks_extras content',
+    'roles' => array(),
+  );
+
   // Exported permission: delete own dsm content
   $permissions['delete own dsm content'] = array(
     'name' => 'delete own dsm content',
@@ -43,6 +55,12 @@ function terms_display_user_default_permissions() {
   // Exported permission: delete own dsm_caution content
   $permissions['delete own dsm_caution content'] = array(
     'name' => 'delete own dsm_caution content',
+    'roles' => array(),
+  );
+
+  // Exported permission: delete own tax_tweaks_extras content
+  $permissions['delete own tax_tweaks_extras content'] = array(
+    'name' => 'delete own tax_tweaks_extras content',
     'roles' => array(),
   );
 
@@ -60,6 +78,12 @@ function terms_display_user_default_permissions() {
     'roles' => array(),
   );
 
+  // Exported permission: edit any tax_tweaks_extras content
+  $permissions['edit any tax_tweaks_extras content'] = array(
+    'name' => 'edit any tax_tweaks_extras content',
+    'roles' => array(),
+  );
+
   // Exported permission: edit own dsm content
   $permissions['edit own dsm content'] = array(
     'name' => 'edit own dsm content',
@@ -69,6 +93,12 @@ function terms_display_user_default_permissions() {
   // Exported permission: edit own dsm_caution content
   $permissions['edit own dsm_caution content'] = array(
     'name' => 'edit own dsm_caution content',
+    'roles' => array(),
+  );
+
+  // Exported permission: edit own tax_tweaks_extras content
+  $permissions['edit own tax_tweaks_extras content'] = array(
+    'name' => 'edit own tax_tweaks_extras content',
     'roles' => array(),
   );
 

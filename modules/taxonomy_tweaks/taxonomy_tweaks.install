@@ -24,11 +24,11 @@ function taxonomy_tweaks_schema() {
         'description' => 'A node which holds additional content for this term',
         'type' => 'int',
         'unsigned' => TRUE,
-        'not null' => TRUE,
-        'default' => 0,
+        'not null' => FALSE,
       ),
     ),
     'primary key' => array('tid'),
+    'unique keys' => array('extras_nid' => array('extras_nid')),
   );
   return $schema;
 }
@@ -48,12 +48,16 @@ function taxonomy_tweaks_uninstall() {
  */
 function taxonomy_tweaks_update_6001() {
   $ret = array();
+
+  // Adds a unique nid field to hold extra taxonomy term info in a node.
   db_add_field($ret, 'tax_tweaks', 'extras_nid', array(
     'description' => 'A node which holds additional content for this term',
     'type' => 'int',
     'unsigned' => TRUE,
-    'not null' => TRUE,
-    'default' => 0,
-  ));
+    'not null' => FALSE,
+  ), array(
+    'unique keys' => array('extras_nid' => array('extras_nid')))
+  );
+
   return $ret;
 }

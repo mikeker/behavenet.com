@@ -30,26 +30,104 @@ function taxonomy_tweaks_taxonomy($op, $type, $data) {
   }
 }
 
-function taxonomy_tweaks_form_tax_tweaks_extras_node_form_alter(&$form, &$form_state) {
-  foreach ($form as $index => $item) {
-    unset($form[$index]);
+/**
+ * Implements hook_nodeapi
+ */
+function taxonomy_tweaks_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  if ('delete' == $op && 'tax_tweaks_extras' == $node->type) {
+    if (!empty($node->field_tt_extras_term[0]['value'])) {
+      taxonomy_tweaks_unset_extras($node->field_tt_extras_term[0]['value']);
+      // @TODO: Should we also remove the description field from the term?
+    }
   }
-  $form['warning'] = array(
-    '#value' => '<p>You should not create or edit content of this type independent of the taxonomy system.</p>',
+}
+
+
+ /**
+ * Implements hook_form_FORM_NAME_alter
+ *
+ * Alter the extras node edit form
+ */
+function taxonomy_tweaks_form_tax_tweaks_extras_node_form_alter(&$form, &$form_state) {
+  // dsm($form);
+  // dsm($form_state);
+
+  $node = $form['#node'];
+  if (empty($node->nid)) {
+    foreach ($form as $index => $item) {
+      unset($form[$index]);
+    }
+    $form['warning'] = array(
+      '#value' => '<p>You should not create or edit content of this type independent of the taxonomy system.</p>',
+    );
+    return;
+  }
+
+  $args = arg();
+  $tid = $args[3];
+  $term = taxonomy_get_term($tid);
+  if (empty($term)) {
+    foreach ($form as $index => $item) {
+      unset($form[$index]);
+    }
+    $form['warning'] = array(
+      '#value' => "<p>An invalid term ID ($tid) has been specified.</p>",
+    );
+    return;
+  }
+
+  $form['tax_tweaks_tid'] = array(
+    '#type' => 'value',
+    '#value' => $tid,
   );
+  $form['title']['#default_value'] = "Extra details for '$term->name'";
+  $form['title']['#access'] = FALSE;
+
+  // Hide term name field from view -- this is not editable -- but since it's
+  // a CCK field, we have to do it after the form is built.
+  $form['#after_build'][] = 'taxonomy_tweaks_after_build';
+
+  array_unshift($form['buttons']['submit']['#submit'], 'taxonomy_tweaks_extras_submit');
+  array_unshift($form['buttons']['delete']['#submit'], 'taxonomy_tweaks_extras_submit');
+}
+
+/**
+ * Handles submission of the altered extras node edit form
+ */
+function taxonomy_tweaks_extras_submit($form, &$form_state) {
+  $vals = &$form_state['values'];
+  $tid = $vals['tax_tweaks_tid'];
+
+  if ('Save' == $vals['op']) {
+    db_query("
+      UPDATE {term_data}
+      SET description = '%s'
+      WHERE tid = %d
+    ", $vals['field_tt_extras_description'][0]['value'], $tid);
+
+    // Duplicate the tid in the field_tt_extras_term field so we have Views support
+    $form['field_tt_extras_term'] = array(0 => array('value' => $tid));
+  }
+}
+
+function taxonomy_tweaks_after_build($form, &$form_state) {
+  $form['field_tt_extras_term']['#access'] = FALSE;
+  return $form;
 }
 
 /**
  * Implements hook_form_FORM_NAME_alter
- * @param $form - array containing the form structure
- * @param $form_state - current state of the form
- * @return none
- * @see http://api.drupal.org/api/function/hook_form_alter/6
+ *
+ * Alters Taxonomy Manager's term edit page
  */
 function taxonomy_tweaks_form_taxonomy_manager_form_alter(&$form, &$form_state) {
 
   // Hide description field in lieu of tax_tweaks extras
   $form['term_data']['description']['#type'] = 'hidden';
+
+  // Remove the TM Delete button as it just causes confusion if no terms
+  // are checked in the listing.  Replace with Delete Term, below.
+  $form['toolbar']['delete_confirm']['#access'] = FALSE;
 
   // So now the save button is just for the term name
   $form['term_data']['save']['#value'] = 'Change term name';
@@ -112,8 +190,6 @@ function taxonomy_tweaks_form_taxonomy_manager_form_alter(&$form, &$form_state) 
       '#submit' => array('taxonomy_tweaks_submit'),
     );
   }
-
-  dsm($form);
 }
 
 function taxonomy_tweaks_validate($form, &$form_state) {
@@ -121,22 +197,21 @@ function taxonomy_tweaks_validate($form, &$form_state) {
 }
 
 function taxonomy_tweaks_submit($form, &$form_state) {
-  // dpr($form_state); exit;
-  $tid = $form_state['values']['term_data']['tid'];
-  $is_acronym = $form_state['values']['term_data']['tweaks']['is_acronym'];
-  $desc = $form_state['values']['term_data']['description'];
+  $vals = $form_state['values'];
+  $tid = $vals['term_data']['tid'];
+  $is_acronym = $vals['term_data']['tweaks']['is_acronym'];
 
-  if ('Delete term and orphans' == $form_state['values']['op']
-    || 'Delete term' == $form_state['values']['op']
+  if ('Delete term and orphans' == $vals['op']
+    || 'Delete term' == $vals['op']
   ) {
-    $del_all = ('Delete term and orphans' == $form_state['values']['op']);
+    $del_all = ('Delete term and orphans' == $vals['op']);
     $term = taxonomy_get_term($tid);
     include_once (drupal_get_path('module', 'taxonomy_manager') . '/taxonomy_manager.admin.inc');
     taxonomy_manager_delete_terms(array($tid), array('delete_orphans' => $del_all));
     drupal_set_message (t('The term %term has been deleted.', array('%term' => $term->name)));
     $form_state['redirect'] = '<front>';
   }
-  else if ('Set As Acronym' == $form_state['values']['op']){
+  else if ('Set As Acronym' == $vals['op']){
     $result = db_query("
       SELECT * FROM {tax_tweaks}
       WHERE tid = %d
@@ -144,7 +219,7 @@ function taxonomy_tweaks_submit($form, &$form_state) {
     $row = db_fetch_object($result);
     if (empty($row->tid)) {
       // Create a new row
-      $nid = _taxonomy_tweaks_create_extras($desc);
+      $nid = _taxonomy_tweaks_create_extras($tid);
       db_query("
         INSERT INTO {tax_tweaks}
         (tid, is_acronym, extras_nid)
@@ -160,28 +235,103 @@ function taxonomy_tweaks_submit($form, &$form_state) {
       ", $is_acromyn, $tid);
     }
   }
-  else if ('Edit extra fields for this term' == $form_state['values']['op']) {
-    dpr($tid);
-    dpr($form_state['values']); exit;
-
-    $nid = db_result(db_query("
-      SELECT nid
-      FROM {tax_tweaks}
-      WHERE tid = %d
-    ", $tid));
-
+  else if ('Edit extra fields for this term' == $vals['op']) {
+    $nid = taxonomy_tweaks_get_extras($tid);
     if (empty($nid)) {
       // Create a new extras node with the existing description in it
-      $nid = _taxonomy_tweaks_create_extras($desc);
-
-
-      // TODO here!!!!
-
-
+      $nid = _taxonomy_tweaks_create_extras($tid);
     }
+
+    // And redirect the user to the edit page.
+    drupal_goto("node/$nid/edit/$tid");
   }
 }
 
+/**
+ * Associates an extras node id with a term tid
+ */
+function taxonomy_tweaks_set_extras($tid, $nid) {
+  $result = db_query("
+    SELECT *
+    FROM {tax_tweaks} AS tt
+    WHERE tt.tid = %d
+  ", $tid);
+  $row = db_fetch_array($result);
+
+  if (empty($row)) {
+    db_query("
+      INSERT INTO {tax_tweaks} (tid, is_acronym, extras_nid)
+      VALUES (%d, %d, %d)
+    ", $tid, 0, $nid);
+  }
+  else {
+    db_query("
+      UPDATE {tax_tweaks}
+      SET extras_nid = %d
+      WHERE tid = %d
+    ", $nid, $tid);
+  }
+}
+
+/**
+ * Removes the assoication created in taxonomy_tweaks_set_extras
+ */
+function taxonomy_tweaks_unset_extras($tid) {
+  db_query("
+    UPDATE {tax_tweaks}
+    SET extras_nid = NULL
+    WHERE tid = %d
+  ", $tid);
+}
+
+/**
+ * Returns the node nid that holds the extra data for a given term ID or 0.
+ */
+function taxonomy_tweaks_get_extras($tid) {
+  $nid = db_result(db_query("
+    SELECT tt.extras_nid
+    FROM {tax_tweaks} AS tt
+    WHERE tt.tid = %d
+  ", $tid));
+  if (empty($nid)) {
+    return 0;
+  }
+  else {
+    return $nid;
+  }
+}
+
+/**
+ * Internal function used to create an extras node with an optional description
+ */
+function _taxonomy_tweaks_create_extras($tid) {
+  global $user;
+  $term = taxonomy_get_term($tid);
+
+  $node = new stdClass();
+  $node->title = "Extra details for $term->name";
+  $node->type = 'tax_tweaks_extras';
+  $node->status = 0;    // Unpublished to keep out of sight from general users
+  $node->promote = 0;
+  $node->field_tt_extras_description = array(0 => array(
+    'value' => $term->description,
+    'format' => 3,        // WYSIWYG format
+  ));
+  $node->field_tt_extras_term = array(0 => array('value' => $tid));
+  $node = node_submit($node);
+  $node->uid = $user->uid;
+  node_save($node);
+
+  // Create association in tax_tweaks table
+  taxonomy_tweaks_set_extras($tid, $node->nid);
+
+  return $node->nid;
+}
+
+
+/**
+ * Returns TRUE if this term ID is an acronym
+ */
 function taxonomy_tweaks_is_acronym($tid) {
   $result = db_result(db_query("
     SELECT tt.is_acronym
@@ -191,35 +341,3 @@ function taxonomy_tweaks_is_acronym($tid) {
   ));
   return (!empty($result));
 }
-
-function _taxonomy_tweaks_create_extras($desciption = '') {
-  global $user;
-  $node = new stdClass();
-  $node->title = "Taxonomy Extras for term ID $tid";
-  $node->uid = $user->uid;
-  $node->type = 'tax_tweaks_extras';
-  $node->status = 0;    // Unpublished to keep out of sight from general users
-  $node->promote = 0;
-  $node->field_tt_extras_description = array(0 => array(
-    'value' => $description,
-    'format' => 3,        // WYSIWYG format
-  ));
-  $node = node_submit($node);
-  node_save($node);
-  return $node->nid;
-}
-
-
-
-    $nid = 0;
-
-    // Separate check from tid check below since this may have been an existing
-    // tax_tweak item, thus having a tid, but no extras_nid.
-    if (empty($row->extras_nid)) {
-      // Create a new node to hold the extras data
-      $nid = _taxonomy_tweaks_create_extras();
-    }
-    else {
-      $nid = $row->extras_nid;
-    }
-

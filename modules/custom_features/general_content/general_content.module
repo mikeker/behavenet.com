@@ -1,0 +1,3 @@
+<?php
+
+include_once('general_content.features.inc');

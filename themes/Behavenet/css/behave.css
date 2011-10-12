@@ -17,6 +17,10 @@ dd {
   margin-bottom: 0;
 }
 
+.center-wrapper {
+  clear: both;
+}
+
 .dsm-criteria {
   padding: 15px;
   border: 1px solid #666;
@@ -47,4 +51,20 @@ dd {
 }
 .view-Media .views-row {
   clear: left;
+}
+.pane-terms-extras {
+  display: inline-block;
+}
+.terms-extras {
+  float: right;
+  margin-left: 15px;
+  clear: right;
+}
+
+/*
+ * Terms display
+ */
+.pane-term-description {
+  display: inline-block;
+  width: 50%;
 }
