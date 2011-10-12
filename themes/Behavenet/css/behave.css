@@ -66,5 +66,5 @@ dd {
  */
 .pane-term-description {
   display: inline-block;
-  width: 50%;
+  width: auto;
 }
