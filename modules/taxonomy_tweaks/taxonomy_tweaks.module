@@ -12,7 +12,7 @@
 function taxonomy_tweaks_taxonomy($op, $type, $data) {
   if ('delete' == $op && 'term' == $type) {
     $nid = db_result(db_query("
-      SELECT nid
+      SELECT extras_nid
       FROM {tax_tweaks}
       WHERE tid = %d
     ", $data['tid']));
