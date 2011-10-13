@@ -10,7 +10,7 @@ function behavenet_search_views_default_views() {
   $view = new view;
   $view->name = 'search';
   $view->description = 'Search';
-  $view->tag = 'behave';
+  $view->tag = 'behavenet';
   $view->view_php = '';
   $view->base_table = 'node';
   $view->is_cacheable = FALSE;
