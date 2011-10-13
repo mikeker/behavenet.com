@@ -47,7 +47,9 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: access ckeditor link
   $permissions['access ckeditor link'] = array(
     'name' => 'access ckeditor link',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: access content
@@ -114,7 +116,9 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: administer ckeditor link
   $permissions['administer ckeditor link'] = array(
     'name' => 'administer ckeditor link',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: administer content types
