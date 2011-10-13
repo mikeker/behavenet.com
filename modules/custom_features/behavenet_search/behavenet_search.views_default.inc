@@ -224,6 +224,20 @@ if (isset($data->score)) {
         'button' => 'Override',
       ),
     ),
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('access', array(
     'type' => 'none',
@@ -392,30 +406,6 @@ if (count($lists)) {
         'label' => '',
       ),
       'id' => 'vid',
-      'table' => 'term_data',
-      'field' => 'vid',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-    ),
-    'vid_1' => array(
-      'id' => 'vid_1',
-      'table' => 'term_data',
-      'field' => 'vid',
-    ),
-    'vid_2' => array(
-      'operator' => 'in',
-      'value' => array(
-        '5' => '5',
-      ),
-      'group' => '0',
-      'exposed' => FALSE,
-      'expose' => array(
-        'operator' => FALSE,
-        'label' => '',
-      ),
-      'id' => 'vid_2',
       'table' => 'term_data',
       'field' => 'vid',
       'override' => array(
