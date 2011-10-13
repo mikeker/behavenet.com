@@ -310,6 +310,27 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     $pane->pid = 'new-10';
     $pane->panel = 'top';
     $pane->type = 'views_panes';
+    $pane->subtype = 'terms_extras-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_terms_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $display->content['new-10'] = $pane;
+    $display->panels['top'][3] = 'new-10';
+    $pane = new stdClass;
+    $pane->pid = 'new-11';
+    $pane->panel = 'top';
+    $pane->type = 'views_panes';
     $pane->subtype = 'DSM_Criteria-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
@@ -327,9 +348,9 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
       'css_class' => 'dsm-criteria',
     );
     $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-10'] = $pane;
-    $display->panels['top'][3] = 'new-10';
+    $pane->position = 4;
+    $display->content['new-11'] = $pane;
+    $display->panels['top'][4] = 'new-11';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

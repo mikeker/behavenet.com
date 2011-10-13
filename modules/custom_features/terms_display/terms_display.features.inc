@@ -18,6 +18,17 @@ function terms_display_ctools_plugin_api() {
  */
 function terms_display_node_info() {
   $items = array(
+    'credit' => array(
+      'name' => t('Credit'),
+      'module' => 'features',
+      'description' => t('A credit for a term definition'),
+      'has_title' => '1',
+      'title_label' => t('Admin Title'),
+      'has_body' => '0',
+      'body_label' => '',
+      'min_word_count' => '0',
+      'help' => '',
+    ),
     'dsm' => array(
       'name' => t('DSM Criteria'),
       'module' => 'features',

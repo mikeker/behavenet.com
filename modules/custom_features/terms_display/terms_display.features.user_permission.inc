@@ -6,6 +6,12 @@
 function terms_display_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: create credit content
+  $permissions['create credit content'] = array(
+    'name' => 'create credit content',
+    'roles' => array(),
+  );
+
   // Exported permission: create dsm content
   $permissions['create dsm content'] = array(
     'name' => 'create dsm content',
@@ -23,6 +29,12 @@ function terms_display_user_default_permissions() {
   // Exported permission: create tax_tweaks_extras content
   $permissions['create tax_tweaks_extras content'] = array(
     'name' => 'create tax_tweaks_extras content',
+    'roles' => array(),
+  );
+
+  // Exported permission: delete any credit content
+  $permissions['delete any credit content'] = array(
+    'name' => 'delete any credit content',
     'roles' => array(),
   );
 
@@ -46,6 +58,12 @@ function terms_display_user_default_permissions() {
     'roles' => array(),
   );
 
+  // Exported permission: delete own credit content
+  $permissions['delete own credit content'] = array(
+    'name' => 'delete own credit content',
+    'roles' => array(),
+  );
+
   // Exported permission: delete own dsm content
   $permissions['delete own dsm content'] = array(
     'name' => 'delete own dsm content',
@@ -61,6 +79,12 @@ function terms_display_user_default_permissions() {
   // Exported permission: delete own tax_tweaks_extras content
   $permissions['delete own tax_tweaks_extras content'] = array(
     'name' => 'delete own tax_tweaks_extras content',
+    'roles' => array(),
+  );
+
+  // Exported permission: edit any credit content
+  $permissions['edit any credit content'] = array(
+    'name' => 'edit any credit content',
     'roles' => array(),
   );
 
@@ -81,6 +105,12 @@ function terms_display_user_default_permissions() {
   // Exported permission: edit any tax_tweaks_extras content
   $permissions['edit any tax_tweaks_extras content'] = array(
     'name' => 'edit any tax_tweaks_extras content',
+    'roles' => array(),
+  );
+
+  // Exported permission: edit own credit content
+  $permissions['edit own credit content'] = array(
+    'name' => 'edit own credit content',
     'roles' => array(),
   );
 

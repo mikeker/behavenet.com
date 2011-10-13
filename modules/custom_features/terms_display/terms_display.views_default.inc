@@ -1148,6 +1148,96 @@ if (count($data->node_data_field_dsm_version_field_dsm_version_value) > 1) {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
+  $handler->override_option('header_format', '3');
+  $handler->override_option('header_empty', 0);
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->override_option('relationships', array(
+    'field_tt_extras_credit_nid' => array(
+      'label' => 'Credit',
+      'required' => 1,
+      'delta' => -1,
+      'id' => 'field_tt_extras_credit_nid',
+      'table' => 'node_data_field_tt_extras_credit',
+      'field' => 'field_tt_extras_credit_nid',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('fields', array(
+    'field_credit_value' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'none',
+      'format' => 'default',
+      'multiple' => array(
+        'group' => TRUE,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => FALSE,
+      ),
+      'exclude' => 0,
+      'id' => 'field_credit_value',
+      'table' => 'node_data_field_credit',
+      'field' => 'field_credit_value',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'field_tt_extras_credit_nid',
+    ),
+  ));
+  $handler->override_option('header', '<h4>Credit</h4>');
+  $handler->override_option('pane_title', 'Credit by Term');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'View panes',
+    'weight' => 0,
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => FALSE,
+    'items_per_page' => FALSE,
+    'offset' => FALSE,
+    'link_to_view' => FALSE,
+    'more_link' => FALSE,
+    'path_override' => FALSE,
+    'title_override' => FALSE,
+    'exposed_form' => FALSE,
+    'fields_override' => FALSE,
+  ));
+  $handler->override_option('argument_input', array(
+    'field_tt_extras_term_value' => array(
+      'type' => 'context',
+      'context' => 'term.tid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Term (field_tt_extras_term)',
+    ),
+  ));
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
 
   $views[$view->name] = $view;
 

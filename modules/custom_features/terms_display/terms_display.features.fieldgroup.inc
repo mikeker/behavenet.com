@@ -148,7 +148,7 @@ function terms_display_fieldgroup_default_groups() {
         ),
       ),
     ),
-    'weight' => '-2',
+    'weight' => '-1',
     'parent' => '',
     'fields' => array(
       '0' => 'field_tt_extras_image',

@@ -6,6 +6,68 @@
 function terms_display_content_default_fields() {
   $fields = array();
 
+  // Exported field: field_credit
+  $fields['credit-field_credit'] = array(
+    'field_name' => 'field_credit',
+    'type_name' => 'credit',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '1',
+    'multiple' => '0',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '1',
+    'max_length' => '',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'rows' => '5',
+      'size' => 60,
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+          '_error_element' => 'default_value_widget][field_credit][0][value',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Credit',
+      'weight' => '-4',
+      'description' => '',
+      'type' => 'text_textarea',
+      'module' => 'text',
+    ),
+  );
+
   // Exported field: field_dsm_body
   $fields['dsm-field_dsm_body'] = array(
     'field_name' => 'field_dsm_body',
@@ -426,6 +488,85 @@ function terms_display_content_default_fields() {
     ),
   );
 
+  // Exported field: field_tt_extras_credit
+  $fields['tax_tweaks_extras-field_tt_extras_credit'] = array(
+    'field_name' => 'field_tt_extras_credit',
+    'type_name' => 'tax_tweaks_extras',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'nodereference',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'nodereference',
+    'active' => '1',
+    'referenceable_types' => array(
+      'credit' => 'credit',
+      'book' => 0,
+      'dsm_caution' => 0,
+      'company' => 0,
+      'compound' => 0,
+      'dsm' => 0,
+      'directory' => 0,
+      'drug' => 0,
+      'combinations' => 0,
+      'generic' => 0,
+      'indication' => 0,
+      'movie' => 0,
+      'page' => 0,
+      'panel' => 0,
+      'people' => 0,
+      'preparation' => 0,
+      'sources' => 0,
+      'tax_tweaks_extras' => 0,
+    ),
+    'advanced_view' => '--',
+    'advanced_view_args' => '',
+    'widget' => array(
+      'autocomplete_match' => 'contains',
+      'size' => 60,
+      'default_value' => array(
+        '0' => array(
+          'nid' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Credit',
+      'weight' => '-2',
+      'description' => '',
+      'type' => 'nodereference_select',
+      'module' => 'nodereference',
+    ),
+  );
+
   // Exported field: field_tt_extras_description
   $fields['tax_tweaks_extras-field_tt_extras_description'] = array(
     'field_name' => 'field_tt_extras_description',
@@ -623,6 +764,7 @@ function terms_display_content_default_fields() {
   // Included for use with string extractors like potx.
   t('Associated Term');
   t('Cautionary statement');
+  t('Credit');
   t('DSM Criteria');
   t('DSM Version');
   t('DSM Version ');
