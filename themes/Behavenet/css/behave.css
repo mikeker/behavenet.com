@@ -52,19 +52,3 @@ dd {
 .view-Media .views-row {
   clear: left;
 }
-.pane-terms-extras {
-  display: inline-block;
-}
-.terms-extras {
-  float: right;
-  margin-left: 15px;
-  clear: right;
-}
-
-/*
- * Terms display
- */
-.pane-term-description {
-  display: inline-block;
-  width: auto;
-}
