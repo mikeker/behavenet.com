@@ -458,15 +458,15 @@ function generic_drugs_content_default_fields() {
     'widget' => array(
       'new_terms' => 'insert',
       'extra_parent' => '0',
-      'maxlength' => '255',
-      'active_tags' => NULL,
+      'maxlength' => '99999',
+      'active_tags' => 1,
       'default_value' => NULL,
       'default_value_php' => NULL,
       'label' => 'Terms',
       'weight' => '13',
       'description' => '',
-      'type' => 'content_taxonomy_tree',
-      'module' => 'content_taxonomy_tree',
+      'type' => 'content_taxonomy_autocomplete',
+      'module' => 'content_taxonomy_autocomplete',
     ),
   );
 

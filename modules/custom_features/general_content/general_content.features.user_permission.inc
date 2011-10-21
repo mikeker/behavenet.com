@@ -17,13 +17,17 @@ function general_content_user_default_permissions() {
   // Exported permission: create compound content
   $permissions['create compound content'] = array(
     'name' => 'create compound content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: create indication content
   $permissions['create indication content'] = array(
     'name' => 'create indication content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: create page content
@@ -45,13 +49,17 @@ function general_content_user_default_permissions() {
   // Exported permission: create preparation content
   $permissions['create preparation content'] = array(
     'name' => 'create preparation content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: create sources content
   $permissions['create sources content'] = array(
     'name' => 'create sources content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: delete any company content
@@ -65,13 +73,17 @@ function general_content_user_default_permissions() {
   // Exported permission: delete any compound content
   $permissions['delete any compound content'] = array(
     'name' => 'delete any compound content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: delete any indication content
   $permissions['delete any indication content'] = array(
     'name' => 'delete any indication content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: delete any page content
@@ -93,13 +105,17 @@ function general_content_user_default_permissions() {
   // Exported permission: delete any preparation content
   $permissions['delete any preparation content'] = array(
     'name' => 'delete any preparation content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: delete any sources content
   $permissions['delete any sources content'] = array(
     'name' => 'delete any sources content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: delete own company content
@@ -155,13 +171,17 @@ function general_content_user_default_permissions() {
   // Exported permission: edit any compound content
   $permissions['edit any compound content'] = array(
     'name' => 'edit any compound content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: edit any indication content
   $permissions['edit any indication content'] = array(
     'name' => 'edit any indication content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: edit any page content
@@ -183,13 +203,17 @@ function general_content_user_default_permissions() {
   // Exported permission: edit any preparation content
   $permissions['edit any preparation content'] = array(
     'name' => 'edit any preparation content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: edit any sources content
   $permissions['edit any sources content'] = array(
     'name' => 'edit any sources content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: edit own company content

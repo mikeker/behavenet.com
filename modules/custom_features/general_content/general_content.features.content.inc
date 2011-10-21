@@ -946,8 +946,8 @@ function general_content_content_default_fields() {
     'widget' => array(
       'new_terms' => 'insert',
       'extra_parent' => '0',
-      'maxlength' => '255',
-      'active_tags' => NULL,
+      'maxlength' => '99999',
+      'active_tags' => 1,
       'default_value' => NULL,
       'default_value_php' => NULL,
       'expand_all' => 0,
@@ -1275,8 +1275,8 @@ function general_content_content_default_fields() {
     'widget' => array(
       'new_terms' => 'insert',
       'extra_parent' => '0',
-      'maxlength' => '255',
-      'active_tags' => NULL,
+      'maxlength' => '99999',
+      'active_tags' => 1,
       'default_value' => NULL,
       'default_value_php' => NULL,
       'expand_all' => 0,

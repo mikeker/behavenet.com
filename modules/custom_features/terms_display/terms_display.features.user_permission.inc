@@ -9,7 +9,9 @@ function terms_display_user_default_permissions() {
   // Exported permission: create credit content
   $permissions['create credit content'] = array(
     'name' => 'create credit content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: create dsm content
@@ -23,19 +25,25 @@ function terms_display_user_default_permissions() {
   // Exported permission: create dsm_caution content
   $permissions['create dsm_caution content'] = array(
     'name' => 'create dsm_caution content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: create tax_tweaks_extras content
   $permissions['create tax_tweaks_extras content'] = array(
     'name' => 'create tax_tweaks_extras content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: delete any credit content
   $permissions['delete any credit content'] = array(
     'name' => 'delete any credit content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: delete any dsm content
@@ -49,13 +57,17 @@ function terms_display_user_default_permissions() {
   // Exported permission: delete any dsm_caution content
   $permissions['delete any dsm_caution content'] = array(
     'name' => 'delete any dsm_caution content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: delete any tax_tweaks_extras content
   $permissions['delete any tax_tweaks_extras content'] = array(
     'name' => 'delete any tax_tweaks_extras content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: delete own credit content
@@ -85,7 +97,9 @@ function terms_display_user_default_permissions() {
   // Exported permission: edit any credit content
   $permissions['edit any credit content'] = array(
     'name' => 'edit any credit content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: edit any dsm content
@@ -99,13 +113,17 @@ function terms_display_user_default_permissions() {
   // Exported permission: edit any dsm_caution content
   $permissions['edit any dsm_caution content'] = array(
     'name' => 'edit any dsm_caution content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: edit any tax_tweaks_extras content
   $permissions['edit any tax_tweaks_extras content'] = array(
     'name' => 'edit any tax_tweaks_extras content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: edit own credit content
