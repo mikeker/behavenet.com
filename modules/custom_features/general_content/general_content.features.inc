@@ -40,6 +40,17 @@ function general_content_node_info() {
       'min_word_count' => '0',
       'help' => '',
     ),
+    'device' => array(
+      'name' => t('Device'),
+      'module' => 'features',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Device name'),
+      'has_body' => '0',
+      'body_label' => '',
+      'min_word_count' => '0',
+      'help' => '',
+    ),
     'indication' => array(
       'name' => t('Indications'),
       'module' => 'features',

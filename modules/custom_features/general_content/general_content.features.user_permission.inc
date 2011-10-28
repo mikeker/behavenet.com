@@ -22,6 +22,12 @@ function general_content_user_default_permissions() {
     ),
   );
 
+  // Exported permission: create device content
+  $permissions['create device content'] = array(
+    'name' => 'create device content',
+    'roles' => array(),
+  );
+
   // Exported permission: create indication content
   $permissions['create indication content'] = array(
     'name' => 'create indication content',
@@ -78,6 +84,12 @@ function general_content_user_default_permissions() {
     ),
   );
 
+  // Exported permission: delete any device content
+  $permissions['delete any device content'] = array(
+    'name' => 'delete any device content',
+    'roles' => array(),
+  );
+
   // Exported permission: delete any indication content
   $permissions['delete any indication content'] = array(
     'name' => 'delete any indication content',
@@ -130,6 +142,12 @@ function general_content_user_default_permissions() {
     'roles' => array(),
   );
 
+  // Exported permission: delete own device content
+  $permissions['delete own device content'] = array(
+    'name' => 'delete own device content',
+    'roles' => array(),
+  );
+
   // Exported permission: delete own indication content
   $permissions['delete own indication content'] = array(
     'name' => 'delete own indication content',
@@ -174,6 +192,12 @@ function general_content_user_default_permissions() {
     'roles' => array(
       '0' => 'authenticated user',
     ),
+  );
+
+  // Exported permission: edit any device content
+  $permissions['edit any device content'] = array(
+    'name' => 'edit any device content',
+    'roles' => array(),
   );
 
   // Exported permission: edit any indication content
@@ -225,6 +249,12 @@ function general_content_user_default_permissions() {
   // Exported permission: edit own compound content
   $permissions['edit own compound content'] = array(
     'name' => 'edit own compound content',
+    'roles' => array(),
+  );
+
+  // Exported permission: edit own device content
+  $permissions['edit own device content'] = array(
+    'name' => 'edit own device content',
     'roles' => array(),
   );
 
