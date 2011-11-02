@@ -145,14 +145,7 @@ if ($user->uid) {
       'hide_empty' => 0,
       'empty_zero' => 0,
       'value' => '<?php
-$nid = db_result(db_query("
-  SELECT n.nid
-  FROM {node} AS n
-  INNER JOIN {term_node} AS tn
-    ON n.vid = tn.vid
-  WHERE n.type = \'dsm_caution\'
-    AND tn.tid = %d
-", $data->node_data_field_dsm_version_field_dsm_version_value[0][\'value\']));
+$nid = bh_get_cautionary_id($data->node_data_field_dsm_version_field_dsm_version_value[0][\'value\']);
 if (!empty($nid)) {
   print \'(\' . l(\'cautionary statement\', "node/$nid") . \')\';
 }
@@ -358,8 +351,8 @@ if (count($data->node_data_field_dsm_version_field_dsm_version_value) > 1) {
     'type' => 'none',
   ));
   $handler->override_option('items_per_page', 1);
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
-  $handler->override_option('pane_title', 'DSM Criteria');
+  $handler = $view->new_display('panel_pane', 'Most recent DSM criteria', 'panel_pane_1');
+  $handler->override_option('pane_title', 'Latest DSM Critereon by tid');
   $handler->override_option('pane_description', '');
   $handler->override_option('pane_category', array(
     'name' => 'Behavenet',
@@ -384,6 +377,284 @@ if (count($data->node_data_field_dsm_version_field_dsm_version_value) > 1) {
       'panel' => '0',
       'fixed' => '',
       'label' => 'Taxonomy: Term ID',
+    ),
+  ));
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
+  $handler = $view->new_display('panel_pane', 'All DSM Criteria', 'panel_pane_2');
+  $handler->override_option('relationships', array(
+    'field_dsm_caution_version_value' => array(
+      'label' => 'DSM Version term',
+      'required' => 0,
+      'id' => 'field_dsm_caution_version_value',
+      'table' => 'node_data_field_dsm_caution_version',
+      'field' => 'field_dsm_caution_version_value',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('fields', array(
+    'field_dsm_body_value' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'none',
+      'format' => 'default',
+      'multiple' => array(
+        'group' => 1,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => 0,
+      ),
+      'exclude' => 1,
+      'id' => 'field_dsm_body_value',
+      'table' => 'node_data_field_dsm_body',
+      'field' => 'field_dsm_body_value',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+    'field_dsm_version_value' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'none',
+      'format' => 'default',
+      'multiple' => array(
+        'group' => 1,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => 0,
+      ),
+      'exclude' => 1,
+      'id' => 'field_dsm_version_value',
+      'table' => 'node_data_field_dsm_version',
+      'field' => 'field_dsm_version_value',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+    'phpcode' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'value' => '<?php
+$output = array();
+foreach ($data->node_data_field_dsm_version_field_dsm_version_value as $index => $version_tid) {
+  $line = \'\';
+  $version_tid = $version_tid[\'value\'];
+  $version = taxonomy_get_term($version_tid);
+  $line .= \'<h4>\' . $version->name . \'</h4>\';
+  $caution_id = bh_get_cautionary_id($version_tid);
+  if (!empty($caution_id)) {
+    $line .= \'<p>(\' . l(\'cautionary statement\', "node/$caution_id") . \')</p>\';
+  }
+  $line .= $data->node_data_field_dsm_body_field_dsm_body_value[$index][\'value\'];
+  $output[] = $line;
+}
+print implode(\'<hr />\', $output);
+?>',
+      'exclude' => 0,
+      'id' => 'phpcode',
+      'table' => 'customfield',
+      'field' => 'phpcode',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+    'title' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'exclude' => 1,
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('arguments', array(
+    'nid' => array(
+      'default_action' => 'empty',
+      'style_plugin' => 'default_summary',
+      'style_options' => array(),
+      'wildcard' => 'all',
+      'wildcard_substitution' => 'All',
+      'title' => '',
+      'breadcrumb' => '',
+      'default_argument_type' => 'fixed',
+      'default_argument' => '',
+      'validate_type' => 'node',
+      'validate_fail' => 'empty',
+      'break_phrase' => 0,
+      'not' => 0,
+      'id' => 'nid',
+      'table' => 'node',
+      'field' => 'nid',
+      'validate_user_argument_type' => 'uid',
+      'validate_user_roles' => array(
+        '2' => 0,
+      ),
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'default_options_div_prefix' => '',
+      'default_argument_fixed' => '',
+      'default_argument_user' => 0,
+      'default_argument_php' => '',
+      'validate_argument_node_type' => array(
+        'dsm' => 'dsm',
+        'combinations' => 0,
+        'company' => 0,
+        'compound' => 0,
+        'device' => 0,
+        'indication' => 0,
+        'page' => 0,
+        'people' => 0,
+        'preparation' => 0,
+        'sources' => 0,
+        'generic' => 0,
+        'book' => 0,
+        'movie' => 0,
+        'credit' => 0,
+        'dsm_caution' => 0,
+        'tax_tweaks_extras' => 0,
+        'drug' => 0,
+        'panel' => 0,
+        'directory' => 0,
+      ),
+      'validate_argument_node_access' => 0,
+      'validate_argument_nid_type' => 'nid',
+      'validate_argument_vocabulary' => array(
+        '9' => 0,
+        '3' => 0,
+        '10' => 0,
+        '4' => 0,
+        '8' => 0,
+        '11' => 0,
+        '2' => 0,
+        '5' => 0,
+        '7' => 0,
+      ),
+      'validate_argument_type' => 'tid',
+      'validate_argument_transform' => 0,
+      'validate_user_restrict_roles' => 0,
+      'validate_argument_php' => '',
+    ),
+  ));
+  $handler->override_option('pane_title', 'All DSM Criteria by nid');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'View panes',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => FALSE,
+    'items_per_page' => FALSE,
+    'offset' => FALSE,
+    'link_to_view' => FALSE,
+    'more_link' => FALSE,
+    'path_override' => FALSE,
+    'title_override' => FALSE,
+    'exposed_form' => FALSE,
+    'fields_override' => FALSE,
+  ));
+  $handler->override_option('argument_input', array(
+    'nid' => array(
+      'type' => 'context',
+      'context' => 'node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Node: Nid',
     ),
   ));
   $handler->override_option('link_to_view', 0);
