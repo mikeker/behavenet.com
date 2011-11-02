@@ -17,6 +17,19 @@ function related_content_views_default_views() {
   $view->api_version = 2;
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->override_option('relationships', array(
+    'field_general_asin_asin' => array(
+      'label' => 'ASIN',
+      'required' => 0,
+      'id' => 'field_general_asin_asin',
+      'table' => 'node_data_field_general_asin',
+      'field' => 'field_general_asin_asin',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
   $handler->override_option('fields', array(
     'title' => array(
       'label' => '',
@@ -42,11 +55,14 @@ function related_content_views_default_views() {
       'hide_empty' => 0,
       'empty_zero' => 0,
       'link_to_node' => 1,
-      'exclude' => 0,
+      'exclude' => 1,
       'id' => 'title',
       'table' => 'node',
       'field' => 'title',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
     'type' => array(
       'label' => '',
@@ -77,6 +93,130 @@ function related_content_views_default_views() {
       'id' => 'type',
       'table' => 'node',
       'field' => 'type',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
+    ),
+    'product_image' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'image_size' => 'mediumimage',
+      'link_format' => 'amazon',
+      'presentation_format' => 'markup',
+      'exclude' => 1,
+      'id' => 'product_image',
+      'table' => 'amazon_item_image',
+      'field' => 'product_image',
+      'relationship' => 'field_general_asin_asin',
+      'override' => array(
+        'button' => 'Override',
+      ),
+    ),
+    'title_1' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_format' => 'amazon',
+      'exclude' => 1,
+      'id' => 'title_1',
+      'table' => 'amazon_item',
+      'field' => 'title',
+      'relationship' => 'field_general_asin_asin',
+      'override' => array(
+        'button' => 'Override',
+      ),
+    ),
+    'phpcode' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'value' => '<?php
+if (empty($data->amazon_item_node_data_field_general_asin__amazon_item_image_url)) {
+  // No ASIN information, use the node title
+  print l($data->node_title, "node/$data->nid");
+}
+else {
+  // Show Amazon item image and link to Amazon\'s site
+  $img = \'<img class="amazon-item-image" src="\'
+    . $data->amazon_item_node_data_field_general_asin__amazon_item_image_url
+    . \'" alt="\'
+    . $data->amazon_item_node_data_field_general_asin_title
+    . \'" height="\'
+    . $data->amazon_item_node_data_field_general_asin__amazon_item_image_height
+    . \'" width="\'
+    . $data->amazon_item_node_data_field_general_asin__amazon_item_image_width
+    . \'" />\';
+  print l($img, $data->amazon_item_node_data_field_general_asin_detailpageurl, array(\'html\' => TRUE));
+  print \'<br />\';
+  print l($data->amazon_item_node_data_field_general_asin_title, $data->amazon_item_node_data_field_general_asin_detailpageurl);
+}
+?>',
+      'exclude' => 0,
+      'id' => 'phpcode',
+      'table' => 'customfield',
+      'field' => 'phpcode',
+      'override' => array(
+        'button' => 'Override',
+      ),
       'relationship' => 'none',
     ),
   ));
@@ -148,8 +288,13 @@ function related_content_views_default_views() {
     'type' => array(
       'operator' => 'not in',
       'value' => array(
-        'panel' => 'panel',
+        'page' => 'page',
+        'credit' => 'credit',
         'dsm' => 'dsm',
+        'dsm_caution' => 'dsm_caution',
+        'tax_tweaks_extras' => 'tax_tweaks_extras',
+        'panel' => 'panel',
+        'directory' => 'directory',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -177,10 +322,8 @@ function related_content_views_default_views() {
   $handler->override_option('use_pager', 'mini');
   $handler->override_option('use_more', 0);
   $handler->override_option('use_more_always', 0);
-  $handler->override_option('style_plugin', 'list');
   $handler->override_option('style_options', array(
     'grouping' => 'type',
-    'type' => 'ul',
   ));
   $handler = $view->new_display('panel_pane', 'Related content by term', 'panel_pane_1');
   $handler->override_option('pane_title', 'Related content by term');
