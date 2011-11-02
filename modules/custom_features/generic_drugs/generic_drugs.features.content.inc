@@ -1247,6 +1247,86 @@ function generic_drugs_content_default_fields() {
     ),
   );
 
+  // Exported field: field_tt_extras_credit
+  $fields['generic-field_tt_extras_credit'] = array(
+    'field_name' => 'field_tt_extras_credit',
+    'type_name' => 'generic',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'nodereference',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'nodereference',
+    'active' => '1',
+    'referenceable_types' => array(
+      'credit' => 'credit',
+      'book' => 0,
+      'dsm_caution' => 0,
+      'company' => 0,
+      'compound' => 0,
+      'dsm' => 0,
+      'device' => 0,
+      'directory' => 0,
+      'drug' => 0,
+      'combinations' => 0,
+      'generic' => 0,
+      'indication' => 0,
+      'movie' => 0,
+      'page' => 0,
+      'panel' => 0,
+      'people' => 0,
+      'preparation' => 0,
+      'sources' => 0,
+      'tax_tweaks_extras' => 0,
+    ),
+    'advanced_view' => '--',
+    'advanced_view_args' => '',
+    'widget' => array(
+      'autocomplete_match' => 'contains',
+      'size' => 60,
+      'default_value' => array(
+        '0' => array(
+          'nid' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Credit',
+      'weight' => '9',
+      'description' => '',
+      'type' => 'nodereference_select',
+      'module' => 'nodereference',
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Acronyms');
@@ -1257,6 +1337,7 @@ function generic_drugs_content_default_fields() {
   t('Clinical Class');
   t('Combination');
   t('Compound');
+  t('Credit');
   t('DEA Number');
   t('Graphic');
   t('Isomer');

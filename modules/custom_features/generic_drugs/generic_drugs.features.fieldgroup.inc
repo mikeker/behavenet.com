@@ -53,6 +53,7 @@ function generic_drugs_fieldgroup_default_groups() {
     'fields' => array(
       '0' => 'field_generic_graphic',
       '1' => 'field_outside_video',
+      '2' => 'field_tt_extras_credit',
     ),
     'depth' => 0,
     'parents' => array(
