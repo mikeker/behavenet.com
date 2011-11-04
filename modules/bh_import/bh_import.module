@@ -272,6 +272,21 @@ function bh_import_test() {
   exit;
 
 
+  $list_tids = taxonomy_get_related(7627);
+  foreach ($list_tids as $term) {
+    $nid = taxonomy_tweaks_get_extras($term->tid);
+    $extras = '';
+    if (!empty($nid)) {
+      $extras = node_load($nid);
+    }
+    else {
+      $extras = node_load(_taxonomy_tweaks_create_extras($term->tid));
+    }
+    $extras->field_tt_extras_credit = array(0 => array('nid' => 19732));
+    node_save($extras);
+    dpr("Updated $term->name ($term->tid) with a new credit");
+  }
+
 
   // DONE: Associate Books with the appropriate related content
   $books = build_lookup('book');
