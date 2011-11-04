@@ -43,7 +43,7 @@ function terms_display_views_default_views() {
       'empty_zero' => 0,
       'link_to_node' => 0,
       'label_type' => 'none',
-      'format' => 'link',
+      'format' => 'default',
       'multiple' => array(
         'group' => 1,
         'multiple_number' => '1',

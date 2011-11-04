@@ -535,6 +535,7 @@ function terms_display_content_default_fields() {
       'company' => 0,
       'compound' => 0,
       'dsm' => 0,
+      'device' => 0,
       'directory' => 0,
       'drug' => 0,
       'combinations' => 0,
