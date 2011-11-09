@@ -91,8 +91,60 @@ function general_content_views_default_views() {
   $handler->override_option('use_ajax', TRUE);
   $handler->override_option('items_per_page', 50);
   $handler->override_option('use_pager', '1');
-  $handler = $view->new_display('page', 'List all', 'page_1');
-  $handler->override_option('path', 'compound/list');
+  $handler = $view->new_display('page', 'List all compounds', 'page_1');
+  $handler->override_option('path', 'list/compound');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler = $view->new_display('page', 'List all preparations', 'page_2');
+  $handler->override_option('filters', array(
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'relationship' => 'none',
+    ),
+    'type' => array(
+      'operator' => 'in',
+      'value' => array(
+        'preparation' => 'preparation',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+  ));
+  $handler->override_option('title', 'Preparations');
+  $handler->override_option('path', 'list/preparation');
   $handler->override_option('menu', array(
     'type' => 'none',
     'title' => '',
