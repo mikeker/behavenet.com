@@ -266,7 +266,7 @@ function general_content_views_default_views() {
       'validate_user_restrict_roles' => 0,
       'validate_argument_php' => '$vocabs = taxonomy_get_vocabularies();
 foreach($vocabs as $vid => $vocab) {
-  if (strtolower(str_replace(\' \', \'_\', $vocab->name)) == strtolower($argument)) {
+  if (strtolower(str_replace(\' \', \'-\', $vocab->name)) == strtolower($argument)) {
     $handler->argument = $vid;
     return TRUE;
   }

@@ -203,7 +203,7 @@ function generic_drugs_content_default_fields() {
       'weight' => '11',
       'parent' => '',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -541,7 +541,7 @@ function generic_drugs_content_default_fields() {
       'weight' => '5',
       'parent' => '',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -1252,9 +1252,10 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_tt_extras_credit',
     'type_name' => 'generic',
     'display_settings' => array(
+      'weight' => '9',
+      'parent' => 'group_media',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
