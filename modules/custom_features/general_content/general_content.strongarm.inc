@@ -506,12 +506,12 @@ function general_content_strongarm() {
   $strongarm->name = 'content_extra_weights_compound';
   $strongarm->value = array(
     'title' => '-5',
-    'revision_information' => '0',
-    'author' => '-1',
-    'options' => '1',
-    'comment_settings' => '2',
-    'menu' => '-2',
-    'path' => '3',
+    'revision_information' => '3',
+    'author' => '2',
+    'options' => '4',
+    'comment_settings' => '5',
+    'menu' => '1',
+    'path' => '6',
   );
   $export['content_extra_weights_compound'] = $strongarm;
 
@@ -568,12 +568,12 @@ function general_content_strongarm() {
   $strongarm->name = 'content_extra_weights_preparation';
   $strongarm->value = array(
     'title' => '-5',
-    'revision_information' => '3',
-    'author' => '2',
-    'options' => '4',
-    'comment_settings' => '5',
-    'menu' => '1',
-    'path' => '6',
+    'revision_information' => '4',
+    'author' => '3',
+    'options' => '5',
+    'comment_settings' => '6',
+    'menu' => '2',
+    'path' => '7',
   );
   $export['content_extra_weights_preparation'] = $strongarm;
 
@@ -583,12 +583,12 @@ function general_content_strongarm() {
   $strongarm->name = 'content_extra_weights_sources';
   $strongarm->value = array(
     'title' => '-5',
-    'revision_information' => '1',
-    'author' => '4',
-    'options' => '5',
-    'comment_settings' => '3',
-    'menu' => '0',
-    'path' => '2',
+    'revision_information' => '2',
+    'author' => '5',
+    'options' => '6',
+    'comment_settings' => '4',
+    'menu' => '1',
+    'path' => '3',
   );
   $export['content_extra_weights_sources'] = $strongarm;
 

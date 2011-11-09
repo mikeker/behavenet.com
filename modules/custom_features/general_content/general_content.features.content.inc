@@ -207,6 +207,322 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_general_terms
+  $fields['compound-field_general_terms'] = array(
+    'field_name' => 'field_general_terms',
+    'type_name' => 'compound',
+    'display_settings' => array(
+      'weight' => '-2',
+      'parent' => '',
+      'label' => array(
+        'format' => 'inline',
+      ),
+      'teaser' => array(
+        'format' => 'link',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'link',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'content_taxonomy',
+    'required' => '0',
+    'multiple' => '1',
+    'module' => 'content_taxonomy',
+    'active' => '1',
+    'save_term_node' => 1,
+    'vid' => '5',
+    'parent' => '0',
+    'parent_php_code' => '',
+    'depth' => '',
+    'widget' => array(
+      'new_terms' => 'deny',
+      'extra_parent' => '0',
+      'maxlength' => '99999',
+      'active_tags' => 1,
+      'default_value' => NULL,
+      'default_value_php' => NULL,
+      'label' => 'Terms',
+      'weight' => '-2',
+      'description' => '',
+      'type' => 'content_taxonomy_autocomplete',
+      'module' => 'content_taxonomy_autocomplete',
+    ),
+  );
+
+  // Exported field: field_generic_graphic
+  $fields['compound-field_generic_graphic'] = array(
+    'field_name' => 'field_generic_graphic',
+    'type_name' => 'compound',
+    'display_settings' => array(
+      'weight' => '9',
+      'parent' => 'group_media',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'Image-Standard_default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'Image-Standard_default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'filefield',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'filefield',
+    'active' => '1',
+    'list_field' => '0',
+    'list_default' => 1,
+    'description_field' => '0',
+    'widget' => array(
+      'file_extensions' => 'png gif jpg jpeg',
+      'file_path' => 'products',
+      'progress_indicator' => 'bar',
+      'max_filesize_per_file' => '',
+      'max_filesize_per_node' => '',
+      'max_resolution' => '0',
+      'min_resolution' => '0',
+      'alt' => '',
+      'custom_alt' => 0,
+      'title' => '',
+      'custom_title' => 0,
+      'title_type' => 'textfield',
+      'default_image' => NULL,
+      'use_default_image' => 0,
+      'label' => 'Graphic',
+      'weight' => '9',
+      'description' => '',
+      'type' => 'imagefield_widget',
+      'module' => 'imagefield',
+    ),
+  );
+
+  // Exported field: field_outside_video
+  $fields['compound-field_outside_video'] = array(
+    'field_name' => 'field_outside_video',
+    'type_name' => 'compound',
+    'display_settings' => array(
+      'weight' => '10',
+      'parent' => 'group_media',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'video_video',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'video_video',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'emvideo',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'emvideo',
+    'active' => '1',
+    'widget' => array(
+      'video_width' => '425',
+      'video_height' => '350',
+      'video_autoplay' => 0,
+      'preview_width' => '425',
+      'preview_height' => '350',
+      'preview_autoplay' => 0,
+      'thumbnail_width' => '120',
+      'thumbnail_height' => '90',
+      'thumbnail_default_path' => '',
+      'thumbnail_link_title' => 'See video',
+      'meta_fields' => array(
+        'title' => 0,
+        'description' => 0,
+      ),
+      'providers' => array(
+        'youtube' => 'youtube',
+        'flickr_sets' => 0,
+      ),
+      'default_value' => array(
+        '0' => array(
+          'embed' => '',
+          'value' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'media_flickr_ir_repeat_video' => 'list',
+      'media_flickr_ir_rotatetime_video' => '5',
+      'media_flickr_ir_shownavigation_video' => 1,
+      'media_flickr_ir_showicons_video' => 1,
+      'media_flickr_ir_shuffle_video' => 0,
+      'media_flickr_ir_allowfullscreen_video' => 1,
+      'media_flickr_ir_logo_video' => '',
+      'media_flickr_ir_transition_video' => 'random',
+      'media_flickr_player_video' => 'flash',
+      'media_flickr_playlist_video' => 'right',
+      'media_flickr_playlistsize_video' => '86',
+      'media_flickr_repeat_video' => 'list',
+      'media_flickr_delay_video' => '10',
+      'media_flickr_controlbar_video' => 'none',
+      'media_flickr_allowfullscreen_video' => 1,
+      'media_flickr_logo_video' => '',
+      'media_flickr_ir_repeat_preview' => 'list',
+      'media_flickr_ir_rotatetime_preview' => '5',
+      'media_flickr_ir_shownavigation_preview' => 1,
+      'media_flickr_ir_showicons_preview' => 1,
+      'media_flickr_ir_shuffle_preview' => 0,
+      'media_flickr_ir_allowfullscreen_preview' => 1,
+      'media_flickr_ir_logo_preview' => '',
+      'media_flickr_ir_transition_preview' => 'random',
+      'media_flickr_player_preview' => 'flash',
+      'media_flickr_playlist_preview' => 'right',
+      'media_flickr_playlistsize_preview' => '86',
+      'media_flickr_repeat_preview' => 'list',
+      'media_flickr_delay_preview' => '10',
+      'media_flickr_controlbar_preview' => 'none',
+      'media_flickr_allowfullscreen_preview' => 1,
+      'media_flickr_logo_preview' => '',
+      'label' => 'Outside media',
+      'weight' => '10',
+      'description' => '',
+      'type' => 'emvideo_textfields',
+      'module' => 'emvideo',
+    ),
+  );
+
+  // Exported field: field_tt_extras_credit
+  $fields['compound-field_tt_extras_credit'] = array(
+    'field_name' => 'field_tt_extras_credit',
+    'type_name' => 'compound',
+    'display_settings' => array(
+      'weight' => '11',
+      'parent' => 'group_media',
+      'label' => array(
+        'format' => 'above',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'nodereference',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'nodereference',
+    'active' => '1',
+    'referenceable_types' => array(
+      'credit' => 'credit',
+      'book' => 0,
+      'dsm_caution' => 0,
+      'company' => 0,
+      'compound' => 0,
+      'dsm' => 0,
+      'device' => 0,
+      'directory' => 0,
+      'drug' => 0,
+      'combinations' => 0,
+      'generic' => 0,
+      'indication' => 0,
+      'movie' => 0,
+      'page' => 0,
+      'panel' => 0,
+      'people' => 0,
+      'preparation' => 0,
+      'sources' => 0,
+      'tax_tweaks_extras' => 0,
+    ),
+    'advanced_view' => '--',
+    'advanced_view_args' => '',
+    'widget' => array(
+      'autocomplete_match' => 'contains',
+      'size' => 60,
+      'default_value' => array(
+        '0' => array(
+          'nid' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Credit',
+      'weight' => '11',
+      'description' => '',
+      'type' => 'nodereference_select',
+      'module' => 'nodereference',
+    ),
+  );
+
   // Exported field: field_device_indication
   $fields['device-field_device_indication'] = array(
     'field_name' => 'field_device_indication',
@@ -1444,7 +1760,7 @@ function general_content_content_default_fields() {
     'field_name' => 'field_generic_dea',
     'type_name' => 'preparation',
     'display_settings' => array(
-      'weight' => '-3',
+      'weight' => '-2',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -1502,12 +1818,79 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_generic_graphic
+  $fields['preparation-field_generic_graphic'] = array(
+    'field_name' => 'field_generic_graphic',
+    'type_name' => 'preparation',
+    'display_settings' => array(
+      'weight' => '9',
+      'parent' => 'group_media',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'Image-Standard_default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'Image-Standard_default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'filefield',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'filefield',
+    'active' => '1',
+    'list_field' => '0',
+    'list_default' => 1,
+    'description_field' => '0',
+    'widget' => array(
+      'file_extensions' => 'png gif jpg jpeg',
+      'file_path' => 'products',
+      'progress_indicator' => 'bar',
+      'max_filesize_per_file' => '',
+      'max_filesize_per_node' => '',
+      'max_resolution' => '0',
+      'min_resolution' => '0',
+      'alt' => '',
+      'custom_alt' => 0,
+      'title' => '',
+      'custom_title' => 0,
+      'title_type' => 'textfield',
+      'default_image' => NULL,
+      'use_default_image' => 0,
+      'label' => 'Graphic',
+      'weight' => '9',
+      'description' => '',
+      'type' => 'imagefield_widget',
+      'module' => 'imagefield',
+    ),
+  );
+
   // Exported field: field_generic_schedule
   $fields['preparation-field_generic_schedule'] = array(
     'field_name' => 'field_generic_schedule',
     'type_name' => 'preparation',
     'display_settings' => array(
-      'weight' => '-2',
+      'weight' => '-1',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -1573,7 +1956,7 @@ function general_content_content_default_fields() {
     'field_name' => 'field_generic_sources',
     'type_name' => 'preparation',
     'display_settings' => array(
-      'weight' => '-4',
+      'weight' => '-3',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -1643,12 +2026,119 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_outside_video
+  $fields['preparation-field_outside_video'] = array(
+    'field_name' => 'field_outside_video',
+    'type_name' => 'preparation',
+    'display_settings' => array(
+      'weight' => '10',
+      'parent' => 'group_media',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'video_video',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'video_video',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'emvideo',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'emvideo',
+    'active' => '1',
+    'widget' => array(
+      'video_width' => '425',
+      'video_height' => '350',
+      'video_autoplay' => 0,
+      'preview_width' => '425',
+      'preview_height' => '350',
+      'preview_autoplay' => 0,
+      'thumbnail_width' => '120',
+      'thumbnail_height' => '90',
+      'thumbnail_default_path' => '',
+      'thumbnail_link_title' => 'See video',
+      'meta_fields' => array(
+        'title' => 0,
+        'description' => 0,
+      ),
+      'providers' => array(
+        'youtube' => 'youtube',
+        'flickr_sets' => 0,
+      ),
+      'default_value' => array(
+        '0' => array(
+          'embed' => '',
+          'value' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'media_flickr_ir_repeat_video' => 'list',
+      'media_flickr_ir_rotatetime_video' => '5',
+      'media_flickr_ir_shownavigation_video' => 1,
+      'media_flickr_ir_showicons_video' => 1,
+      'media_flickr_ir_shuffle_video' => 0,
+      'media_flickr_ir_allowfullscreen_video' => 1,
+      'media_flickr_ir_logo_video' => '',
+      'media_flickr_ir_transition_video' => 'random',
+      'media_flickr_player_video' => 'flash',
+      'media_flickr_playlist_video' => 'right',
+      'media_flickr_playlistsize_video' => '86',
+      'media_flickr_repeat_video' => 'list',
+      'media_flickr_delay_video' => '10',
+      'media_flickr_controlbar_video' => 'none',
+      'media_flickr_allowfullscreen_video' => 1,
+      'media_flickr_logo_video' => '',
+      'media_flickr_ir_repeat_preview' => 'list',
+      'media_flickr_ir_rotatetime_preview' => '5',
+      'media_flickr_ir_shownavigation_preview' => 1,
+      'media_flickr_ir_showicons_preview' => 1,
+      'media_flickr_ir_shuffle_preview' => 0,
+      'media_flickr_ir_allowfullscreen_preview' => 1,
+      'media_flickr_ir_logo_preview' => '',
+      'media_flickr_ir_transition_preview' => 'random',
+      'media_flickr_player_preview' => 'flash',
+      'media_flickr_playlist_preview' => 'right',
+      'media_flickr_playlistsize_preview' => '86',
+      'media_flickr_repeat_preview' => 'list',
+      'media_flickr_delay_preview' => '10',
+      'media_flickr_controlbar_preview' => 'none',
+      'media_flickr_allowfullscreen_preview' => 1,
+      'media_flickr_logo_preview' => '',
+      'label' => 'Outside media',
+      'weight' => '10',
+      'description' => '',
+      'type' => 'emvideo_textfields',
+      'module' => 'emvideo',
+    ),
+  );
+
   // Exported field: field_terms
   $fields['preparation-field_terms'] = array(
     'field_name' => 'field_terms',
     'type_name' => 'preparation',
     'display_settings' => array(
-      'weight' => '-1',
+      'weight' => 0,
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -1705,12 +2195,93 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_tt_extras_credit
+  $fields['preparation-field_tt_extras_credit'] = array(
+    'field_name' => 'field_tt_extras_credit',
+    'type_name' => 'preparation',
+    'display_settings' => array(
+      'weight' => '11',
+      'parent' => 'group_media',
+      'label' => array(
+        'format' => 'above',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'nodereference',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'nodereference',
+    'active' => '1',
+    'referenceable_types' => array(
+      'credit' => 'credit',
+      'book' => 0,
+      'dsm_caution' => 0,
+      'company' => 0,
+      'compound' => 0,
+      'dsm' => 0,
+      'device' => 0,
+      'directory' => 0,
+      'drug' => 0,
+      'combinations' => 0,
+      'generic' => 0,
+      'indication' => 0,
+      'movie' => 0,
+      'page' => 0,
+      'panel' => 0,
+      'people' => 0,
+      'preparation' => 0,
+      'sources' => 0,
+      'tax_tweaks_extras' => 0,
+    ),
+    'advanced_view' => '--',
+    'advanced_view_args' => '',
+    'widget' => array(
+      'autocomplete_match' => 'contains',
+      'size' => 60,
+      'default_value' => array(
+        '0' => array(
+          'nid' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Credit',
+      'weight' => '11',
+      'description' => '',
+      'type' => 'nodereference_select',
+      'module' => 'nodereference',
+    ),
+  );
+
   // Exported field: field_gen_slang_terms
   $fields['sources-field_gen_slang_terms'] = array(
     'field_name' => 'field_gen_slang_terms',
     'type_name' => 'sources',
     'display_settings' => array(
-      'weight' => '-4',
+      'weight' => '-3',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -1773,7 +2344,7 @@ function general_content_content_default_fields() {
     'field_name' => 'field_generic_dea',
     'type_name' => 'sources',
     'display_settings' => array(
-      'weight' => '-3',
+      'weight' => '-2',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -1831,12 +2402,79 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_generic_graphic
+  $fields['sources-field_generic_graphic'] = array(
+    'field_name' => 'field_generic_graphic',
+    'type_name' => 'sources',
+    'display_settings' => array(
+      'weight' => '8',
+      'parent' => 'group_media',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'Image-Standard_default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'Image-Standard_default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'image_plain',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'filefield',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'filefield',
+    'active' => '1',
+    'list_field' => '0',
+    'list_default' => 1,
+    'description_field' => '0',
+    'widget' => array(
+      'file_extensions' => 'png gif jpg jpeg',
+      'file_path' => 'products',
+      'progress_indicator' => 'bar',
+      'max_filesize_per_file' => '',
+      'max_filesize_per_node' => '',
+      'max_resolution' => '0',
+      'min_resolution' => '0',
+      'alt' => '',
+      'custom_alt' => 0,
+      'title' => '',
+      'custom_title' => 0,
+      'title_type' => 'textfield',
+      'default_image' => NULL,
+      'use_default_image' => 0,
+      'label' => 'Graphic',
+      'weight' => '8',
+      'description' => '',
+      'type' => 'imagefield_widget',
+      'module' => 'imagefield',
+    ),
+  );
+
   // Exported field: field_generic_schedule
   $fields['sources-field_generic_schedule'] = array(
     'field_name' => 'field_generic_schedule',
     'type_name' => 'sources',
     'display_settings' => array(
-      'weight' => '-2',
+      'weight' => '-1',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -1894,6 +2532,113 @@ function general_content_content_default_fields() {
       'description' => '',
       'type' => 'optionwidgets_select',
       'module' => 'optionwidgets',
+    ),
+  );
+
+  // Exported field: field_outside_video
+  $fields['sources-field_outside_video'] = array(
+    'field_name' => 'field_outside_video',
+    'type_name' => 'sources',
+    'display_settings' => array(
+      'weight' => '9',
+      'parent' => 'group_media',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'video_video',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'video_video',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'emvideo',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'emvideo',
+    'active' => '1',
+    'widget' => array(
+      'video_width' => '425',
+      'video_height' => '350',
+      'video_autoplay' => 0,
+      'preview_width' => '425',
+      'preview_height' => '350',
+      'preview_autoplay' => 0,
+      'thumbnail_width' => '120',
+      'thumbnail_height' => '90',
+      'thumbnail_default_path' => '',
+      'thumbnail_link_title' => 'See video',
+      'meta_fields' => array(
+        'title' => 0,
+        'description' => 0,
+      ),
+      'providers' => array(
+        'youtube' => 'youtube',
+        'flickr_sets' => 0,
+      ),
+      'default_value' => array(
+        '0' => array(
+          'embed' => '',
+          'value' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'media_flickr_ir_repeat_video' => 'list',
+      'media_flickr_ir_rotatetime_video' => '5',
+      'media_flickr_ir_shownavigation_video' => 1,
+      'media_flickr_ir_showicons_video' => 1,
+      'media_flickr_ir_shuffle_video' => 0,
+      'media_flickr_ir_allowfullscreen_video' => 1,
+      'media_flickr_ir_logo_video' => '',
+      'media_flickr_ir_transition_video' => 'random',
+      'media_flickr_player_video' => 'flash',
+      'media_flickr_playlist_video' => 'right',
+      'media_flickr_playlistsize_video' => '86',
+      'media_flickr_repeat_video' => 'list',
+      'media_flickr_delay_video' => '10',
+      'media_flickr_controlbar_video' => 'none',
+      'media_flickr_allowfullscreen_video' => 1,
+      'media_flickr_logo_video' => '',
+      'media_flickr_ir_repeat_preview' => 'list',
+      'media_flickr_ir_rotatetime_preview' => '5',
+      'media_flickr_ir_shownavigation_preview' => 1,
+      'media_flickr_ir_showicons_preview' => 1,
+      'media_flickr_ir_shuffle_preview' => 0,
+      'media_flickr_ir_allowfullscreen_preview' => 1,
+      'media_flickr_ir_logo_preview' => '',
+      'media_flickr_ir_transition_preview' => 'random',
+      'media_flickr_player_preview' => 'flash',
+      'media_flickr_playlist_preview' => 'right',
+      'media_flickr_playlistsize_preview' => '86',
+      'media_flickr_repeat_preview' => 'list',
+      'media_flickr_delay_preview' => '10',
+      'media_flickr_controlbar_preview' => 'none',
+      'media_flickr_allowfullscreen_preview' => 1,
+      'media_flickr_logo_preview' => '',
+      'label' => 'Outside media',
+      'weight' => '9',
+      'description' => '',
+      'type' => 'emvideo_textfields',
+      'module' => 'emvideo',
     ),
   );
 
@@ -1957,6 +2702,87 @@ function general_content_content_default_fields() {
       'description' => '',
       'type' => 'text_textfield',
       'module' => 'text',
+    ),
+  );
+
+  // Exported field: field_tt_extras_credit
+  $fields['sources-field_tt_extras_credit'] = array(
+    'field_name' => 'field_tt_extras_credit',
+    'type_name' => 'sources',
+    'display_settings' => array(
+      'weight' => '10',
+      'parent' => 'group_media',
+      'label' => array(
+        'format' => 'above',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'nodereference',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'nodereference',
+    'active' => '1',
+    'referenceable_types' => array(
+      'credit' => 'credit',
+      'book' => 0,
+      'dsm_caution' => 0,
+      'company' => 0,
+      'compound' => 0,
+      'dsm' => 0,
+      'device' => 0,
+      'directory' => 0,
+      'drug' => 0,
+      'combinations' => 0,
+      'generic' => 0,
+      'indication' => 0,
+      'movie' => 0,
+      'page' => 0,
+      'panel' => 0,
+      'people' => 0,
+      'preparation' => 0,
+      'sources' => 0,
+      'tax_tweaks_extras' => 0,
+    ),
+    'advanced_view' => '--',
+    'advanced_view_args' => '',
+    'widget' => array(
+      'autocomplete_match' => 'contains',
+      'size' => 60,
+      'default_value' => array(
+        '0' => array(
+          'nid' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Credit',
+      'weight' => '10',
+      'description' => '',
+      'type' => 'nodereference_select',
+      'module' => 'nodereference',
     ),
   );
 
