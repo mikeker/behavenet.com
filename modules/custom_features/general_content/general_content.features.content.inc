@@ -207,6 +207,68 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_general_description
+  $fields['compound-field_general_description'] = array(
+    'field_name' => 'field_general_description',
+    'type_name' => 'compound',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '1',
+    'max_length' => '',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'rows' => '5',
+      'size' => 60,
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+          '_error_element' => 'default_value_widget][field_general_description][0][value',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Description',
+      'weight' => '-1',
+      'description' => '',
+      'type' => 'text_textarea',
+      'module' => 'text',
+    ),
+  );
+
   // Exported field: field_general_terms
   $fields['compound-field_general_terms'] = array(
     'field_name' => 'field_general_terms',
@@ -1755,6 +1817,69 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_general_description
+  $fields['preparation-field_general_description'] = array(
+    'field_name' => 'field_general_description',
+    'type_name' => 'preparation',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '1',
+    'max_length' => '',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'rows' => '5',
+      'size' => 60,
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+          'format' => '3',
+          '_error_element' => 'default_value_widget][field_general_description][0][value',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Description',
+      'weight' => '1',
+      'description' => '',
+      'type' => 'text_textarea',
+      'module' => 'text',
+    ),
+  );
+
   // Exported field: field_generic_dea
   $fields['preparation-field_generic_dea'] = array(
     'field_name' => 'field_generic_dea',
@@ -2339,6 +2464,69 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_general_description
+  $fields['sources-field_general_description'] = array(
+    'field_name' => 'field_general_description',
+    'type_name' => 'sources',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '1',
+    'max_length' => '',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'rows' => '5',
+      'size' => 60,
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+          'format' => '3',
+          '_error_element' => 'default_value_widget][field_general_description][0][value',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Description',
+      'weight' => 0,
+      'description' => '',
+      'type' => 'text_textarea',
+      'module' => 'text',
+    ),
+  );
+
   // Exported field: field_generic_dea
   $fields['sources-field_generic_dea'] = array(
     'field_name' => 'field_generic_dea',
@@ -2796,6 +2984,7 @@ function general_content_content_default_fields() {
   t('DEA Number');
   t('Date of Birth');
   t('Date of Death');
+  t('Description');
   t('Device URL');
   t('Drug');
   t('First Name');

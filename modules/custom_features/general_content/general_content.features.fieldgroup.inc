@@ -48,7 +48,7 @@ function general_content_fieldgroup_default_groups() {
         ),
       ),
     ),
-    'weight' => '-1',
+    'weight' => '0',
     'parent' => '',
     'fields' => array(
       '0' => 'field_generic_graphic',
@@ -157,7 +157,7 @@ function general_content_fieldgroup_default_groups() {
         ),
       ),
     ),
-    'weight' => '1',
+    'weight' => '2',
     'parent' => '',
     'fields' => array(
       '0' => 'field_generic_graphic',
@@ -212,7 +212,7 @@ function general_content_fieldgroup_default_groups() {
         ),
       ),
     ),
-    'weight' => '0',
+    'weight' => '1',
     'parent' => '',
     'fields' => array(
       '0' => 'field_generic_graphic',
