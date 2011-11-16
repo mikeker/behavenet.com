@@ -255,6 +255,24 @@ function behavenet_settings_user_default_permissions() {
     ),
   );
 
+  // Exported permission: collapse format fieldset by default
+  $permissions['collapse format fieldset by default'] = array(
+    'name' => 'collapse format fieldset by default',
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+    ),
+  );
+
+  // Exported permission: collapsible format selection
+  $permissions['collapsible format selection'] = array(
+    'name' => 'collapsible format selection',
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+    ),
+  );
+
   // Exported permission: create mini panels
   $permissions['create mini panels'] = array(
     'name' => 'create mini panels',
@@ -354,6 +372,30 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: select different theme
   $permissions['select different theme'] = array(
     'name' => 'select different theme',
+    'roles' => array(),
+  );
+
+  // Exported permission: show format selection for blocks
+  $permissions['show format selection for blocks'] = array(
+    'name' => 'show format selection for blocks',
+    'roles' => array(),
+  );
+
+  // Exported permission: show format selection for comments
+  $permissions['show format selection for comments'] = array(
+    'name' => 'show format selection for comments',
+    'roles' => array(),
+  );
+
+  // Exported permission: show format selection for nodes
+  $permissions['show format selection for nodes'] = array(
+    'name' => 'show format selection for nodes',
+    'roles' => array(),
+  );
+
+  // Exported permission: show format tips
+  $permissions['show format tips'] = array(
+    'name' => 'show format tips',
     'roles' => array(),
   );
 
