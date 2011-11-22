@@ -1105,6 +1105,41 @@ print implode(\'<hr />\', $output);
       'field' => 'name',
       'relationship' => 'none',
     ),
+    'tid' => array(
+      'label' => 'Term ID',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'set_precision' => FALSE,
+      'precision' => 0,
+      'decimal' => '.',
+      'separator' => ',',
+      'prefix' => '',
+      'suffix' => '',
+      'exclude' => 0,
+      'id' => 'tid',
+      'table' => 'term_data',
+      'field' => 'tid',
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('sorts', array(
     'name' => array(
@@ -1167,7 +1202,28 @@ print implode(\'<hr />\', $output);
   $handler->override_option('items_per_page', 100);
   $handler->override_option('use_pager', '1');
   $handler->override_option('distinct', 1);
-  $handler->override_option('style_plugin', 'list');
+  $handler->override_option('style_plugin', 'table');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'override' => 1,
+    'sticky' => 0,
+    'order' => 'asc',
+    'columns' => array(
+      'name' => 'name',
+      'tid' => 'tid',
+    ),
+    'info' => array(
+      'name' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+      'tid' => array(
+        'sortable' => 1,
+        'separator' => '',
+      ),
+    ),
+    'default' => 'name',
+  ));
   $handler = $view->new_display('page', 'Terms and Lists', 'page_1');
   $handler->override_option('title', 'All Terms and List items');
   $handler->override_option('path', 'terms/list');
