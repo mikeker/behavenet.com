@@ -17,20 +17,6 @@ function trade_name_drugs_views_default_views() {
   $view->api_version = 2;
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('relationships', array(
-    'field_device_indication_nid' => array(
-      'label' => 'Indications',
-      'required' => 1,
-      'delta' => '-1',
-      'id' => 'field_device_indication_nid',
-      'table' => 'node_data_field_device_indication',
-      'field' => 'field_device_indication_nid',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
   $handler->override_option('fields', array(
     'field_indication_approval_value' => array(
       'label' => '',
@@ -75,6 +61,9 @@ function trade_name_drugs_views_default_views() {
       'table' => 'node_data_field_indication_approval',
       'field' => 'field_indication_approval_value',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
     'title' => array(
       'label' => '',
@@ -105,6 +94,9 @@ function trade_name_drugs_views_default_views() {
       'table' => 'node',
       'field' => 'title',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
     'body' => array(
       'label' => '',
@@ -134,6 +126,9 @@ function trade_name_drugs_views_default_views() {
       'table' => 'node_revisions',
       'field' => 'body',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
     'phpcode' => array(
       'label' => '',
@@ -192,7 +187,7 @@ else {
   ));
   $handler->override_option('arguments', array(
     'field_indication_drug_nid' => array(
-      'default_action' => 'empty',
+      'default_action' => 'ignore',
       'style_plugin' => 'default_summary',
       'style_options' => array(),
       'wildcard' => 'all',
@@ -202,7 +197,7 @@ else {
       'default_argument_type' => 'fixed',
       'default_argument' => '',
       'validate_type' => 'node',
-      'validate_fail' => 'empty',
+      'validate_fail' => 'not found',
       'break_phrase' => 0,
       'not' => 0,
       'id' => 'field_indication_drug_nid',
@@ -211,6 +206,9 @@ else {
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
         '2' => 0,
+      ),
+      'override' => array(
+        'button' => 'Override',
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -222,6 +220,7 @@ else {
         'combinations' => 0,
         'company' => 0,
         'compound' => 0,
+        'device' => 0,
         'indication' => 0,
         'page' => 0,
         'people' => 0,
@@ -230,6 +229,7 @@ else {
         'generic' => 0,
         'book' => 0,
         'movie' => 0,
+        'credit' => 0,
         'dsm' => 0,
         'dsm_caution' => 0,
         'tax_tweaks_extras' => 0,
@@ -242,12 +242,9 @@ else {
         '9' => 0,
         '3' => 0,
         '10' => 0,
-        '4' => 0,
-        '8' => 0,
         '11' => 0,
         '2' => 0,
         '5' => 0,
-        '7' => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -285,6 +282,9 @@ else {
       'table' => 'node',
       'field' => 'type',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
   ));
   $handler->override_option('access', array(
@@ -333,6 +333,20 @@ else {
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
   $handler = $view->new_display('panel_pane', 'Indication by Device', 'panel_pane_2');
+  $handler->override_option('relationships', array(
+    'field_device_indication_nid' => array(
+      'label' => 'Indications',
+      'required' => 1,
+      'delta' => '-1',
+      'id' => 'field_device_indication_nid',
+      'table' => 'node_data_field_device_indication',
+      'field' => 'field_device_indication_nid',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
   $handler->override_option('fields', array(
     'field_indication_approval_value' => array(
       'label' => '',
