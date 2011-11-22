@@ -378,25 +378,37 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: show format selection for blocks
   $permissions['show format selection for blocks'] = array(
     'name' => 'show format selection for blocks',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+    ),
   );
 
   // Exported permission: show format selection for comments
   $permissions['show format selection for comments'] = array(
     'name' => 'show format selection for comments',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+    ),
   );
 
   // Exported permission: show format selection for nodes
   $permissions['show format selection for nodes'] = array(
     'name' => 'show format selection for nodes',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+    ),
   );
 
   // Exported permission: show format tips
   $permissions['show format tips'] = array(
     'name' => 'show format tips',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+    ),
   );
 
   // Exported permission: use page manager
