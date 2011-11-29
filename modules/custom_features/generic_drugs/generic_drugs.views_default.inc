@@ -432,7 +432,7 @@ function generic_drugs_views_default_views() {
     'default' => 'title',
   ));
   $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->override_option('path', 'generic/list');
+  $handler->override_option('path', 'list/generic');
   $handler->override_option('menu', array(
     'type' => 'none',
     'title' => '',

@@ -378,7 +378,7 @@ return FALSE;',
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
-      'link_to_node' => 0,
+      'link_to_node' => 1,
       'exclude' => 0,
       'id' => 'title',
       'table' => 'node',
@@ -434,6 +434,22 @@ return FALSE;',
     'type' => 'none',
   ));
   $handler->override_option('items_per_page', 0);
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->override_option('path', 'list/sources');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
 
   $views[$view->name] = $view;
 
