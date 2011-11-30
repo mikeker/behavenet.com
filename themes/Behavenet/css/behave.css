@@ -8,10 +8,6 @@ div.field-type-asin {
   overflow: visible;
   min-height: 800px;
 }
-div#autocomplete {
-  z-index: 100;
-  background-color: red;
-}
 
 dd {
   margin-bottom: 0;
@@ -51,4 +47,17 @@ dd {
 }
 .view-Media .views-row {
   clear: left;
+}
+
+/* Prevents icons from blocking links */
+.block-icon {
+  z-index: -100;
+}
+
+/*
+ * Autocomplete
+ */
+#autocomplete {
+  max-height: 400px;
+  overflow: auto;
 }
