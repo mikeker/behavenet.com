@@ -361,7 +361,7 @@ if (count($output)) {
             11 => array(),
             2 => array(),
             5 => array(
-              11842 => '11842',
+              11872 => '11872',
             ),
           ),
           'context' => 'argument_terms_1',
@@ -383,7 +383,7 @@ if (count($output)) {
       'url' => '',
       'display' => 'page_1',
       'override_title' => 1,
-      'override_title_text' => 'All Compounds',
+      'override_title_text' => 'Compound',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -412,7 +412,7 @@ if (count($output)) {
             11 => array(),
             2 => array(),
             5 => array(
-              11843 => '11843',
+              11871 => '11871',
             ),
           ),
           'context' => 'argument_terms_1',
@@ -434,7 +434,7 @@ if (count($output)) {
       'url' => '',
       'display' => 'page_2',
       'override_title' => 1,
-      'override_title_text' => 'All Preparations',
+      'override_title_text' => 'Preparation',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -447,6 +447,57 @@ if (count($output)) {
     $display->panels['right'][5] = 'new-9';
     $pane = new stdClass;
     $pane->pid = 'new-10';
+    $pane->panel = 'right';
+    $pane->type = 'views';
+    $pane->subtype = 'drug_sources';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'term',
+          'settings' => array(
+            'vid' => '5',
+            9 => array(),
+            3 => array(),
+            10 => array(),
+            11 => array(),
+            2 => array(),
+            5 => array(
+              11873 => '11873',
+            ),
+          ),
+          'context' => 'argument_terms_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '0',
+      'pager_id' => '',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => '',
+      'display' => 'default',
+      'override_title' => 1,
+      'override_title_text' => 'Source',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $display->content['new-10'] = $pane;
+    $display->panels['right'][6] = 'new-10';
+    $pane = new stdClass;
+    $pane->pid = 'new-11';
     $pane->panel = 'top';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -468,10 +519,10 @@ print behavenet_get_parents_breadcrumbs(%term:tid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-10'] = $pane;
-    $display->panels['top'][0] = 'new-10';
+    $display->content['new-11'] = $pane;
+    $display->panels['top'][0] = 'new-11';
     $pane = new stdClass;
-    $pane->pid = 'new-11';
+    $pane->pid = 'new-12';
     $pane->panel = 'top';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -494,10 +545,10 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-11'] = $pane;
-    $display->panels['top'][1] = 'new-11';
+    $display->content['new-12'] = $pane;
+    $display->panels['top'][1] = 'new-12';
     $pane = new stdClass;
-    $pane->pid = 'new-12';
+    $pane->pid = 'new-13';
     $pane->panel = 'top';
     $pane->type = 'term_description';
     $pane->subtype = 'term_description';
@@ -515,10 +566,10 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-12'] = $pane;
-    $display->panels['top'][2] = 'new-12';
+    $display->content['new-13'] = $pane;
+    $display->panels['top'][2] = 'new-13';
     $pane = new stdClass;
-    $pane->pid = 'new-13';
+    $pane->pid = 'new-14';
     $pane->panel = 'top';
     $pane->type = 'views_panes';
     $pane->subtype = 'terms_extras-panel_pane_1';
@@ -536,10 +587,10 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 3;
-    $display->content['new-13'] = $pane;
-    $display->panels['top'][3] = 'new-13';
+    $display->content['new-14'] = $pane;
+    $display->panels['top'][3] = 'new-14';
     $pane = new stdClass;
-    $pane->pid = 'new-14';
+    $pane->pid = 'new-15';
     $pane->panel = 'top';
     $pane->type = 'views_panes';
     $pane->subtype = 'DSM_Criteria-panel_pane_1';
@@ -560,8 +611,8 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     );
     $pane->extras = array();
     $pane->position = 4;
-    $display->content['new-14'] = $pane;
-    $display->panels['top'][4] = 'new-14';
+    $display->content['new-15'] = $pane;
+    $display->panels['top'][4] = 'new-15';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
