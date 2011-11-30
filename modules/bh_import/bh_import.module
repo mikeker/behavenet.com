@@ -272,6 +272,54 @@ function bh_import_test() {
   exit;
 
 
+  // DONE:
+  // Grab alternate spellings for generics
+  $generics = build_lookup('generic_names');
+  $results = db_query("
+    SELECT * FROM {data_drug_alternate_generic_names}
+    WHERE generic IS NOT NULL
+      AND alt_spelling IS NOT NULL
+  ");
+  $alts = array();
+  while ($row = db_fetch_object($results)) {
+    if (!isset($generics[$row->generic])) {
+      dpr('Bogus generic specified: ');
+      dpr($row);
+      continue;
+    }
+    $alts[$generics[$row->generic]][] = $row->alt_spelling;
+  }
+
+  // Load each generic and check for missing alt spellings, adding as needed.
+  foreach ($alts as $nid => $alt_spellings) {
+    $node = node_load($nid);
+    $existing = array();
+    foreach ($node->field_generic_alt_name as $name) {
+      $existing[] = $name['value'];
+    }
+
+    // We'll overwrite the array so we can compact it, just in case it got
+    // tweaked by a previous import
+    $to_add = $existing;
+    foreach ($alt_spellings as $spelling) {
+      if (!in_array($spelling, $existing)) {
+        $to_add[] = $spelling;
+      }
+    }
+
+    if (empty($to_add)) {
+      continue;
+    }
+
+    $node->field_generic_alt_name = array();
+    foreach ($to_add as $spelling) {
+      $node->field_generic_alt_name[] = array('value' => $spelling);
+    }
+
+    node_save($node);
+    dpr("updated $node->title to " . count($to_add) . ' alt spellings');
+  }
+
   $list_tids = taxonomy_get_related(7627);
   foreach ($list_tids as $term) {
     $nid = taxonomy_tweaks_get_extras($term->tid);
