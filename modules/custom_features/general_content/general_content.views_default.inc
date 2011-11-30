@@ -435,6 +435,7 @@ return FALSE;',
   ));
   $handler->override_option('items_per_page', 0);
   $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->override_option('title', 'Sources');
   $handler->override_option('path', 'list/sources');
   $handler->override_option('menu', array(
     'type' => 'none',
