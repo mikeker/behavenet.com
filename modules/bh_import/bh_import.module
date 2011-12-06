@@ -268,6 +268,31 @@ function _bh_add_noderef(&$node, $field, $nids) {
 function bh_import_test() {
   ini_set('max_execution_time', 300);
 
+  $generics = build_lookup('generic_names');
+  $results = db_query("
+    SELECT ID as id, Medline_Plus_info AS medline
+    FROM {data_drug_generic_names}
+    WHERE Medline_Plus_info IS NOT NULL
+  ");
+  $ok = array();
+  $bad = array();
+  while ($row = db_fetch_object($results)) {
+    if (!isset($generics[$row->id])) {
+      dpr("Bogus entry at ID $row->id");
+      continue;
+    }
+    $node = node_load($generics[$row->id]);
+    if ($node->field_generic_medline_url[0]['value'] != $row->medline) {
+      $bad[] = "$node->title should be $row->medline";
+    }
+    else {
+      $ok[] = $node->title;
+    }
+  }
+
+  dpr(count($ok) . ' generics were correct');
+  dpr(count($bad) . ' generics had incorrect medline info based on the original import:');
+  dpr(join("\n", $bad));
   dpr('done');
   exit;
 
