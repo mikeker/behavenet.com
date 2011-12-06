@@ -96,12 +96,12 @@ function drug_combinations_strongarm() {
   $strongarm->name = 'content_extra_weights_combinations';
   $strongarm->value = array(
     'title' => '-5',
-    'revision_information' => '5',
-    'author' => '4',
-    'options' => '6',
-    'comment_settings' => '7',
-    'menu' => '3',
-    'path' => '8',
+    'revision_information' => '7',
+    'author' => '6',
+    'options' => '8',
+    'comment_settings' => '9',
+    'menu' => '5',
+    'path' => '10',
   );
   $export['content_extra_weights_combinations'] = $strongarm;
 
