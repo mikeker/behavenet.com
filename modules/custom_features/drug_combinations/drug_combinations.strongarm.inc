@@ -111,6 +111,7 @@ function drug_combinations_strongarm() {
   $strongarm->name = 'node_options_combinations';
   $strongarm->value = array(
     0 => 'status',
+    1 => 'revision',
   );
   $export['node_options_combinations'] = $strongarm;
 

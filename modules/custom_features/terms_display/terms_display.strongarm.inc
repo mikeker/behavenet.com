@@ -429,6 +429,7 @@ function terms_display_strongarm() {
   $strongarm->name = 'node_options_credit';
   $strongarm->value = array(
     0 => 'status',
+    1 => 'revision',
   );
   $export['node_options_credit'] = $strongarm;
 
@@ -438,6 +439,7 @@ function terms_display_strongarm() {
   $strongarm->name = 'node_options_dsm';
   $strongarm->value = array(
     0 => 'status',
+    1 => 'revision',
   );
   $export['node_options_dsm'] = $strongarm;
 
@@ -447,6 +449,7 @@ function terms_display_strongarm() {
   $strongarm->name = 'node_options_dsm_caution';
   $strongarm->value = array(
     0 => 'status',
+    1 => 'revision',
   );
   $export['node_options_dsm_caution'] = $strongarm;
 
@@ -454,7 +457,9 @@ function terms_display_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_tax_tweaks_extras';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'revision',
+  );
   $export['node_options_tax_tweaks_extras'] = $strongarm;
 
   $strongarm = new stdClass;
