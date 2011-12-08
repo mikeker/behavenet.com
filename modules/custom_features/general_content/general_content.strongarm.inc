@@ -678,7 +678,7 @@ function general_content_strongarm() {
   $strongarm->name = 'content_extra_weights_people';
   $strongarm->value = array(
     'title' => '-5',
-    'body_field' => '3',
+    'body_field' => '2',
     'revision_information' => '6',
     'author' => '8',
     'options' => '9',

@@ -1148,6 +1148,88 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_general_related_content
+  $fields['people-field_general_related_content'] = array(
+    'field_name' => 'field_general_related_content',
+    'type_name' => 'people',
+    'display_settings' => array(
+      'weight' => '3',
+      'parent' => '',
+      'label' => array(
+        'format' => 'inline',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'nodereference',
+    'required' => '0',
+    'multiple' => '1',
+    'module' => 'nodereference',
+    'active' => '1',
+    'referenceable_types' => array(
+      'company' => 'company',
+      'compound' => 'compound',
+      'drug' => 'drug',
+      'combinations' => 'combinations',
+      'generic' => 'generic',
+      'indication' => 'indication',
+      'people' => 'people',
+      'preparation' => 'preparation',
+      'sources' => 'sources',
+      'book' => 0,
+      'dsm_caution' => 0,
+      'credit' => 0,
+      'dsm' => 0,
+      'device' => 0,
+      'directory' => 0,
+      'movie' => 0,
+      'page' => 0,
+      'panel' => 0,
+      'tax_tweaks_extras' => 0,
+    ),
+    'advanced_view' => '--',
+    'advanced_view_args' => '',
+    'widget' => array(
+      'autocomplete_match' => 'contains',
+      'size' => '60',
+      'default_value' => array(
+        '0' => array(
+          'nid' => NULL,
+          '_error_element' => 'default_value_widget][field_general_related_content][0][nid][nid',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Related content',
+      'weight' => '5',
+      'description' => '',
+      'type' => 'nodereference_autocomplete',
+      'module' => 'nodereference',
+    ),
+  );
+
   // Exported field: field_outside_video
   $fields['people-field_outside_video'] = array(
     'field_name' => 'field_outside_video',
@@ -1370,7 +1452,7 @@ function general_content_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Credit',
-      'weight' => '4',
+      'weight' => '3',
       'description' => '',
       'type' => 'text_textarea',
       'module' => 'text',
@@ -1747,7 +1829,7 @@ function general_content_content_default_fields() {
       'default_value_php' => NULL,
       'expand_all' => 0,
       'label' => 'Terms',
-      'weight' => '5',
+      'weight' => '4',
       'description' => '',
       'type' => 'content_taxonomy_autocomplete',
       'module' => 'content_taxonomy_autocomplete',
@@ -2994,6 +3076,7 @@ function general_content_content_default_fields() {
   t('Last Name');
   t('Manual URL');
   t('Outside media');
+  t('Related content');
   t('Schedule');
   t('Scientific name');
   t('Slang terms');
