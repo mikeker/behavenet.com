@@ -235,6 +235,24 @@ function get_terms($force = FALSE) {
 }
 
 /**
+ * Adds a term to a node, checking if the term already exists in the node
+ */
+function _bh_add_term(&$node, $tid) {
+  if (isset($node->taxonomy[$tid])) {
+    return;
+  }
+  $term = taxonomy_get_term($tid);
+  $node->taxonomy[$tid] = $term;
+  if (empty($node->field_terms[0]['value'])) {
+    $node->field_terms[0]['value'] = $tid;
+  }
+  else {
+    $node->field_terms[] = array('value' => $tid);
+  }
+}
+
+
+/**
  * Adds one or more noderefs to a given field in a node, checking for dups and
  * removing blank entries that are sometimes added by previous imports
  */
@@ -268,6 +286,86 @@ function _bh_add_noderef(&$node, $field, $nids) {
 function bh_import_test() {
   ini_set('max_execution_time', 300);
 
+  dpr('done');
+  exit;
+
+  // Update terms for people
+  $people = build_lookup('people');
+  $books = build_lookup('book');
+  $movies = build_lookup('movies');
+  $terms = build_lookup('terms');
+
+  $results = db_query("
+    SELECT * FROM {data_people_term_drug_relation}
+    WHERE Person IS NOT NULL
+  ");
+  $cols = array('Term', 'Book', 'Movie', 'Prof', 'Prsn');
+  $data = array();
+  while ($row = db_fetch_object($results)) {
+    if (!isset($people[$row->Person])) {
+      dpr("Bogus person: "); dpr($row);
+      continue;
+    }
+    foreach ($cols as $col) {
+      if (!empty($row->$col)) {
+        $data[$people[$row->Person]][$col][] = $row->$col;
+      }
+    }
+  }
+
+  foreach ($data as $pid => $items) {
+    $node = node_load($pid);
+    if (isset($items['Term'])) {
+      foreach ($items['Term'] as $tid) {
+        if (!isset($terms[$tid])) {
+          dpr("Bogus tid specified for $node->title: $tid");
+          dpr($items);
+          continue;
+        }
+        _bh_add_term($node, $terms[$tid]);
+      }
+    }
+    if (isset($items['Prof'])) {
+      foreach ($items['Prof'] as $tid) {
+        if (!isset($terms[$tid])) {
+          dpr("Bogus tid specified for $node->title: $tid");
+          dpr($items);
+          continue;
+        }
+        _bh_add_term($node, $terms[$tid]);
+      }
+    }
+
+    if (isset($items['Prsn'])) {
+      if (!isset($node->field_general_related_content)) {
+        $node->field_general_related_content = array(0 => array());
+      }
+      foreach ($items['Prsn'] as $person) {
+        _bh_add_noderef($node, 'field_general_related_content', $people[$person]);
+      }
+    }
+
+    // Relate this person to books/movies -- nevermind, already imported.
+    // if (isset($items['Book'])) {
+      // foreach ($items['Book'] as $book_id) {
+        // if (!isset($books[$book_id])) {
+          // dpr("Bogus book id ($book_id) specified");
+          // dpr($items);
+          // continue;
+        // }
+        // $book = node_load($books[$book_id]);
+        // dpr("Person is $node->nid");
+        // dpr($book); exit;
+      // }
+    // }
+
+    dpr("Updated $node->title");
+    node_save($node);
+
+  }
+
+
+  // Check what medline info has changed since the original import
   $generics = build_lookup('generic_names');
   $results = db_query("
     SELECT ID as id, Medline_Plus_info AS medline
@@ -293,15 +391,13 @@ function bh_import_test() {
   dpr(count($ok) . ' generics were correct');
   dpr(count($bad) . ' generics had incorrect medline info based on the original import:');
   dpr(join("\n", $bad));
-  dpr('done');
-  exit;
-
 
   // DONE:
   // Grab alternate spellings for generics
   $generics = build_lookup('generic_names');
   $results = db_query("
-    SELECT * FROM {data_drug_alternate_generic_names}
+
+      SELECT * FROM {data_drug_alternate_generic_names}
     WHERE generic IS NOT NULL
       AND alt_spelling IS NOT NULL
   ");
