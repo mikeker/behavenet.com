@@ -238,17 +238,34 @@ function get_terms($force = FALSE) {
  * Adds a term to a node, checking if the term already exists in the node
  */
 function _bh_add_term(&$node, $tid) {
-  if (isset($node->taxonomy[$tid])) {
-    return;
+  $current = array();
+  foreach($node->field_general_terms as $item) {
+    if (!empty($item['value'])) {
+      $current[] = $item['value'];
+    }
   }
+
+  // Check that term exists in both Content Taxonomy field and core taxonomy field
+  // in order to bail.  Otherwise, we set the missing one below
+  if (isset($node->taxonomy[$tid]) && in_array($tid, $current)) {
+    return FALSE;
+  }
+
   $term = taxonomy_get_term($tid);
+  if (empty($term)) {
+    dpr("Bogus tid ($tid) specified, tried to associate with $node->title");
+    return FALSE;
+  }
   $node->taxonomy[$tid] = $term;
-  if (empty($node->field_terms[0]['value'])) {
-    $node->field_terms[0]['value'] = $tid;
+  if (!in_array($tid, $current)) {
+    if (empty($node->field_general_terms[0]['value'])) {
+      $node->field_general_terms[0]['value'] = $tid;
+    }
+    else {
+      $node->field_general_terms[] = array('value' => $tid);
+    }
   }
-  else {
-    $node->field_terms[] = array('value' => $tid);
-  }
+  return TRUE;
 }
 
 
@@ -289,6 +306,56 @@ function bh_import_test() {
   dpr('done');
   exit;
 
+  // DONE:
+  // Double check current book -> term data with original dataset. Only flag those
+  // that have data in the original dataset, but not in the current data as
+  // new terms may have since been added.
+  $books = build_lookup('book');
+  $terms = build_lookup('terms');
+  // dpr($terms);
+
+    // WHERE Book = 897
+  $results = db_query("
+    SELECT * FROM {data_book_term_relation}
+    WHERE Book IS NOT NULL
+      AND Term IS NOT NULL
+  ");
+  $data = array();
+  while ($row = db_fetch_object($results)) {
+    if (!isset($books[$row->Book])) {
+      dpr("Invalid book ID"); dpr($row);
+      continue;
+    }
+    if (!isset($terms[$row->Term])) {
+      dpr("Invalid term ID"); dpr($row);
+      continue;
+    }
+
+    $data[$books[$row->Book]][] = $terms[$row->Term];
+  }
+
+  $added = array();
+  foreach ($data as $nid => $tids) {
+    $node = node_load($nid);
+    foreach ($tids as $tid) {
+      if (10730 == $tid) {
+        // Skip Advocacy Organization, which was added incorrectly in the original dataset
+        continue;
+      }
+      if (_bh_add_term($node, $tid)) {
+        $term = taxonomy_get_term($tid);
+        $added[$node->title][] = $term->name;
+      }
+    }
+    if (isset($added[$node->title])) {
+      node_save($node);
+      dpr("updated $node->title");
+    }
+  }
+  dpr($added);
+
+
+  // DONE:
   // Update terms for people
   $people = build_lookup('people');
   $books = build_lookup('book');
