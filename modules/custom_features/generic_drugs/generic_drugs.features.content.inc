@@ -1088,11 +1088,11 @@ function generic_drugs_content_default_fields() {
         'format' => 'inline',
       ),
       'teaser' => array(
-        'format' => 'default',
+        'format' => 'link',
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
+        'format' => 'link',
         'exclude' => 0,
       ),
       '4' => array(
