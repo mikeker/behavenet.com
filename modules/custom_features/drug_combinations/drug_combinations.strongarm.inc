@@ -10,14 +10,14 @@ function drug_combinations_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ant_combinations';
-  $strongarm->value = '1';
+  $strongarm->value = '2';
   $export['ant_combinations'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'ant_pattern_combinations';
-  $strongarm->value = 'Drug Combination';
+  $strongarm->value = '[field_combo_titles-raw]';
   $export['ant_pattern_combinations'] = $strongarm;
 
   $strongarm = new stdClass;
