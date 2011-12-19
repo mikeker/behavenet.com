@@ -247,7 +247,22 @@ function generic_drugs_default_page_manager_handlers() {
     $pane->type = 'content_field';
     $pane->subtype = 'field_drug_combo';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'logic' => 'and',
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'generic' => 'generic',
+              'drug' => 'drug',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'label' => 'normal',
       'formatter' => 'default',
@@ -266,6 +281,40 @@ function generic_drugs_default_page_manager_handlers() {
     $display->panels['right'][5] = 'new-8';
     $pane = new stdClass;
     $pane->pid = 'new-9';
+    $pane->panel = 'right';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'drug_combos-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'sources' => 'sources',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_nid_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $display->content['new-9'] = $pane;
+    $display->panels['right'][6] = 'new-9';
+    $pane = new stdClass;
+    $pane->pid = 'new-10';
     $pane->panel = 'top';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -287,10 +336,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-9'] = $pane;
-    $display->panels['top'][0] = 'new-9';
+    $display->content['new-10'] = $pane;
+    $display->panels['top'][0] = 'new-10';
     $pane = new stdClass;
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-11';
     $pane->panel = 'top';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -325,8 +374,8 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-10'] = $pane;
-    $display->panels['top'][1] = 'new-10';
+    $display->content['new-11'] = $pane;
+    $display->panels['top'][1] = 'new-11';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
