@@ -96,12 +96,12 @@ function behavenet_directory_strongarm() {
   $strongarm->name = 'content_extra_weights_directory';
   $strongarm->value = array(
     'title' => '-5',
-    'revision_information' => '0',
-    'author' => '1',
-    'options' => '2',
-    'comment_settings' => '3',
-    'menu' => '-1',
-    'path' => '4',
+    'revision_information' => '1',
+    'author' => '2',
+    'options' => '3',
+    'comment_settings' => '4',
+    'menu' => '0',
+    'path' => '5',
   );
   $export['content_extra_weights_directory'] = $strongarm;
 
