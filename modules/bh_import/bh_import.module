@@ -15,7 +15,6 @@
  *
  */
 
-
 function bh_import_menu () {
   $items = array();
   $items['import_test'] = array(
@@ -303,6 +302,196 @@ function _bh_add_noderef(&$node, $field, $nids) {
 function bh_import_test() {
   ini_set('max_execution_time', 300);
 
+  dpr('done');
+  exit;
+
+
+  // DONE:
+  // Associate imported directory info with locales
+  $dirs = build_lookup('directories');
+  $terms = build_lookup('terms');
+
+  $results = db_query("
+    SELECT links.*, locale.Locale AS locale_name, states.Field1 AS state_name, def.Type AS type
+    FROM {data_directory_links_location_relation} AS links
+    INNER JOIN {data_directory_links_definition_relation} AS def
+      ON def.Link = links.ID
+    INNER JOIN {data_states} AS states
+      ON states.ID = links.State
+    LEFT JOIN {data_locale} AS locale
+      ON locale.ID = links.Locale
+    WHERE links.Link IS NOT NULL
+      AND def.Type != 5479
+    ");
+  $data = array();
+  while ($row = db_fetch_object($results)) {
+    $data[$row->Link][] = $row;
+  }
+  dpr('Working on ' . count($data) . ' rows');
+
+  $states = array();  // Store state terms so we don't have to look them up over and over
+  $types = array();   // Ditto directory types
+
+  foreach ($data as $dir_old_id => $locations) {
+    if (!isset($dirs[$dir_old_id])) {
+      dpr("Bogus directory link specified: $dir_old_id");
+      continue;
+    }
+    $node = node_load($dirs[$dir_old_id]);
+
+    foreach ($locations as $location) {
+      if (empty($location->state_name)) {
+        dpr("Bogus state specified");
+        dpr($location);
+        continue;
+      }
+
+      // Check if we have data for this state, collect if we don't
+      if (!isset($states[$location->state_name])) {
+        $possible = taxonomy_get_term_by_name($location->state_name);
+        foreach ($possible as $option) {
+          if (13 != $option->vid) {
+            continue;
+          }
+          else {
+            $states[$location->state_name] = $option;
+            break;
+          }
+        }
+      }
+
+      if (!isset($types[$location->type])) {
+        $type = taxonomy_get_term($terms[$location->type]);
+        if (empty($type)) {
+          dpr("Bogus type specified"); dpr($location);
+          continue;
+        }
+        $types[$location->type] = $type;
+      }
+
+      // If locale exists, then use that plus the parent state to find the appropriate
+      // location term.  Otherwise, just use the state name
+      $term_to_add = array();
+      if (empty($location->locale_name)) {
+        // Just associate with the state.
+        $term_to_add = $states[$location->state_name];
+      }
+      else {
+        // Find the location with the correct state as a parent
+        $possible = taxonomy_get_term_by_name($location->locale_name);
+        foreach ($possible as $option) {
+          if (13 != $option->vid) {
+            continue;
+          }
+          else {
+            $parents = taxonomy_get_parents($option->tid);
+            // NOTE: we know there is only one parent for each location
+            $parent = array_pop($parents);
+            if ($parent->name == $location->state_name) {
+              $term_to_add = $option;
+            }
+            else {
+              continue;
+            }
+          }
+        }
+      }
+
+      if (empty($term_to_add)) {
+        dpr("Bogus location specified: "); dpr($location);
+      }
+      else {
+        // Add location and type to node
+        $type = $types[$location->type];
+        $node->taxonomy[$term_to_add->tid] = $term_to_add;
+        $node->taxonomy[$type->tid] = $type;
+        if (empty($node->field_location[0]['value'])) {
+          $node->field_location[0]['value'] = $term_to_add->tid;
+        }
+        else {
+          $node->field_location[] = array('value' => $term_to_add->tid);
+        }
+
+        _bh_add_term($node, $type->tid);
+
+      }
+    }     // foreach ($locations as $location) {
+
+    // Clean up locations in case we have duplicates
+    $all_locs = array();
+    foreach ($node->field_location as $entry) {
+      if (!empty($entry['value'])) {
+        $all_locs[] = $entry['value'];
+      }
+      $all_locs = array_unique($all_locs);
+    }
+    $node->field_location = array();
+    for ($i = 0; $i < count($all_locs); $i++) {
+      $node->field_location[$i] = array('value' => $all_locs[$i]);
+    }
+
+    node_save($node);
+    // if (26107 == $node->nid) {
+      // dpr($all_locs);
+      // dpr($node); exit;
+    // }
+    dpr("Updated $node->title");
+  }
+
+
+  // DONE:
+  // First setup Location taxonomy heirarchy
+  $results = db_query("
+    SELECT links.*, locale.Locale AS locale_name, states.Field1 AS state_name, def.Type AS type
+    FROM {data_directory_links_location_relation} AS links
+    INNER JOIN {data_states} AS states
+      ON states.ID = links.State
+    INNER JOIN {data_locale} AS locale
+      ON locale.ID = links.Locale
+    INNER JOIN {data_directory_links_definition_relation} AS def
+      ON def.Link = links.ID
+    WHERE links.State IS NOT NULL
+      AND links.Locale IS NOT NULL
+      AND def.Type != 5479
+  ");
+  $data = array();
+  while ($row = db_fetch_object($results)) {
+    if (!isset($data[$row->state_name][$row->locale_name])) {
+      $data[$row->state_name][$row->locale_name] = $row;
+    }
+  }
+
+  foreach ($data as $state => $locales) {
+    $possible = taxonomy_get_term_by_name($state);
+    $state_term = array();
+    foreach ($possible as $option) {
+      if (13 != $option->vid) {
+        continue;
+      }
+      else {
+        $state_term = $option;
+        break;
+      }
+    }
+
+    if (empty($state_term)) {
+      dpr("Bogus state specified: $state");
+    }
+
+    // Add each locale as a child to this state
+    foreach ($locales as $locale) {
+      $term = array(
+        'vid' => 13,
+        'name' => $locale->locale_name,
+        'parent' => array($state_term->tid),
+      );
+      taxonomy_save_term($term);
+      dpr("Added $locale->locale_name to $state_term->name");
+    }
+  }
+
+
+  // DONE:
   // Convert drug combo titles from default value to the first title listed
   // in the content.  Rely on auto_nodetitle to handle the processing
   $results = db_query("
@@ -319,8 +508,6 @@ function bh_import_test() {
   }
 
 
-  dpr('done');
-  exit;
 
   // DONE:
   // Double check current book -> term data with original dataset. Only flag those
