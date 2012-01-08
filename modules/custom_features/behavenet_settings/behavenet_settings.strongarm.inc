@@ -31,7 +31,7 @@ function behavenet_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'betterselect_node_form_only';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['betterselect_node_form_only'] = $strongarm;
 
   $strongarm = new stdClass;
