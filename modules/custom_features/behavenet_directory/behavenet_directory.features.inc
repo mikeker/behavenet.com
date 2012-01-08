@@ -29,3 +29,12 @@ function behavenet_directory_node_info() {
   );
   return $items;
 }
+
+/**
+ * Implementation of hook_views_api().
+ */
+function behavenet_directory_views_api() {
+  return array(
+    'api' => '2',
+  );
+}
