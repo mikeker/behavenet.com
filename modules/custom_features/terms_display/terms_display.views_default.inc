@@ -11,10 +11,9 @@ function terms_display_views_default_views() {
   $view->name = 'DSM_Criteria';
   $view->description = 'Displays DSM criteria for given term';
   $view->tag = 'behavenet';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -266,7 +265,7 @@ if (count($data->node_data_field_dsm_version_field_dsm_version_value) > 1) {
       'field' => 'tid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'override' => array(
         'button' => 'Override',
@@ -296,15 +295,15 @@ if (count($data->node_data_field_dsm_version_field_dsm_version_value) > 1) {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '9' => 0,
-        '3' => 0,
-        '10' => 0,
-        '4' => 0,
-        '8' => 0,
-        '11' => 0,
-        '2' => 0,
-        '5' => 0,
-        '7' => 0,
+        9 => 0,
+        3 => 0,
+        10 => 0,
+        4 => 0,
+        8 => 0,
+        11 => 0,
+        2 => 0,
+        5 => 0,
+        7 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -580,7 +579,7 @@ print implode(\'<hr />\', $output);
       'field' => 'nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -614,15 +613,15 @@ print implode(\'<hr />\', $output);
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '9' => 0,
-        '3' => 0,
-        '10' => 0,
-        '4' => 0,
-        '8' => 0,
-        '11' => 0,
-        '2' => 0,
-        '5' => 0,
-        '7' => 0,
+        9 => 0,
+        3 => 0,
+        10 => 0,
+        4 => 0,
+        8 => 0,
+        11 => 0,
+        2 => 0,
+        5 => 0,
+        7 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -667,10 +666,9 @@ print implode(\'<hr />\', $output);
   $view->name = 'Terms';
   $view->description = '';
   $view->tag = 'behavenet';
-  $view->view_php = '';
   $view->base_table = 'term_data';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -815,7 +813,7 @@ print implode(\'<hr />\', $output);
       'field' => 'tid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -838,12 +836,12 @@ print implode(\'<hr />\', $output);
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '5' => 5,
-        '3' => 0,
-        '4' => 0,
-        '8' => 0,
-        '2' => 0,
-        '7' => 0,
+        5 => 5,
+        3 => 0,
+        4 => 0,
+        8 => 0,
+        2 => 0,
+        7 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -1055,10 +1053,9 @@ print implode(\'<hr />\', $output);
   $view->name = 'list_terms';
   $view->description = '';
   $view->tag = 'behavenet';
-  $view->view_php = '';
   $view->base_table = 'term_data';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -1157,7 +1154,7 @@ print implode(\'<hr />\', $output);
     'vid' => array(
       'operator' => 'in',
       'value' => array(
-        '5' => '5',
+        5 => '5',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -1246,7 +1243,7 @@ print implode(\'<hr />\', $output);
     'vid' => array(
       'operator' => 'in',
       'value' => array(
-        '5' => '5',
+        5 => '5',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -1302,10 +1299,9 @@ print implode(\'<hr />\', $output);
   $view->name = 'terms_extras';
   $view->description = 'Extra data for terms based on Taxonomy Tweaks extras content type';
   $view->tag = 'behavenet';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -1406,7 +1402,7 @@ print implode(\'<hr />\', $output);
       'field' => 'field_tt_extras_term_value',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -1435,15 +1431,15 @@ print implode(\'<hr />\', $output);
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '9' => 9,
-        '3' => 3,
-        '10' => 10,
-        '4' => 4,
-        '2' => 2,
-        '5' => 5,
-        '8' => 0,
-        '11' => 0,
-        '7' => 0,
+        9 => 9,
+        3 => 3,
+        10 => 10,
+        4 => 4,
+        2 => 2,
+        5 => 5,
+        8 => 0,
+        11 => 0,
+        7 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
