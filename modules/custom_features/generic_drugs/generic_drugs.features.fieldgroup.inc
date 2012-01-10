@@ -18,7 +18,7 @@ function generic_drugs_fieldgroup_default_groups() {
         'description' => '',
       ),
       'display' => array(
-        'weight' => '6',
+        'weight' => '7',
         'parent' => '',
         'label' => 'above',
         'teaser' => array(
@@ -48,7 +48,7 @@ function generic_drugs_fieldgroup_default_groups() {
         ),
       ),
     ),
-    'weight' => '6',
+    'weight' => '7',
     'parent' => '',
     'fields' => array(
       '0' => 'field_generic_graphic',

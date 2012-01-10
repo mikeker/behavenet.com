@@ -11,7 +11,7 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_actions',
     'type_name' => 'generic',
     'display_settings' => array(
-      'weight' => '2',
+      'weight' => '3',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -62,7 +62,7 @@ function generic_drugs_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Actions',
-      'weight' => '2',
+      'weight' => '3',
       'description' => '',
       'type' => 'content_taxonomy_select',
       'module' => 'content_taxonomy_options',
@@ -346,6 +346,70 @@ function generic_drugs_content_default_fields() {
     ),
   );
 
+  // Exported field: field_effect_class
+  $fields['generic-field_effect_class'] = array(
+    'field_name' => 'field_effect_class',
+    'type_name' => 'generic',
+    'display_settings' => array(
+      'weight' => '2',
+      'parent' => '',
+      'label' => array(
+        'format' => 'inline',
+      ),
+      'teaser' => array(
+        'format' => 'link',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'link',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'content_taxonomy',
+    'required' => '0',
+    'multiple' => '1',
+    'module' => 'content_taxonomy',
+    'active' => '1',
+    'save_term_node' => 1,
+    'vid' => '12',
+    'parent' => '0',
+    'parent_php_code' => '',
+    'depth' => '',
+    'widget' => array(
+      'group_parent' => '0',
+      'show_depth' => 1,
+      'default_value' => array(
+        '0' => array(
+          'value' => NULL,
+        ),
+      ),
+      'default_value_php' => NULL,
+      'expand_all' => 0,
+      'label' => 'Effect Class',
+      'weight' => '2',
+      'description' => '',
+      'type' => 'content_taxonomy_tree',
+      'module' => 'content_taxonomy_tree',
+    ),
+  );
+
   // Exported field: field_gen_slang_terms
   $fields['generic-field_gen_slang_terms'] = array(
     'field_name' => 'field_gen_slang_terms',
@@ -538,7 +602,7 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_generic_active_metabolite',
     'type_name' => 'generic',
     'display_settings' => array(
-      'weight' => '5',
+      'weight' => '6',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -604,7 +668,7 @@ function generic_drugs_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Active Metabolite',
-      'weight' => '5',
+      'weight' => '6',
       'description' => '',
       'type' => 'nodereference_autocomplete',
       'module' => 'nodereference',
@@ -872,7 +936,7 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_generic_precursor',
     'type_name' => 'generic',
     'display_settings' => array(
-      'weight' => '4',
+      'weight' => '5',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -929,7 +993,7 @@ function generic_drugs_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Precursor',
-      'weight' => '4',
+      'weight' => '5',
       'description' => '',
       'type' => 'nodereference_autocomplete',
       'module' => 'nodereference',
@@ -941,7 +1005,7 @@ function generic_drugs_content_default_fields() {
     'field_name' => 'field_generic_schedule',
     'type_name' => 'generic',
     'display_settings' => array(
-      'weight' => '3',
+      'weight' => '4',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -995,7 +1059,7 @@ function generic_drugs_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Schedule',
-      'weight' => '3',
+      'weight' => '4',
       'description' => '',
       'type' => 'optionwidgets_buttons',
       'module' => 'optionwidgets',
@@ -1340,6 +1404,7 @@ function generic_drugs_content_default_fields() {
   t('Compound');
   t('Credit');
   t('DEA Number');
+  t('Effect Class');
   t('Graphic');
   t('Isomer');
   t('Medline Plus Web site');
