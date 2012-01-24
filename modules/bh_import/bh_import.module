@@ -269,6 +269,31 @@ function _bh_add_term(&$node, $tid) {
 
 
 /**
+ * Compacts a Content Taxonomy field -- useful when removing terms from nodes
+ * programmatically
+ */
+function _bh_compress_field(&$node, $field_name, $key = 'value') {
+  // Collect valid values
+  $valid = array();
+  foreach ($node->$field_name as $index => $item) {
+    if (!empty($item[$key])) {
+      $valid[] = $item[$key];
+    }
+  }
+
+  // Rebuild CT field
+  $node->$field_name = array();
+  if (0 == count($valid)) {
+    $node->{$field_name}[] = array($key => '');
+  }
+  else {
+    foreach ($valid as $item) {
+      $node->{$field_name}[] = array($key => $item);
+    }
+  }
+}
+
+/**
  * Adds one or more noderefs to a given field in a node, checking for dups and
  * removing blank entries that are sometimes added by previous imports
  */
@@ -302,8 +327,92 @@ function _bh_add_noderef(&$node, $field, $nids) {
 function bh_import_test() {
   ini_set('max_execution_time', 300);
 
-  dpr('done');
+  dpr("done. Fixed " . count($count) . " records");
+  dpr($count);
   exit;
+
+  // DONE:
+  // Update generic node info for drugs that have moved from onc
+  // vocab to another.  Current only handles the move from clinical
+  // class to effect class.
+  $results = db_query("
+    SELECT nid FROM {node}
+    WHERE type = 'generic'
+  ");
+  $count = array();
+  while ($nid = db_result($results)) {
+    $node = node_load($nid);
+    $found_errors = FALSE;
+
+    // Collect existing Content Taxonomy entries for effect and clinical classes
+    $effects = $clinicals = array();
+    foreach ($node->field_effect_class as $info) {
+      if (!empty($info['value'])) {
+        $effects[] = $info['value'];
+      }
+    }
+    foreach ($node->field_clinical_class as $info) {
+      if (!empty($info['value'])) {
+        $clinicals[] = $info['value'];
+      }
+    }
+
+    // Sync Content Taxonomy entries with what's stored in $node->taxonomy
+    foreach ($node->taxonomy as $tid => $term) {
+      // Clinical class vid = 10, Effect class vid = 12
+      if (10 == $term->vid) {
+        // Is it in the CT entry?
+        if (!in_array($tid, $clinicals)) {
+          dpr('Found a missing clinical class entry in ' . $node->title);
+          $found_errors = TRUE;
+          if (empty($node->field_clinical_class[0]['value'])) {
+            $node->field_clinical_class[0]['value'] = $tid;
+          }
+          else {
+            $node->field_clinical_class[] = array('value' => $tid);
+          }
+        }
+        if (in_array($tid, $effects)) {
+          dpr('... and it is marked as effect class instead');
+          foreach ($node->field_effect_class as $index => $item) {
+            if ($tid == $item['value']) {
+              unset ($node->field_effect_class[$index]);
+            }
+          }
+        }
+      }
+      else if (12 == $term->vid) {
+        if (!in_array($tid, $effects)) {
+          $found_errors = TRUE;
+          dpr('Found a missing effect class entry in ' . $node->title);
+          if (empty($node->field_effect_class[0]['value'])) {
+            $node->field_effect_class[0]['value'] = $tid;
+          }
+          else {
+            $node->field_effect_class[] = array('value' => $tid);
+          }
+        }
+        if (in_array($tid, $clinicals)) {
+          dpr('... and it is marked as clinical class instead');
+          foreach ($node->field_clinical_class as $index => $item) {
+            if ($tid == $item['value']) {
+              unset ($node->field_clinical_class[$index]);
+            }
+          }
+        }
+      }
+    }
+
+    if ($found_errors) {
+      $count[] = $node->title;
+      _bh_compress_field($node, 'field_clinical_class');
+      _bh_compress_field($node, 'field_effect_class');
+      dpr($node->field_clinical_class);
+      dpr($node->field_effect_class);
+
+      node_save($node);
+    }
+  }
 
 
   // DONE:
@@ -315,7 +424,7 @@ function bh_import_test() {
     SELECT links.*, locale.Locale AS locale_name, states.Field1 AS state_name, def.Type AS type
     FROM {data_directory_links_location_relation} AS links
     INNER JOIN {data_directory_links_definition_relation} AS def
-      ON def.Link = links.ID
+      ON def.Link = links.Link
     INNER JOIN {data_states} AS states
       ON states.ID = links.State
     LEFT JOIN {data_locale} AS locale
@@ -398,23 +507,31 @@ function bh_import_test() {
       }
 
       if (empty($term_to_add)) {
-        dpr("Bogus location specified: "); dpr($location);
+        // We missed this location in the initial import due to confusion over ID vs. Link ID
+        $term = array(
+          'vid' => 13,
+          'name' => $locale->locale_name,
+          'parent' => array($states[$location->state_name]->tid),
+        );
+        taxonomy_save_term($term);
+        $term_to_add = (object)$term;
+      }
+      // Add location and type to node
+      $type = $types[$location->type];
+      $node->taxonomy[$term_to_add->tid] = $term_to_add;
+      $node->taxonomy[$type->tid] = $type;
+      if (empty($node->field_location[0]['value'])) {
+        $node->field_location[0]['value'] = $term_to_add->tid;
       }
       else {
-        // Add location and type to node
-        $type = $types[$location->type];
-        $node->taxonomy[$term_to_add->tid] = $term_to_add;
-        $node->taxonomy[$type->tid] = $type;
-        if (empty($node->field_location[0]['value'])) {
-          $node->field_location[0]['value'] = $term_to_add->tid;
-        }
-        else {
-          $node->field_location[] = array('value' => $term_to_add->tid);
-        }
-
-        _bh_add_term($node, $type->tid);
-
+        $node->field_location[] = array('value' => $term_to_add->tid);
       }
+
+      // Reset terms to remove old imported data.  Since these are recent
+      // imports, we know there are no other terms associated with them
+      $node->field_general_terms = array(0 => array('value' => ''));
+      _bh_add_term($node, $type->tid);
+
     }     // foreach ($locations as $location) {
 
     // Clean up locations in case we have duplicates
@@ -431,12 +548,9 @@ function bh_import_test() {
     }
 
     node_save($node);
-    // if (26107 == $node->nid) {
-      // dpr($all_locs);
-      // dpr($node); exit;
-    // }
     dpr("Updated $node->title");
   }
+
 
 
   // DONE:
