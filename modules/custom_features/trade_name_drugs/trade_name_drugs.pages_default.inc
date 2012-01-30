@@ -50,7 +50,7 @@ function trade_name_drugs_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->layout = 'twocol_stacked';
+  $display->layout = 'onecol';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -59,6 +59,7 @@ function trade_name_drugs_default_page_manager_handlers() {
       'left' => array(),
       'right' => array(),
       'bottom' => array(),
+      'middle' => NULL,
     ),
     'style' => 'stylizer',
     'top' => array(
@@ -80,7 +81,7 @@ function trade_name_drugs_default_page_manager_handlers() {
   $display->panels = array();
     $pane = new stdClass;
     $pane->pid = 'new-1';
-    $pane->panel = 'left';
+    $pane->panel = 'middle';
     $pane->type = 'node_content';
     $pane->subtype = 'node_content';
     $pane->shown = TRUE;
@@ -109,10 +110,10 @@ function trade_name_drugs_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $display->content['new-1'] = $pane;
-    $display->panels['left'][0] = 'new-1';
+    $display->panels['middle'][0] = 'new-1';
     $pane = new stdClass;
     $pane->pid = 'new-2';
-    $pane->panel = 'left';
+    $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Indications-panel_pane_1';
     $pane->shown = TRUE;
@@ -130,37 +131,10 @@ function trade_name_drugs_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 1;
     $display->content['new-2'] = $pane;
-    $display->panels['left'][1] = 'new-2';
+    $display->panels['middle'][1] = 'new-2';
     $pane = new stdClass;
     $pane->pid = 'new-3';
-    $pane->panel = 'right';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_drug_image';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'normal',
-      'formatter' => 'image_plain',
-      'context' => 'argument_nid_1',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => array(),
-      'style' => 'stylizer',
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'float-right',
-    );
-    $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-3'] = $pane;
-    $display->panels['right'][0] = 'new-3';
-    $pane = new stdClass;
-    $pane->pid = 'new-4';
-    $pane->panel = 'right';
+    $pane->panel = 'middle';
     $pane->type = 'content_field';
     $pane->subtype = 'field_outside_video';
     $pane->shown = TRUE;
@@ -182,12 +156,12 @@ function trade_name_drugs_default_page_manager_handlers() {
       'css_class' => 'float-right',
     );
     $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-4'] = $pane;
-    $display->panels['right'][1] = 'new-4';
+    $pane->position = 2;
+    $display->content['new-3'] = $pane;
+    $display->panels['middle'][2] = 'new-3';
     $pane = new stdClass;
-    $pane->pid = 'new-5';
-    $pane->panel = 'right';
+    $pane->pid = 'new-4';
+    $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'Media';
     $pane->shown = TRUE;
@@ -217,9 +191,9 @@ function trade_name_drugs_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-5'] = $pane;
-    $display->panels['right'][2] = 'new-5';
+    $pane->position = 3;
+    $display->content['new-4'] = $pane;
+    $display->panels['middle'][3] = 'new-4';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

@@ -27,7 +27,7 @@ function general_content_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->layout = 'twocol_stacked';
+  $display->layout = 'onecol';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -45,7 +45,7 @@ function general_content_default_page_manager_handlers() {
   $display->panels = array();
     $pane = new stdClass;
     $pane->pid = 'new-1';
-    $pane->panel = 'top';
+    $pane->panel = 'middle';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -67,10 +67,10 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane->extras = array();
     $pane->position = 0;
     $display->content['new-1'] = $pane;
-    $display->panels['top'][0] = 'new-1';
+    $display->panels['middle'][0] = 'new-1';
     $pane = new stdClass;
     $pane->pid = 'new-2';
-    $pane->panel = 'top';
+    $pane->panel = 'middle';
     $pane->type = 'node_content';
     $pane->subtype = 'node_content';
     $pane->shown = TRUE;
@@ -95,10 +95,10 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane->extras = array();
     $pane->position = 1;
     $display->content['new-2'] = $pane;
-    $display->panels['top'][1] = 'new-2';
+    $display->panels['middle'][1] = 'new-2';
     $pane = new stdClass;
     $pane->pid = 'new-3';
-    $pane->panel = 'top';
+    $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Indications-panel_pane_2';
     $pane->shown = TRUE;
@@ -129,7 +129,7 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane->extras = array();
     $pane->position = 2;
     $display->content['new-3'] = $pane;
-    $display->panels['top'][2] = 'new-3';
+    $display->panels['middle'][2] = 'new-3';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
