@@ -1,0 +1,197 @@
+// Defaults
+@space-v = 10px;
+@space-h = 10px;
+@highlight = #EAF3F8;
+@background = #F6F6F6;
+
+// Mixins
+.rounded(@radius: 15px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+}
+
+
+/*
+ * General styling
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+/*
+ * Major zone styling
+ */
+#page {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/*
+ * These are elements that should be flush left or, in the case of
+ * panel-region-separator, provide an easy proxy for what needs to be flushed
+ * left.
+ */
+#page-title,
+.panel-region-separator,
+.clear-fix
+{
+  clear: left;
+}
+
+
+/*
+ * Menus
+ */
+div.tabs {
+  // page-based contextual links
+  clear: left;
+}
+ul.menu {
+
+}
+ul.menu li {
+  float: left;
+  list-style: none;
+}
+ul.menu li a {
+  text-decoration: none;
+  padding: (@space-v / 2) @space-h;
+}
+ul.menu li a:hover {
+  background-color: @highlight;
+}
+#page-left-sidebar ul.menu {
+  padding: 0 @space-h;
+}
+#page-left-sidebar ul.menu li {
+  float: none;
+  font-size: 85%;
+}
+#page-left-sidebar ul.menu li a {
+  padding: 0;
+  padding-left: (2 * @space-h);
+  text-indent: (-2 * @space-h);
+  display: block;  
+}
+
+
+/*
+ * Main page callout
+ */
+#page-main-callout {
+  background: @background;
+  padding: @space-v @space-h;
+  .rounded();
+}
+
+/*
+ * Books and Movies view (Media view)
+ */
+.view-content h3 {
+  clear: left;
+}
+.books-and-movies {
+  float: left;
+  width: 220px;
+  margin: @space-h @space-v;
+  text-align: center;
+  padding: @space-v @space-h;
+  background-color: @background;
+  .rounded();
+}
+.views-row-odd .books-and-movies,
+.views-row-first .books-and-movies
+{
+  clear: left;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+ * Misc fixes
+ */
+
+// @TODO: Should do this by resizing the image, but waiting until we have a final design
+#logo img {
+  width: 160px;
+}
+
+// @TODO: Need to add "view" class to the outside div, but Panels isn't doing the right thing...
+div.views-admin-links {
+  font-size: xx-small;
+  margin-right: 1em;
+  margin-top: 1em;
+/*  width: 95%; */
+}
+
+.block div.views-admin-links {
+  margin-top: 0;
+}
+
+div.views-admin-links ul {
+  margin: 0;
+  padding: 0;
+}
+
+div.views-admin-links li {
+  margin: 0;
+  padding: 0 0 2px 0;
+  z-index: 201;
+}
+
+div.views-admin-links li a {
+  padding: 0;
+  margin: 0;
+  color: #ccc;
+}
+
+div.views-admin-links li a:before {
+  content: "[";
+}
+div.views-admin-links li a:after {
+  content: "]";
+}
+
+div.views-admin-links-hover a,
+div.views-admin-links:hover a {
+  color: #000;
+}
+
+div.views-admin-links-hover,
+div.views-admin-links:hover {
+  background: transparent;
+}
+
+div.views-hide {
+  display: none;
+}
+
+/** For IE we add the class via js; for other browsers we rely on :hover **/
+div.views-hide-hover,
+div.view:hover div.views-hide {
+  display: block;
+  position: absolute;
+  z-index: 200;
+}
+
+/* don't do this one in IE */
+div.view:hover div.views-hide {
+  margin-top: -1.5em;
+}
+
+/* Remove the border on tbody that system puts in */
+.views-view-grid tbody {
+  border-top: none;
+}
+
+
+

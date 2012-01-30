@@ -1,0 +1,20 @@
+#page-left-sidebar {
+  float: left;
+  width: 160px;
+  margin-left: -100%;
+}
+#page-main-wrapper {
+  float: left;
+  width: 100%;
+}
+#page-main-callout {
+  float: right;
+  clear: right;
+  width: 240px;
+}
+#page-main, #page-header, #page-footer {
+  margin-left: 170px;
+}
+#page-footer {  
+  clear: both;
+}

@@ -1,7 +1,8 @@
 <?php
 
-// function behavenet_preprocess_page(&$vars) {
-// }
+function behavenet_preprocess_page(&$vars) {
+  print "hi"; exit;
+}
 
 /**
  * Preprocess function for CCK fields.
@@ -108,16 +109,17 @@ function behavenet_preprocess_panels_pane(&$vars) {
   // Reformat drug combinations
   // TBD: No longer used?
   if ('content_field' == $output->type && 'field_drug_combo' == $output->subtype) {
-    dsm("DEBUG: this part has been removed");
-    // $node = $vars['display']->context['argument_nid_1']->data;
-    // $combos = array();
-    // foreach ($node->field_drug_combo as $nid) {
-      // $combo = node_load($nid['nid']);
-      // if (empty($combo)) {
-        // continue;
-      // }
-//
-      // if ('drug' == $node->type) {
+    $node = $vars['display']->context['argument_nid_1']->data;
+    $combos = array();
+    foreach ($node->field_drug_combo as $nid) {
+      $combo = node_load($nid['nid']);
+      if (empty($combo)) {
+        continue;
+      }
+
+      if ('drug' == $node->type) {
+        dsm("DEBUG: this part has been removed");
+
         // // If this is a tradename drug being displayed, show the associated combo
         // // as a list of the generics in the combo
         // $titles = array();
@@ -136,9 +138,9 @@ function behavenet_preprocess_panels_pane(&$vars) {
           // 'a combination of ' . implode(', ', $titles) . " and $last";
         // }
         // $combos[] = $text;
-      // }
-    // }
-//
+      }
+    }
+
     // // Display as an unordered list
     // if (count($combos)) {
       // $vars['content'] = '<ul class="drug-combos"><li>'
