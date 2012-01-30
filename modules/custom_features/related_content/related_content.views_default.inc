@@ -11,10 +11,9 @@ function related_content_views_default_views() {
   $view->name = 'related_content';
   $view->description = 'Shows related content for a given term';
   $view->tag = 'behavenet';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -173,8 +172,10 @@ function related_content_views_default_views() {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -189,10 +190,13 @@ function related_content_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'value' => '<?php
 if (empty($data->amazon_item_node_data_field_general_asin__amazon_item_image_url)) {
   // No ASIN information, use the node title
+  print \'<div class="clear-fix">\';
   print l($data->node_title, "node/$data->nid");
+  print \'</div>\';
 }
 else {
   // Show Amazon item image and link to Amazon\'s site
@@ -205,9 +209,11 @@ else {
     . \'" width="\'
     . $data->amazon_item_node_data_field_general_asin__amazon_item_image_width
     . \'" />\';
+  print \'<div class="books-and-movies">\';
   print l($img, $data->amazon_item_node_data_field_general_asin_detailpageurl, array(\'html\' => TRUE));
   print \'<br />\';
   print l($data->amazon_item_node_data_field_general_asin_title, $data->amazon_item_node_data_field_general_asin_detailpageurl);
+  print \'</div>\';
 }
 ?>',
       'exclude' => 0,
@@ -243,7 +249,7 @@ else {
       'field' => 'tid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -269,14 +275,14 @@ else {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '9' => 0,
-        '3' => 0,
-        '10' => 0,
-        '4' => 0,
-        '8' => 0,
-        '2' => 0,
-        '5' => 0,
-        '7' => 0,
+        9 => 0,
+        3 => 0,
+        10 => 0,
+        4 => 0,
+        8 => 0,
+        2 => 0,
+        5 => 0,
+        7 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -317,6 +323,10 @@ else {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
+  $handler->override_option('header_format', '2');
+  $handler->override_option('header_empty', 0);
+  $handler->override_option('footer_format', '2');
+  $handler->override_option('footer_empty', 0);
   $handler->override_option('use_ajax', TRUE);
   $handler->override_option('items_per_page', 15);
   $handler->override_option('use_pager', 'mini');
@@ -376,7 +386,7 @@ else {
       'field' => 'field_generic_sources_nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'override' => array(
         'button' => 'Use default',
@@ -405,14 +415,14 @@ else {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '9' => 0,
-        '3' => 0,
-        '10' => 0,
-        '4' => 0,
-        '8' => 0,
-        '2' => 0,
-        '5' => 0,
-        '7' => 0,
+        9 => 0,
+        3 => 0,
+        10 => 0,
+        4 => 0,
+        8 => 0,
+        2 => 0,
+        5 => 0,
+        7 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,

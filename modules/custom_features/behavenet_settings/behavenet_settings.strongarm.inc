@@ -9,9 +9,51 @@ function behavenet_settings_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'add_date_format_title';
-  $strongarm->value = '';
-  $export['add_date_format_title'] = $strongarm;
+  $strongarm->name = 'theme_default';
+  $strongarm->value = 'behavenet';
+  $export['theme_default'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_masks';
+  $strongarm->value = array(
+    0 => 127,
+    1 => 125,
+    2 => 63,
+    3 => 62,
+    4 => 61,
+    5 => 59,
+    6 => 58,
+    7 => 57,
+    8 => 56,
+    9 => 44,
+    10 => 31,
+    11 => 30,
+    12 => 29,
+    13 => 28,
+    14 => 24,
+    15 => 23,
+    16 => 21,
+    17 => 15,
+    18 => 14,
+    19 => 11,
+    20 => 7,
+    21 => 6,
+    22 => 5,
+    23 => 4,
+    24 => 3,
+    25 => 2,
+    26 => 1,
+  );
+  $export['menu_masks'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_expanded';
+  $strongarm->value = array();
+  $export['menu_expanded'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -19,6 +61,53 @@ function behavenet_settings_strongarm() {
   $strongarm->name = 'add_date_format_type';
   $strongarm->value = '';
   $export['add_date_format_type'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'add_date_format_title';
+  $strongarm->value = '';
+  $export['add_date_format_title'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'views_bulk_operations_actions';
+  $strongarm->value = 'a:11:{i:0;s:10:"user_roles";i:1;s:6:"delete";i:2;s:16:"content_taxonomy";i:3;s:7:"profile";i:4;s:4:"book";i:5;s:7:"archive";i:6;s:7:"ruleset";i:7;s:6:"fields";i:8;s:8:"taxonomy";i:9;s:17:"argument_selector";i:10;s:6:"script";}';
+  $export['views_bulk_operations_actions'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'theme_behavenet_settings';
+  $strongarm->value = array(
+    'toggle_logo' => 1,
+    'toggle_name' => 1,
+    'toggle_slogan' => 0,
+    'toggle_mission' => 1,
+    'toggle_node_user_picture' => 0,
+    'toggle_comment_user_picture' => 0,
+    'toggle_search' => 1,
+    'toggle_favicon' => 1,
+    'toggle_primary_links' => 1,
+    'toggle_secondary_links' => 1,
+    'default_logo' => 0,
+    'logo_path' => 'sites/behavenet.com/themes/Behavenet/images/BehaveNet-logo-with-text.jpg',
+    'logo_upload' => '',
+    'default_favicon' => 1,
+    'favicon_path' => '',
+    'favicon_upload' => '',
+    'zen_block_editing' => 1,
+    'zen_breadcrumb' => 'yes',
+    'zen_breadcrumb_separator' => ' › ',
+    'zen_breadcrumb_home' => 1,
+    'zen_breadcrumb_trailing' => 1,
+    'zen_breadcrumb_title' => 0,
+    'zen_rebuild_registry' => 1,
+    'zen_layout' => 'zen-columns-liquid',
+    'zen_wireframes' => 0,
+  );
+  $export['theme_behavenet_settings'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -124,48 +213,6 @@ function behavenet_settings_strongarm() {
   $strongarm->name = 'filter_html_1';
   $strongarm->value = 1;
   $export['filter_html_1'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'menu_expanded';
-  $strongarm->value = array();
-  $export['menu_expanded'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'menu_masks';
-  $strongarm->value = array(
-    0 => 127,
-    1 => 125,
-    2 => 63,
-    3 => 62,
-    4 => 61,
-    5 => 59,
-    6 => 58,
-    7 => 57,
-    8 => 56,
-    9 => 44,
-    10 => 31,
-    11 => 30,
-    12 => 29,
-    13 => 28,
-    14 => 24,
-    15 => 23,
-    16 => 21,
-    17 => 15,
-    18 => 14,
-    19 => 11,
-    20 => 7,
-    21 => 6,
-    22 => 5,
-    23 => 4,
-    24 => 3,
-    25 => 2,
-    26 => 1,
-  );
-  $export['menu_masks'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -588,73 +635,6 @@ function behavenet_settings_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'theme_behavenet_settings';
-  $strongarm->value = array(
-    'user_notverified_display' => 1,
-    'breadcrumb_display' => 1,
-    'search_snippet' => 1,
-    'search_info_type' => 1,
-    'search_info_user' => 1,
-    'search_info_date' => 1,
-    'search_info_comment' => 1,
-    'search_info_upload' => 1,
-    'rebuild_registry' => 0,
-    'fix_css_limit' => 0,
-    'block_config_link' => 1,
-    'grid_mask' => 0,
-    'theme_grid' => 'grid16-960',
-    'fluid_grid_width' => 'fluid-100',
-    'sidebar_layout' => 'sidebars-split',
-    'sidebar_first_width' => '3',
-    'sidebar_last_width' => '3',
-    'theme_font' => 'none',
-    'theme_font_size' => 'font-size-12',
-    'primary_menu_dropdown' => 1,
-    'mission' => '',
-    'default_logo' => 1,
-    'logo_path' => '',
-    'default_favicon' => 1,
-    'favicon_path' => '',
-    'primary_links' => 1,
-    'secondary_links' => 1,
-    'toggle_logo' => 1,
-    'toggle_favicon' => 1,
-    'toggle_name' => 1,
-    'toggle_search' => 1,
-    'toggle_slogan' => 0,
-    'toggle_mission' => 1,
-    'toggle_node_user_picture' => 0,
-    'toggle_comment_user_picture' => 0,
-    'toggle_primary_links' => 1,
-    'toggle_secondary_links' => 1,
-    'toggle_node_info_panel' => 1,
-    'toggle_node_info_book' => 1,
-    'toggle_node_info_company' => 1,
-    'toggle_node_info_definition' => 1,
-    'toggle_node_info_directory' => 1,
-    'toggle_node_info_drug' => 1,
-    'toggle_node_info_generic' => 1,
-    'toggle_node_info_page' => FALSE,
-    'toggle_node_info_people' => 1,
-    'toggle_node_info_preparation' => 1,
-    'toggle_node_info_sources' => 1,
-    'theme_grid_options' => array(
-      0 => 'grid16-960',
-      1 => 'grid16-fluid',
-    ),
-  );
-  $export['theme_behavenet_settings'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'theme_default';
-  $strongarm->value = 'behavenet';
-  $export['theme_default'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'theme_settings';
   $strongarm->value = array(
     'toggle_node_info_page' => FALSE,
@@ -667,13 +647,6 @@ function behavenet_settings_strongarm() {
   $strongarm->name = 'user_email_verification';
   $strongarm->value = 1;
   $export['user_email_verification'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'views_bulk_operations_actions';
-  $strongarm->value = 'a:11:{i:0;s:10:"user_roles";i:1;s:6:"delete";i:2;s:16:"content_taxonomy";i:3;s:7:"profile";i:4;s:4:"book";i:5;s:7:"archive";i:6;s:7:"ruleset";i:7;s:6:"fields";i:8;s:8:"taxonomy";i:9;s:17:"argument_selector";i:10;s:6:"script";}';
-  $export['views_bulk_operations_actions'] = $strongarm;
 
   return $export;
 }
