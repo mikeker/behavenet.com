@@ -324,48 +324,303 @@ function _bh_add_noderef(&$node, $field, $nids) {
 }
 
 
+/**
+ * Parses a string for old-style urls and returns the string with Drupal links
+ */
+function _bh_url_replace($string) {
+  // Load URL redirects
+  static $url = array();
+  if (empty($url)) {
+    $results = db_query("
+      SELECT * FROM {data_url}
+    ");
+    while ($row = db_fetch_object($results)) {
+      $url[$row->url_base][] = $row;
+    }
+  }
+  
+  $return = $string;
+  $regexp = "<a\s[^>]*href=(\"??)([^\" >]*?)\\1[^>]*>(.*)<\/a>";
+  if (preg_match_all("/$regexp/siU", $string, $matches)) {
+    foreach ($matches[2] as $old_url) {
+      $base = basename($old_url);
+      if (isset($url[$base])) {
+        if (count($url[$base] == 1)) {
+          dpr("easy!  Single match...");
+          $repl = $url[$base][0];
+        }
+        else {
+          $repl = '';
+          foreach ($url[$base] as $option) {
+            // Check full url to see if that works
+            if ($old_url == $option->url_full) {
+              $repl = $option;
+              break;
+            }
+          }
+          dpr("medium...  " . count($url[$base]) . ' matches');
+        }
+        
+        // Replace the old with the new
+        if ('term' == $repl->type) {
+          $return = str_replace($old_url, "/taxonomy/term/$repl->drupal_id", $return);
+        }
+        else if ('node' == $repl->type) {
+          $return = str_replace($old_url, "/node/$repl->drupal_id", $return);
+        }
+      }
+      else {
+        if (
+          'http://' != substr($old_url, 0, 7)
+          && '/taxonomy/term/' != substr($old_url, 0, 15)
+          && '/node/' != substr($old_url, 0, 6)
+        ) {
+          dpr("No url redirect for $old_url");
+        }
+      }
+    }
+  }
+  return $return;
+}
+
 function bh_import_test() {
   ini_set('max_execution_time', 300);
   $count = array();
 
+  // Search node bodies looking for links in the data_url table
+  // @TODO: what other fields to we need to do this for?  
+  //            - term description
+  //            - ???
+  
+  // Go through node bodies
+  $results = db_query("
+    SELECT * FROM {node_revisions} AS r
+    INNER JOIN {node} AS n
+      ON n.nid = r.nid AND n.vid = r.vid
+    WHERE r.body LIKE '%%%s%%'
+  ", '<a');
+  $data = array();
+  while ($row = db_fetch_object($results)) {
+    $data[$row->nid] = $row;
+  }
+  
+  foreach ($data as $nid => $row) {
+    $node = node_load($nid);
+    $node->body = _bh_url_replace($node->body);
+    dpr($node->body);
+  }
+  
+  dpr(count($data));
+  dpr($data);
+
+  dpr("done. Processed " . count($count) . " records");
+  dpr($count);
+  exit;
+
+
+  // DONE:
+  // Check for 404 redirects for nodes
+  // $results = db_query("
+    // SELECT * FROM {data_url} AS url
+    // LEFT JOIN {node} AS node
+      // ON url.drupal_id = node.nid
+    // WHERE url.type = 'node'
+      // AND node.nid IS NULL
+  // ");
+  // while ($row = db_fetch_object($results)) {
+    // dpr("Missing node $row->drupal_id for $row->url_full (data_url ID: $row->id)");
+  // }
+  // // Check for 404 redirects for terms
+  // $results = db_query("
+    // SELECT * FROM {data_url} AS url
+    // LEFT JOIN {term_data} AS term
+      // ON url.drupal_id = term.tid
+    // WHERE url.type = 'term'
+      // AND term.tid IS NULL
+  // ");
+  // while ($row = db_fetch_object($results)) {
+    // dpr("Missing term $row->drupal_id for $row->url_full (data_url ID: $row->id)");
+  // }
+
+  // DONE:
+  // Weed out dups from the data_url table based on url_base
+  // $results = db_query("
+    // SELECT * FROM {data_url}
+  // ");
+  // $data = array();
+  // while ($row = db_fetch_object($results)) {
+    // $data[$row->url_full][] = $row;
+  // }
+//   
+  // // Count number of dups
+  // foreach ($data as $full => $entries) {
+    // if (count($entries) > 1) {
+      // dpr(count($entries) . " enteries for $full");
+      // dpr($entries);
+    // }
+  // }
+
+
+
+  // DONE:
   // Figure out which relative URLs in the original site point to what nodes
   // and terms in the current site.  Build a lookup table at behave_data_url
   // to record this.
+  
+  /*
+    -- --------------------------------------------------------
+    
+    --
+    -- Table structure for table `behave_data_url`
+    --
+    
+    CREATE TABLE IF NOT EXISTS `behave_data_url` (
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `url_base` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Base url from original dataset (everything after the final ''/'')',
+      `url_full` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Full url as given in the original dataset.',
+      `type` enum('node','term') COLLATE utf8_unicode_ci NOT NULL COMMENT 'In Drupal, is this a node or term',
+      `drupal_id` int(11) NOT NULL COMMENT 'NID or TID in Drupal',
+      PRIMARY KEY (`id`),
+      KEY `url_base` (`url_base`)
+    ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  */
 
   // Start with Definitions, which are linked to terms
-  $terms = build_lookup('terms');
+  // $terms = build_lookup('terms');
+// 
+  // $results = db_query("
+    // SELECT * FROM {data_definitions}
+    // WHERE url IS NOT NULL
+  // ");
+  // $data = array();
+  // while ($row = db_fetch_object($results)) {
+    // if (isset($data[$row->ID])) {
+      // dpr("Duplicate URL for: "); dpr($row);
+      // continue;
+    // }
+    // if (!isset($terms[$row->ID])) {
+      // dpr("Bogus original term ID"); dpr($row);
+      // continue;
+    // }
+    // $data[$row->ID] = $row;
+  // }
+// 
+  // foreach ($data as $row) {
+    // $base = basename($row->url);
+    // $result = db_query("
+      // INSERT INTO {data_url}
+      // (url_base, url_full, type, drupal_id)
+      // VALUES ('%s', '%s', '%s', %d)
+    // ", $base, $row->url, 'term', $terms[$row->ID]);
+    // if (!$result) {
+      // $count = "Error with original term ID $row->ID";
+    // }
+  // }
 
-  $results = db_query("
-    SELECT * FROM {data_definitions}
-    WHERE url IS NOT NULL
-  ");
-  $data = array();
-  while ($row = db_fetch_object($results)) {
-    if (isset($data[$row->ID])) {
-      dpr("Duplicate URL for: "); dpr($row);
-      continue;
-    }
-    if (!isset($terms[$row->ID])) {
-      dpr("Bogus original term ID"); dpr($row);
-    }
-    $data[$row->ID] = $row;
-  }
+  // Drug Combos
+  // $combos = build_lookup('combinations');
+// 
+  // $results = db_query("
+    // SELECT * FROM {data_drug_combinations}
+    // WHERE file IS NOT NULL
+  // ");
+  // $data = array();
+  // while ($row = db_fetch_object($results)) {
+    // if (isset($data[$row->ID])) {
+      // dpr("Duplicate URL for: "); dpr($row);
+      // continue;
+    // }
+    // if (!isset($combos[$row->ID])) {
+      // dpr("Bogus original term ID"); dpr($row);
+      // continue;
+    // }
+    // $data[$row->ID] = $row;
+  // }
+//   
+  // foreach ($data as $row) {
+    // // Original dataset only provides basename
+    // // $base = basename($row->file);
+    // $result = db_query("
+      // INSERT INTO {data_url}
+      // (url_base, url_full, type, drupal_id)
+      // VALUES ('%s', '%s', '%s', %d)
+    // ", $row->file, $row->file, 'node', $combos[$row->ID]);
+    // if ($result) {
+      // $count[] = "Added $row->file points to node ID " . $combos[$row->ID];
+    // }
+    // else {
+      // $count[] = "Error with original combo ID $row->ID";
+    // }
+  // }
 
-  foreach ($data as $row) {
-    $base = basename($row->url);
-    $result = db_query("
-      INSERT INTO {data_url}
-      (url_base, url_full, type, drupal_id)
-      VALUES ('%s', '%s', '%s', %d)
-    ", $base, $row->url, 'term', $terms[$row->ID]);
-    if (!$result) {
-      $count = "Error with original term ID $row->ID";
-    }
-  }
+  // Generics
+  // $generics = build_lookup('generic_names');
+  // $results = db_query("
+    // SELECT * FROM {data_drug_generic_names}
+    // WHERE filename IS NOT NULL
+  // ");
+  // $data = array();
+  // while ($row = db_fetch_object($results)) {
+    // if (isset($data[$row->ID])) {
+      // dpr("Duplicate URL for: "); dpr($row);
+      // continue;
+    // }
+    // if (!isset($generics[$row->ID])) {
+      // dpr("Bogus original term ID"); dpr($row);
+      // continue;
+    // }
+    // $data[$row->ID] = $row;
+  // }
+//   
+  // foreach ($data as $row) {
+    // $base = basename($row->filename);
+    // $result = db_query("
+      // INSERT INTO {data_url}
+      // (url_base, url_full, type, drupal_id)
+      // VALUES ('%s', '%s', '%s', %d)
+    // ", $base, $row->filename, 'node', $generics[$row->ID]);
+    // if ($result) {
+      // $count[] = "Added $row->filename points to node ID " . $generics[$row->ID];
+    // }
+    // else {
+      // $count[] = "Error with original combo ID $row->ID";
+    // }
+  // }
 
-  dpr("done. Fixed " . count($count) . " records");
-  dpr($count);
-  exit;
+  // Terms -- note may cause dups with definitions, but we'll weed those out later.
+  // $terms = build_lookup('terms');
+  // $results = db_query("
+    // SELECT * FROM {data_term}
+    // WHERE URL_file IS NOT NULL
+  // ");
+  // $data = array();
+  // while ($row = db_fetch_object($results)) {
+    // if (isset($data[$row->ID])) {
+      // dpr("Duplicate URL for: "); dpr($row);
+      // continue;
+    // }
+    // if (!isset($terms[$row->ID])) {
+      // dpr("Bogus original term ID"); dpr($row);
+      // continue;
+    // }
+    // $data[$row->ID] = $row;
+  // }
+  // // dpr($data); exit;
+// 
+  // foreach ($data as $row) {
+    // $base = basename($row->URL_file);
+    // $result = db_query("
+      // INSERT INTO {data_url}
+      // (url_base, url_full, type, drupal_id)
+      // VALUES ('%s', '%s', '%s', %d)
+    // ", $base, $row->URL_file, 'term', $terms[$row->ID]);
+    // if ($result) {
+      // $count[] = "Added URL to point $base to term ID " . $terms[$row->ID];
+    // }
+    // else { 
+      // $count[] = "Error with original term ID $row->ID";
+    // }
+  // }
 
   // DONE:
   // Update generic node info for drugs that have moved from onc
