@@ -326,6 +326,42 @@ function _bh_add_noderef(&$node, $field, $nids) {
 
 function bh_import_test() {
   ini_set('max_execution_time', 300);
+  $count = array();
+
+  // Figure out which relative URLs in the original site point to what nodes
+  // and terms in the current site.  Build a lookup table at behave_data_url
+  // to record this.
+
+  // Start with Definitions, which are linked to terms
+  $terms = build_lookup('terms');
+
+  $results = db_query("
+    SELECT * FROM {data_definitions}
+    WHERE url IS NOT NULL
+  ");
+  $data = array();
+  while ($row = db_fetch_object($results)) {
+    if (isset($data[$row->ID])) {
+      dpr("Duplicate URL for: "); dpr($row);
+      continue;
+    }
+    if (!isset($terms[$row->ID])) {
+      dpr("Bogus original term ID"); dpr($row);
+    }
+    $data[$row->ID] = $row;
+  }
+
+  foreach ($data as $row) {
+    $base = basename($row->url);
+    $result = db_query("
+      INSERT INTO {data_url}
+      (url_base, url_full, type, drupal_id)
+      VALUES ('%s', '%s', '%s', %d)
+    ", $base, $row->url, 'term', $terms[$row->ID]);
+    if (!$result) {
+      $count = "Error with original term ID $row->ID";
+    }
+  }
 
   dpr("done. Fixed " . count($count) . " records");
   dpr($count);
