@@ -353,6 +353,29 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane = new stdClass;
     $pane->pid = 'new-10';
     $pane->panel = 'main_callout';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'people_callout';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'node',
+      ),
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-10'] = $pane;
+    $display->panels['main_callout'][0] = 'new-10';
+    $pane = new stdClass;
+    $pane->pid = 'new-11';
+    $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_generic_graphic';
     $pane->shown = TRUE;
@@ -388,11 +411,11 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-10'] = $pane;
-    $display->panels['main_callout'][0] = 'new-10';
+    $pane->position = 1;
+    $display->content['new-11'] = $pane;
+    $display->panels['main_callout'][1] = 'new-11';
     $pane = new stdClass;
-    $pane->pid = 'new-11';
+    $pane->pid = 'new-12';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_drug_image';
@@ -414,42 +437,6 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane->configuration = array(
       'label' => 'normal',
       'formatter' => 'path_plain',
-      'context' => 'node',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-11'] = $pane;
-    $display->panels['main_callout'][1] = 'new-11';
-    $pane = new stdClass;
-    $pane->pid = 'new-12';
-    $pane->panel = 'main_callout';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_people_image';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'node_type',
-          'settings' => array(
-            'type' => array(
-              'people' => 'people',
-            ),
-          ),
-          'context' => 'node',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'label' => 'normal',
-      'formatter' => 'image_plain',
       'context' => 'node',
       'override_title' => 1,
       'override_title_text' => '',
