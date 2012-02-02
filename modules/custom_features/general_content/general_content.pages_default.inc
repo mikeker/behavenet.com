@@ -356,7 +356,20 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane->type = 'panels_mini';
     $pane->subtype = 'people_callout';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'people' => 'people',
+            ),
+          ),
+          'context' => 'node',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'context' => array(
         0 => 'node',
@@ -375,6 +388,43 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $display->panels['main_callout'][0] = 'new-10';
     $pane = new stdClass;
     $pane->pid = 'new-11';
+    $pane->panel = 'main_callout';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_general_asin';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'book' => 'book',
+              'movie' => 'movie',
+            ),
+          ),
+          'context' => 'node',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'label' => 'normal',
+      'formatter' => 'thumbnail',
+      'context' => 'node',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-11'] = $pane;
+    $display->panels['main_callout'][1] = 'new-11';
+    $pane = new stdClass;
+    $pane->pid = 'new-12';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_generic_graphic';
@@ -411,11 +461,11 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-11'] = $pane;
-    $display->panels['main_callout'][1] = 'new-11';
+    $pane->position = 2;
+    $display->content['new-12'] = $pane;
+    $display->panels['main_callout'][2] = 'new-12';
     $pane = new stdClass;
-    $pane->pid = 'new-12';
+    $pane->pid = 'new-13';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_drug_image';
@@ -447,11 +497,11 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-12'] = $pane;
-    $display->panels['main_callout'][2] = 'new-12';
+    $pane->position = 3;
+    $display->content['new-13'] = $pane;
+    $display->panels['main_callout'][3] = 'new-13';
     $pane = new stdClass;
-    $pane->pid = 'new-13';
+    $pane->pid = 'new-14';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_tt_extras_image';
@@ -488,11 +538,11 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-13'] = $pane;
-    $display->panels['main_callout'][3] = 'new-13';
+    $pane->position = 4;
+    $display->content['new-14'] = $pane;
+    $display->panels['main_callout'][4] = 'new-14';
     $pane = new stdClass;
-    $pane->pid = 'new-14';
+    $pane->pid = 'new-15';
     $pane->panel = 'main_callout';
     $pane->type = 'views_panes';
     $pane->subtype = 'Credit-panel_pane_1';
@@ -520,11 +570,11 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
-    $display->content['new-14'] = $pane;
-    $display->panels['main_callout'][4] = 'new-14';
+    $pane->position = 5;
+    $display->content['new-15'] = $pane;
+    $display->panels['main_callout'][5] = 'new-15';
     $pane = new stdClass;
-    $pane->pid = 'new-15';
+    $pane->pid = 'new-16';
     $pane->panel = 'main_callout';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -563,11 +613,11 @@ if (count($output)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
-    $display->content['new-15'] = $pane;
-    $display->panels['main_callout'][5] = 'new-15';
+    $pane->position = 6;
+    $display->content['new-16'] = $pane;
+    $display->panels['main_callout'][6] = 'new-16';
     $pane = new stdClass;
-    $pane->pid = 'new-16';
+    $pane->pid = 'new-17';
     $pane->panel = 'main_callout';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -615,11 +665,11 @@ print \'</select>\';
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
-    $display->content['new-16'] = $pane;
-    $display->panels['main_callout'][6] = 'new-16';
+    $pane->position = 7;
+    $display->content['new-17'] = $pane;
+    $display->panels['main_callout'][7] = 'new-17';
     $pane = new stdClass;
-    $pane->pid = 'new-17';
+    $pane->pid = 'new-18';
     $pane->panel = 'main_callout';
     $pane->type = 'term_list';
     $pane->subtype = 'term_list';
@@ -658,11 +708,11 @@ print \'</select>\';
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 7;
-    $display->content['new-17'] = $pane;
-    $display->panels['main_callout'][7] = 'new-17';
+    $pane->position = 8;
+    $display->content['new-18'] = $pane;
+    $display->panels['main_callout'][8] = 'new-18';
     $pane = new stdClass;
-    $pane->pid = 'new-18';
+    $pane->pid = 'new-19';
     $pane->panel = 'main_callout';
     $pane->type = 'term_list';
     $pane->subtype = 'term_list';
@@ -693,11 +743,11 @@ print \'</select>\';
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
-    $display->content['new-18'] = $pane;
-    $display->panels['main_callout'][8] = 'new-18';
+    $pane->position = 9;
+    $display->content['new-19'] = $pane;
+    $display->panels['main_callout'][9] = 'new-19';
     $pane = new stdClass;
-    $pane->pid = 'new-19';
+    $pane->pid = 'new-20';
     $pane->panel = 'main_callout';
     $pane->type = 'block';
     $pane->subtype = 'adsense_managed-2';
@@ -713,9 +763,9 @@ print \'</select>\';
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
-    $display->content['new-19'] = $pane;
-    $display->panels['main_callout'][9] = 'new-19';
+    $pane->position = 10;
+    $display->content['new-20'] = $pane;
+    $display->panels['main_callout'][10] = 'new-20';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-4';
   $handler->conf['display'] = $display;

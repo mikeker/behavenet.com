@@ -240,11 +240,11 @@ function media_content_default_fields() {
       ),
       'teaser' => array(
         'format' => 'thumbnail',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'thumbnail',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       '4' => array(
         'format' => 'default',
@@ -502,11 +502,11 @@ function media_content_default_fields() {
       ),
       'teaser' => array(
         'format' => 'thumbnail',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'thumbnail',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       '4' => array(
         'format' => 'default',

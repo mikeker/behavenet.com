@@ -31,10 +31,15 @@ h1, h2, h3, h4, h5, h6 {
 /*
  * Right-hand callout
  */
-#page-main-callout .field-type-filefield {
-  text-align: center;
+#page-main-callout {
+  background: @background;
+  padding: @space-v @space-h;
+  .rounded();
 }
-#page-main-callout h4 {
+#page-main-callout .field-type-filefield,
+#page-main-callout .field-field-general-asin,
+#page-main-callout h4
+{
   text-align: center;
 }
 
@@ -88,15 +93,6 @@ ul.menu li a:hover {
 
 
 /*
- * Main page callout
- */
-#page-main-callout {
-  background: @background;
-  padding: @space-v @space-h;
-  .rounded();
-}
-
-/*
  * Books and Movies view (Media view)
  */
 .view-content h3 {
@@ -116,7 +112,9 @@ ul.menu li a:hover {
 {
   clear: left;
 }
-
+div.field-type-asin {
+  border: 0;
+}
 
 
 
