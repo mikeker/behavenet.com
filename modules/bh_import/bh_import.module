@@ -358,8 +358,8 @@ function _bh_url_replace(&$string, &$error) {
   $regexp = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)<\/a>";
   if (preg_match_all("/$regexp/siU", $string, $matches)) {
     // dpr($matches);
-    foreach ($matches[2] as $old_url) {
-      $old_url = trim($old_url);
+    foreach ($matches[2] as $orig_url) {
+      $old_url = trim($orig_url);
 
       // Strip domain from url_full for better comparisons
       $old_url = str_replace('http://www.behavenet.com', '', $old_url);
@@ -408,10 +408,18 @@ function _bh_url_replace(&$string, &$error) {
           $success++;
           // Replace the old with the new
           if ('term' == $repl->type) {
-            $string = str_replace($old_url, "/taxonomy/term/$repl->drupal_id", $string);
+            $string = str_replace($orig_url, "/taxonomy/term/$repl->drupal_id", $string);
           }
           else if ('node' == $repl->type) {
-            $string = str_replace($old_url, "/node/$repl->drupal_id", $string);
+            $string = str_replace($orig_url, "/node/$repl->drupal_id", $string);
+          }
+          else if ('path' == $repl->type) {
+            // Since we only have a few of these types of replacements we're
+            // just going to list them here.  'old_url' => 'new_url'
+            $replacements = array(
+              '/support' => '/directory/support-organization',
+            );
+            $string = str_replace($orig_url, $replacements[$old_url]);
           }
         }
       }   // if (isset($url[$base])) {
@@ -435,6 +443,55 @@ function bh_import_test() {
 
   // $terms = build_lookup('terms');
   // dpr($terms); exit;
+  dpr("done.");
+  dpr(count($errors) . ' Errors:');
+  dpr($errors);
+  dpr(count($success) . ' Successful updates:');
+  dpr($success);
+  exit;
+
+  // DONE:
+  // Fix links that included the full domain name in them in nodes
+  // $results = db_query("
+    // SELECT * FROM {term_data} AS t
+    // WHERE t.description LIKE '%%%s%%'
+  // ", 'www.behavenet.com');
+  // $data = array();
+  // while ($row = db_fetch_object($results)) {
+    // $data[$row->tid] = $row;
+  // }
+  // foreach ($data as $tid => $row) {
+    // $term = taxonomy_get_term($tid);
+    // $term->description = str_replace('http://www.behavenet.com/taxonomy/term/', '/taxonomy/term/', $term->description);
+    // $term->description = str_replace('http://www.behavenet.com/node/', '/node/', $term->description);
+    // $result = db_query("
+      // UPDATE {term_data}
+      // SET description = '%s'
+      // WHERE tid = %d
+    // ", $term->description, $term->tid);
+    // dpr("Updated taxonomy/term/$tid ($term->name)");
+  // }
+
+  // DONE:
+  // Fix links that included the full domain name in them in nodes
+  // $results = db_query("
+    // SELECT * FROM {node_revisions} AS r
+    // INNER JOIN {node} AS n
+      // ON n.nid = r.nid AND n.vid = r.vid
+    // WHERE r.body LIKE '%%%s%%'
+  // ", 'www.behavenet.com');
+  // $data = array();
+  // while ($row = db_fetch_object($results)) {
+    // $data[$row->nid] = $row;
+  // }
+  // foreach ($data as $nid => $row) {
+    // $node = node_load($nid);
+    // $node->body = str_replace('http://www.behavenet.com/taxonomy/term/', '/taxonomy/term/', $node->body);
+    // $node->body = str_replace('http://www.behavenet.com/node/', '/node/', $node->body);
+    // $node->teaser = '';
+    // node_save($node);
+    // dpr("Updated node/$nid ($node->title).");
+  // }
 
   // First some error checking:
   // Weed out dups from the data_url table based on url_base
@@ -538,13 +595,6 @@ function bh_import_test() {
       }
     }
   }
-
-  dpr("done.");
-  dpr(count($errors) . ' Errors:');
-  dpr($errors);
-  dpr(count($success) . ' Successful updates:');
-  dpr($success);
-  exit;
 
 
   // DONE:
