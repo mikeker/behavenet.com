@@ -400,7 +400,7 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->configuration = array(
       'label' => 'normal',
-      'formatter' => 'image_plain',
+      'formatter' => 'right_callout_image_default',
       'context' => 'node',
       'override_title' => 1,
       'override_title_text' => '',
@@ -436,7 +436,7 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->configuration = array(
       'label' => 'normal',
-      'formatter' => 'path_plain',
+      'formatter' => 'right_callout_image_default',
       'context' => 'node',
       'override_title' => 1,
       'override_title_text' => '',
@@ -477,7 +477,7 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->configuration = array(
       'label' => 'normal',
-      'formatter' => 'image_plain',
+      'formatter' => 'right_callout_image_default',
       'context' => 'node',
       'override_title' => 1,
       'override_title_text' => '',
