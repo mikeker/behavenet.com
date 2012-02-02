@@ -61,6 +61,7 @@ function generic_drugs_default_page_manager_handlers() {
       'left' => NULL,
       'right' => NULL,
       'bottom' => NULL,
+      'middle' => NULL,
     ),
   );
   $display->cache = array();
@@ -229,28 +230,19 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane = new stdClass;
     $pane->pid = 'new-7';
     $pane->panel = 'middle';
-    $pane->type = 'views';
-    $pane->subtype = 'Media';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Media-panel_pane_3';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 1,
-      'nodes_per_page' => '10',
-      'pager_id' => '',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'default',
       'context' => array(
-        0 => 'argument_nid_1.nid',
+        0 => 'argument_nid_1',
       ),
+      'use_pager' => 0,
+      'pager_id' => '',
+      'items_per_page' => '0',
       'override_title' => 1,
-      'override_title_text' => 'Books and Movies',
+      'override_title_text' => 'Books',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -263,6 +255,29 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $display->panels['middle'][6] = 'new-7';
     $pane = new stdClass;
     $pane->pid = 'new-8';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Media-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'use_pager' => 0,
+      'pager_id' => '',
+      'items_per_page' => '0',
+      'override_title' => 1,
+      'override_title_text' => 'Movies',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 7;
+    $display->content['new-8'] = $pane;
+    $display->panels['middle'][7] = 'new-8';
+    $pane = new stdClass;
+    $pane->pid = 'new-9';
     $pane->panel = 'middle';
     $pane->type = 'content_field';
     $pane->subtype = 'field_drug_combo';
@@ -296,11 +311,11 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 7;
-    $display->content['new-8'] = $pane;
-    $display->panels['middle'][7] = 'new-8';
+    $pane->position = 8;
+    $display->content['new-9'] = $pane;
+    $display->panels['middle'][8] = 'new-9';
     $pane = new stdClass;
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-10';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'drug_combos-panel_pane_1';
@@ -330,9 +345,9 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
-    $display->content['new-9'] = $pane;
-    $display->panels['middle'][8] = 'new-9';
+    $pane->position = 9;
+    $display->content['new-10'] = $pane;
+    $display->panels['middle'][9] = 'new-10';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
