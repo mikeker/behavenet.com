@@ -27,130 +27,7 @@ function media_views_default_views() {
     ),
   ));
   $handler->override_option('fields', array(
-    'product_image' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'image_size' => 'mediumimage',
-      'link_format' => 'node',
-      'exclude' => 1,
-      'id' => 'product_image',
-      'table' => 'amazon_item_image',
-      'field' => 'product_image',
-      'relationship' => 'field_general_asin_asin',
-      'presentation_format' => 'markup',
-    ),
-    'title_1' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_format' => 'amazon',
-      'exclude' => 1,
-      'id' => 'title_1',
-      'table' => 'amazon_item',
-      'field' => 'title',
-      'relationship' => 'field_general_asin_asin',
-    ),
     'type' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 0,
-      'machine_name' => 0,
-      'exclude' => 1,
-      'id' => 'type',
-      'table' => 'node',
-      'field' => 'type',
-      'relationship' => 'none',
-    ),
-    'title' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'link_class' => '',
-        'alt' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'link_to_node' => 1,
-      'exclude' => 1,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-    ),
-    'phpcode' => array(
       'label' => '',
       'alter' => array(
         'alter_text' => 0,
@@ -176,43 +53,79 @@ function media_views_default_views() {
       'hide_empty' => 0,
       'empty_zero' => 0,
       'hide_alter_empty' => 1,
-      'value' => '<?php
-if ($this->view->args[0] == $data->nid) {
-  // Don\'t output this node as related content of itself
-  return;
-}
-if (empty($data->amazon_item_node_data_field_general_asin__amazon_item_image_url)) {
-  // No ASIN information, use the node title
-  print \'<div class="clear-fix">
-  print l($data->node_title, "node/$data->nid");
-  print \'</div>\';
-}
-else {
-  // Show Amazon item image and link to Amazon\'s site
-  $img = \'<img class="amazon-item-image" src="\'
-    . $data->amazon_item_node_data_field_general_asin__amazon_item_image_url
-    . \'" alt="\'
-    . $data->amazon_item_node_data_field_general_asin_title
-    . \'" height="\'
-    . $data->amazon_item_node_data_field_general_asin__amazon_item_image_height
-    . \'" width="\'
-    . $data->amazon_item_node_data_field_general_asin__amazon_item_image_width
-    . \'" />\';
-  print \'<div class="books-and-movies">\';
-  print l($img, $data->amazon_item_node_data_field_general_asin_detailpageurl, array(\'html\' => TRUE));
-  print \'<br />\';
-  print l($data->amazon_item_node_data_field_general_asin_title, $data->amazon_item_node_data_field_general_asin_detailpageurl);
-  print \'</div>\';
-}
-?>',
-      'exclude' => 0,
-      'id' => 'phpcode',
-      'table' => 'customfield',
-      'field' => 'phpcode',
+      'link_to_node' => 0,
+      'machine_name' => 0,
+      'exclude' => 1,
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
       'relationship' => 'none',
-      'override' => array(
-        'button' => 'Override',
+    ),
+    'title' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
       ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'link_to_node' => 0,
+      'exclude' => 0,
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'relationship' => 'none',
+    ),
+    'nid' => array(
+      'label' => 'Nid',
+      'alter' => array(
+        'alter_text' => 1,
+        'text' => '/node/[nid]',
+        'make_link' => 0,
+        'path' => '/node/[nid]',
+        'absolute' => 1,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'link_to_node' => 0,
+      'exclude' => 1,
+      'id' => 'nid',
+      'table' => 'node',
+      'field' => 'nid',
+      'relationship' => 'none',
     ),
   ));
   $handler->override_option('arguments', array(
@@ -316,9 +229,16 @@ else {
     'type' => 'none',
   ));
   $handler->override_option('use_ajax', TRUE);
-  $handler->override_option('use_pager', 'mini');
+  $handler->override_option('items_per_page', 0);
+  $handler->override_option('use_pager', '0');
+  $handler->override_option('style_plugin', 'jump_menu');
   $handler->override_option('style_options', array(
-    'grouping' => '',
+    'grouping' => 'type',
+    'path' => 'nid',
+    'hide' => 1,
+    'text' => 'Go',
+    'choose' => '- Choose -',
+    'default_value' => 0,
   ));
   $handler = $view->new_display('panel_pane', 'Media for Related Content', 'panel_pane_1');
   $handler->override_option('pane_title', 'Related Books/Movies');
