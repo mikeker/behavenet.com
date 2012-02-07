@@ -818,6 +818,26 @@ print \'</select>\';
     $pane->position = 10;
     $display->content['new-20'] = $pane;
     $display->panels['main_callout'][10] = 'new-20';
+    $pane = new stdClass;
+    $pane->pid = 'new-21';
+    $pane->panel = 'main_callout';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'goodtherapy_250_160';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 11;
+    $display->content['new-21'] = $pane;
+    $display->panels['main_callout'][11] = 'new-21';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-4';
   $handler->conf['display'] = $display;
