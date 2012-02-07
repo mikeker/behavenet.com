@@ -373,7 +373,7 @@ if (empty($data->amazon_item_node_data_field_general_asin_asin)) {
   print $data->node_title;
 }
 else {
-  print l($data->amazon_item_node_data_field_general_asin_title, $data->amazon_item_node_data_field_general_asin_detailpageur);
+  print "<a href=\\"$data->amazon_item_node_data_field_general_asin_detailpageurl\\">$data->amazon_item_node_data_field_general_asin_title</a>";
 }
 ?>',
       'exclude' => 0,
