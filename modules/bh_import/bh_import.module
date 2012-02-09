@@ -350,16 +350,27 @@ function _bh_url_replace(&$string, &$error) {
       // Strip domain from url_full for better comparisons
       $row->url_full = str_replace('http://www.behavenet.com', '', $row->url_full);
       $row->url_full = str_replace('http://behavenet.com', '', $row->url_full);
+      
+      // Handle spaces in URLs
+      $row->url_full = str_replace(' ', '%20', trim($row->url_full));
+      $row->url_base = str_replace(' ', '%20', trim($row->url_base));
+      
+      // Do all comparisons in lowercase
+      $row->url_full = strtolower($row->url_full);
+      $row->url_base = strtolower($row->url_base);
 
-      $url[trim($row->url_base)][] = $row;
+      $url[$row->url_base][] = $row;
     }
   }
 
-  $regexp = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)<\/a>";
+  // $regexp = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)<\/a>";
+
+  // Remove closing </a> tag to make up for poorly formed HTML in the orignal dataset
+  $regexp = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)";
   if (preg_match_all("/$regexp/siU", $string, $matches)) {
     // dpr($matches);
     foreach ($matches[2] as $orig_url) {
-      $old_url = trim($orig_url);
+      $old_url = strtolower(trim($orig_url));
 
       // Strip domain from url_full for better comparisons
       $old_url = str_replace('http://www.behavenet.com', '', $old_url);
@@ -367,6 +378,7 @@ function _bh_url_replace(&$string, &$error) {
 
       $base = basename($old_url);
       $repl = '';
+      // dpr("checking $base for $old_url ($orig_url)");
 
       if (isset($url[$base])) {
         if (count($url[$base]) == 1) {
@@ -375,7 +387,6 @@ function _bh_url_replace(&$string, &$error) {
         }
         else {
           // not so easy: multiple matches, check full url first;
-          // dpr("No so easy a match with $base from $old_url");
           foreach ($url[$base] as $option) {
             // Check full url to see if that works
             if ($old_url == $option->url_full) {
@@ -393,9 +404,9 @@ function _bh_url_replace(&$string, &$error) {
                 $repl = $option;
                 break;
               }
-              // else {
-                // dpr("partial is $partial compared to " . substr($option->url_full, -1 * strlen($partial)));
-              // }
+              else {
+                dpr("partial is $partial compared to " . substr($option->url_full, -1 * strlen($partial)));
+              }
             }
           }
         }
@@ -409,9 +420,11 @@ function _bh_url_replace(&$string, &$error) {
           // Replace the old with the new
           if ('term' == $repl->type) {
             $string = str_replace($orig_url, "/taxonomy/term/$repl->drupal_id", $string);
+            // dpr("replaced $orig_url with /taxonomy/term/$repl->drupal_id");
           }
           else if ('node' == $repl->type) {
             $string = str_replace($orig_url, "/node/$repl->drupal_id", $string);
+            // dpr("replaced $orig_url with /node/$repl->drupal_id");
           }
           else if ('path' == $repl->type) {
             // Since we only have a few of these types of replacements we're
@@ -420,6 +433,7 @@ function _bh_url_replace(&$string, &$error) {
               '/support' => '/directory/support-organization',
             );
             $string = str_replace($orig_url, $replacements[$old_url]);
+            // dpr("replaced $orig_url with " . $replacements[$old_url]);
           }
         }
       }   // if (isset($url[$base])) {
@@ -440,15 +454,156 @@ function _bh_url_replace(&$string, &$error) {
 
 function bh_import_test() {
   ini_set('max_execution_time', 300);
-
+  $success = $error = array();
   // $terms = build_lookup('terms');
   // dpr($terms); exit;
+
+  $url = array();
+  $results = db_query("
+    SELECT * FROM {data_url}
+  ");
+  while ($row = db_fetch_object($results)) {
+    // Strip domain from url_full for better comparisons
+    $row->url_full = str_replace('http://www.behavenet.com', '', $row->url_full);
+    $row->url_full = str_replace('http://behavenet.com', '', $row->url_full);
+    
+    // Handle spaces in URLs
+    $row->url_full = str_replace(' ', '%20', trim($row->url_full));
+    $row->url_base = str_replace(' ', '%20', trim($row->url_base));
+    
+    // Do all comparisons in lowercase
+    $row->url_full = strtolower($row->url_full);
+    $row->url_base = strtolower($row->url_base);
+
+    $url[$row->url_base][] = $row;
+  }
+
+  // Somewhere along the line we ended up with bad substitutions where part of the
+  // URL was replaced in the middle of an old URL resulting in something like
+  // /old/path/taxonomy/term/drug.htm or /old/path/taxonomy/term/1234
+  $results = db_query("
+    SELECT * FROM {term_data} AS t
+  ");
+  $data = array();
+  while ($row = db_fetch_object($results)) {
+    $data[$row->tid] = $row;
+  }
+  // dpr($data); exit;
+  foreach ($data as $tid => $row) {
+    $regexp = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)";
+    
+    // if (preg_match_all('/href="(.+?)[^"]\/taxonomy\//', $row->description, $matches)) {
+    if (preg_match_all("/$regexp/siU", $row->description, $matches)) {
+      foreach ($matches[2] as $match) {
+        $update = FALSE;
+        // Check for bad term links
+        $pos = strpos($match, '/taxonomy/term/');
+        if (FALSE !== $pos and 0 != $pos) {
+          $test = substr($match, 0, $pos) . '.htm';
+          if (isset($url[$test])) {
+            $repl = $url[$test];
+            if ('node' == $repl['type']) {
+              $row->description = str_replace($match, "/node/$repl->drupal_id", $row->description);
+            }
+            else if ('term' == $repl['type']) {
+              $row->description = str_replace($match, "/taxonomy/term/$repl->drupal_id", $row->description);
+            }
+            $update = TRUE;
+            $success[] = "Updated $match to " . substr($match, $pos) . " in $row->name (/taxonomy/term/$row->tid)";
+          }
+          else if ('http://behavenet.com' == substr($match, 0, 20)) {
+            $row->description = str_replace('http://behavenet.com', '', $row->description);
+            $success[] = "Removed behavenet.com in $row->name (/taxonomy/term/$row->tid)";
+            $update = TRUE;
+          }
+          else {
+            $errors[] = "Unable to find an appropriate url for $match in taxonomy/term/$tid";
+          }
+        }
+        
+        if ($update) {
+          $result = db_query("
+            UPDATE {term_data}
+            SET description = '%s'
+            WHERE tid = %d
+          ", $row->description, $row->tid);
+        }
+      }
+    }
+  }
   dpr("done.");
   dpr(count($errors) . ' Errors:');
   dpr($errors);
   dpr(count($success) . ' Successful updates:');
   dpr($success);
   exit;
+
+
+
+  // DONE:
+  // Do URL substitutions for the few oddballs that somehow we missed...
+  // $results = db_query("
+    // SELECT * FROM {term_data} AS t
+    // WHERE t.description LIKE '%%%s%%'
+  // ", '.htm"');
+  // $data = array();
+  // while ($row = db_fetch_object($results)) {
+    // $data[$row->tid] = $row;
+  // }
+  // // dpr($data); exit;
+  // foreach ($data as $tid => $row) {
+    // $term = taxonomy_get_term($tid);
+    // if (_bh_url_replace($term->description, $error)) {
+      // $result = db_query("
+        // UPDATE {term_data}
+        // SET description = '%s'
+        // WHERE tid = %d
+      // ", $term->description, $term->tid);
+// 
+      // $success[] = "updated taxonomy/term/$term->tid ($term->name) with new URLs";
+    // }
+    // if (!empty($error)) {
+      // $errors[] = "unable to replace a URL in term $term->tid ($term->name): $error.";
+    // }
+  // }
+  
+  // DONE:
+  // Do URL subs for DSM criteria
+  // $results = db_query("
+    // SELECT * FROM {content_field_dsm_body} AS text
+    // INNER JOIN {node} AS n
+      // ON n.vid = text.vid
+    // WHERE text.field_dsm_body_value LIKE '%%%s%%'
+  // ", '<a');
+  // $data = array();
+  // while ($row = db_fetch_object($results)) {
+    // $data[$row->nid] = $row;
+  // }
+// 
+  // foreach ($data as $nid => $row) {
+    // $node = node_load($nid);
+    // $updated = FALSE;
+    // foreach ($node->field_dsm_body as $index => $body) {
+      // $body = $body['value'];
+      // if (_bh_url_replace($body, $error)) {
+        // $node->field_dsm_body[$index]['value'] = $body;
+        // $updated = TRUE;
+      // }
+      // if (!empty($error)) {
+        // $errors[] = "unable to replace a URL in nid $node->nid ($node->title): $error.";
+      // }
+    // }
+    // if ($updated) {
+      // node_save($node);
+      // // dpr($node); exit;
+      // $success[] = "updated node $node->nid: $node->title with new URLs";
+      // if (!empty($error)) {
+        // $errors[] = "unable to replace a URL in nid $node->nid ($node->title): $error.";
+        // $error = '';
+      // }
+    // }
+  // }
+
 
   // DONE:
   // Fix links that included the full domain name in them in nodes
