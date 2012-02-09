@@ -1492,12 +1492,14 @@ print implode(\'<hr />\', $output);
     'field_credit_value' => array(
       'label' => '',
       'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
+        'alter_text' => 1,
+        'text' => '<i>[field_credit_value]</i>',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -1512,6 +1514,7 @@ print implode(\'<hr />\', $output);
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'link_to_node' => 0,
       'label_type' => 'none',
       'format' => 'default',
@@ -1531,7 +1534,6 @@ print implode(\'<hr />\', $output);
       'relationship' => 'field_tt_extras_credit_nid',
     ),
   ));
-  $handler->override_option('header', '<h4>Credit</h4>');
   $handler->override_option('pane_title', 'Credit by Term');
   $handler->override_option('pane_description', '');
   $handler->override_option('pane_category', array(

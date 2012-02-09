@@ -645,16 +645,31 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->configuration = array(
       'admin_title' => 'Child terms',
-      'title' => 'Child Terms',
+      'title' => 'Member of:',
       'body' => '<?php
 $children = taxonomy_get_children(%term:tid, %term:vid);
-$output = array();
-foreach ($children as $term) {
-  $output[] = l($term->name, \'taxonomy/term/\'. $term->tid);
+if (!count($children)) {
+  return;
 }
-if (count($output)) {
-  return \'<ul><li>\'. implode(\'</li><li>\', $output). \'</li></ul>\';
+$return = \'\';
+if (count($children) <= 10) {
+  // Short lists output as lists
+  $return = \'<ul>\';
+  foreach ($children as $term) {
+    $return .= \'<li>\' . l($term->name, \'taxonomy/term/\'. $term->tid) . \'</li>\';
+  }
+  $return .= \'</ul>\';
 }
+else {
+  // Longer lists output as dropdowns
+  $return = \'<select class="jump-menu">\';
+  foreach ($children as $term) {
+    $return .= \'<option value="/taxonomy/term/\'. $term->tid . \'">\' . $term->name . \'</option>\';
+  }
+  $return .= \'</select>\';
+}
+
+return $return;
 ?>',
       'format' => '4',
       'substitute' => 1,
@@ -696,7 +711,7 @@ if (count($output)) {
     );
     $pane->configuration = array(
       'admin_title' => 'Show Lists',
-      'title' => '',
+      'title' => 'Glossary',
       'body' => '<?php
 $items = taxonomy_get_related(%term:tid);
 if (!count($items)) {
@@ -752,7 +767,7 @@ print \'</select>\';
       'list_type' => 'ul',
       'context' => 'term',
       'override_title' => 1,
-      'override_title_text' => 'Related terms',
+      'override_title_text' => 'See also:',
     );
     $pane->cache = array();
     $pane->style = array(

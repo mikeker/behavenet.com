@@ -3,6 +3,9 @@
 @space-h = 10px;
 @highlight = #EAF3F8;
 @background = #F6F6F6;
+@contrast = #7E0E00;
+@contrast-dark = #535353;
+
 
 // Mixins
 .rounded(@radius: 15px) {
@@ -19,6 +22,14 @@
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
+a:link, a:visited, a:focus, a:active {
+  text-decoration: none;
+  color: @contrast;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 
 /*
  * Major zone styling
@@ -44,6 +55,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 #page-main-callout #gt-widget {
   margin-left: -5px;
+}
+#page-main-callout select {
+  width: 240px;
 }
 
 /*
