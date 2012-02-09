@@ -16,8 +16,8 @@ function behavenet_preprocess_content_field(&$vars) {
   $convert = array(
     // CCK_field_name => link_text (empty means use the URL)
     'field_company_url' => '',
-    'field_drug_pi_url' => 'PI Website',
-    'field_drug_url' => '',
+    'field_drug_pi_url' => 'FDA Label',
+    'field_drug_url' => 'Product Web site',
     'field_generic_medline_url' => 'Medline',
   );
   if (in_array($vars['field_name'], array_keys($convert))) {
@@ -31,6 +31,15 @@ function behavenet_preprocess_content_field(&$vars) {
     }
     else {
       $vars['items'][0]['view'] = l($convert[$vars['field_name']], $url);
+    }
+  }
+
+  // Link directly to company web site -- skip link to internal node
+  if ('field_drug_company' == $vars['field_name']) {
+    $company = node_load($vars['items'][0]['nid']);
+    if (!empty($company) && !empty($company->field_company_url[0]['value'])) {
+      // $vars['element']['#children'] = l('Company Web site', $company->field_company_url[0]['value']);
+      $vars['items'][0]['view'] = l('Company Web site', $company->field_company_url[0]['value']);
     }
   }
 
@@ -104,49 +113,6 @@ function behavenet_preprocess_panels_pane(&$vars) {
       $html .= '</select>';
       $vars['content'] = $html;
     }
-  }
-
-  // Reformat drug combinations
-  // TBD: No longer used?
-  if ('content_field' == $output->type && 'field_drug_combo' == $output->subtype) {
-    $node = $vars['display']->context['argument_nid_1']->data;
-    $combos = array();
-    foreach ($node->field_drug_combo as $nid) {
-      $combo = node_load($nid['nid']);
-      if (empty($combo)) {
-        continue;
-      }
-
-      if ('drug' == $node->type) {
-        dsm("DEBUG: this part has been removed");
-
-        // // If this is a tradename drug being displayed, show the associated combo
-        // // as a list of the generics in the combo
-        // $titles = array();
-        // foreach($combo->field_combo_drugs as $drug_nid) {
-          // $drug = node_load($drug_nid['nid']);
-          // if (!empty($drug->title)) {
-            // $titles[] = l($drug->title, "node/$drug->nid");
-          // }
-        // }
-        // $text = l($combo->title, "node/$combo->nid") . ': ';
-        // if (1 == count($titles)) {
-          // $text .= 'a combination including ' . $titles[0];
-        // }
-        // else {
-          // $last = array_pop($titles);
-          // 'a combination of ' . implode(', ', $titles) . " and $last";
-        // }
-        // $combos[] = $text;
-      }
-    }
-
-    // // Display as an unordered list
-    // if (count($combos)) {
-      // $vars['content'] = '<ul class="drug-combos"><li>'
-        // . implode ('</li><li>', $combos)
-        // . '</li></ul>';
-    // }
   }
 }
 
