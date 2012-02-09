@@ -38,7 +38,14 @@ a:hover {
   width: 960px;
   margin: 0 auto;
 }
-
+#page-main div {
+  display: inline;
+}
+.field-items div.field-item,
+#page-main .field-items div.field-item
+{
+  display: block;
+}
 /*
  * Right-hand callout
  */
@@ -150,73 +157,10 @@ div.field-type-asin {
   width: 160px;
 }
 
-// @TODO: Need to add "view" class to the outside div, but Panels isn't doing the right thing...
-div.views-admin-links {
-  font-size: xx-small;
-  margin-right: 1em;
-  margin-top: 1em;
-/*  width: 95%; */
-}
-
-.block div.views-admin-links {
-  margin-top: 0;
-}
-
-div.views-admin-links ul {
-  margin: 0;
-  padding: 0;
-}
-
-div.views-admin-links li {
-  margin: 0;
-  padding: 0 0 2px 0;
-  z-index: 201;
-}
-
-div.views-admin-links li a {
-  padding: 0;
-  margin: 0;
-  color: #ccc;
-}
-
-div.views-admin-links li a:before {
-  content: "[";
-}
-div.views-admin-links li a:after {
-  content: "]";
-}
-
-div.views-admin-links-hover a,
-div.views-admin-links:hover a {
-  color: #000;
-}
-
-div.views-admin-links-hover,
-div.views-admin-links:hover {
-  background: transparent;
-}
-
-div.views-hide {
+div.admin-links,
+div.views-admin-links,
+#page-main div.admin-links,
+#page-main div.views-admin-links
+{
   display: none;
 }
-
-/** For IE we add the class via js; for other browsers we rely on :hover **/
-div.views-hide-hover,
-div.view:hover div.views-hide {
-  display: block;
-  position: absolute;
-  z-index: 200;
-}
-
-/* don't do this one in IE */
-div.view:hover div.views-hide {
-  margin-top: -1.5em;
-}
-
-/* Remove the border on tbody that system puts in */
-.views-view-grid tbody {
-  border-top: none;
-}
-
-
-

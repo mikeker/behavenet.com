@@ -71,6 +71,44 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane = new stdClass;
     $pane->pid = 'new-2';
     $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'people' => 'people',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'admin_title' => 'Birth/Death dates',
+      'title' => '',
+      'body' => '<?php
+print behavenet_get_birth_death_dates(%node:nid);
+?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-2'] = $pane;
+    $display->panels['middle'][1] = 'new-2';
+    $pane = new stdClass;
+    $pane->pid = 'new-3';
+    $pane->panel = 'middle';
     $pane->type = 'node_content';
     $pane->subtype = 'node_content';
     $pane->shown = TRUE;
@@ -93,11 +131,11 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-2'] = $pane;
-    $display->panels['middle'][1] = 'new-2';
+    $pane->position = 2;
+    $display->content['new-3'] = $pane;
+    $display->panels['middle'][2] = 'new-3';
     $pane = new stdClass;
-    $pane->pid = 'new-3';
+    $pane->pid = 'new-4';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Indications-panel_pane_2';
@@ -127,11 +165,11 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-3'] = $pane;
-    $display->panels['middle'][2] = 'new-3';
+    $pane->position = 3;
+    $display->content['new-4'] = $pane;
+    $display->panels['middle'][3] = 'new-4';
     $pane = new stdClass;
-    $pane->pid = 'new-4';
+    $pane->pid = 'new-5';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Media-panel_pane_3';
@@ -153,11 +191,11 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-4'] = $pane;
-    $display->panels['middle'][3] = 'new-4';
+    $pane->position = 4;
+    $display->content['new-5'] = $pane;
+    $display->panels['middle'][4] = 'new-5';
     $pane = new stdClass;
-    $pane->pid = 'new-5';
+    $pane->pid = 'new-6';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Media-panel_pane_2';
@@ -179,9 +217,9 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
-    $display->content['new-5'] = $pane;
-    $display->panels['middle'][4] = 'new-5';
+    $pane->position = 5;
+    $display->content['new-6'] = $pane;
+    $display->panels['middle'][5] = 'new-6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
