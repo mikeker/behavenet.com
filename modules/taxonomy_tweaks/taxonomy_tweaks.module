@@ -89,6 +89,9 @@ function taxonomy_tweaks_form_tax_tweaks_extras_node_form_alter(&$form, &$form_s
   );
   $form['title']['#default_value'] = "Extra details for '$term->name'";
   $form['title']['#access'] = FALSE;
+  
+  // Update the node body with the current term description
+  $form['#node']->field_tt_extras_description[0]['value'] = $term->description;
 
   // Hide term name field from view -- this is not editable -- but since it's
   // a CCK field, we have to do it after the form is built.
