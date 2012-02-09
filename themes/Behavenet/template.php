@@ -1,11 +1,8 @@
 <?php
-
-function behavenet_preprocess_page(&$vars) {
-  print "hi"; exit;
-}
-
 /**
  * Preprocess function for CCK fields.
+ *
+ * @TODO: move to module?
  *
  * @see http://api.lullabot.com/template_preprocess_content_field
  * @param $vars
@@ -46,6 +43,50 @@ function behavenet_preprocess_content_field(&$vars) {
       $vars['items'][0]['view'] = l('Company Web site', $company->field_company_url[0]['value']);
     }
   }
+
+  // Changes to how drug combination are shown
+  if ('combinations' == $vars['node']->type) {
+    // Only show alternate combo names if more than one name is listed
+    if ('field_combo_titles' == $vars['field_name']) {
+      if (1 == count($vars['items'])) {
+        $vars['field_empty'] = TRUE;
+      }
+    }
+
+    // Rewrite output of generics to be similar to:
+    //    <tradename> is a combination of <list of generics>
+    if ('field_combo_drugs' == $vars['field_name']) {
+      $tradename = '';
+      $node = $vars['node'];
+      if (!empty($node->field_combo_tradename[0])) {
+        $tradename = l(
+          $node->field_combo_tradename[0]['safe']['title'],
+          'node/' . $node->field_combo_tradename[0]['safe']['nid']
+        );
+      }
+      else if (!empty($node->field_combo_titles[0])) {
+        $tradename = $node->field_combo_titles[0]['safe'];
+      }
+      else {
+        $tradename = 'Unknown';
+      }
+      if (1 == count($vars['items'])) {
+        $vars['items'][0]['view'] = "$tradename is a combination including "
+          . $vars['items'][0]['view'];
+      }
+      else {
+        $generics = array();
+        foreach ($vars['items'] as $index => $item) {
+          $generics[] = $item['view'];
+          $vars['items'][$index]['empty'] = TRUE;
+        }
+        $vars['items'][0]['view'] = "$tradename is a combination of "
+          . implode_and($generics);
+        $vars['items'][0]['empty'] = FALSE;
+      }
+    }
+  }
+
 
   // Adjust the display of combination fields such that they show the generics
   if ('field_drug_combo' == $vars['field_name'] && $vars['items'][0]['nid']) {
