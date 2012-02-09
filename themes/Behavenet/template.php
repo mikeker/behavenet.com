@@ -18,7 +18,7 @@ function behavenet_preprocess_content_field(&$vars) {
     'field_company_url' => '',
     'field_drug_pi_url' => 'PI Website',
     'field_drug_url' => '',
-    'field_generic_medline_url' => 'Medline Website',
+    'field_generic_medline_url' => 'Medline',
   );
   if (in_array($vars['field_name'], array_keys($convert))) {
     // Convert to a clickable link
