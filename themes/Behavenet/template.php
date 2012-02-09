@@ -34,11 +34,15 @@ function behavenet_preprocess_content_field(&$vars) {
     }
   }
 
+  // Put generic drugs in parenthesis
+  if ('field_drug_generic' == $vars['field_name'] && 'drug' == $vars['node']->type) {
+    $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
+  }
+
   // Link directly to company web site -- skip link to internal node
   if ('field_drug_company' == $vars['field_name']) {
     $company = node_load($vars['items'][0]['nid']);
     if (!empty($company) && !empty($company->field_company_url[0]['value'])) {
-      // $vars['element']['#children'] = l('Company Web site', $company->field_company_url[0]['value']);
       $vars['items'][0]['view'] = l('Company Web site', $company->field_company_url[0]['value']);
     }
   }
