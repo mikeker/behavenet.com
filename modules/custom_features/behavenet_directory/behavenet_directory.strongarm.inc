@@ -93,5 +93,12 @@ function behavenet_directory_strongarm() {
   );
   $export['node_options_directory'] = $strongarm;
 
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_directory_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_directory_pattern'] = $strongarm;
+
   return $export;
 }
