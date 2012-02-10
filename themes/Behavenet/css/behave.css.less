@@ -38,13 +38,8 @@ a:hover {
   width: 960px;
   margin: 0 auto;
 }
-#page-main div {
-  display: inline;
-}
-.field-items div.field-item,
-#page-main .field-items div.field-item
-{
-  display: block;
+.clear-block:after {
+  content: none;
 }
 
 /*
@@ -103,30 +98,31 @@ a:hover {
 
 
 /*
-<<<<<<< HEAD
  * Main content area
  */
 #page-main h2 {
   margin-bottom: 0;
-=======
+}
+
+/*
  * Show credits in italics
  */
 .field-field-people-credit
 {
   font-style: italic;
->>>>>>> 3a6b64b19dbd7756c0f6e8fc5a1f987661a9d057
 }
 
 /*
  * Menus
  */
+div.admin-links, div.views-admin-links {
+  display: none;
+}
 div.tabs {
   // page-based contextual links
   clear: left;
 }
 ul.menu {
-
-
 }
 ul.menu li {
   float: left;
@@ -199,12 +195,4 @@ div.field-type-asin {
 // @TODO: Should do this by resizing the image, but waiting until we have a final design
 #logo img {
   width: 160px;
-}
-
-div.admin-links,
-div.views-admin-links,
-#page-main div.admin-links,
-#page-main div.views-admin-links
-{
-  display: none;
 }
