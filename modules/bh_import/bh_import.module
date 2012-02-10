@@ -458,15 +458,56 @@ function bh_import_test() {
   // $terms = build_lookup('terms');
   // dpr($terms); exit;
 
+  // dpr(taxonomy_render_nodes(taxonomy_select_nodes(array(8376))));
+  // $nodes = taxonomy_select_nodes(array(10732));
+  // while ($node = db_fetch_array($nodes)) {
+    // dpr($node);
+  // }
+
+
+  // Find missing </a> tags in terms
+  // $results = db_query("
+    // SELECT *, description AS text, tid AS id FROM {term_data} AS t
+    // WHERE description IS NOT NULL
+  // ");
+  $results = db_query("
+    SELECT *, body AS text, nid AS id FROM {node_revisions} AS r
+    WHERE r.body IS NOT NULL
+  ");
+  $config = array(
+    'input-xml' => TRUE,
+    'show-warnings' => FALSE,
+  );
+  while ($row = db_fetch_object($results)) {
+    $data[$row->id] = $row;
+    // $tidy = tidy_parse_string($row->text, $config, 'UTF8');
+    // if (!empty($tidy->errorBuffer)) {
+      // dpr("An error was found in taxonomy/term/$row->id");
+      // dpr($tidy->errorBuffer);
+      // dpr(' ');
+    // }
+  }
+
+  $closed = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)<\/a>";
+  $open = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)";
+
+  foreach ($data as $tid => $row) {
+    if (preg_match_all("/$open/siU", $row->text, $open_matches)) {
+      preg_match_all("/$closed/siU", $row->text, $closed_matches);
+      $diff = array_diff($open_matches[2], $closed_matches[2]);
+      if (!empty($diff)) {
+        dpr("missing closing tag in node/$row->id");
+        dpr($diff);
+      }
+    }
+  }
+
   dpr("done.");
   dpr(count($errors) . ' Errors:');
   dpr($errors);
   dpr(count($success) . ' Successful updates:');
   dpr($success);
   exit;
-  
-  
-  
 
   $url = array();
   $results = db_query("
@@ -501,7 +542,6 @@ function bh_import_test() {
   // dpr($data); exit;
   foreach ($data as $tid => $row) {
     $regexp = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)";
-    
     if (preg_match_all("/$regexp/siU", $row->description, $matches)) {
       foreach ($matches[2] as $match) {
         $update = FALSE;
@@ -534,7 +574,7 @@ function bh_import_test() {
             $errors[] = "Unable to find an appropriate url for $match in taxonomy/term/$tid";
           }
         }
-        
+
         if ($update) {
           $result = db_query("
             UPDATE {term_data}
@@ -546,8 +586,6 @@ function bh_import_test() {
     }
   }
 
-
-  
   // DONE:
   // Do URL substitutions for the few oddballs that somehow we missed...
   // $results = db_query("
@@ -567,14 +605,13 @@ function bh_import_test() {
         // SET description = '%s'
         // WHERE tid = %d
       // ", $term->description, $term->tid);
-// 
       // $success[] = "updated taxonomy/term/$term->tid ($term->name) with new URLs";
     // }
     // if (!empty($error)) {
       // $errors[] = "unable to replace a URL in term $term->tid ($term->name): $error.";
     // }
   // }
-  
+
   // DONE:
   // Do URL subs for DSM criteria
   // $results = db_query("
@@ -587,7 +624,7 @@ function bh_import_test() {
   // while ($row = db_fetch_object($results)) {
     // $data[$row->nid] = $row;
   // }
-// 
+
   // foreach ($data as $nid => $row) {
     // $node = node_load($nid);
     // $updated = FALSE;

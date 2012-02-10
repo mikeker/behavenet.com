@@ -70,6 +70,27 @@ a:hover {
 }
 
 /*
+ * Right-hand callout
+ */
+#page-main-callout {
+  background: @background;
+  padding: @space-v @space-h;
+  .rounded();
+}
+#page-main-callout .field-type-filefield,
+#page-main-callout .field-field-general-asin,
+#page-main-callout h4
+{
+  text-align: center;
+}
+#page-main-callout #gt-widget {
+  margin-left: -5px;
+}
+#page-main-callout select {
+  width: 240px;
+}
+
+/*
  * These are elements that should be flush left or, in the case of
  * panel-region-separator, provide an easy proxy for what needs to be flushed
  * left.
