@@ -8,9 +8,36 @@ function general_content_ctools_plugin_api() {
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => 1);
   }
+  elseif ($module == "panels_mini" && $api == "panels_default") {
+    return array("version" => 1);
+  }
   elseif ($module == "strongarm" && $api == "strongarm") {
     return array("version" => 1);
   }
+}
+
+/**
+ * Implementation of hook_imagecache_default_presets().
+ */
+function general_content_imagecache_default_presets() {
+  $items = array(
+    'right_callout_image' => array(
+      'presetname' => 'right_callout_image',
+      'actions' => array(
+        '0' => array(
+          'weight' => '0',
+          'module' => 'imagecache',
+          'action' => 'imagecache_scale',
+          'data' => array(
+            'width' => '240',
+            'height' => '',
+            'upscale' => 0,
+          ),
+        ),
+      ),
+    ),
+  );
+  return $items;
 }
 
 /**

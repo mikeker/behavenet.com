@@ -876,7 +876,7 @@ function generic_drugs_content_default_fields() {
       'weight' => '8',
       'parent' => '',
       'label' => array(
-        'format' => 'inline',
+        'format' => 'hidden',
       ),
       'teaser' => array(
         'format' => 'default',

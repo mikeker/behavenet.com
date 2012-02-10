@@ -73,16 +73,16 @@ function general_content_fieldgroup_default_groups() {
         'description' => '',
       ),
       'display' => array(
-        'weight' => '1',
+        'weight' => '4',
         'parent' => '',
-        'label' => 'above',
+        'label' => 'hidden',
         'teaser' => array(
-          'format' => 'fieldset',
-          'exclude' => 1,
+          'format' => 'no_style',
+          'exclude' => 0,
         ),
         'full' => array(
-          'format' => 'fieldset',
-          'exclude' => 1,
+          'format' => 'no_style',
+          'exclude' => 0,
         ),
         'description' => '',
         '4' => array(
@@ -103,7 +103,7 @@ function general_content_fieldgroup_default_groups() {
         ),
       ),
     ),
-    'weight' => '1',
+    'weight' => '4',
     'parent' => '',
     'fields' => array(
       '0' => 'field_people_image',

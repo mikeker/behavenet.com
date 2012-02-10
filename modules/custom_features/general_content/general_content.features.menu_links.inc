@@ -96,15 +96,33 @@ function general_content_menu_default_menu_links() {
     'expanded' => '0',
     'weight' => '-48',
   );
-  // Exported menu link: menu-main-tabs:node/27497
-  $menu_links['menu-main-tabs:node/27497'] = array(
+  // Exported menu link: menu-main-tabs:<front>
+  $menu_links['menu-main-tabs:<front>'] = array(
     'menu_name' => 'menu-main-tabs',
-    'link_path' => 'node/27497',
+    'link_path' => '<front>',
+    'router_path' => '',
+    'link_title' => 'Home',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '1',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-50',
+  );
+  // Exported menu link: menu-main-tabs:node/27644
+  $menu_links['menu-main-tabs:node/27644'] = array(
+    'menu_name' => 'menu-main-tabs',
+    'link_path' => 'node/27644',
     'router_path' => 'node/%',
     'link_title' => 'Drugs',
     'options' => array(
       'attributes' => array(
-        'title' => '',
+        'title' => 'Drugs',
       ),
     ),
     'module' => 'menu',
@@ -112,17 +130,17 @@ function general_content_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-49',
   );
-  // Exported menu link: menu-main-tabs:taxonomy/term/6678
-  $menu_links['menu-main-tabs:taxonomy/term/6678'] = array(
+  // Exported menu link: menu-main-tabs:node/27645
+  $menu_links['menu-main-tabs:node/27645'] = array(
     'menu_name' => 'menu-main-tabs',
-    'link_path' => 'taxonomy/term/6678',
-    'router_path' => 'taxonomy/term/%',
-    'link_title' => 'Addiction',
+    'link_path' => 'node/27645',
+    'router_path' => 'node/%',
+    'link_title' => 'Terms',
     'options' => array(
       'attributes' => array(
-        'title' => '',
+        'title' => 'Terms',
       ),
     ),
     'module' => 'menu',
@@ -130,17 +148,53 @@ function general_content_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-48',
   );
-  // Exported menu link: menu-main-tabs:taxonomy/term/6783
-  $menu_links['menu-main-tabs:taxonomy/term/6783'] = array(
+  // Exported menu link: menu-main-tabs:node/27646
+  $menu_links['menu-main-tabs:node/27646'] = array(
     'menu_name' => 'menu-main-tabs',
-    'link_path' => 'taxonomy/term/6783',
-    'router_path' => 'taxonomy/term/%',
+    'link_path' => 'node/27646',
+    'router_path' => 'node/%',
+    'link_title' => 'Notable People',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Notable People',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-47',
+  );
+  // Exported menu link: menu-main-tabs:node/27647
+  $menu_links['menu-main-tabs:node/27647'] = array(
+    'menu_name' => 'menu-main-tabs',
+    'link_path' => 'node/27647',
+    'router_path' => 'node/%',
+    'link_title' => 'Resources',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Resources',
+      ),
+    ),
+    'module' => 'menu',
+    'hidden' => '0',
+    'external' => '0',
+    'has_children' => '0',
+    'expanded' => '0',
+    'weight' => '-46',
+  );
+  // Exported menu link: menu-main-tabs:node/27648
+  $menu_links['menu-main-tabs:node/27648'] = array(
+    'menu_name' => 'menu-main-tabs',
+    'link_path' => 'node/27648',
+    'router_path' => 'node/%',
     'link_title' => 'Diagnosis',
     'options' => array(
       'attributes' => array(
-        'title' => '',
+        'title' => 'Diagnosis',
       ),
     ),
     'module' => 'menu',
@@ -148,18 +202,21 @@ function general_content_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-45',
   );
   // Translatables
   // Included for use with string extractors like potx.
   t('Academic Center');
-  t('Addiction');
   t('Advocacy');
   t('Diagnosis');
   t('Drugs');
   t('Forensic Examiner');
+  t('Home');
+  t('Notable People');
   t('Professional Association');
+  t('Resources');
   t('Support');
+  t('Terms');
 
 
   return $menu_links;

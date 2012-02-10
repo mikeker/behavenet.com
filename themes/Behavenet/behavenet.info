@@ -98,3 +98,4 @@ settings[zen_wireframes]           = 0
 
   ; Panels
 plugins[panels][layouts] = plugins/layouts
+plugins[panels][styles] = plugins/styles

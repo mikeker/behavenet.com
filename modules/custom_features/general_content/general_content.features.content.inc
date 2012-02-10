@@ -1223,7 +1223,7 @@ function general_content_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Related content',
-      'weight' => '5',
+      'weight' => '3',
       'description' => '',
       'type' => 'nodereference_autocomplete',
       'module' => 'nodereference',
@@ -1342,7 +1342,7 @@ function general_content_content_default_fields() {
     'field_name' => 'field_people_alt_names',
     'type_name' => 'people',
     'display_settings' => array(
-      'weight' => '-2',
+      'weight' => '-1',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -1389,7 +1389,7 @@ function general_content_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Alternate Names',
-      'weight' => '-2',
+      'weight' => '-1',
       'description' => '',
       'type' => 'text_textfield',
       'module' => 'text',
@@ -1401,10 +1401,10 @@ function general_content_content_default_fields() {
     'field_name' => 'field_people_credit',
     'type_name' => 'people',
     'display_settings' => array(
-      'weight' => '4',
+      'weight' => '5',
       'parent' => '',
       'label' => array(
-        'format' => 'inline',
+        'format' => 'hidden',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -1452,7 +1452,7 @@ function general_content_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Credit',
-      'weight' => '3',
+      'weight' => '5',
       'description' => '',
       'type' => 'text_textarea',
       'module' => 'text',
@@ -1464,18 +1464,18 @@ function general_content_content_default_fields() {
     'field_name' => 'field_people_dob',
     'type_name' => 'people',
     'display_settings' => array(
-      'weight' => '-1',
+      'weight' => 0,
       'parent' => '',
       'label' => array(
         'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'short',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'short',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       '4' => array(
         'format' => 'default',
@@ -1519,7 +1519,7 @@ function general_content_content_default_fields() {
       'year_range' => '-3:+3',
       'label_position' => 'above',
       'label' => 'Date of Birth',
-      'weight' => '-1',
+      'weight' => 0,
       'description' => '',
       'type' => 'date_text',
       'module' => 'date',
@@ -1531,18 +1531,18 @@ function general_content_content_default_fields() {
     'field_name' => 'field_people_dod',
     'type_name' => 'people',
     'display_settings' => array(
-      'weight' => 0,
+      'weight' => '1',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'short',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'short',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       '4' => array(
         'format' => 'default',
@@ -1586,7 +1586,7 @@ function general_content_content_default_fields() {
       'year_range' => '-3:+3',
       'label_position' => 'above',
       'label' => 'Date of Death',
-      'weight' => 0,
+      'weight' => '1',
       'description' => '',
       'type' => 'date_text',
       'module' => 'date',
@@ -1598,18 +1598,18 @@ function general_content_content_default_fields() {
     'field_name' => 'field_people_firstname',
     'type_name' => 'people',
     'display_settings' => array(
-      'weight' => '-4',
+      'weight' => '-3',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'default',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       '4' => array(
         'format' => 'default',
@@ -1645,7 +1645,7 @@ function general_content_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'First Name',
-      'weight' => '-4',
+      'weight' => '-3',
       'description' => '',
       'type' => 'text_textfield',
       'module' => 'text',
@@ -1664,11 +1664,11 @@ function general_content_content_default_fields() {
       ),
       'teaser' => array(
         'format' => 'image_plain',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'image_plain',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       '4' => array(
         'format' => 'image_plain',
@@ -1720,18 +1720,18 @@ function general_content_content_default_fields() {
     'field_name' => 'field_people_lastname',
     'type_name' => 'people',
     'display_settings' => array(
-      'weight' => '-3',
+      'weight' => '-2',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'default',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       '4' => array(
         'format' => 'default',
@@ -1767,7 +1767,7 @@ function general_content_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Last Name',
-      'weight' => '-3',
+      'weight' => '-2',
       'description' => '',
       'type' => 'text_textfield',
       'module' => 'text',
@@ -1779,7 +1779,7 @@ function general_content_content_default_fields() {
     'field_name' => 'field_terms',
     'type_name' => 'people',
     'display_settings' => array(
-      'weight' => '5',
+      'weight' => '2',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -1829,7 +1829,7 @@ function general_content_content_default_fields() {
       'default_value_php' => NULL,
       'expand_all' => 0,
       'label' => 'Terms',
-      'weight' => '4',
+      'weight' => '2',
       'description' => '',
       'type' => 'content_taxonomy_autocomplete',
       'module' => 'content_taxonomy_autocomplete',
