@@ -16,6 +16,9 @@ function behavenet_preprocess_content_field(&$vars) {
     'field_drug_pi_url' => 'FDA Label',
     'field_drug_url' => 'Product Web site',
     'field_generic_medline_url' => 'Medline',
+    'field_movie_blog' => '<img src="/'
+      . drupal_get_path('theme', 'Behavenet')
+      . '/images/blogger.png" alt="Blogger icon" title="Read a blog entry about this movie" />',
   );
   if (in_array($vars['field_name'], array_keys($convert))) {
     // Convert to a clickable link
@@ -23,11 +26,16 @@ function behavenet_preprocess_content_field(&$vars) {
     if (FALSE === stristr($url, 'http://')) {
       $url = "http://$url";
     }
+    $options = array();
+    if ('field_movie_blog' == $vars['field_name']) {
+      // Movie blog is an image.
+      $options['html'] = TRUE;
+    }
     if (empty($convert[$vars['field_name']])) {
-      $vars['items'][0]['view'] = l($vars['items'][0]['value'], $url);
+      $vars['items'][0]['view'] = l($vars['items'][0]['value'], $url, $options);
     }
     else {
-      $vars['items'][0]['view'] = l($convert[$vars['field_name']], $url);
+      $vars['items'][0]['view'] = l($convert[$vars['field_name']], $url, $options);
     }
   }
 
