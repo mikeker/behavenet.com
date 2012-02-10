@@ -585,42 +585,6 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane->pid = 'new-15';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
-    $pane->subtype = 'field_drug_image';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'node_type',
-          'settings' => array(
-            'type' => array(
-              'drug' => 'drug',
-            ),
-          ),
-          'context' => 'node',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'label' => 'normal',
-      'formatter' => 'right_callout_image_default',
-      'context' => 'node',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-13'] = $pane;
-    $display->panels['main_callout'][3] = 'new-13';
-    $pane = new stdClass;
-    $pane->pid = 'new-14';
-    $pane->panel = 'main_callout';
-    $pane->type = 'content_field';
     $pane->subtype = 'field_tt_extras_image';
     $pane->shown = TRUE;
     $pane->access = array(
