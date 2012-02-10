@@ -9,27 +9,6 @@ function media_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'ant_movie';
-  $strongarm->value = '0';
-  $export['ant_movie'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'ant_pattern_movie';
-  $strongarm->value = '';
-  $export['ant_pattern_movie'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'ant_php_movie';
-  $strongarm->value = 0;
-  $export['ant_php_movie'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_book';
   $strongarm->value = '0';
   $export['comment_anonymous_book'] = $strongarm;
@@ -186,146 +165,6 @@ function media_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'date:book:full:field_book_pubdate_fromto';
-  $strongarm->value = 'both';
-  $export['date:book:full:field_book_pubdate_fromto'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:book:full:field_book_pubdate_multiple_from';
-  $strongarm->value = '';
-  $export['date:book:full:field_book_pubdate_multiple_from'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:book:full:field_book_pubdate_multiple_number';
-  $strongarm->value = '';
-  $export['date:book:full:field_book_pubdate_multiple_number'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:book:full:field_book_pubdate_multiple_to';
-  $strongarm->value = '';
-  $export['date:book:full:field_book_pubdate_multiple_to'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:book:full:field_book_pubdate_show_repeat_rule';
-  $strongarm->value = 'show';
-  $export['date:book:full:field_book_pubdate_show_repeat_rule'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:book:teaser:field_book_pubdate_fromto';
-  $strongarm->value = 'both';
-  $export['date:book:teaser:field_book_pubdate_fromto'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:book:teaser:field_book_pubdate_multiple_from';
-  $strongarm->value = '';
-  $export['date:book:teaser:field_book_pubdate_multiple_from'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:book:teaser:field_book_pubdate_multiple_number';
-  $strongarm->value = '';
-  $export['date:book:teaser:field_book_pubdate_multiple_number'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:book:teaser:field_book_pubdate_multiple_to';
-  $strongarm->value = '';
-  $export['date:book:teaser:field_book_pubdate_multiple_to'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:book:teaser:field_book_pubdate_show_repeat_rule';
-  $strongarm->value = 'show';
-  $export['date:book:teaser:field_book_pubdate_show_repeat_rule'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:movie:full:field_movie_release_fromto';
-  $strongarm->value = 'both';
-  $export['date:movie:full:field_movie_release_fromto'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:movie:full:field_movie_release_multiple_from';
-  $strongarm->value = '';
-  $export['date:movie:full:field_movie_release_multiple_from'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:movie:full:field_movie_release_multiple_number';
-  $strongarm->value = '';
-  $export['date:movie:full:field_movie_release_multiple_number'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:movie:full:field_movie_release_multiple_to';
-  $strongarm->value = '';
-  $export['date:movie:full:field_movie_release_multiple_to'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:movie:full:field_movie_release_show_repeat_rule';
-  $strongarm->value = 'show';
-  $export['date:movie:full:field_movie_release_show_repeat_rule'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:movie:teaser:field_movie_release_fromto';
-  $strongarm->value = 'both';
-  $export['date:movie:teaser:field_movie_release_fromto'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:movie:teaser:field_movie_release_multiple_from';
-  $strongarm->value = '';
-  $export['date:movie:teaser:field_movie_release_multiple_from'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:movie:teaser:field_movie_release_multiple_number';
-  $strongarm->value = '';
-  $export['date:movie:teaser:field_movie_release_multiple_number'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:movie:teaser:field_movie_release_multiple_to';
-  $strongarm->value = '';
-  $export['date:movie:teaser:field_movie_release_multiple_to'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'date:movie:teaser:field_movie_release_show_repeat_rule';
-  $strongarm->value = 'show';
-  $export['date:movie:teaser:field_movie_release_show_repeat_rule'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'node_options_book';
   $strongarm->value = array(
     0 => 'status',
@@ -342,13 +181,6 @@ function media_strongarm() {
     1 => 'revision',
   );
   $export['node_options_movie'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_book_pattern';
-  $strongarm->value = '';
-  $export['pathauto_node_book_pattern'] = $strongarm;
 
   return $export;
 }

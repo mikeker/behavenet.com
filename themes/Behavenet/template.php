@@ -47,9 +47,12 @@ function behavenet_preprocess_content_field(&$vars) {
   // Link directly to company web site -- skip link to internal node
   if ('field_drug_company' == $vars['field_name']) {
     $company = node_load($vars['items'][0]['nid']);
-    if (!empty($company) && !empty($company->field_company_url[0]['value'])) {
-      $vars['items'][0]['view'] = l('Company Web site', $company->field_company_url[0]['value']);
+    $url = $company->field_company_url[0]['value'];
+    if (0 !== strpos($url, 'http://')) {
+      // Correct poorly formed URLs in the original dataset
+      $url = "http://$url";
     }
+    $vars['items'][0]['view'] = l('Company Web site', $url, array('external' => TRUE));
   }
 
   // Changes to how drug combination are shown

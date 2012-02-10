@@ -350,11 +350,11 @@ function _bh_url_replace(&$string, &$error) {
       // Strip domain from url_full for better comparisons
       $row->url_full = str_replace('http://www.behavenet.com', '', $row->url_full);
       $row->url_full = str_replace('http://behavenet.com', '', $row->url_full);
-
+      
       // Handle spaces in URLs
       $row->url_full = str_replace(' ', '%20', trim($row->url_full));
       $row->url_base = str_replace(' ', '%20', trim($row->url_base));
-
+      
       // Do all comparisons in lowercase
       $row->url_full = strtolower($row->url_full);
       $row->url_base = strtolower($row->url_base);
@@ -509,7 +509,6 @@ function bh_import_test() {
   dpr($success);
   exit;
 
-
   $url = array();
   $results = db_query("
     SELECT * FROM {data_url}
@@ -518,11 +517,11 @@ function bh_import_test() {
     // Strip domain from url_full for better comparisons
     $row->url_full = str_replace('http://www.behavenet.com', '', $row->url_full);
     $row->url_full = str_replace('http://behavenet.com', '', $row->url_full);
-
+    
     // Handle spaces in URLs
     $row->url_full = str_replace(' ', '%20', trim($row->url_full));
     $row->url_base = str_replace(' ', '%20', trim($row->url_base));
-
+    
     // Do all comparisons in lowercase
     $row->url_full = strtolower($row->url_full);
     $row->url_base = strtolower($row->url_base);
@@ -543,8 +542,6 @@ function bh_import_test() {
   // dpr($data); exit;
   foreach ($data as $tid => $row) {
     $regexp = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)";
-
-    // if (preg_match_all('/href="(.+?)[^"]\/taxonomy\//', $row->description, $matches)) {
     if (preg_match_all("/$regexp/siU", $row->description, $matches)) {
       foreach ($matches[2] as $match) {
         $update = FALSE;
@@ -564,6 +561,11 @@ function bh_import_test() {
             $success[] = "Updated $match to " . substr($match, $pos) . " in $row->name (/taxonomy/term/$row->tid)";
           }
           else if ('http://behavenet.com' == substr($match, 0, 20)) {
+            $row->description = str_replace('http://behavenet.com', '', $row->description);
+            $success[] = "Removed behavenet.com in $row->name (/taxonomy/term/$row->tid)";
+            $update = TRUE;
+          }
+          else if ('http://www.behavenet.com' == substr($match, 0, 24)) {
             $row->description = str_replace('http://behavenet.com', '', $row->description);
             $success[] = "Removed behavenet.com in $row->name (/taxonomy/term/$row->tid)";
             $update = TRUE;
@@ -603,7 +605,6 @@ function bh_import_test() {
         // SET description = '%s'
         // WHERE tid = %d
       // ", $term->description, $term->tid);
-//
       // $success[] = "updated taxonomy/term/$term->tid ($term->name) with new URLs";
     // }
     // if (!empty($error)) {
@@ -623,7 +624,7 @@ function bh_import_test() {
   // while ($row = db_fetch_object($results)) {
     // $data[$row->nid] = $row;
   // }
-//
+
   // foreach ($data as $nid => $row) {
     // $node = node_load($nid);
     // $updated = FALSE;

@@ -47,6 +47,26 @@ a:hover {
   display: block;
 }
 
+/*
+ * Right-hand callout
+ */
+#page-main-callout {
+  background: @background;
+  padding: @space-v @space-h;
+  .rounded();
+}
+#page-main-callout .field-type-filefield,
+#page-main-callout .field-field-general-asin,
+#page-main-callout h4
+{
+  text-align: center;
+}
+#page-main-callout #gt-widget {
+  margin-left: -5px;
+}
+#page-main-callout select {
+  width: 240px;
+}
 
 /*
  * Right-hand callout
@@ -83,10 +103,18 @@ a:hover {
 
 
 /*
+<<<<<<< HEAD
  * Main content area
  */
 #page-main h2 {
   margin-bottom: 0;
+=======
+ * Show credits in italics
+ */
+.field-field-people-credit
+{
+  font-style: italic;
+>>>>>>> 3a6b64b19dbd7756c0f6e8fc5a1f987661a9d057
 }
 
 /*
