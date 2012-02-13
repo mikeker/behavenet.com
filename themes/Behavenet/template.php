@@ -16,9 +16,10 @@ function behavenet_preprocess_content_field(&$vars) {
     'field_drug_pi_url' => 'FDA Label',
     'field_drug_url' => 'Product Web site',
     'field_generic_medline_url' => 'Medline',
-    'field_movie_blog' => '<img src="/'
+    'field_movie_blog' => '<span class="blogger-link"><img src="/'
       . drupal_get_path('theme', 'Behavenet')
-      . '/images/blogger.png" alt="Blogger icon" title="Read a blog entry about this movie" />',
+      . '/images/blogger.png" alt="Blogger icon" title="Read a blog entry about this movie" />'
+      . ' Blog entry about this movie</span>',
   );
   if (in_array($vars['field_name'], array_keys($convert))) {
     // Convert to a clickable link

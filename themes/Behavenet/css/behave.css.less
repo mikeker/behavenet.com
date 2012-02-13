@@ -115,7 +115,10 @@ a:hover {
 /*
  * Menus
  */
-div.admin-links, div.views-admin-links {
+div.admin-links,
+div.views-admin-links,
+div.panel-pane:hover div.panel-hide
+{
   display: none;
 }
 div.tabs {
@@ -177,10 +180,10 @@ div.field-type-asin {
 /*
  * Icons
  */
-.blogger-link {
+.blogger-link img {
   width: 32px;
   height: 32px;
-  background: transparent url('../images/blogger.png') 0 0 no-repeat;
+  vertical-align: middle;
 }
 
 
