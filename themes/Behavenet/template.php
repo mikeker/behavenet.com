@@ -176,3 +176,61 @@ function behavenet_preprocess_search_theme_form(&$vars) {
   // Redirect the search_theme_form to our Views-based search
   $vars['search_link'] = l('Search this site', 'search');
 }
+
+/*****************************************************************************
+ * 
+ * One-off display functions for the Behavenet theme
+ * 
+ * Most of these functions accept a $data object as passed by Customfield's
+ * PHP Views field, unless noted otherwise 
+ *  
+ *****************************************************************************/
+
+/*
+ * Display for books and music
+ * 
+ * $data should include the following fields from Views
+ *    - Node:Title
+ *    - Node:Type
+ *    - Amazon: Product image
+ *    - Amazon: Title
+ */
+function behavenet_display_books_movies($data) {
+  $output = '';
+  if ('book' == $data->node_type) {
+    if (empty($data->amazon_item_node_data_field_general_asin_detailpageurl)) {
+      $output .= '<div class="clear-fix clear-left">';
+      $output .= $data->node_title;
+      $output .= '</div>';
+    }
+    else {
+      $output .= l($data->amazon_item_node_data_field_general_asin_title, $data->amazon_item_node_data_field_general_asin_detailpageurl);
+    }
+  }
+  else if ('movie' == $data->node_type) {
+    if (empty($data->amazon_item_node_data_field_general_asin__amazon_item_image_url)) {
+      // No ASIN information, use the node title
+      $output .= '<div class="clear-fix clear-left">';
+      $output .= l($data->node_title, "node/$data->nid");
+      $output .= '</div>';
+    }
+    else {
+      // Show Amazon item image and link to Amazon's site
+      $img = '<img class="amazon-item-image" src="'
+        . $data->amazon_item_node_data_field_general_asin__amazon_item_image_url
+        . '" alt="'
+        . $data->amazon_item_node_data_field_general_asin_title
+        . '" height="'
+        . $data->amazon_item_node_data_field_general_asin__amazon_item_image_height
+        . '" width="'
+        . $data->amazon_item_node_data_field_general_asin__amazon_item_image_width
+        . '" />';
+      $output .= '<div class="books-and-movies">';
+      $output .= l($img, "node/$data->nid", array('html' => TRUE));
+      $output .= '<br />';
+      $output .= l($data->node_title, "node/$data->nid");
+      $output .= '</div>';
+    }
+  }
+  return $output;
+} 

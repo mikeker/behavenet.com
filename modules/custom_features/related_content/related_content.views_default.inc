@@ -192,41 +192,8 @@ function related_content_views_default_views() {
       'empty_zero' => 0,
       'hide_alter_empty' => 1,
       'value' => '<?php
-// For books, just show title with link to Amazon (or just title if no ASIN is available)
-if (\'book\' == $data->node_type) {
-  if (empty($data->amazon_item_node_data_field_general_asin_detailpageurl)) {
-    print \'<div class="clear-fix clear-left">\';
-    print $data->node_title;
-    print \'</div>\';
-  }
-  else {
-    print l($data->amazon_item_node_data_field_general_asin_title, $data->amazon_item_node_data_field_general_asin_detailpageurl);
-  }
-  return;  // Save us from indentation hell when we don\'t have a real code editor to work with...
-}
-if (empty($data->amazon_item_node_data_field_general_asin__amazon_item_image_url)) {
-  // No ASIN information, use the node title
-  print \'<div class="clear-fix clear-left">\';
-  print l($data->node_title, "node/$data->nid");
-  print \'</div>\';
-}
-else {
-  // Show Amazon item image and link to Amazon\'s site
-  $img = \'<img class="amazon-item-image" src="\'
-    . $data->amazon_item_node_data_field_general_asin__amazon_item_image_url
-    . \'" alt="\'
-    . $data->amazon_item_node_data_field_general_asin_title
-    . \'" height="\'
-    . $data->amazon_item_node_data_field_general_asin__amazon_item_image_height
-    . \'" width="\'
-    . $data->amazon_item_node_data_field_general_asin__amazon_item_image_width
-    . \'" />\';
-  print \'<div class="books-and-movies">\';
-  print l($img, $data->amazon_item_node_data_field_general_asin_detailpageurl, array(\'html\' => TRUE));
-  print \'<br />\';
-  print l($data->amazon_item_node_data_field_general_asin_title, $data->amazon_item_node_data_field_general_asin_detailpageurl);
-  print \'</div>\';
-}
+include_once(drupal_get_path(\'theme\', \'behavenet\') . \'/template.php\');
+print behavenet_display_books_movies($data);
 ?>',
       'exclude' => 0,
       'id' => 'phpcode',
