@@ -1131,7 +1131,7 @@ function behavenet_views_pre_render(&$view) {
         $db_results = db_query("
           SELECT t.tid, t.*
           FROM   {term_data} t
-          WHERE  LOWER(t.name) LIKE ('%% %s% %')
+          WHERE  LOWER(t.name) LIKE ('%% %s%%')
           LIMIT  0, 20
         ", strtolower($key));
         while($row = db_fetch_object($db_results)) {
@@ -1312,10 +1312,7 @@ function behavenet_views_pre_render(&$view) {
           array_push($results[$key], $item);
           $existing[$row->nid] = TRUE;
         }
-
       }
-
-      // dsm($results);
 
       // Format for display and attach before the Views-generated results
       $output = '';
