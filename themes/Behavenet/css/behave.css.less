@@ -47,6 +47,7 @@ a:hover {
  */
 #page-main-callout {
   background: @background;
+  margin-left: @space-h;
   padding: @space-v @space-h;
   .rounded();
 }
@@ -64,24 +65,16 @@ a:hover {
 }
 
 /*
- * Right-hand callout
+ * Page footer
+ *
+ * NOTE: as per Wikipedia-like styling, the page footer does not go below the
+ * left sidebar, but under the main content area
  */
-#page-main-callout {
-  background: @background;
-  padding: @space-v @space-h;
-  .rounded();
-}
-#page-main-callout .field-type-filefield,
-#page-main-callout .field-field-general-asin,
-#page-main-callout h4
-{
+#page-footer {
+  padding-top: 2 * @space-v;
+  padding-bottom: 2 * @space-v;
   text-align: center;
-}
-#page-main-callout #gt-widget {
-  margin-left: -5px;
-}
-#page-main-callout select {
-  width: 240px;
+  font-size: 80%;
 }
 
 /*
