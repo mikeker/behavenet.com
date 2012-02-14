@@ -47,13 +47,18 @@ function behavenet_preprocess_content_field(&$vars) {
 
   // Link directly to company web site -- skip link to internal node
   if ('field_drug_company' == $vars['field_name']) {
-    $company = node_load($vars['items'][0]['nid']);
-    $url = $company->field_company_url[0]['value'];
-    if (0 !== strpos($url, 'http://')) {
-      // Correct poorly formed URLs in the original dataset
-      $url = "http://$url";
+    if (empty($company->field_company_url[0]['value'])) {
+      $vars['field_empty'] = TRUE;
     }
-    $vars['items'][0]['view'] = l('Company Web site', $url, array('external' => TRUE));
+    else {
+      $company = node_load($vars['items'][0]['nid']);
+      $url = $company->field_company_url[0]['value'];
+      if (0 !== strpos($url, 'http://')) {
+        // Correct poorly formed URLs in the original dataset
+        $url = "http://$url";
+      }
+      $vars['items'][0]['view'] = l('Company Web site', $url, array('external' => TRUE));
+    }
   }
 
   // Changes to how drug combination are shown
@@ -179,17 +184,17 @@ function behavenet_preprocess_search_theme_form(&$vars) {
 }
 
 /*****************************************************************************
- * 
+ *
  * One-off display functions for the Behavenet theme
- * 
+ *
  * Most of these functions accept a $data object as passed by Customfield's
- * PHP Views field, unless noted otherwise 
- *  
+ * PHP Views field, unless noted otherwise
+ *
  *****************************************************************************/
 
 /*
  * Display for books and music
- * 
+ *
  * $data should include the following fields from Views
  *    - Node:Title
  *    - Node:Type
@@ -234,4 +239,4 @@ function behavenet_display_books_movies($data) {
     }
   }
   return $output;
-} 
+}
