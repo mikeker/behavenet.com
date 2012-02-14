@@ -1,0 +1,1381 @@
+<?php
+// $Id:
+
+/**
+ * @file
+ * Glue module for Behavenet.com
+ */
+
+/**
+ * Implements hook_perm()
+ * @return array of permissions exposed by this module
+ *
+ * Exposes the following permissions:
+ *    - permission one: what this permission can do
+ */
+function behave_perm() {
+  return array('administer behavenet');
+}
+
+
+/**
+ * Implements hook_menu()
+ * @return array with the menu structure provided by this module
+ */
+function behave_menu() {
+  $items = array();
+
+  $items['admin/settings/behavenet'] = array(
+    'title' => 'Behavenet settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('behavenet_settings_form'),
+    'access arguments' => array('administer behavenet'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+  );
+  // $items['behavenet/term/ct_autocomplete_admin'] = array(
+    // 'title' => 'Term autocomplete',
+    // 'page callback' => 'behavenet_term_ct_autocomplete_admin',
+    // 'access arguments' => array('administer behavenet'),
+    // 'type' => MENU_CALLBACK,
+  // );
+  $items['behavenet/term/autocomplete_admin'] = array(
+    'title' => 'Term autocomplete',
+    'page callback' => 'behavenet_term_autocomplete_admin',
+    'access arguments' => array('administer behavenet'),
+    'type' => MENU_CALLBACK,
+  );
+  $items['behavenet/term/autocomplete'] = array(
+    'title' => 'Term autocomplete',
+    'page callback' => 'behavenet_term_autocomplete',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['behave_test'] = array(
+    'title' => 'test',
+    'description' => 'test',
+    'page callback' => 'behave_test',
+    'access arguments' => array('administer behavenet'),
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_form_FORM_NAME_alter
+ * @param $form - array containing the form structure
+ * @param $form_state - current state of the form
+ * @return none
+ * @see http://api.drupal.org/api/function/hook_form_FORM_NAME_alter/6
+ */
+function behave_form_views_exposed_form_alter(&$form, &$form_state) {
+  // Update search field to an autocomplete
+  $form['keys']['#autocomplete_path'] = 'behavenet/term/autocomplete';
+  $form['keys']['#size'] = 60;
+}
+
+/**
+ * Implements hook_form_alter
+ * @param $form - array containing the form structure
+ * @param $form_state - current state of the form
+ * @param $form_id - unique ID for this form
+ * @return none
+ * @see http://api.drupal.org/api/function/hook_form_alter/6
+ */
+function behave_form_alter(&$form, &$form_state, $form_id) {
+
+  // dsm('in behave_form_alter');
+  // dsm($form_id);
+  // dsm($form);
+
+  if (isset($form['field_general_terms'])) {
+
+    $form['field_general_terms']['#type'] = 'value';
+    $form['field_general_terms']['#value'] = $form['field_general_terms']['#default_value'];
+
+    $existing = array();
+    if (!empty($form['field_general_terms']['#default_value'])) {
+      foreach ($form['field_general_terms']['#default_value'] as $index => $info) {
+        // Add an option to remove existing terms
+        if (empty($info['value'])) {
+          continue;
+        }
+        $tid = $info['value'];
+        $term = taxonomy_get_term($tid);
+        $parents = taxonomy_get_parents($tid);
+        $item = '';
+        foreach($parents as $parent) {
+          $item .= "$parent->name >> ";
+        }
+        $existing[$tid] = "$item$term->name";
+      }
+
+      if (!empty($existing)) {
+        $form['field_general_terms_existing'] = array(
+          '#type' => 'checkboxes',
+          '#title' => 'Existing Terms',
+          '#description' => 'Check any terms you wish to remove.',
+          '#options' => $existing,
+        );
+      }
+    }
+
+    $form['field_general_terms_ac'] = array(
+      '#type' => 'textfield',
+      '#title' => $form['field_general_terms']['#title'],
+      '#maxlength' => 999,
+      '#autocomplete_path' => 'behavenet/term/autocomplete_admin',
+      '#description' => 'Begin typing to see autocomplete options. Separate multiple terms with a comma.',
+    );
+
+    $form['#submit'][] = 'behave_terms_admin_ac_submit';
+  }
+
+  if ('dsm_node_form' == $form_id) {
+    // Convert to our autocomplete -- uses the term-id:tid format of taxonomy_manager
+    $form['field_dsm_term']['parents']['op']['add']['#autocomplete_path'] = 'behavenet/term/autocomplete_admin';
+    $form['field_dsm_term']['parents']['op']['add']['#size'] = 60;
+  }
+
+  if ('taxonomy_manager_form' == $form_id) {
+    // Convert to our autocomplete -- uses the term-id:tid format of taxonomy_manager
+    $form['term_data']['parents']['op']['add']['#autocomplete_path'] = 'behavenet/term/autocomplete_admin';
+    $form['term_data']['parents']['op']['add']['#size'] = 60;
+    $form['term_data']['relations']['op']['add']['#autocomplete_path'] = 'behavenet/term/autocomplete_admin';
+    $form['term_data']['relations']['op']['add']['#size'] = 60;
+  }
+
+  //  if ('some_form_name' == $form_id) {
+  //    // Do something
+  //  }
+  //
+  //  if ('some_other_form_name' == $form_id) {
+  //
+  //    // Basic example
+  //    if (!user_access('some permission')) {
+  //      // Remove the example field
+  //      unset($form['field_example']);
+  //    }
+  //
+  //  }
+  //
+  //  // Update the "add another" text to be more descriptive
+  //  $updates = array(
+  //    'field_some_field_name' => 'Add another something',
+  //  );
+  //  foreach ($updates as $field => $text) {
+  //    if (isset($form[$field][$field .'_add_more']['#value'])) {
+  //      $form[$field][$field .'_add_more']['#value'] = t($text);
+  //    }
+  //  }
+  //
+  //  // Move description below the "add another" field by putting it in the #suffix
+  //  $fields = array('field_some_field_name');
+  //  $spacer = '<div class="spacer"></div>';
+  //  foreach($fields as $field) {
+  //    if (isset($form[$field])) {
+  //      $form[$field]['#suffix'] = $form[$field]['#description'] . $spacer . $form[$field]['#suffix'];
+  //      unset($form[$field]['#description']);
+  //    }
+  //  }
+}
+
+/**
+ * Implements hook_nodeapi
+ * @param $node
+ * @param $op
+ * @param $a3
+ * @param $a4
+ * @return unknown_type
+ * @see http://api.drupal.org/api/function/hook_nodeapi/6
+ */
+function behave_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  switch ($op) {
+    case 'update index':
+      return behavenet_node_update_index($node);
+      break;        // case 'presave':
+  }
+}
+
+/**
+ * Implements hook_update_index
+ *
+ * Index taxonomy terms as well as nodes for Behavenet
+ *
+ * @return none
+ */
+function behave_update_index() {
+  $limit = (int) variable_get('search_cron_limit', 100);
+
+  $result = db_query_range("
+    SELECT t.tid, t.name
+    FROM {term_data} t
+    LEFT JOIN {search_dataset} d
+      ON d.type = 'term'
+      AND d.sid = t.tid
+    WHERE d.sid IS NULL
+      OR d.reindex <> 0
+    ORDER BY d.reindex ASC, t.tid ASC", 0, $limit);
+
+  while ($term = db_fetch_object($result)) {
+    $text = '<h1>' . check_plain($term->name) . '</h1>';
+
+    // Update index
+    search_index($term->tid, 'term', $text);
+  }
+}
+
+function behave_terms_admin_ac_submit($form, &$form_state) {
+  // dpr('in behave_terms_admin_ac_submit');
+  // dpr($form_state['values']); exit;
+
+  // Collect terms we're adding
+  $typed_terms = str_replace('"', '', $form_state['values']['field_general_terms_ac']);
+  $new_terms = content_taxonomy_autocomplete_split_tags($typed_terms);
+  foreach ($new_terms as $index => $term) {
+    $new_terms[$index] = str_replace('term-id:', '', $term);
+    if (empty($new_terms[$index])) {
+      unset($new_terms[$index]);
+    }
+  }
+
+  // Collect terms we're removing
+  $remove = array();
+  if (!empty($form_state['values']['field_general_terms_existing'])) {
+    $remove = array_filter($form_state['values']['field_general_terms_existing']);
+  }
+
+  // Collect and compact the General Terms array
+  $terms = array();
+  foreach ($form_state['values']['field_general_terms'] as $entry) {
+    if (!empty($entry['value']) && !in_array($entry['value'], $remove)) {
+      $terms[] = $entry;
+    }
+  }
+  foreach ($new_terms as $tid) {
+    $terms[] = array('value' => $tid);
+  }
+  if (empty($terms)) {
+    $terms = array(0 => array('value' => ''));
+  }
+  $form_state['values']['field_general_terms'] = $terms;
+}
+
+
+/*****************************************************************************
+
+                            CKEditor_Link API
+
+ *****************************************************************************/
+
+/**
+ * Declare the path types handled by the module.
+ *
+ * @return
+ *   An array of the types handled by the module.
+ *   Each value is either a type name or a sub-array with the following
+ *   attributes:
+ *    - 'type'
+ *         The type name. Required.
+ *    - 'file'
+ *         A file that will be included before other hooks are invoked.
+ *         The file should be relative to the implementing module's directory.
+ */
+function behave_ckeditor_link_types() {
+  return array(
+    'behavenet_terms',
+  );
+}
+
+/**
+ * Alter types.
+ *
+ * @param $types
+ *   The types returned by hook_ckeditor_link_types(). The types are keyed by
+ *   'MODULE.TYPE' for easy lookup.
+ *
+ * @see hook_ckeditor_link_types().
+function hook_ckeditor_link_types_alter(&$types) {
+  // Change types.
+}
+ */
+
+/**
+ * Get autocomplete suggestions for the given string.
+ *
+ * Implementing modules should return only suggestions the current user has
+ * access to.
+ *
+ * @param $string
+ *   The string to autocomplete.
+ *
+ * @return
+ *   An array of suggestions where keys are non-aliased internal paths
+ *   and values are titles.
+ */
+function behave_ckeditor_link_behavenet_terms_autocomplete($string) {
+  $matches = array();
+
+  // Grab node title matches first
+  $result = db_query("
+    SELECT nid, title, type FROM {node}
+    WHERE title LIKE '%s%%'
+    LIMIT 0, 10
+  ", $string);
+  while ($row = db_fetch_object($result)) {
+    $matches["node/$row->nid"] = ucwords($row->type) . ": $row->title";
+  }
+
+  // Now term matches
+  $admin_matches = _behavenet_term_autocomplete_admin($string);
+  /*
+   * _behavenet_term_autocomplete_admin() returns strings in the form of
+   *
+   *    [term-id:12345] => "Term name and context"
+   *
+   * This needs to be altered to
+   *
+   *    ['the-path/to/term/12345'] = "Term name and context"
+   */
+  foreach ($admin_matches as $term => $name) {
+    $tid = substr($term, 8);
+    $matches["taxonomy/term/$tid"] = $name;
+  }
+  return $matches;
+}
+
+/**
+ * Alter autocomplete suggestions.
+ *
+ * @param $results
+ *   The results returned by hook_ckeditor_link_TYPE_autocomplete.
+ * @param $string
+ *   The string to autocomplete.
+ *
+ * @see hook_ckeditor_link_TYPE_autocomplete().
+function hook_ckeditor_link_autocomplete_alter(&$results, $string) {
+  // Change results.
+}
+ */
+
+/**
+ * Revert a path to a user-friendly title.
+ *
+ * Implementing modules should revert only paths the current user has access to.
+ *
+ * @param $path
+ *   The path to revert.
+ * @param $langcode
+ *   The language code of the path if any. The implementing module may fix it
+ *   if necessary, based on the given path.
+ *
+ * @return
+ *   A title, FALSE if not found, or nothing if the implementing module is not
+ *   responsible for the given path.
+function hook_ckeditor_link_TYPE_revert($path, &$langcode) {
+  //
+}
+ */
+
+/**
+ * Convert an internal path into an aliased and, if applicable, language
+ * prefixed URL.
+ *
+ * @param $path
+ *   The internal path to convert.
+ * @param $langcode
+ *   The language code of the path if any. It should only be used as a fallback
+ *   when the content being linked to does not have any intrisic language.
+ *
+ * @return
+ *   An URL alias, or nothing if the implementing module is not responsible for
+ *   the given path.
+function hook_ckeditor_link_TYPE_url($path, $langcode) {
+  //
+}
+ */
+
+/**
+ * Add settings to the CKEditor Link settings form.
+ *
+ * @return
+ *   An array containing the form elements to add.
+function hook_ckeditor_link_TYPE_settings() {
+  $form = array(
+    //
+  );
+  return $form;
+}
+ */
+
+
+/*****************************************************************************
+
+                            Helper functions
+
+ *****************************************************************************/
+
+/*
+ * Test function
+ */
+function behave_test() {
+  dpr(content_taxonomy_autocomplete_load('field_general_terms', 'stre'));
+
+  exit;
+  // behavenet_term_autocomplete('kpot');
+}
+
+
+/*
+ * Helper function for better indexing Behavenet content
+ */
+function behavenet_node_update_index($node) {
+  // Add synonyms to taxonomy terms (handled by taxonomy.module) associated with this node
+  $output = array();
+  foreach ($node->taxonomy as $term) {
+    $output += taxonomy_get_synonyms($term->tid);
+  }
+  if (count($output)) {
+    return '<strong>('. implode(', ', $output) .')</strong>';
+  }
+}
+
+
+
+/**
+ * Returns a tree in the form of tid => term_object where term_object is extended with depth and
+ * parent elements
+ *
+ * @param $force - default: false.  Set to TRUE to force rebuilding the lookup from the database
+ * @return array of tid => term_obj
+ */
+function _bh_get_terms_lookup($force = FALSE) {
+  static $terms = array();
+  if (empty($terms) || $force) {
+    $v = taxonomy_get_tree(5);
+    $terms = array();
+    foreach ($v as $term) {
+      $terms[$term->tid] = $term;
+    }
+  }
+  return $terms;
+}
+
+/**
+ * Returns the birth/death dates of a node->type == Person
+ */
+function behavenet_get_birth_death_dates($nid) {
+  $node = node_load($nid);
+  if (empty($node) || 'people' != $node->type) {
+    return;
+  }
+  $birth = $death = '';
+  if (!empty($node->field_people_dob[0]['value'])) {
+    $birth = date_format_date($node->field_people_dob[0]['value'], 'custom', 'M d, Y');
+  }
+  else {
+    $birth = '?';
+  }
+  if (!empty($node->field_people_dod[0]['value'])) {
+    $death = date_format_date($node->field_people_dod[0]['value'], 'custom', 'M d, Y');
+  }
+  else {
+    $death = '?';
+  }
+  return "$birth - $death";
+}
+
+/**
+ * Returns an HTML string breadcrumb for generic drugs in the form of:
+ *    generic >> TradeNameDrug
+ *    generic >> TradeNameDrug2
+ *    ...
+ * as an unordered list.
+ * @return HTML string
+ * @param $nid ID of the generic drug
+ */
+function behavenet_get_generic_breadcrumbs($nid) {
+  $generic = node_load($nid);
+  if ('generic' != $generic->type) {
+    return NULL;
+  }
+  $results = db_query("
+    SELECT n.nid, n.title FROM {node} AS n
+    INNER JOIN {content_type_drug} AS d
+      ON d.vid = n.vid
+    WHERE d.field_drug_generic_nid = %d
+  ", $nid);
+  $crumbs = array();
+  while ($row = db_fetch_object($results)) {
+    // Note: we know there is only one generic drug for each Trade Name drug
+    $crumbs[$row->title] = l($generic->title, "node/$nid") . ' &raquo; ' . l($row->title, "node/$row->nid");
+  }
+  if (count($crumbs)) {
+    // Sort alphabetically
+    ksort($crumbs);
+    return '<ul class="breadcrumbs"><li>'. implode('</li><li>', $crumbs) .'</li></ul>';
+  }
+  else {
+    return '';
+  }
+}
+
+/**
+ * Returns the breadcrumb HTML for several content types
+ */
+function behavenet_get_content_breadcrumbs($nid) {
+  $node = node_load($nid);
+  $valid = array('sources', 'preparation', 'compound');
+  if (in_array($node->type, $valid)) {
+    return l(ucwords($node->type), "list/$node->type")
+      . ' &raquo; '
+      . l($node->title, "node/$nid");
+  }
+}
+
+/**
+ * Returns breadcrumb HTML
+ *
+ * (8 Feb, 2012: As per "to do database.doc" this is now a comma separated list)
+ *
+ * @param $tid
+ * @return HTML
+ */
+function behavenet_get_parents_breadcrumbs($tid) {
+  $crumbs = array();
+  $ancestory = behavenet_get_ancestory($tid);
+  if (empty($ancestory)) {
+    return '';
+  }
+  usort($ancestory, '_bh_cmp');
+  foreach ($ancestory as $path) {
+    $line = array();
+    foreach ($path as $name => $tid) {
+      if (empty($tid)) {
+        // Point to a taxonomy term with the same name as the vocab
+        foreach (taxonomy_get_term_by_name($name) as $term) {
+          if (5 == $term->vid) {
+            $tid = $term->tid;
+            break;
+          }
+        }
+      }
+
+      if (!empty($tid)) {
+        $line[] = l($name, "taxonomy/term/$tid");
+      }
+      else {
+        $line[] = $name;
+      }
+    }
+    $crumbs[] = implode(' &raquo; ', array_reverse($line));
+  }
+  // return '<ul class="breadcrumbs"><li>'. implode('</li><li>', $crumbs) .'</li></ul>';
+  return implode_and($crumbs);
+}
+
+/*
+ * Helps sort breadcrubms
+ */
+function _bh_cmp($a, $b) {
+  if (count($a) == count($b)) {
+    return 0;
+  }
+  return (count($a) < count($b)) ? -1 : 1;
+}
+
+/**
+ * Returns an array of ancestory paths from the given term to root terms. Each row is an array
+ * in the form of term->name => term->tid ordered from closest to farthest relative
+ *
+ * @param $tid
+ * @return unknown_type
+ */
+function behavenet_get_ancestory($tid) {
+  $output = array();
+  if (empty($tid)) {
+    return $output;
+  }
+
+  /*
+   * Build an array with one unique breadcrumb per entry.  Start with the immediate parents
+   * and work back until we hit root terms.  At each iteration:
+   *
+   *    - Get the parents of the current term.
+   *      - If there is only one parent, add to the $hierarchy array row
+   *      - If there is more than one parent
+   *        - Duplicate the current $hierarchy row for each additional parent
+   *        - Add each parent starting from the current row
+   *    - In the end we have an array, each row is an array representing the ancestory in the form
+   *      of term->name => term->tid (order from closest to farthest anchestory)
+   *    - For a few vocabularies, add the name of the vocab as the top level parent
+   */
+  $hierarchy = array();
+
+  // Get the immediate parents of the given term
+  $parents = taxonomy_get_parents($tid);
+  foreach ($parents as $parent) {
+    $hierarchy[] = array($parent->name => $parent->tid);
+  }
+
+
+  // Work backwards from these parents until we reach a root term
+  for ($n = 0; !empty($hierarchy[$n]); $n++) {
+    if ($next_gen = taxonomy_get_parents(end($hierarchy[$n]))) {
+      if (count($next_gen) > 1) {
+        // Multiple parents, need to duplicate the current row
+        array_splice($hierarchy, $n + 1, 0, array_fill(0, count($next_gen) -1, $hierarchy[$n]));
+      }
+
+      // Prepend parent(s)
+      $i = 0;
+      foreach ($next_gen as $tid => $term) {
+        $hierarchy[$n + $i][$term->name] = $tid;
+        $i++;
+      }
+    }
+  }
+
+  // Now add vocab name for select vocabularies
+  $term = taxonomy_get_term($tid);
+  $add_vocab = array(2, 3, 9, 10);     // Add vocab name for these vocabs
+  if (in_array($term->vid, $add_vocab)) {
+    $vocabs = taxonomy_get_vocabularies();
+    if (empty($hierarchy)) {
+      $hierarchy[] = array($vocabs[$term->vid]->name => 0);
+    }
+    else {
+      foreach ($hierarchy as &$line) {
+        $line[$vocabs[$term->vid]->name] = 0;
+      }
+    }
+  }
+  return $hierarchy;
+}
+
+
+/**
+ * Term autocomplete for public-facing forms.  Very similar to taxonomy_autocomplete()
+ *
+ * @param $string
+ * @return JSON array of possible options
+ */
+function behavenet_term_autocomplete($string) {
+  $vid = array(2, 3, 5, 9, 10);
+
+  // If the menu system has split the search text because of slashes, glue it back.
+  if (func_num_args() > 2) {
+    $args = func_get_args();
+    $string .= '/'. implode('/', array_slice($args, 2));
+  }
+
+  // The user enters a comma-separated list of tags. We only autocomplete the last tag.
+  $array = drupal_explode_tags($string);
+
+  // Fetch last tag
+  $last_string = trim(array_pop($array));
+
+  $matches = array();
+  if ($last_string != '') {
+    $prefix = count($array) ? implode(', ', $array) .', ' : '';
+
+    // Collect all possible autocomplete matches...
+    // First generic/trade/sources/etc names that start with the given key
+    $result = db_query_range(db_rewrite_sql("
+      SELECT n.nid, n.title
+      FROM {node} n
+      WHERE n.type IN ('company', 'drug', 'generic', 'sources', 'device', 'compound', 'preparation')
+        AND LOWER(n.title) LIKE LOWER('%%%s%%')
+      ", 'n', 'nid'), $last_string, 0, 10);
+
+    while ($node = db_fetch_object($result)) {
+      $n = $node->title;
+      // Commas and quotes in terms are special cases, so encode 'em.
+      if (strpos($node->title, ',') !== FALSE || strpos($node->title, '"') !== FALSE) {
+        $n = '"'. str_replace('"', '""', $node->title) .'"';
+      }
+      $matches[$prefix . $n] = check_plain($node->title);
+    }
+
+    // Next drug combinations that have this in their title
+    $result = db_query_range("
+      SELECT n.nid, c.field_combo_titles_value AS title
+      FROM {node} n
+      LEFT JOIN {content_field_combo_titles} c ON n.vid = c.vid
+      WHERE n.type = 'combinations'
+        AND LOWER(c.field_combo_titles_value) LIKE LOWER('%s%%')
+      ", $last_string, 0, 10);
+
+    while ($row = db_fetch_object($result)) {
+      $n = $row->title;
+      // Commas and quotes in terms are special cases, so encode 'em.
+      if (strpos($row->title, ',') !== FALSE || strpos($row->title, '"') !== FALSE) {
+        $n = '"'. str_replace('"', '""', $row->title) .'"';
+      }
+      $matches[$prefix . $n] = check_plain($row->title);
+    }
+
+    // Next, term names and synonyms arranged such that matches closer to the
+    // beginning of the string bubble to the top of the list
+    $result = db_query_range(db_rewrite_sql("
+      SELECT
+        t.tid,
+        t.name,
+        s.name as syn,
+        INSTR(t.name, '%s') + (s.name IS NOT NULL AND INSTR(s.name, '%s')) AS location
+      FROM {term_data} t
+      LEFT JOIN {term_synonym} s ON t.tid = s.tid
+      WHERE t.vid IN (%s)
+        AND (LOWER(t.name) LIKE LOWER('%%%s%%')
+             OR LOWER(s.name) LIKE LOWER('%%%s%%'))
+      ORDER BY
+        location ASC,
+        LENGTH(t.name) ASC
+      ", 't', 'tid'),
+      $last_string, $last_string, implode(',', $vid), $last_string, $last_string,
+      0, 15);
+
+    while ($tag = db_fetch_object($result)) {
+      $n = $tag->name;
+      // Commas and quotes in terms are special cases, so encode 'em.
+      if (strpos($tag->name, ',') !== FALSE || strpos($tag->name, '"') !== FALSE) {
+        $n = '"'. str_replace('"', '""', $tag->name) .'"';
+      }
+      if (!empty($tag->syn)) {
+        $tag->name .= " (Synonym: $tag->syn)";
+      }
+      $matches[$prefix . $n] = check_plain($tag->name);
+    }
+
+    // Next slang terms
+    $result = db_query_range("
+      SELECT s.vid, s.nid, s.field_gen_slang_terms_value AS name
+      FROM  {content_field_gen_slang_terms} AS s
+      WHERE LOWER(s.field_gen_slang_terms_value) LIKE LOWER('%%%s%%')
+    ", $last_string, 0, 10);
+    while ($tag = db_fetch_object($result)) {
+      $n = $tag->name;
+      // Commas and quotes in terms are special cases, so encode 'em.
+      if (strpos($tag->name, ',') !== FALSE || strpos($tag->name, '"') !== FALSE) {
+        $n = '"'. str_replace('"', '""', $tag->name) .'"';
+      }
+      $matches[$prefix . $n] = check_plain($tag->name);
+    }
+
+    // Next acronyms
+    $result = db_query_range("
+      SELECT a.vid, a.nid, a.field_generic_acronyms_value AS name
+      FROM  {content_field_generic_acronyms} AS a
+      WHERE LOWER(a.field_generic_acronyms_value) LIKE LOWER('%%%s%%')
+    ", $last_string, 0, 10);
+    while ($tag = db_fetch_object($result)) {
+      $n = $tag->name;
+      // Commas and quotes in terms are special cases, so encode 'em.
+      if (strpos($tag->name, ',') !== FALSE || strpos($tag->name, '"') !== FALSE) {
+        $n = '"'. str_replace('"', '""', $tag->name) .'"';
+      }
+      $matches[$prefix . $n] = check_plain($tag->name);
+    }
+
+    // Next people, books and movies (ordered by type ASC so people don't get crowded out)
+    $result = db_query_range(db_rewrite_sql("
+      SELECT n.nid, n.title
+      FROM {node} n
+      WHERE n.type IN ('people', 'book', 'movie')
+        AND LOWER(n.title) LIKE LOWER('%%%s%%')
+      ORDER BY type DESC
+      ", 'n', 'nid'), $last_string, 0, 10);
+
+    while ($node = db_fetch_object($result)) {
+      $n = $node->title;
+      // Commas and quotes in terms are special cases, so encode 'em.
+      if (strpos($node->title, ',') !== FALSE || strpos($node->title, '"') !== FALSE) {
+        $n = '"'. str_replace('"', '""', $node->title) .'"';
+      }
+      $matches[$prefix . $n] = check_plain($node->title);
+    }
+
+    // Authors
+    $result = db_query_range("
+      SELECT n.nid, n.title, book.field_book_lastname_value AS last, book.field_book_firstname_value AS first
+      FROM {content_type_book} AS book
+      INNER JOIN {node} AS n
+        ON n.vid = book.vid
+      WHERE LOWER(book.field_book_lastname_value) LIKE LOWER('%s%%')
+        OR LOWER(book.field_book_firstname_value) LIKE LOWER('%s%%')
+      ", $last_string, $last_string, 0, 10);
+
+    while ($row = db_fetch_object($result)) {
+      $n = $row->title;
+      // Commas and quotes in terms are special cases, so encode 'em.
+      if (strpos($row->title, ',') !== FALSE || strpos($row->title, '"') !== FALSE) {
+        $n = '"'. str_replace('"', '""', $row->title) .'"';
+      }
+      $matches[$prefix . $n] = check_plain($row->title
+        . ' (Author: '
+        . $row->first . ' ' . $row->last
+        . ')'
+      );
+    }
+
+    // Actors
+    $result = db_query_range("
+      SELECT n.nid, n.title, movie.field_movie_actors_value AS names
+      FROM {content_type_movie} AS movie
+      INNER JOIN {node} AS n
+        ON n.vid = movie.vid
+      WHERE LOWER(movie.field_movie_actors_value) LIKE LOWER('%%%s%%')
+      ", $last_string, 0, 10);
+
+    while ($row = db_fetch_object($result)) {
+      $n = $row->title;
+      // Commas and quotes in terms are special cases, so encode 'em.
+      if (strpos($row->title, ',') !== FALSE || strpos($row->title, '"') !== FALSE) {
+        $n = '"'. str_replace('"', '""', $row->title) .'"';
+      }
+
+      // Massage the Actors since they appear as long comma separated string
+      while(FALSE !== ($pos = strpos(strtolower($row->names), strtolower($last_string), $pos))) {
+        $end = strpos($row->names, ',', $pos);
+        if (FALSE === $end) {
+          $end = strlen($row->names);
+        }
+        $start = strrpos(substr($row->names, 0, $pos), ',');
+        if (',' == substr($row->names, $start, 1)) {
+          $start++;
+        }
+        $matches[$prefix . $n] = check_plain($row->title
+          . ' (Actor: '
+          . trim(substr($row->names, $start, $end - $start))
+          . ')'
+        );
+        $pos++;
+      }
+    }
+
+    // Next alternate spellings/names for generics
+    $result = db_query_range("
+      SELECT n.nid, n.title, alt.field_generic_alt_name_value
+      FROM {node} AS n
+      INNER JOIN {content_field_generic_alt_name} AS alt
+        ON n.vid = alt.vid
+      WHERE n.type = 'generic'
+        AND LOWER(alt.field_generic_alt_name_value) LIKE LOWER('%s%%')
+      ", $last_string, 0, 10);
+
+    while ($row = db_fetch_object($result)) {
+      $n = $row->title;
+      // Commas and quotes in terms are special cases, so encode 'em.
+      if (strpos($row->title, ',') !== FALSE || strpos($row->title, '"') !== FALSE) {
+        $n = '"'. str_replace('"', '""', $row->title) .'"';
+      }
+      $matches[$prefix . $n] = check_plain($row->title
+        . ' (Alt spelling: '
+        . $row->field_generic_alt_name_value
+        . ')'
+      );
+    }
+
+  }
+  drupal_json($matches);
+}
+
+/**
+ * Provides AJAX-compatible autocomplete matches
+ */
+function behavenet_term_autocomplete_admin($string) {
+  return drupal_json(_behavenet_term_autocomplete_admin($string));
+}
+
+/**
+ * Term autocomplete for admin forms
+ *
+ * Autocomplete callback for adding terms to forms. Provides the full ancestory of a given term
+ * to help distinguish the same word used in different contexts.  Based on taxonomy_autocomplete
+ */
+function _behavenet_term_autocomplete_admin($string) {
+  $vid = array(2, 3, 5, 9, 10);
+
+  // If the menu system has split the search text because of slashes, glue it back.
+  if (func_num_args() > 2) {
+    $args = func_get_args();
+    $string .= '/'. implode('/', array_slice($args, 2));
+  }
+
+  // The user enters a comma-separated list of tags. We only autocomplete the last tag.
+  $array = drupal_explode_tags($string);
+
+  // Fetch last tag
+  $last_string = trim(array_pop($array));
+  $matches = array();
+
+  // Check for exact matches, then 'starts-with' matches, finally any match
+  // TODO: Is there a more performant way to do this?
+  if ($last_string != '') {
+    $result = db_query_range(db_rewrite_sql("
+      (SELECT t.tid, t.name, 1 as sort_col
+      FROM {term_data} t
+      LEFT JOIN {term_synonym} s ON t.tid = s.tid
+      WHERE t.vid IN (%s)
+        AND LOWER(t.name) LIKE LOWER('%s')
+        OR  LOWER(s.name) LIKE LOWER('%s'))
+
+      UNION
+
+      (SELECT t.tid, t.name, 2 as sort_col
+      FROM {term_data} t
+      LEFT JOIN {term_synonym} s ON t.tid = s.tid
+      WHERE t.vid IN (%s)
+        AND LOWER(t.name) LIKE LOWER('%s%%')
+        OR  LOWER(s.name) LIKE LOWER('%s%%'))
+
+      UNION
+
+      (SELECT t.tid, t.name, 3 as sort_col
+      FROM {term_data} t
+      LEFT JOIN {term_synonym} s ON t.tid = s.tid
+      WHERE t.vid IN (%s)
+        AND LOWER(t.name) LIKE LOWER('%%%s%%')
+        OR  LOWER(s.name) LIKE LOWER('%%%s%%'))
+      ORDER BY sort_col
+      ", 't', 'tid'),
+      implode(',', $vid), $last_string, $last_string,
+      implode(',', $vid), $last_string, $last_string,
+      implode(',', $vid), $last_string, $last_string,
+      0, 20
+    );
+
+    $prefix = count($array) ? '"'. implode('", "', $array) .'", ' : '';
+    while ($tag = db_fetch_object($result)) {
+      // Collect info about this term and display it along with the term
+      $context = array();
+
+      // First collect lists
+      $ltids = _behavenet_get_lists($tag->tid);
+      $lists = array();
+      foreach ($ltids as $ltid) {
+        $list = taxonomy_get_term($ltid);
+        $lists[] = $list->name;
+      }
+
+      $ancestory = taxonomy_get_parents_all($tag->tid);
+      array_shift($ancestory);    // Don't need the term itself...
+      $parents = array();         // ... just the parents
+      foreach ($ancestory as $parent) {
+        array_unshift($parents, $parent->name);
+      }
+
+      $text = $tag->name;
+      if (count($lists) || count($parents)) {
+        $text .= ' (';
+        if (count($lists)) {
+          $text .= 'Lists: ';
+          $text .= implode(', ', $lists);
+        }
+        if (count($parents)) {
+          if (count($lists)) {
+            $text .= ', ';
+          }
+          $text .= 'Parents: ';
+          $text .= implode(' | ', $parents);
+        }
+        $text .= ')';
+      }
+      $matches[$prefix . "term-id:$tag->tid"] = $text;
+    }
+  }
+  return $matches;
+}
+
+
+/**
+ * Returns TRUE if $tid is a list, FALSE otherwise
+ */
+function behavenet_is_list($tid) {
+  $lists = variable_get('behave_lists_tids', '');
+  return in_array($tid, $lists);
+}
+
+
+/**
+ * Returns an array of tids representing the lists $tid is a member of
+ * @param $tid
+ * @return array of tids
+ */
+function _behavenet_get_lists($tid) {
+  $lists = variable_get('behave_lists_tids', '');
+  $result = array();
+  foreach ($lists as $ltid) {
+    $related = taxonomy_get_related($ltid);
+    if (isset($related[$tid])) {
+      $result[] = $ltid;
+    }
+  }
+  return $result;
+}
+
+
+function behavenet_settings_form() {
+  $form = array();
+  $lists = variable_get('behave_lists_tids', '');
+
+  $form['intro'] = array(
+    '#type' => 'markup',
+    '#value' => '<p>Check the checkbox next to any existing list to covert it back to a regular Term.
+                 You can convert terms to lists by using the text field at the bottom of the page.</p>',
+  );
+
+  $header = array(
+    'term' => t('List Term'),
+  );
+  $options = array();
+  foreach ($lists as $tid) {
+    $term = taxonomy_get_term($tid);
+    $options[$tid] = array(
+      'term' => l($term->name, "taxonomy/term/$tid"),
+    );
+  }
+
+  if (!empty($options)) {
+    $form['remove_list'] = array(
+      '#type' => 'tableselect',
+      '#header' => $header,
+      '#options' => $options,
+    );
+  }
+
+  $form['add'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Convert an existing term into a list'),
+    '#autocomplete_path' => 'taxonomy/autocomplete/5',
+    '#default_value' => '',
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+  );
+
+  return $form;
+}
+
+function behavenet_settings_form_submit($form, &$form_state) {
+
+  // Convert from List to Term
+  $remove = array_filter($form_state['values']['remove_list']);
+  $lists = variable_get('behave_lists_tids', '');
+  foreach ($remove as $tid) {
+    unset($lists[array_search($tid, $lists)]);
+    drupal_set_message(t('Converted %id from Lists to Terms', array('%id' => $tid)));
+  }
+
+  // Convert from Term to List
+  $add = $form_state['values']['add'];
+  if (!empty($add)) {
+    $options = taxonomy_get_term_by_name($add);
+    foreach ($options as $option) {
+      if (5 == $option->vid) {
+        $lists[] = $option->tid;
+        drupal_set_message(t(
+          '%term has been converted from a Term to a List. You can add items to this list by
+           adding "related terms" on !url.',
+        array(
+            '%term' => $option->name,
+            '!url' => l('this page', 'admin/content/taxonomy_manager/voc/5/'. $option->tid),
+        )
+        ));
+        break;
+      }
+    }
+  }
+
+  // And save to system
+  variable_set('behave_lists_tids', $lists);
+}
+
+
+function behavenet_views_pre_render(&$view) {
+
+  if ('search' == $view->name) {
+
+    // Grab search terms
+    $keys = array();
+    if (!empty($view->exposed_raw_input['keys'])) {
+      $keys = explode(',', $view->exposed_raw_input['keys']);
+    }
+    $vars['keys'] = $keys;
+
+    // Build a list of terms and associated info for the search terms entered
+    if (count($keys)) {
+      $results = array();
+
+      foreach ($keys as $key) {
+        $key = trim($key);
+        $results = array();
+        $exact = array();   // Track exact matches so we don't get dups with the partial matches query
+
+        // First get exact matches
+        $possible = array();
+        $db_results = db_query("
+          SELECT t.tid, t.*
+          FROM   {term_data} t
+          WHERE  LOWER(t.name) LIKE ('%s')
+          LIMIT  0, 20
+        ", strtolower($key));
+        while($row = db_fetch_object($db_results)) {
+          $possible[] = $row;
+          $exact[$row->tid] = TRUE;
+        }
+
+        // Next get partial matches for terms
+        $db_results = db_query("
+          SELECT t.tid, t.*
+          FROM   {term_data} t
+          WHERE  LOWER(t.name) LIKE ('%% %s% %')
+          LIMIT  0, 20
+        ", strtolower($key));
+        while($row = db_fetch_object($db_results)) {
+          if (isset($exact[$row->tid])) {
+            continue;
+          }
+          $possible[] = $row;
+        }
+
+        foreach ($possible as $term) {
+          if (!isset($results[$key])) {
+            $results[$key] = array();
+          }
+
+          // Check to see if this is in a list
+          $lists = _behavenet_get_lists($term->tid);
+          $output = '';
+          $list_links = array();
+          if (count($lists)) {
+            foreach ($lists as $list) {
+              $list_term = taxonomy_get_term($list);
+              $list_links[] = l($list_term->name, "taxonomy/term/$list_term->tid");
+            }
+            $output .= format_plural(count($lists),
+              'Term: !term from the !list list',
+              'Term: !term from the !list lists',
+              array(
+                '!term' => l($term->name, "taxonomy/term/$term->tid"),
+                '!list' => implode_and($list_links),
+              )
+            );
+          }
+          else {
+            $output .= 'Term: ' . l($term->name, "taxonomy/term/$term->tid");
+          }
+
+          // Add ancestory
+          $ancestory = behavenet_get_ancestory($term->tid);
+          if (count($ancestory)) {
+            $parents = array();
+            foreach ($ancestory as $parent) {
+              $line = array();
+              foreach ($parent as $name => $tid) {
+                if (!empty($tid)) {
+                  $line[] = l($name, "taxonomy/term/$tid");
+                }
+              }
+              if (count($line)) {
+                $parents[] = implode(' &raquo; ', array_reverse($line));
+              }
+            }
+            if (count($parents)) {
+              $output .= '<br />Parent terms:<ul><li>'
+                  . implode('</li><li>', $parents)
+                  . '</li></ul>';
+            }
+          }
+          array_push($results[$key], $output);
+        }               // foreach ($possible as $term) {
+
+        // Next is the results returned by views
+        $existing = array();    // Don't show dups later...
+        foreach ($view->result as $index => $row) {
+          if ('combinations' == $row->node_type) {
+            // Don't show combinations in case we're matched an alternate title
+            // We handle these below...
+            unset($view->result[$index]);
+            continue;
+          }
+          $existing[$row->nid] = TRUE;
+          if (!isset($results[$key])) {
+            $results[$key] = array();
+          }
+
+          if (empty($row->node_type)) {
+            // We ended up with some bogus nodes during the import process.
+            // @TODO: These need to be purged for real, not just hidden!
+            continue;
+          }
+
+          // Special case: DSM should be displayed in allcaps
+          $type = (strtolower($row->node_type) == 'dsm' ? 'DSM' : ucwords($row->node_type));
+
+          // Check if this entry was found because of a word match in the title or because
+          // of other fields.  If the latter, highlight that in the results
+          $displayed = FALSE;
+          if (FALSE === stristr($row->node_title, $key)) {
+            $node = node_load($row->nid);
+            $slang_terms = array();
+            if (!empty($node->field_gen_slang_terms)) {
+              foreach ($node->field_gen_slang_terms as $slang) {
+                if (FALSE !== stristr($slang['value'], $key)) {
+                  $slang_terms[] = $slang['value'];
+                }
+              }
+            }
+            if (count($slang_terms)) {
+              if ('compound' == $row->node_type) {
+                $drug = node_load($node->field_compound_drug[0]['nid']);
+                array_push($results[$key],
+                  "$type of " . l($drug->title, "node/$drug->nid") . ': '
+                  . l($row->node_title, "node/$row->nid")
+                  . ' (slang: ' . implode(', ', $slang_terms) . ')'
+                );
+                $displayed = TRUE;
+              }
+              else {
+                array_push($results[$key], "$type: "
+                  . l($row->node_title, "node/$row->nid")
+                  . ' (slang: ' . implode(', ', $slang_terms) . ')'
+                );
+                $displayed = TRUE;
+              }
+            }
+
+            $acronyms = array();
+            if (!empty($node->field_generic_acronyms)) {
+              foreach ($node->field_generic_acronyms as $acronym) {
+                if (FALSE !== stristr($acronym['value'], $key)) {
+                  $acronyms[] = $acronym['value'];
+                }
+              }
+            }
+            if (count($acronyms)) {
+              array_push($results[$key], "$type: "
+                  . l($row->node_title, "node/$row->nid")
+                  . ' (acronym: ' . implode(', ', $acronyms) . ')'
+              );
+              $displayed = TRUE;
+            }
+          }
+          if (!$displayed) {
+            // Display as is
+            array_push($results[$key], "$type: " . l($row->node_title, "node/$row->nid"));
+          }
+        }
+
+        // Next query on people, drugs, etc.
+        $db_results = db_query("
+          SELECT n.*
+          FROM   {node} n
+          WHERE  LOWER(n.title) LIKE ('%% %s %%')
+            AND  n.type != 'tax_tweaks_extras'
+            AND  n.type != 'dsm'
+          LIMIT  0, 20
+        ", strtolower($key));
+        while($row = db_fetch_object($db_results)) {
+          if (isset($existing[$row->nid])) {
+            continue;
+          }
+          if (!isset($results[$key])) {
+            $results[$key] = array();
+          }
+          $type = (strtolower($row->type) == 'dsm' ? 'DSM' : ucwords($row->type));
+          array_push($results[$key], "$type: " . l($row->title, "node/$row->nid"));
+        }
+
+        // Next search for combination alternate titles
+        $db_results = db_query("
+          SELECT n.nid, n.title AS combo_title, c.field_combo_titles_value AS alt_title
+          FROM {node} n
+          LEFT JOIN {content_field_combo_titles} c ON n.vid = c.vid
+          WHERE n.type = 'combinations'
+            AND LOWER(c.field_combo_titles_value) LIKE ('%s%%')
+          LIMIT 0, 20
+        ", strtolower($key));
+        while($row = db_fetch_object($db_results)) {
+          if (isset($existing[$row->nid])) {
+            continue;
+          }
+          if (!isset($results[$key])) {
+            $results[$key] = array();
+          }
+          $item = l($row->combo_title, "node/$row->nid");
+          if ($row->combo_title != $row->alt_title) {
+            $item .= " (a.k.a.: $row->alt_title)";
+          }
+          array_push($results[$key], $item);
+          $existing[$row->nid] = TRUE;
+        }
+
+      }
+
+      // dsm($results);
+
+      // Format for display and attach before the Views-generated results
+      $output = '';
+      if (!empty($results)) {
+        // If there was one term searched for, display results in a unordered list. If multiple
+        // terms were given, then give each in its own unordered list.
+        if (1 == count($results)) {
+          $output .= '<ul class="behavenet-search-results-terms">';
+          foreach ($results as $term_name => $links) {
+            $output .= '<li>';
+            $output .= implode('</li><li>', $links);
+            $output .= '</li>';
+          }
+          $output .= '</ul>';
+        }
+        else {
+          $output .= '<ul class="behavenet-search-results-terms">';
+          foreach ($results as $term_name => $links) {
+            $output .= "<li><strong>$term_name;</strong><ul><li>";
+            $output .= implode('</li><li>', $links);
+            $output .= '</li></ul></li>';
+          }
+          $output .= '</ul>';
+        }
+      }
+      $view->attachment_before = $output;
+    }                   // if (count($keys)) {
+  }                     // if ('search' == $vars['view']->name) {
+}
+
+
+/*
+ * Utility functions
+ */
+
+
+/**
+ * Returns an imploded string using the comma separator but with 'and' between
+ * the last and second-to-last items
+ */
+function implode_and($arr) {
+  $last = array_pop($arr);
+  if (count($arr)) {
+    return implode(', ', $arr) . " and $last";
+  }
+  else {
+    return $last;
+  }
+}
+
+/**
+ * Returns the cautionary statement nid for a given DSM Criteria
+ */
+function bh_get_cautionary_id($criteria_tid) {
+  return db_result(db_query("
+    SELECT n.nid
+    FROM {node} AS n
+    INNER JOIN {term_node} AS tn
+      ON n.vid = tn.vid
+    WHERE n.type = 'dsm_caution'
+      AND tn.tid = %d
+  ", $criteria_tid));
+}

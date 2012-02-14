@@ -1,0 +1,5 @@
+; $Id:
+name = Behavenet glue
+description = Custom code for the Behavenet site
+core = 6.x
+package = Behavenet
