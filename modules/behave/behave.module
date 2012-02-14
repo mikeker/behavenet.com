@@ -638,7 +638,7 @@ function behavenet_get_ancestory($tid) {
 
   // Now add vocab name for select vocabularies
   $term = taxonomy_get_term($tid);
-  $add_vocab = array(2, 3, 9, 10);     // Add vocab name for these vocabs
+  $add_vocab = array(2, 3, 9, 10, 12);     // Add vocab name for these vocabs
   if (in_array($term->vid, $add_vocab)) {
     $vocabs = taxonomy_get_vocabularies();
     if (empty($hierarchy)) {
@@ -661,7 +661,7 @@ function behavenet_get_ancestory($tid) {
  * @return JSON array of possible options
  */
 function behavenet_term_autocomplete($string) {
-  $vid = array(2, 3, 5, 9, 10);
+  $vid = array(2, 3, 5, 9, 10, 12);
 
   // If the menu system has split the search text because of slashes, glue it back.
   if (func_num_args() > 2) {
@@ -894,7 +894,7 @@ function behavenet_term_autocomplete_admin($string) {
  * to help distinguish the same word used in different contexts.  Based on taxonomy_autocomplete
  */
 function _behavenet_term_autocomplete_admin($string) {
-  $vid = array(2, 3, 5, 9, 10);
+  $vid = array(2, 3, 5, 9, 10, 12);
 
   // If the menu system has split the search text because of slashes, glue it back.
   if (func_num_args() > 2) {
