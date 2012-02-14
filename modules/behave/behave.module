@@ -71,7 +71,7 @@ function behave_menu() {
 function behave_form_views_exposed_form_alter(&$form, &$form_state) {
   // Update search field to an autocomplete
   $form['keys']['#autocomplete_path'] = 'behavenet/term/autocomplete';
-  $form['keys']['#size'] = 60;
+  $form['submit']['#value'] = t('Search');
 }
 
 /**

@@ -11,10 +11,9 @@ function behavenet_search_views_default_views() {
   $view->name = 'search';
   $view->description = 'Search';
   $view->tag = 'behavenet';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -29,14 +28,16 @@ function behavenet_search_views_default_views() {
   ));
   $handler->override_option('fields', array(
     'title' => array(
-      'label' => 'Title',
+      'label' => '',
       'alter' => array(
         'alter_text' => 0,
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -51,6 +52,7 @@ function behavenet_search_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'link_to_node' => 1,
       'exclude' => 0,
       'id' => 'title',
@@ -65,8 +67,10 @@ function behavenet_search_views_default_views() {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -81,19 +85,22 @@ function behavenet_search_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'type' => 'ul',
       'separator' => ', ',
       'link_to_taxonomy' => 1,
       'limit' => 0,
       'vids' => array(
-        '3' => 0,
-        '4' => 0,
-        '8' => 0,
-        '2' => 0,
-        '5' => 0,
-        '7' => 0,
+        9 => 0,
+        3 => 0,
+        10 => 0,
+        11 => 0,
+        12 => 0,
+        2 => 0,
+        13 => 0,
+        5 => 0,
       ),
-      'exclude' => 0,
+      'exclude' => 1,
       'id' => 'tid',
       'table' => 'term_node',
       'field' => 'tid',
@@ -106,8 +113,10 @@ function behavenet_search_views_default_views() {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -122,9 +131,10 @@ function behavenet_search_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'link_to_node' => 0,
       'machine_name' => 0,
-      'exclude' => 0,
+      'exclude' => 1,
       'id' => 'type',
       'table' => 'node',
       'field' => 'type',
@@ -174,8 +184,10 @@ function behavenet_search_views_default_views() {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -190,12 +202,13 @@ function behavenet_search_views_default_views() {
       'empty' => '',
       'hide_empty' => 1,
       'empty_zero' => 1,
+      'hide_alter_empty' => 1,
       'value' => '<?php
 if (isset($data->score)) {
   print round($data->score * 100, 2);
 }
 ?>',
-      'exclude' => 0,
+      'exclude' => 1,
       'id' => 'phpcode',
       'table' => 'customfield',
       'field' => 'phpcode',
@@ -204,7 +217,7 @@ if (isset($data->score)) {
   ));
   $handler->override_option('filters', array(
     'keys' => array(
-      'operator' => 'optional',
+      'operator' => 'required',
       'value' => '',
       'group' => '0',
       'exposed' => TRUE,
@@ -212,7 +225,7 @@ if (isset($data->score)) {
         'use_operator' => 0,
         'operator' => 'keys_op',
         'identifier' => 'keys',
-        'label' => 'Search Terms',
+        'label' => '',
         'optional' => 1,
         'remember' => 0,
       ),
@@ -245,6 +258,7 @@ if (isset($data->score)) {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
+  $handler->override_option('css_class', 'search-results-hide');
   $handler->override_option('items_per_page', 50);
   $handler->override_option('use_pager', '1');
   $handler->override_option('distinct', 1);
@@ -252,34 +266,39 @@ if (isset($data->score)) {
   $handler->override_option('style_options', array(
     'grouping' => '',
     'override' => 1,
-    'sticky' => 1,
+    'sticky' => 0,
     'order' => 'desc',
+    'summary' => '',
     'columns' => array(
-      'name' => 'name',
       'title' => 'title',
+      'tid' => 'tid',
       'type' => 'type',
       'score' => 'score',
+      'phpcode' => 'phpcode',
     ),
     'info' => array(
-      'name' => array(
-        'sortable' => 1,
+      'title' => array(
+        'sortable' => 0,
         'separator' => '',
       ),
-      'title' => array(
-        'sortable' => 1,
+      'tid' => array(
         'separator' => '',
       ),
       'type' => array(
-        'sortable' => 1,
+        'sortable' => 0,
         'separator' => '',
       ),
       'score' => array(
-        'sortable' => 1,
+        'sortable' => 0,
+        'separator' => '',
+      ),
+      'phpcode' => array(
         'separator' => '',
       ),
     ),
     'default' => 'score',
   ));
+  $handler->override_option('exposed_block', TRUE);
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->override_option('path', 'search');
   $handler->override_option('menu', array(
@@ -397,7 +416,7 @@ if (count($lists)) {
     'vid' => array(
       'operator' => 'in',
       'value' => array(
-        '5' => '5',
+        5 => '5',
       ),
       'group' => '0',
       'exposed' => FALSE,

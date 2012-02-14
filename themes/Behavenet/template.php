@@ -178,10 +178,6 @@ function behavenet_preprocess_panels_pane(&$vars) {
   }
 }
 
-function behavenet_preprocess_search_theme_form(&$vars) {
-  // Redirect the search_theme_form to our Views-based search
-  $vars['search_link'] = l('Search this site', 'search');
-}
 
 /*****************************************************************************
  *
