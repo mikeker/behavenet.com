@@ -350,11 +350,11 @@ function _bh_url_replace(&$string, &$error) {
       // Strip domain from url_full for better comparisons
       $row->url_full = str_replace('http://www.behavenet.com', '', $row->url_full);
       $row->url_full = str_replace('http://behavenet.com', '', $row->url_full);
-      
+
       // Handle spaces in URLs
       $row->url_full = str_replace(' ', '%20', trim($row->url_full));
       $row->url_base = str_replace(' ', '%20', trim($row->url_base));
-      
+
       // Do all comparisons in lowercase
       $row->url_full = strtolower($row->url_full);
       $row->url_base = strtolower($row->url_base);
@@ -405,7 +405,7 @@ function _bh_url_replace(&$string, &$error) {
                 break;
               }
               else {
-                dpr("partial is $partial compared to " . substr($option->url_full, -1 * strlen($partial)));
+                // dpr("partial is $partial compared to " . substr($option->url_full, -1 * strlen($partial)));
               }
             }
           }
@@ -458,49 +458,44 @@ function bh_import_test() {
   // $terms = build_lookup('terms');
   // dpr($terms); exit;
 
-  // dpr(taxonomy_render_nodes(taxonomy_select_nodes(array(8376))));
-  // $nodes = taxonomy_select_nodes(array(10732));
-  // while ($node = db_fetch_array($nodes)) {
-    // dpr($node);
-  // }
 
-
-  // Find missing </a> tags in terms
-  // $results = db_query("
-    // SELECT *, description AS text, tid AS id FROM {term_data} AS t
-    // WHERE description IS NOT NULL
-  // ");
+  // Do URL subs for DSM criteria
   $results = db_query("
-    SELECT *, body AS text, nid AS id FROM {node_revisions} AS r
-    WHERE r.body IS NOT NULL
-  ");
-  $config = array(
-    'input-xml' => TRUE,
-    'show-warnings' => FALSE,
-  );
+    SELECT * FROM {content_field_dsm_body} AS text
+    INNER JOIN {node} AS n
+      ON n.vid = text.vid
+    WHERE text.field_dsm_body_value LIKE '%%%s%%'
+      AND n.nid > 27000
+  ", '<a');
+  $data = array();
   while ($row = db_fetch_object($results)) {
-    $data[$row->id] = $row;
-    // $tidy = tidy_parse_string($row->text, $config, 'UTF8');
-    // if (!empty($tidy->errorBuffer)) {
-      // dpr("An error was found in taxonomy/term/$row->id");
-      // dpr($tidy->errorBuffer);
-      // dpr(' ');
-    // }
+    $data[$row->nid] = $row;
   }
 
-  $closed = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)<\/a>";
-  $open = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)";
-
-  foreach ($data as $tid => $row) {
-    if (preg_match_all("/$open/siU", $row->text, $open_matches)) {
-      preg_match_all("/$closed/siU", $row->text, $closed_matches);
-      $diff = array_diff($open_matches[2], $closed_matches[2]);
-      if (!empty($diff)) {
-        dpr("missing closing tag in node/$row->id");
-        dpr($diff);
+  foreach ($data as $nid => $row) {
+    $node = node_load($nid);
+    $updated = FALSE;
+    foreach ($node->field_dsm_body as $index => $body) {
+      $body = $body['value'];
+      if (_bh_url_replace($body, $error)) {
+        $node->field_dsm_body[$index]['value'] = $body;
+        $updated = TRUE;
+      }
+      if (!empty($error)) {
+        $errors[] = "unable to replace a URL in nid $node->nid ($node->title): $error.";
+      }
+    }
+    if ($updated) {
+      node_save($node);
+      // dpr($node); exit;
+      $success[] = "updated node $node->nid: $node->title with new URLs";
+      if (!empty($error)) {
+        $errors[] = "unable to replace a URL in nid $node->nid ($node->title): $error.";
+        $error = '';
       }
     }
   }
+
 
   dpr("done.");
   dpr(count($errors) . ' Errors:');
@@ -509,82 +504,101 @@ function bh_import_test() {
   dpr($success);
   exit;
 
-  $url = array();
-  $results = db_query("
-    SELECT * FROM {data_url}
-  ");
-  while ($row = db_fetch_object($results)) {
-    // Strip domain from url_full for better comparisons
-    $row->url_full = str_replace('http://www.behavenet.com', '', $row->url_full);
-    $row->url_full = str_replace('http://behavenet.com', '', $row->url_full);
-    
-    // Handle spaces in URLs
-    $row->url_full = str_replace(' ', '%20', trim($row->url_full));
-    $row->url_base = str_replace(' ', '%20', trim($row->url_base));
-    
-    // Do all comparisons in lowercase
-    $row->url_full = strtolower($row->url_full);
-    $row->url_base = strtolower($row->url_base);
+  // DONE:
+  // Find missing </a> tags in terms
+  // $results = db_query("
+    // SELECT *, description AS text, tid AS id FROM {term_data} AS t
+    // WHERE description IS NOT NULL
+  // ");
+  // $results = db_query("
+    // SELECT *, body AS text, nid AS id FROM {node_revisions} AS r
+    // WHERE r.body IS NOT NULL
+  // ");
+  // $config = array(
+    // 'input-xml' => TRUE,
+    // 'show-warnings' => FALSE,
+  // );
+  // while ($row = db_fetch_object($results)) {
+    // $data[$row->id] = $row;
+    // // $tidy = tidy_parse_string($row->text, $config, 'UTF8');
+    // // if (!empty($tidy->errorBuffer)) {
+      // // dpr("An error was found in taxonomy/term/$row->id");
+      // // dpr($tidy->errorBuffer);
+      // // dpr(' ');
+    // // }
+  // }
+//
+  // $closed = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)<\/a>";
+  // $open = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)";
+//
+  // foreach ($data as $tid => $row) {
+    // if (preg_match_all("/$open/siU", $row->text, $open_matches)) {
+      // preg_match_all("/$closed/siU", $row->text, $closed_matches);
+      // $diff = array_diff($open_matches[2], $closed_matches[2]);
+      // if (!empty($diff)) {
+        // dpr("missing closing tag in node/$row->id");
+        // dpr($diff);
+      // }
+    // }
+  // }
 
-    $url[$row->url_base][] = $row;
-  }
 
   // Somewhere along the line we ended up with bad substitutions where part of the
   // URL was replaced in the middle of an old URL resulting in something like
   // /old/path/taxonomy/term/drug.htm or /old/path/taxonomy/term/1234
-  $results = db_query("
-    SELECT * FROM {term_data} AS t
-  ");
-  $data = array();
-  while ($row = db_fetch_object($results)) {
-    $data[$row->tid] = $row;
-  }
-  // dpr($data); exit;
-  foreach ($data as $tid => $row) {
-    $regexp = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)";
-    if (preg_match_all("/$regexp/siU", $row->description, $matches)) {
-      foreach ($matches[2] as $match) {
-        $update = FALSE;
-        // Check for bad term links
-        $pos = strpos($match, '/taxonomy/term/');
-        if (FALSE !== $pos and 0 != $pos) {
-          $test = substr($match, 0, $pos) . '.htm';
-          if (isset($url[$test])) {
-            $repl = $url[$test];
-            if ('node' == $repl['type']) {
-              $row->description = str_replace($match, "/node/$repl->drupal_id", $row->description);
-            }
-            else if ('term' == $repl['type']) {
-              $row->description = str_replace($match, "/taxonomy/term/$repl->drupal_id", $row->description);
-            }
-            $update = TRUE;
-            $success[] = "Updated $match to " . substr($match, $pos) . " in $row->name (/taxonomy/term/$row->tid)";
-          }
-          else if ('http://behavenet.com' == substr($match, 0, 20)) {
-            $row->description = str_replace('http://behavenet.com', '', $row->description);
-            $success[] = "Removed behavenet.com in $row->name (/taxonomy/term/$row->tid)";
-            $update = TRUE;
-          }
-          else if ('http://www.behavenet.com' == substr($match, 0, 24)) {
-            $row->description = str_replace('http://behavenet.com', '', $row->description);
-            $success[] = "Removed behavenet.com in $row->name (/taxonomy/term/$row->tid)";
-            $update = TRUE;
-          }
-          else {
-            $errors[] = "Unable to find an appropriate url for $match in taxonomy/term/$tid";
-          }
-        }
-
-        if ($update) {
-          $result = db_query("
-            UPDATE {term_data}
-            SET description = '%s'
-            WHERE tid = %d
-          ", $row->description, $row->tid);
-        }
-      }
-    }
-  }
+  // $results = db_query("
+    // SELECT * FROM {term_data} AS t
+  // ");
+  // $data = array();
+  // while ($row = db_fetch_object($results)) {
+    // $data[$row->tid] = $row;
+  // }
+  // // dpr($data); exit;
+  // foreach ($data as $tid => $row) {
+    // $regexp = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)";
+    // if (preg_match_all("/$regexp/siU", $row->description, $matches)) {
+      // foreach ($matches[2] as $match) {
+        // $update = FALSE;
+        // // Check for bad term links
+        // $pos = strpos($match, '/taxonomy/term/');
+        // if (FALSE !== $pos and 0 != $pos) {
+          // $test = substr($match, 0, $pos) . '.htm';
+          // if (isset($url[$test])) {
+            // $repl = $url[$test];
+            // if ('node' == $repl['type']) {
+              // $row->description = str_replace($match, "/node/$repl->drupal_id", $row->description);
+            // }
+            // else if ('term' == $repl['type']) {
+              // $row->description = str_replace($match, "/taxonomy/term/$repl->drupal_id", $row->description);
+            // }
+            // $update = TRUE;
+            // $success[] = "Updated $match to " . substr($match, $pos) . " in $row->name (/taxonomy/term/$row->tid)";
+          // }
+          // else if ('http://behavenet.com' == substr($match, 0, 20)) {
+            // $row->description = str_replace('http://behavenet.com', '', $row->description);
+            // $success[] = "Removed behavenet.com in $row->name (/taxonomy/term/$row->tid)";
+            // $update = TRUE;
+          // }
+          // else if ('http://www.behavenet.com' == substr($match, 0, 24)) {
+            // $row->description = str_replace('http://behavenet.com', '', $row->description);
+            // $success[] = "Removed behavenet.com in $row->name (/taxonomy/term/$row->tid)";
+            // $update = TRUE;
+          // }
+          // else {
+            // $errors[] = "Unable to find an appropriate url for $match in taxonomy/term/$tid";
+          // }
+        // }
+//
+        // if ($update) {
+          // $result = db_query("
+            // UPDATE {term_data}
+            // SET description = '%s'
+            // WHERE tid = %d
+          // ", $row->description, $row->tid);
+        // }
+      // }
+    // }
+  // }
 
   // DONE:
   // Do URL substitutions for the few oddballs that somehow we missed...
@@ -596,6 +610,7 @@ function bh_import_test() {
   // while ($row = db_fetch_object($results)) {
     // $data[$row->tid] = $row;
   // }
+
   // // dpr($data); exit;
   // foreach ($data as $tid => $row) {
     // $term = taxonomy_get_term($tid);
