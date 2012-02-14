@@ -458,8 +458,26 @@ function bh_import_test() {
   // $terms = build_lookup('terms');
   // dpr($terms); exit;
 
+  $results = db_query("
+    SELECT * FROM {term_data} AS text
+    WHERE text.description LIKE '%%%s%%'
+  ", 'test.behavenet.com');
+  $data = array();
+  while ($row = db_fetch_object($results)) {
+    $data[$row->tid] = $row;
+  }
+  dpr(count($data));
+  dpr(array_keys($data));
 
-  // Do URL subs for DSM criteria
+  dpr("done.");
+  dpr(count($errors) . ' Errors:');
+  dpr($errors);
+  dpr(count($success) . ' Successful updates:');
+  dpr($success);
+  exit;
+
+  // DONE:
+  // Do URL subs for DSM criteria for recently added DSMs
   $results = db_query("
     SELECT * FROM {content_field_dsm_body} AS text
     INNER JOIN {node} AS n
@@ -497,12 +515,6 @@ function bh_import_test() {
   }
 
 
-  dpr("done.");
-  dpr(count($errors) . ' Errors:');
-  dpr($errors);
-  dpr(count($success) . ' Successful updates:');
-  dpr($success);
-  exit;
 
   // DONE:
   // Find missing </a> tags in terms
