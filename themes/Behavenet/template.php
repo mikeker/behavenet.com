@@ -40,7 +40,7 @@ function behavenet_preprocess_content_field(&$vars) {
     }
   }
 
-  if ('field_general_asin' == $vars['field_name']) {
+  if ('field_general_asin' == $vars['field_name'] && 'inline' == $vars['element']['items'][0]['#formatter']) {
     $amzn = $vars['node']->{0};
     $link = l(
       'Buy from Amazon for ' . $amzn['lowestpriceformattedprice'],
