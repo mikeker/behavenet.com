@@ -406,6 +406,50 @@ function general_content_views_default_views() {
       'field' => 'name',
       'relationship' => 'none',
     ),
+    'phpcode' => array(
+      'label' => 'Path',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'value' => '<?php
+print url("taxonomy/term/$data->tid");
+?>',
+      'exclude' => 1,
+      'id' => 'phpcode',
+      'table' => 'customfield',
+      'field' => 'phpcode',
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'name' => array(
+      'order' => 'ASC',
+      'id' => 'name',
+      'table' => 'term_data',
+      'field' => 'name',
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('arguments', array(
     'vid' => array(
@@ -488,6 +532,15 @@ return FALSE;',
   $handler->override_option('use_ajax', TRUE);
   $handler->override_option('items_per_page', 50);
   $handler->override_option('use_pager', '1');
+  $handler->override_option('style_plugin', 'jump_menu');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'path' => 'phpcode',
+    'hide' => 1,
+    'text' => 'Go',
+    'choose' => '- Choose -',
+    'default_value' => 0,
+  ));
   $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->override_option('path', 'list/%');
   $handler->override_option('menu', array(
