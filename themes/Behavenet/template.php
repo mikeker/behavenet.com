@@ -54,6 +54,11 @@ function behavenet_preprocess_content_field(&$vars) {
     $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
   }
 
+  // Put alternate people names in parenthesis
+  if ('field_people_alt_names' == $vars['field_name'] && 'people' == $vars['node']->type) {
+    $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
+  }
+
   // Link directly to company web site -- skip link to internal node
   if ('field_drug_company' == $vars['field_name']) {
     if (empty($company->field_company_url[0]['value'])) {
