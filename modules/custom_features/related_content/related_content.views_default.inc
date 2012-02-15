@@ -737,7 +737,7 @@ print behavenet_display_books_movies($data);
   $handler->override_option('style_plugin', 'jump_menu');
   $handler->override_option('style_options', array(
     'grouping' => '',
-    'path' => 'title',
+    'path' => 'path',
     'hide' => 1,
     'text' => 'Go',
     'choose' => '- Choose -',
