@@ -47,7 +47,6 @@ function behavenet_preprocess_content_field(&$vars) {
       $amzn['detailpageurl']
     );
     $vars['items'][0]['view'] = $link;
-    dsm($vars);
   }
 
   // Put generic drugs in parenthesis
