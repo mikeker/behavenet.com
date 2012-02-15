@@ -19,7 +19,7 @@ function behavenet_preprocess_content_field(&$vars) {
     'field_movie_blog' => '<span class="blogger-link"><img src="/'
       . drupal_get_path('theme', 'Behavenet')
       . '/images/blogger.png" alt="Blogger icon" title="Read a blog entry about this movie" />'
-      . ' Blog entry about this movie</span>',
+      . ' Movies, Drugs and Psychiatry</span>',
   );
   if (in_array($vars['field_name'], array_keys($convert))) {
     // Convert to a clickable link
