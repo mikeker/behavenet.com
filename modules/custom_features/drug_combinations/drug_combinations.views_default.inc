@@ -47,6 +47,51 @@ function drug_combinations_views_default_views() {
       'field' => 'title',
       'relationship' => 'none',
     ),
+    'path' => array(
+      'label' => 'Path',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'absolute' => 0,
+      'exclude' => 1,
+      'id' => 'path',
+      'table' => 'node',
+      'field' => 'path',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'title' => array(
+      'order' => 'ASC',
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('filters', array(
     'status' => array(
@@ -86,9 +131,16 @@ function drug_combinations_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
+  $handler->override_option('title', 'Drug Combinations');
   $handler->override_option('items_per_page', 0);
+  $handler->override_option('style_plugin', 'jump_menu');
   $handler->override_option('style_options', array(
     'grouping' => '',
+    'path' => 'path',
+    'hide' => 1,
+    'text' => 'Go',
+    'choose' => '- Choose -',
+    'default_value' => 0,
   ));
   $handler = $view->new_display('page', 'List all', 'page_1');
   $handler->override_option('path', 'list/combination');
