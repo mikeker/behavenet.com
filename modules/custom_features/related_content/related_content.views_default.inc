@@ -507,6 +507,15 @@ print behavenet_display_books_movies($data);
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('style_plugin', 'jump_menu');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'path' => 'path',
+    'hide' => 1,
+    'text' => 'Go',
+    'choose' => '- Choose -',
+    'default_value' => 0,
+  ));
   $handler->override_option('pane_title', 'Books by Term');
   $handler->override_option('pane_description', '');
   $handler->override_option('pane_category', array(
