@@ -100,7 +100,10 @@ function behavenet_preprocess_content_field(&$vars) {
         $links[] = $item['view'];
       }
       // Rewrite output as a single pipe-delimited field
-      $vars['items'] = array(0 => array('view' => implode(' | ', $links)));
+      $output = '<div class="terms-and-related-content">';
+      $output .= implode(' | ', $links);
+      $output .= '</div>';
+      $vars['items'] = array(0 => array('view' => $output));
 
       // Remove label
       $vars['label'] = '';
