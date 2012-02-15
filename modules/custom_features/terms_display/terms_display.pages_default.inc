@@ -341,19 +341,20 @@ if (!empty($syn)) {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Member of these lists',
-      'title' => '',
+      'admin_title' => 'This term appears in',
+      'title' => 'This term appears in',
       'body' => '<?php
 $lists = _behavenet_get_lists(%term:tid);
-if (count($lists)) {
-  print \'<h2>This term appears in</h2><ul>\';
-  foreach ($lists as $ltid) {
-    $term = taxonomy_get_term($ltid);
-    $url = url("taxonomy/term/$term->tid");
-    print "<li><a href=\'$url\'>$term->name</a></li>";
-  }
-  print \'</ul>\';
+if (empty($lists)) {
+  return;
 }
+print \'<ul>\';
+foreach ($lists as $ltid) {
+  $term = taxonomy_get_term($ltid);
+  $url = url("taxonomy/term/$term->tid");
+  print "<li><a href=\'$url\'>$term->name</a></li>";
+}
+print \'</ul>\';
 ?>',
       'format' => '4',
       'substitute' => 1,
@@ -370,17 +371,40 @@ if (count($lists)) {
     $pane = new stdClass;
     $pane->pid = 'new-9';
     $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'Directory-panel_pane_1';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
-    $pane->access = array(
-      'logic' => 'and',
-      'plugins' => array(),
-    );
+    $pane->access = array();
     $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_terms_1',
-      ),
+      'admin_title' => 'Members',
+      'title' => 'Members:',
+      'body' => '<?php
+$children = taxonomy_get_children(%term:tid, %term:vid);
+if (!count($children)) {
+  return;
+}
+$return = \'\';
+if (count($children) <= 10) {
+  // Short lists output as lists
+  $return = \'<ul>\';
+  foreach ($children as $term) {
+    $return .= \'<li>\' . l($term->name, \'taxonomy/term/\'. $term->tid) . \'</li>\';
+  }
+  $return .= \'</ul>\';
+}
+else {
+  // Longer lists output as dropdowns
+  $return = \'<select class="jump-menu">\';
+  foreach ($children as $term) {
+    $return .= \'<option value="/taxonomy/term/\'. $term->tid . \'">\' . $term->name . \'</option>\';
+  }
+  $return .= \'</select>\';
+}
+
+return $return;
+?>',
+      'format' => '4',
+      'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -393,6 +417,65 @@ if (count($lists)) {
     $display->panels['middle'][8] = 'new-9';
     $pane = new stdClass;
     $pane->pid = 'new-10';
+    $pane->panel = 'middle';
+    $pane->type = 'term_list';
+    $pane->subtype = 'term_list';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'title' => NULL,
+      'type' => 'related',
+      'list_type' => 'ul',
+      'context' => 'argument_terms_1',
+      'override_title' => 1,
+      'override_title_text' => 'See also:',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 9;
+    $display->content['new-10'] = $pane;
+    $display->panels['middle'][9] = 'new-10';
+    $pane = new stdClass;
+    $pane->pid = 'new-11';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Directory-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'logic' => 'and',
+      'plugins' => array(
+        0 => array(
+          'name' => 'term_vocabulary',
+          'settings' => array(
+            'vids' => array(
+              13 => 13,
+            ),
+          ),
+          'context' => 'argument_terms_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_terms_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 10;
+    $display->content['new-11'] = $pane;
+    $display->panels['middle'][10] = 'new-11';
+    $pane = new stdClass;
+    $pane->pid = 'new-12';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'related_content-panel_pane_3';
@@ -414,11 +497,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
-    $display->content['new-10'] = $pane;
-    $display->panels['middle'][9] = 'new-10';
+    $pane->position = 11;
+    $display->content['new-12'] = $pane;
+    $display->panels['middle'][11] = 'new-12';
     $pane = new stdClass;
-    $pane->pid = 'new-11';
+    $pane->pid = 'new-13';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'related_content-panel_pane_4';
@@ -440,11 +523,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
-    $display->content['new-11'] = $pane;
-    $display->panels['middle'][10] = 'new-11';
+    $pane->position = 12;
+    $display->content['new-13'] = $pane;
+    $display->panels['middle'][12] = 'new-13';
     $pane = new stdClass;
-    $pane->pid = 'new-12';
+    $pane->pid = 'new-14';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'related_content-panel_pane_1';
@@ -461,11 +544,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 11;
-    $display->content['new-12'] = $pane;
-    $display->panels['middle'][11] = 'new-12';
+    $pane->position = 13;
+    $display->content['new-14'] = $pane;
+    $display->panels['middle'][13] = 'new-14';
     $pane = new stdClass;
-    $pane->pid = 'new-13';
+    $pane->pid = 'new-15';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'Vocab_listing';
@@ -496,11 +579,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 12;
-    $display->content['new-13'] = $pane;
-    $display->panels['middle'][12] = 'new-13';
+    $pane->position = 14;
+    $display->content['new-15'] = $pane;
+    $display->panels['middle'][14] = 'new-15';
     $pane = new stdClass;
-    $pane->pid = 'new-14';
+    $pane->pid = 'new-16';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'Compounds';
@@ -547,11 +630,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 13;
-    $display->content['new-14'] = $pane;
-    $display->panels['middle'][13] = 'new-14';
+    $pane->position = 15;
+    $display->content['new-16'] = $pane;
+    $display->panels['middle'][15] = 'new-16';
     $pane = new stdClass;
-    $pane->pid = 'new-15';
+    $pane->pid = 'new-17';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'Compounds';
@@ -598,11 +681,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 14;
-    $display->content['new-15'] = $pane;
-    $display->panels['middle'][14] = 'new-15';
+    $pane->position = 16;
+    $display->content['new-17'] = $pane;
+    $display->panels['middle'][16] = 'new-17';
     $pane = new stdClass;
-    $pane->pid = 'new-16';
+    $pane->pid = 'new-18';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'drug_combos';
@@ -649,11 +732,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 15;
-    $display->content['new-16'] = $pane;
-    $display->panels['middle'][15] = 'new-16';
+    $pane->position = 17;
+    $display->content['new-18'] = $pane;
+    $display->panels['middle'][17] = 'new-18';
     $pane = new stdClass;
-    $pane->pid = 'new-17';
+    $pane->pid = 'new-19';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'drug_sources';
@@ -700,9 +783,9 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 16;
-    $display->content['new-17'] = $pane;
-    $display->panels['middle'][16] = 'new-17';
+    $pane->position = 18;
+    $display->content['new-19'] = $pane;
+    $display->panels['middle'][18] = 'new-19';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

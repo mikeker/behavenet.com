@@ -772,159 +772,6 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane = new stdClass;
     $pane->pid = 'new-19';
     $pane->panel = 'main_callout';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'context_exists',
-          'settings' => array(
-            'exists' => '1',
-          ),
-          'context' => 'term',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'admin_title' => 'Child terms',
-      'title' => 'Members:',
-      'body' => '<?php
-$children = taxonomy_get_children(%term:tid, %term:vid);
-if (!count($children)) {
-  return;
-}
-$return = \'\';
-if (count($children) <= 10) {
-  // Short lists output as lists
-  $return = \'<ul>\';
-  foreach ($children as $term) {
-    $return .= \'<li>\' . l($term->name, \'taxonomy/term/\'. $term->tid) . \'</li>\';
-  }
-  $return .= \'</ul>\';
-}
-else {
-  // Longer lists output as dropdowns
-  $return = \'<select class="jump-menu">\';
-  foreach ($children as $term) {
-    $return .= \'<option value="/taxonomy/term/\'. $term->tid . \'">\' . $term->name . \'</option>\';
-  }
-  $return .= \'</select>\';
-}
-
-return $return;
-?>',
-      'format' => '4',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 6;
-    $display->content['new-19'] = $pane;
-    $display->panels['main_callout'][6] = 'new-19';
-    $pane = new stdClass;
-    $pane->pid = 'new-20';
-    $pane->panel = 'main_callout';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'context_exists',
-          'settings' => array(
-            'exists' => '1',
-          ),
-          'context' => 'term',
-          'not' => FALSE,
-        ),
-        1 => array(
-          'name' => 'php',
-          'settings' => array(
-            'description' => 'Is this a list?',
-            'php' => 'return behavenet_is_list($contexts[\'term\']->data->tid);',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'admin_title' => 'Show Lists',
-      'title' => 'Glossary',
-      'body' => '<?php
-$items = taxonomy_get_related(%term:tid);
-if (!count($items)) {
-  return;
-}
-print \'<select class="jump-menu">\';
-foreach ($items as $tid => $term) {
-  print "<option value=\\"/taxonomy/term/$tid\\">$term->name</option>";
-}
-print \'</select>\';
-?>',
-      'format' => '4',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 7;
-    $display->content['new-20'] = $pane;
-    $display->panels['main_callout'][7] = 'new-20';
-    $pane = new stdClass;
-    $pane->pid = 'new-21';
-    $pane->panel = 'main_callout';
-    $pane->type = 'term_list';
-    $pane->subtype = 'term_list';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'context_exists',
-          'settings' => array(
-            'exists' => '1',
-          ),
-          'context' => 'term',
-          'not' => FALSE,
-        ),
-        1 => array(
-          'name' => 'php',
-          'settings' => array(
-            'description' => 'Only show if not a list',
-            'php' => 'return !behavenet_is_list($contexts[\'term\']->data->tid);',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'title' => NULL,
-      'type' => 'related',
-      'list_type' => 'ul',
-      'context' => 'term',
-      'override_title' => 1,
-      'override_title_text' => 'See also:',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 8;
-    $display->content['new-21'] = $pane;
-    $display->panels['main_callout'][8] = 'new-21';
-    $pane = new stdClass;
-    $pane->pid = 'new-22';
-    $pane->panel = 'main_callout';
     $pane->type = 'block';
     $pane->subtype = 'adsense_managed-2';
     $pane->shown = TRUE;
@@ -939,11 +786,11 @@ print \'</select>\';
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
-    $display->content['new-22'] = $pane;
-    $display->panels['main_callout'][9] = 'new-22';
+    $pane->position = 6;
+    $display->content['new-19'] = $pane;
+    $display->panels['main_callout'][6] = 'new-19';
     $pane = new stdClass;
-    $pane->pid = 'new-23';
+    $pane->pid = 'new-20';
     $pane->panel = 'main_callout';
     $pane->type = 'panels_mini';
     $pane->subtype = 'goodtherapy_250_160';
@@ -959,9 +806,9 @@ print \'</select>\';
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
-    $display->content['new-23'] = $pane;
-    $display->panels['main_callout'][10] = 'new-23';
+    $pane->position = 7;
+    $display->content['new-20'] = $pane;
+    $display->panels['main_callout'][7] = 'new-20';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-6';
   $handler->conf['display'] = $display;

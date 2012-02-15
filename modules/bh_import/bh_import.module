@@ -459,15 +459,18 @@ function bh_import_test() {
   // dpr($terms); exit;
 
   $results = db_query("
-    SELECT * FROM {term_data} AS text
-    WHERE text.description LIKE '%%%s%%'
-  ", 'test.behavenet.com');
+    SELECT n.nid, n.title FROM {node} AS n
+    LEFT JOIN {content_field_general_asin} AS asin
+      ON n.vid = asin.vid
+    WHERE n.type = 'book'
+      AND asin.field_general_asin_asin IS NULL
+  ");
   $data = array();
   while ($row = db_fetch_object($results)) {
-    $data[$row->tid] = $row;
+    $data[$row->nid] = $row->title;
   }
   dpr(count($data));
-  dpr(array_keys($data));
+  dpr($data);
 
   dpr("done.");
   dpr(count($errors) . ' Errors:');
