@@ -149,7 +149,7 @@ function terms_display_default_page_manager_handlers() {
       'body' => '<?php
 $crumbs = behavenet_get_parents_breadcrumbs(%term:tid);
 if (!empty($crumbs)) {
-  print "($crumbs)";
+  print "$crumbs";
 }
 ?>',
       'format' => '4',

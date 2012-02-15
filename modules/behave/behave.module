@@ -537,6 +537,7 @@ function behavenet_get_content_breadcrumbs($nid) {
  * Returns breadcrumb HTML
  *
  * (8 Feb, 2012: As per "to do database.doc" this is now a comma separated list)
+ * (15 Feb, 2012: Returned to <ul> based breadcrumbs with full hierarchy)
  *
  * @param $tid
  * @return HTML
@@ -569,9 +570,8 @@ function behavenet_get_parents_breadcrumbs($tid) {
       }
     }
     $crumbs[] = implode(' &raquo; ', array_reverse($line));
-  }
-  // return '<ul class="breadcrumbs"><li>'. implode('</li><li>', $crumbs) .'</li></ul>';
-  return implode_and($crumbs);
+      }
+  return '<ul class="breadcrumbs"><li>'. implode('</li><li>', $crumbs) .'</li></ul>';
 }
 
 /*
