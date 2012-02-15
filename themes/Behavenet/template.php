@@ -182,7 +182,7 @@ function behavenet_preprocess_panels_pane(&$vars) {
     $lists = variable_get('behave_lists_tids', '');
     if (in_array($ltid, $lists)) {
       $vars['title'] = t('Glossary');
-      $html = '<select class="jump-menu"><option selected>Select a list item</option>';
+      $html = '<select class="jump-menu"><option selected>- Choose -</option>';
       foreach (taxonomy_get_related($ltid) as $term) {
         $html .= '<option value="'. url('taxonomy/term/'. $term->tid) .'">'. $term->name .'</option>';
       }
