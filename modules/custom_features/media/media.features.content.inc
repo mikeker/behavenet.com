@@ -239,12 +239,12 @@ function media_content_default_fields() {
         'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'thumbnail',
-        'exclude' => 1,
+        'format' => 'inline',
+        'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'thumbnail',
-        'exclude' => 1,
+        'format' => 'inline',
+        'exclude' => 0,
       ),
       '4' => array(
         'format' => 'default',

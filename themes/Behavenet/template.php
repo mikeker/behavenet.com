@@ -40,13 +40,33 @@ function behavenet_preprocess_content_field(&$vars) {
     }
   }
 
+  // Rewrite some Amazon links to include lowest price
   if ('field_general_asin' == $vars['field_name'] && 'inline' == $vars['element']['items'][0]['#formatter']) {
     $amzn = $vars['node']->{0};
-    $link = l(
-      'Buy from Amazon for ' . $amzn['lowestpriceformattedprice'],
-      $amzn['detailpageurl']
-    );
+    $link = '';
+    if (!empty($amzn['lowestpriceformattedprice'])) {
+      $link = l(
+        'Buy from Amazon for ' . $amzn['lowestpriceformattedprice'],
+        $amzn['detailpageurl']
+      );
+    }
+    else {
+      $link = l('Buy from Amazon', $amzn['detailpageurl']);
+    }
     $vars['items'][0]['view'] = $link;
+  }
+
+  // Combine author first/last name for books
+  if ('book' == $vars['node']->type) {
+    if ('field_book_lastname' == $vars['field_name']) {
+      // Hide last name field
+      $vars['field_empty'] = TRUE;
+    }
+    if ('field_book_firstname' == $vars['field_name']) {
+      // Include last name along with first name
+      $vars['label'] = t('Author');
+      $vars['items'][0]['view'] .= ' ' . $vars['node']->field_book_lastname[0]['safe'];
+    }
   }
 
   // Put generic drugs in parenthesis
