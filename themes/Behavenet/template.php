@@ -82,9 +82,11 @@ function behavenet_preprocess_content_field(&$vars) {
     if ('field_people_alt_names' == $vars['field_name']) {
       $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
     }
+  }
 
-    // Combine Terms and Related Content fields
-    if ('field_terms' == $vars['field_name']) {
+  // Combine Terms and Related Content fields
+  if ('movie' == $vars['node']->type || 'book' == $vars['node']->type || 'people' == $vars['node']->type) {
+    if ('field_terms' == $vars['field_name'] || 'field_general_terms' == $vars['field_name']) {
       // We'll show terms when we display related content
       $vars['field_empty'] = TRUE;
     }
