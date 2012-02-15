@@ -155,10 +155,10 @@ function general_content_menu_default_menu_links() {
     'menu_name' => 'menu-main-tabs',
     'link_path' => 'node/27646',
     'router_path' => 'node/%',
-    'link_title' => 'Notable People',
+    'link_title' => 'People',
     'options' => array(
       'attributes' => array(
-        'title' => 'Notable People',
+        'title' => 'People',
       ),
     ),
     'module' => 'menu',
@@ -191,10 +191,10 @@ function general_content_menu_default_menu_links() {
     'menu_name' => 'menu-main-tabs',
     'link_path' => 'node/27648',
     'router_path' => 'node/%',
-    'link_title' => 'Diagnosis',
+    'link_title' => 'Disorders',
     'options' => array(
       'attributes' => array(
-        'title' => 'Diagnosis',
+        'title' => 'Disorders',
       ),
     ),
     'module' => 'menu',
@@ -208,11 +208,11 @@ function general_content_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('Academic Center');
   t('Advocacy');
-  t('Diagnosis');
+  t('Disorders');
   t('Drugs');
   t('Forensic Examiner');
   t('Home');
-  t('Notable People');
+  t('People');
   t('Professional Association');
   t('Resources');
   t('Support');

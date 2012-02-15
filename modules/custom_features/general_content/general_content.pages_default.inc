@@ -789,7 +789,7 @@ print behavenet_get_birth_death_dates(%node:nid);
     );
     $pane->configuration = array(
       'admin_title' => 'Child terms',
-      'title' => 'Member of:',
+      'title' => 'Members:',
       'body' => '<?php
 $children = taxonomy_get_children(%term:tid, %term:vid);
 if (!count($children)) {
@@ -925,41 +925,6 @@ print \'</select>\';
     $pane = new stdClass;
     $pane->pid = 'new-22';
     $pane->panel = 'main_callout';
-    $pane->type = 'term_list';
-    $pane->subtype = 'term_list';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'context_exists',
-          'settings' => array(
-            'exists' => '1',
-          ),
-          'context' => 'term',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'title' => NULL,
-      'type' => 'synonyms',
-      'list_type' => 'ul',
-      'context' => 'term',
-      'override_title' => 1,
-      'override_title_text' => 'Synonyms',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 9;
-    $display->content['new-22'] = $pane;
-    $display->panels['main_callout'][9] = 'new-22';
-    $pane = new stdClass;
-    $pane->pid = 'new-23';
-    $pane->panel = 'main_callout';
     $pane->type = 'block';
     $pane->subtype = 'adsense_managed-2';
     $pane->shown = TRUE;
@@ -974,11 +939,11 @@ print \'</select>\';
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
-    $display->content['new-23'] = $pane;
-    $display->panels['main_callout'][10] = 'new-23';
+    $pane->position = 9;
+    $display->content['new-22'] = $pane;
+    $display->panels['main_callout'][9] = 'new-22';
     $pane = new stdClass;
-    $pane->pid = 'new-24';
+    $pane->pid = 'new-23';
     $pane->panel = 'main_callout';
     $pane->type = 'panels_mini';
     $pane->subtype = 'goodtherapy_250_160';
@@ -994,9 +959,9 @@ print \'</select>\';
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 11;
-    $display->content['new-24'] = $pane;
-    $display->panels['main_callout'][11] = 'new-24';
+    $pane->position = 10;
+    $display->content['new-23'] = $pane;
+    $display->panels['main_callout'][10] = 'new-23';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-6';
   $handler->conf['display'] = $display;
