@@ -463,6 +463,14 @@ function bh_import_test() {
   // dpr($terms); exit;
 
 
+  dpr("done.");
+  dpr(count($errors) . ' Errors:');
+  dpr($errors);
+  dpr(count($success) . ' Successful updates:');
+  dpr($success);
+  exit;
+
+
   // Somewhere along the line we ended up with bad substitutions where part of the
   // URL was replaced in the middle of an old URL resulting in something like
   // /old/path/taxonomy/term/drug.htm or /old/path/taxonomy/term/1234
@@ -589,13 +597,6 @@ function bh_import_test() {
     }
   }
 
-
-  dpr("done.");
-  dpr(count($errors) . ' Errors:');
-  dpr($errors);
-  dpr(count($success) . ' Successful updates:');
-  dpr($success);
-  exit;
 
   // DONE:
   // Find list of books without ASINs
