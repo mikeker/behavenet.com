@@ -323,7 +323,7 @@ function behave_ckeditor_link_behavenet_terms_autocomplete($string) {
     LIMIT 0, 10
   ", $string);
   while ($row = db_fetch_object($result)) {
-    $matches["node/$row->nid"] = ucwords($row->type) . ": $row->title";
+    $matches["node/$row->nid"] = _behavenet_tweak_types($row->type) . ": $row->title";
   }
 
   // Now term matches
@@ -527,7 +527,7 @@ function behavenet_get_content_breadcrumbs($nid) {
   $node = node_load($nid);
   $valid = array('sources', 'preparation', 'compound');
   if (in_array($node->type, $valid)) {
-    return l(ucwords($node->type), "list/$node->type")
+    return l(_behavenet_tweak_types($node->type), "list/$node->type")
       . ' &raquo; '
       . l($node->title, "node/$nid");
   }
@@ -1094,6 +1094,25 @@ function behavenet_settings_form_submit($form, &$form_state) {
 }
 
 
+/**
+ * Helper function to update some node types to current text
+ */
+function _behavenet_tweak_types($type) {
+  switch (strtolower($type)) {
+    case 'combination':
+      return 'Combinations';
+
+    case 'dsm':
+      return 'DSM';
+
+    case 'generic':
+      return 'Molecular entity';
+
+    default:
+      return ucwords($type);
+  }
+}
+
 function behavenet_views_pre_render(&$view) {
 
   if ('search' == $view->name) {
@@ -1215,6 +1234,14 @@ function behavenet_views_pre_render(&$view) {
           // Special case: DSM should be displayed in allcaps
           $type = (strtolower($row->node_type) == 'dsm' ? 'DSM' : ucwords($row->node_type));
 
+          // Adjust some of node types:
+          if ('Generic' == $type) {
+            $type = 'Molecular entity';
+          }
+          if ('Combination' == $type) {
+            $type = 'Combinations';
+          }
+
           // Check if this entry was found because of a word match in the title or because
           // of other fields.  If the latter, highlight that in the results
           $displayed = FALSE;
@@ -1285,7 +1312,7 @@ function behavenet_views_pre_render(&$view) {
           if (!isset($results[$key])) {
             $results[$key] = array();
           }
-          $type = (strtolower($row->type) == 'dsm' ? 'DSM' : ucwords($row->type));
+          $type = _behavenet_tweak_types($row->type);
           array_push($results[$key], "$type: " . l($row->title, "node/$row->nid"));
         }
 
