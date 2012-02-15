@@ -204,6 +204,34 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     $pane = new stdClass;
     $pane->pid = 'new-3';
     $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Synonyms',
+      'title' => '',
+      'body' => '<?php
+$syn = taxonomy_get_synonyms(%term:tid);
+if (!empty($syn)) {
+  print \'<p>(\' . implode(\', \', $syn) . \')</p>\';
+}
+?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $display->content['new-3'] = $pane;
+    $display->panels['middle'][2] = 'new-3';
+    $pane = new stdClass;
+    $pane->pid = 'new-4';
+    $pane->panel = 'middle';
     $pane->type = 'term_description';
     $pane->subtype = 'term_description';
     $pane->shown = TRUE;
@@ -219,11 +247,11 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-3'] = $pane;
-    $display->panels['middle'][2] = 'new-3';
+    $pane->position = 3;
+    $display->content['new-4'] = $pane;
+    $display->panels['middle'][3] = 'new-4';
     $pane = new stdClass;
-    $pane->pid = 'new-4';
+    $pane->pid = 'new-5';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'terms_extras';
@@ -257,11 +285,11 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
       'css_class' => 'terms-extras',
     );
     $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-4'] = $pane;
-    $display->panels['middle'][3] = 'new-4';
+    $pane->position = 4;
+    $display->content['new-5'] = $pane;
+    $display->panels['middle'][4] = 'new-5';
     $pane = new stdClass;
-    $pane->pid = 'new-5';
+    $pane->pid = 'new-6';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'terms_extras-panel_pane_1';
@@ -278,11 +306,11 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
-    $display->content['new-5'] = $pane;
-    $display->panels['middle'][4] = 'new-5';
+    $pane->position = 5;
+    $display->content['new-6'] = $pane;
+    $display->panels['middle'][5] = 'new-6';
     $pane = new stdClass;
-    $pane->pid = 'new-6';
+    $pane->pid = 'new-7';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'DSM_Criteria-panel_pane_1';
@@ -302,11 +330,11 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
       'css_class' => 'dsm-criteria',
     );
     $pane->extras = array();
-    $pane->position = 5;
-    $display->content['new-6'] = $pane;
-    $display->panels['middle'][5] = 'new-6';
+    $pane->position = 6;
+    $display->content['new-7'] = $pane;
+    $display->panels['middle'][6] = 'new-7';
     $pane = new stdClass;
-    $pane->pid = 'new-7';
+    $pane->pid = 'new-8';
     $pane->panel = 'middle';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -336,11 +364,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
-    $display->content['new-7'] = $pane;
-    $display->panels['middle'][6] = 'new-7';
+    $pane->position = 7;
+    $display->content['new-8'] = $pane;
+    $display->panels['middle'][7] = 'new-8';
     $pane = new stdClass;
-    $pane->pid = 'new-8';
+    $pane->pid = 'new-9';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Directory-panel_pane_1';
@@ -360,11 +388,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 7;
-    $display->content['new-8'] = $pane;
-    $display->panels['middle'][7] = 'new-8';
+    $pane->position = 8;
+    $display->content['new-9'] = $pane;
+    $display->panels['middle'][8] = 'new-9';
     $pane = new stdClass;
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-10';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'related_content-panel_pane_3';
@@ -386,11 +414,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
-    $display->content['new-9'] = $pane;
-    $display->panels['middle'][8] = 'new-9';
+    $pane->position = 9;
+    $display->content['new-10'] = $pane;
+    $display->panels['middle'][9] = 'new-10';
     $pane = new stdClass;
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-11';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'related_content-panel_pane_4';
@@ -412,11 +440,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
-    $display->content['new-10'] = $pane;
-    $display->panels['middle'][9] = 'new-10';
+    $pane->position = 10;
+    $display->content['new-11'] = $pane;
+    $display->panels['middle'][10] = 'new-11';
     $pane = new stdClass;
-    $pane->pid = 'new-11';
+    $pane->pid = 'new-12';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'related_content-panel_pane_1';
@@ -433,11 +461,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
-    $display->content['new-11'] = $pane;
-    $display->panels['middle'][10] = 'new-11';
+    $pane->position = 11;
+    $display->content['new-12'] = $pane;
+    $display->panels['middle'][11] = 'new-12';
     $pane = new stdClass;
-    $pane->pid = 'new-12';
+    $pane->pid = 'new-13';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'Vocab_listing';
@@ -468,11 +496,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 11;
-    $display->content['new-12'] = $pane;
-    $display->panels['middle'][11] = 'new-12';
+    $pane->position = 12;
+    $display->content['new-13'] = $pane;
+    $display->panels['middle'][12] = 'new-13';
     $pane = new stdClass;
-    $pane->pid = 'new-13';
+    $pane->pid = 'new-14';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'Compounds';
@@ -519,11 +547,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 12;
-    $display->content['new-13'] = $pane;
-    $display->panels['middle'][12] = 'new-13';
+    $pane->position = 13;
+    $display->content['new-14'] = $pane;
+    $display->panels['middle'][13] = 'new-14';
     $pane = new stdClass;
-    $pane->pid = 'new-14';
+    $pane->pid = 'new-15';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'Compounds';
@@ -570,11 +598,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 13;
-    $display->content['new-14'] = $pane;
-    $display->panels['middle'][13] = 'new-14';
+    $pane->position = 14;
+    $display->content['new-15'] = $pane;
+    $display->panels['middle'][14] = 'new-15';
     $pane = new stdClass;
-    $pane->pid = 'new-15';
+    $pane->pid = 'new-16';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'drug_combos';
@@ -621,11 +649,11 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 14;
-    $display->content['new-15'] = $pane;
-    $display->panels['middle'][14] = 'new-15';
+    $pane->position = 15;
+    $display->content['new-16'] = $pane;
+    $display->panels['middle'][15] = 'new-16';
     $pane = new stdClass;
-    $pane->pid = 'new-16';
+    $pane->pid = 'new-17';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'drug_sources';
@@ -672,9 +700,9 @@ if (count($lists)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 15;
-    $display->content['new-16'] = $pane;
-    $display->panels['middle'][15] = 'new-16';
+    $pane->position = 16;
+    $display->content['new-17'] = $pane;
+    $display->panels['middle'][16] = 'new-17';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
