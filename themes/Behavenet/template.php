@@ -74,9 +74,36 @@ function behavenet_preprocess_content_field(&$vars) {
     $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
   }
 
-  // Put alternate people names in parenthesis
-  if ('field_people_alt_names' == $vars['field_name'] && 'people' == $vars['node']->type) {
-    $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
+  /*
+   * Change display details for People
+   */
+  if ('people' == $vars['node']->type) {
+    // Put alternate people names in parenthesis
+    if ('field_people_alt_names' == $vars['field_name']) {
+      $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
+    }
+
+    // Combine Terms and Related Content fields
+    if ('field_terms' == $vars['field_name']) {
+      // We'll show terms when we display related content
+      $vars['field_empty'] = TRUE;
+    }
+    if ('field_general_related_content' == $vars['field_name']) {
+      $links = array();
+      $terms = taxonomy_link('taxonomy terms', $vars['node']);
+      foreach ($terms as $link) {
+        $links[] = l($link['title'], $link['href'], $link['attributes']);
+      }
+      foreach ($vars['items'] as $item) {
+        $links[] = $item['view'];
+      }
+      // Rewrite output as a single pipe-delimited field
+      $vars['items'] = array(0 => array('view' => implode(' | ', $links)));
+
+      // Remove label
+      $vars['label'] = '';
+      $vars['label_display'] = '';
+    }
   }
 
   // Link directly to company web site -- skip link to internal node
