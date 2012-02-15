@@ -60,14 +60,14 @@ function media_views_default_views() {
       'field' => 'title',
       'relationship' => 'none',
     ),
-    'nid' => array(
-      'label' => 'Nid',
+    'path' => array(
+      'label' => 'Path',
       'alter' => array(
-        'alter_text' => 1,
-        'text' => '/node/[nid]',
+        'alter_text' => 0,
+        'text' => '',
         'make_link' => 0,
-        'path' => '/node/[nid]',
-        'absolute' => 1,
+        'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
         'rel' => '',
@@ -86,11 +86,14 @@ function media_views_default_views() {
       'hide_empty' => 0,
       'empty_zero' => 0,
       'hide_alter_empty' => 1,
-      'link_to_node' => 0,
+      'absolute' => 0,
       'exclude' => 1,
-      'id' => 'nid',
+      'id' => 'path',
       'table' => 'node',
-      'field' => 'nid',
+      'field' => 'path',
+      'override' => array(
+        'button' => 'Override',
+      ),
       'relationship' => 'none',
     ),
   ));
@@ -211,7 +214,7 @@ function media_views_default_views() {
   $handler->override_option('style_plugin', 'jump_menu');
   $handler->override_option('style_options', array(
     'grouping' => '',
-    'path' => 'nid',
+    'path' => 'path',
     'hide' => 1,
     'text' => 'Go',
     'choose' => '- Choose -',
@@ -278,123 +281,6 @@ function media_views_default_views() {
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
   $handler = $view->new_display('panel_pane', 'Books for this node', 'panel_pane_3');
-  $handler->override_option('fields', array(
-    'title' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'absolute' => 0,
-        'link_class' => '',
-        'alt' => '',
-        'rel' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'hide_alter_empty' => 1,
-      'link_to_node' => 0,
-      'exclude' => 1,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-    ),
-    'title_1' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'absolute' => 0,
-        'link_class' => '',
-        'alt' => '',
-        'rel' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'hide_alter_empty' => 1,
-      'link_format' => 'amazon',
-      'exclude' => 1,
-      'id' => 'title_1',
-      'table' => 'amazon_item',
-      'field' => 'title',
-      'relationship' => 'field_general_asin_asin',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-    ),
-    'phpcode' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'absolute' => 0,
-        'link_class' => '',
-        'alt' => '',
-        'rel' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'hide_alter_empty' => 1,
-      'value' => '<?php
-if (empty($data->amazon_item_node_data_field_general_asin_asin)) {
-  print $data->node_title;
-}
-else {
-  print "<a href=\\"$data->amazon_item_node_data_field_general_asin_detailpageurl\\">$data->amazon_item_node_data_field_general_asin_title</a>";
-}
-?>',
-      'exclude' => 0,
-      'id' => 'phpcode',
-      'table' => 'customfield',
-      'field' => 'phpcode',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
   $handler->override_option('filters', array(
     'status' => array(
       'operator' => '=',
@@ -429,11 +315,6 @@ else {
         'button' => 'Use default',
       ),
     ),
-  ));
-  $handler->override_option('style_plugin', 'list');
-  $handler->override_option('style_options', array(
-    'grouping' => '',
-    'type' => 'ul',
   ));
   $handler->override_option('pane_title', 'Books for this node');
   $handler->override_option('pane_description', '');
