@@ -323,24 +323,7 @@ function _bh_add_noderef(&$node, $field, $nids) {
   $node->$field = $update;
 }
 
-
-/**
- * Parses a string for old-style urls and returns the string with Drupal links
- */
-function _bh_url_replace(&$string, &$error) {
-  $success = 0;     // Count number of replacements
-  $error = '';
-
-  if (empty($string)) {
-    return $string;
-  }
-
-  // Debug
-  // if (FALSE === strpos($string, 'drug.htm')) {
-    // return $string;
-  // }
-
-  // Load URL redirects
+function _bh_build_url_list() {
   static $url = array();
   if (empty($url)) {
     $results = db_query("
@@ -362,6 +345,27 @@ function _bh_url_replace(&$string, &$error) {
       $url[$row->url_base][] = $row;
     }
   }
+  return $url;
+}
+
+/**
+ * Parses a string for old-style urls and returns the string with Drupal links
+ */
+function _bh_url_replace(&$string, &$error) {
+  $success = 0;     // Count number of replacements
+  $error = '';
+
+  if (empty($string)) {
+    return $string;
+  }
+
+  // Debug
+  // if (FALSE === strpos($string, 'drug.htm')) {
+    // return $string;
+  // }
+
+  // Load URL redirects
+  $url = _bh_build_url_list();
 
   // $regexp = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)<\/a>";
 
@@ -458,19 +462,133 @@ function bh_import_test() {
   // $terms = build_lookup('terms');
   // dpr($terms); exit;
 
+
+  // Somewhere along the line we ended up with bad substitutions where part of the
+  // URL was replaced in the middle of an old URL resulting in something like
+  // /old/path/taxonomy/term/drug.htm or /old/path/taxonomy/term/1234
+  $url = _bh_build_url_list();
   $results = db_query("
-    SELECT n.nid, n.title FROM {node} AS n
-    LEFT JOIN {content_field_general_asin} AS asin
-      ON n.vid = asin.vid
-    WHERE n.type = 'book'
-      AND asin.field_general_asin_asin IS NULL
+    SELECT * FROM {term_data} AS t
   ");
   $data = array();
   while ($row = db_fetch_object($results)) {
-    $data[$row->nid] = $row->title;
+    $data[$row->tid] = $row;
   }
-  dpr(count($data));
-  dpr($data);
+  // dpr($data); exit;
+  foreach ($data as $tid => $row) {
+    $regexp = "<a\s[^>]*href=(\"??)([^\">]*?)\\1[^>]*>(.*)<\/a>";
+    if (preg_match_all("/$regexp/siU", $row->description, $matches)) {
+      foreach ($matches[2] as $index => $match) {
+        $orig_link_text = $matches[3][$index];
+        $update = FALSE;
+
+        // Check for bad term links
+        $pos = strpos($match, '/taxonomy/term/');
+        if (FALSE !== $pos and 0 != $pos) {
+          $repl = array();
+
+          // Stop looking if we find a perfect match, namely where a url_base
+          // matches for exactly one replacement option
+          $perfect = FALSE;
+
+          // First check to see if the link text matches
+          $link_text = str_replace(' ', '', strtolower($orig_link_text));
+          if (isset($url["$link_text.htm"])) {
+            $repl = $url["$link_text.htm"];
+            $perfect = (1 == count($repl));
+            if ($perfect) {
+              dpr("Found match for link text: $link_text.htm");
+              // dpr($repl);
+            }
+          }
+
+          // Next combine the link text with the leftover text in the URL
+          $test = substr($match, 0, $pos);
+          if (!$perfect) {
+            if (isset($url["$test$link_text.htm"])) {
+              $repl = $url["$test$link_text.htm"];
+              $perfect = (1 == count($repl));
+              if ($perfect) {
+                dpr("Found match for $test$link_text.htm: ");
+                // dpr($repl);
+              }
+            }
+          }
+
+          // Finally, check if the leftover text in the URL matches
+          if (!$perfect) {
+            if (isset($url["$test.htm"])) {
+              $repl = $url["$test.htm"];
+              $perfect = (1 == count($repl));
+              if ($perfect) {
+                dpr("Found match for leftover text $test.htm:");
+                // dpr($repl);
+              }
+            }
+          }
+
+          if (empty($repl)) {
+            $errors[$tid][] = "Unable to find an appropriate url for $match in taxonomy/term/$tid with link text '$orig_link_text'";
+          }
+          else if ($perfect) {
+            $repl = $repl[0];
+          }
+          else {
+            // Too many options
+            $errors[$tid][] = "Unable to disabiguate url for $match in taxonomy/term/$tid with link text '$orig_link_text'";
+          }
+
+          if ('http://behavenet.com' == substr($match, 0, 20)) {
+            $row->description = str_replace('http://behavenet.com', '', $row->description);
+            $success[] = "Removed behavenet.com in $row->name (/taxonomy/term/$row->tid)";
+            $update = TRUE;
+          }
+          if ('http://www.behavenet.com' == substr($match, 0, 24)) {
+            $row->description = str_replace('http://www.behavenet.com', '', $row->description);
+            $success[] = "Removed www.behavenet.com in $row->name (/taxonomy/term/$row->tid)";
+            $update = TRUE;
+          }
+          if ('http://test.behavenet.com' == substr($match, 0, 25)) {
+            $row->description = str_replace('http://test.behavenet.com', '', $row->description);
+            $success[] = "Removed test.behavenet.com in $row->name (/taxonomy/term/$row->tid)";
+            $update = TRUE;
+          }
+          if ('test.behavenet.com' == substr($match, 0, 18)) {
+            $row->description = str_replace('test.behavenet.com', '', $row->description);
+            $success[] = "Removed test.behavenet.com (no http) in $row->name (/taxonomy/term/$row->tid)";
+            $update = TRUE;
+          }
+          if ('/capsules/treatments/famsys/' == substr($match, 0, 28)) {
+            $row->description = str_replace('/capsules/treatments/famsys/', '', $row->description);
+            $success[] = "Removed /capsules/treatments/famsys/ in $row->name (/taxonomy/term/$row->tid)";
+            $update = TRUE;
+          }
+          if (!empty($repl)) {
+            if ('node' == $repl->type) {
+              $row->description = str_replace($match, "/node/$repl->drupal_id", $row->description);
+              $update = TRUE;
+              $success[] = "Updated $match to /node/$repl->drupal_id in $row->name";
+            }
+            else if ('term' == $repl->type) {
+              $row->description = str_replace($match, "/taxonomy/term/$repl->drupal_id", $row->description);
+              $update = TRUE;
+              $success[] = "Updated $match to /taxonomy/term/$repl->drupal_id in $row->name";
+            }
+          }
+        }
+
+        if ($update) {
+          $result = db_query("
+            UPDATE {term_data}
+            SET description = '%s'
+            WHERE tid = %d
+          ", $row->description, $row->tid);
+          dpr("result from update $result");
+        }
+      }
+    }
+  }
+
 
   dpr("done.");
   dpr(count($errors) . ' Errors:');
@@ -478,6 +596,23 @@ function bh_import_test() {
   dpr(count($success) . ' Successful updates:');
   dpr($success);
   exit;
+
+  // DONE:
+  // Find list of books without ASINs
+  // $results = db_query("
+    // SELECT n.nid, n.title FROM {node} AS n
+    // LEFT JOIN {content_field_general_asin} AS asin
+      // ON n.vid = asin.vid
+    // WHERE n.type = 'book'
+      // AND asin.field_general_asin_asin IS NULL
+  // ");
+  // $data = array();
+  // while ($row = db_fetch_object($results)) {
+    // $data[$row->nid] = $row->title;
+  // }
+  // dpr(count($data));
+  // dpr($data);
+
 
   // DONE:
   // Do URL subs for DSM criteria for recently added DSMs
