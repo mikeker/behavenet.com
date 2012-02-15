@@ -153,12 +153,12 @@ function media_strongarm() {
   $strongarm->name = 'content_extra_weights_movie';
   $strongarm->value = array(
     'title' => '0',
-    'revision_information' => '9',
-    'author' => '8',
-    'options' => '10',
-    'comment_settings' => '11',
-    'menu' => '7',
-    'path' => '12',
+    'revision_information' => '10',
+    'author' => '9',
+    'options' => '11',
+    'comment_settings' => '12',
+    'menu' => '8',
+    'path' => '13',
   );
   $export['content_extra_weights_movie'] = $strongarm;
 

@@ -40,6 +40,16 @@ function behavenet_preprocess_content_field(&$vars) {
     }
   }
 
+  if ('field_general_asin' == $vars['field_name']) {
+    $amzn = $vars['node']->{0};
+    $link = l(
+      'Buy from Amazon for ' . $amzn['lowestpriceformattedprice'],
+      $amzn['detailpageurl']
+    );
+    $vars['items'][0]['view'] = $link;
+    dsm($vars);
+  }
+
   // Put generic drugs in parenthesis
   if ('field_drug_generic' == $vars['field_name'] && 'drug' == $vars['node']->type) {
     $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
