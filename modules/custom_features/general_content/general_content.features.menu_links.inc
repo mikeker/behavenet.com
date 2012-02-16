@@ -130,7 +130,7 @@ function general_content_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-49',
+    'weight' => '-48',
   );
   // Exported menu link: menu-main-tabs:node/27645
   $menu_links['menu-main-tabs:node/27645'] = array(
@@ -148,7 +148,7 @@ function general_content_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-48',
+    'weight' => '-45',
   );
   // Exported menu link: menu-main-tabs:node/27646
   $menu_links['menu-main-tabs:node/27646'] = array(
@@ -202,7 +202,7 @@ function general_content_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-45',
+    'weight' => '-49',
   );
   // Translatables
   // Included for use with string extractors like potx.
