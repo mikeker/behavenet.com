@@ -471,15 +471,16 @@ function bh_import_test() {
   ");
   $data = array();
   while ($row = db_fetch_object($results)) {
-    node_delete($dirs[$row->ID]);
-    
+    $nid = $dirs[$row->ID];
+    node_delete($nid);
+    dpr("deleted $nid");
     // if (!isset($dirs[$row->ID])) {
       // dpr("Error: Bogus ID in"); dpr($row);
       // continue;
     // }
     // $data['node/' . $dirs[$row->ID]] = $row->Name;
   }
-  dpr($data);
+  // dpr($data);
   
 
   dpr("done.");
