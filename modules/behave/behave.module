@@ -32,12 +32,6 @@ function behave_menu() {
     'access arguments' => array('administer behavenet'),
     'type' => MENU_DEFAULT_LOCAL_TASK,
   );
-  // $items['behavenet/term/ct_autocomplete_admin'] = array(
-    // 'title' => 'Term autocomplete',
-    // 'page callback' => 'behavenet_term_ct_autocomplete_admin',
-    // 'access arguments' => array('administer behavenet'),
-    // 'type' => MENU_CALLBACK,
-  // );
   $items['behavenet/term/autocomplete_admin'] = array(
     'title' => 'Term autocomplete',
     'page callback' => 'behavenet_term_autocomplete_admin',
@@ -50,12 +44,11 @@ function behave_menu() {
     'access arguments' => array('access content'),
     'type' => MENU_CALLBACK,
   );
-
-  $items['behave_test'] = array(
-    'title' => 'test',
-    'description' => 'test',
-    'page callback' => 'behave_test',
-    'access arguments' => array('administer behavenet'),
+  $items['behavenet/not_found'] = array(
+    'title' => 'Page not found',
+    'page callback' => 'behavenet_not_found',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
   );
 
   return $items;
@@ -415,16 +408,94 @@ function hook_ckeditor_link_TYPE_settings() {
 
  *****************************************************************************/
 
-/*
- * Test function
+/**
+ * Attempts to redirect page not found URLs.  Mostly these will be legacy links 
+ * pointing to the old site.  If an exact match is found, it will add it to the
+ * path aliases table
  */
-function behave_test() {
-  dpr(content_taxonomy_autocomplete_load('field_general_terms', 'stre'));
+function behavenet_not_found() {
+  $full = check_plain($_SERVER['REQUEST_URI']);
+  $base = basename($full);
+  $term = strstr($base, '.htm', TRUE);
+  
+  // Check URLs table to see if we have a full string match
+  $found = array();
+  $results = db_query("
+    SELECT * FROM {data_url}
+    WHERE url_full = '%s'
+      OR url_full = 'http://www.behavenet.com%s'
+  ", $full, $full);
+  while ($row = db_fetch_object($results)) {
+    $found[] = $row;
+  }
+  
+  // If we didn't get an exact match, try matching from the basename
+  if (!count($found)) {
+    $results = db_query("
+      SELECT * FROM {data_url}
+      WHERE url_base = '%s'
+    ", $base);
+    while ($row = db_fetch_object($results)) {
+      $found[] = $row;
+    }
+  }
 
-  exit;
-  // behavenet_term_autocomplete('kpot');
+  $master = array();    // We'll use this info for redirection
+  if (count($found) > 1) {
+    // Unsure which one to use, present all as options for the user
+    $links = array();
+    foreach ($found as $option) {
+      if ('term' == $option->type) {
+        $term = taxonomy_get_term($option->drupal_id);
+        $attrs = array('title' => $term->description, 'rel' => 'tag');
+        $links[] = l($term->name, "taxonomy/term/$term->tid", $attrs);
+      }
+      else if ('node' == $option->type) {
+        $node = node_load($options->drupal_id);
+        $links[] = l($node->title, "node/$node->nid");
+      }
+    }
+    
+    $output = '
+      <p>The page you are looking for no longer exists or has moved. Here are some possible
+      options or you can use the search box, above.</p> 
+    ';
+    $output .= '<ul><li>';
+    $output .= implode('</li><li>', $links);
+    $output .= '</li></ul>';
+    return $output;
+  }
+  else if (1 == count($found)) {
+    // We found exactly one option for redirection. Use it.
+    $master = $found[0];
+  }
+    
+  if (!empty($master)) {
+    // Use the $master info to redirect the user to the correct node/term
+    $src = '';
+    if ('term' == $master->type) {
+      $src = 'taxonomy/term/' . $master->drupal_id;
+    }
+    else if ('node' == $master>type) {
+      $src = 'node/' . $master->drupal_id;
+    }
+    else {
+      watchdog('warning', 'Bad entry in data_url table for id %d', $master->id);
+      $found = array();   // Force 404 behavior, below
+    }
+    if (!empty($src)) {
+      $_REQUEST['destination'] = '';
+      drupal_goto($src, NULL, NULL, 301);
+    }
+  }
+  else {
+    $output = '
+      <p>The page you are looking for does not exist. Please use the search field
+      above to search this site.</p> 
+    ';
+    return $output;
+  }
 }
-
 
 /*
  * Helper function for better indexing Behavenet content
