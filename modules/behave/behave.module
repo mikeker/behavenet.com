@@ -566,10 +566,13 @@ function behavenet_get_birth_death_dates($nid) {
  * @param $nid ID of the generic drug
  */
 function behavenet_get_generic_breadcrumbs($nid) {
-  $generic = node_load($nid);
-  if ('generic' != $generic->type) {
+  if ('generic' != db_result(db_query("
+    SELECT type FROM {node}
+    WHERE nid = %d
+  ", $nid))) {
     return NULL;
   }
+    
   $results = db_query("
     SELECT n.nid, n.title FROM {node} AS n
     INNER JOIN {content_type_drug} AS d
@@ -579,15 +582,22 @@ function behavenet_get_generic_breadcrumbs($nid) {
   $crumbs = array();
   while ($row = db_fetch_object($results)) {
     // Note: we know there is only one generic drug for each Trade Name drug
-    $crumbs[$row->title] = l($generic->title, "node/$nid") . ' &raquo; ' . l($row->title, "node/$row->nid");
+    $crumbs[$row->title] = url("node/$row->nid");
   }
   if (count($crumbs)) {
     // Sort alphabetically
     ksort($crumbs);
-    return '<ul class="breadcrumbs"><li>'. implode('</li><li>', $crumbs) .'</li></ul>';
+    $output = '<div class="field"><div class="field-items"><div class="field-item"><div class="field-label-inline-first">Tradenames </div>';
+    $output .= '<select class="jump-menu"><option selected>- Choose -</option>';
+    foreach ($crumbs as $option => $url) {
+      $output .= "<option value=\"$url\">$option</option>"; 
+    }
+    $output .= '</select>';
+    $output .= '</div></div></div>';
+    return $output;
   }
   else {
-    return '';
+    return NULL;
   }
 }
 

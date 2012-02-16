@@ -75,6 +75,16 @@ function behavenet_preprocess_content_field(&$vars) {
   }
 
   /*
+   * Change display for Generic drugs
+   */
+  if ('generic' == $vars['node']->type) {
+    if ('field_generic_alt_name' == $vars['field_name']) {
+      $vars['label'] = $vars['label_display'] = '';
+      $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
+    }
+  }
+
+  /*
    * Change display details for People
    */
   if ('people' == $vars['node']->type) {
