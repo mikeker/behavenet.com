@@ -462,6 +462,25 @@ function bh_import_test() {
   // $terms = build_lookup('terms');
   // dpr($terms); exit;
 
+  $dirs = build_lookup('directories');
+  $results = db_query("
+    SELECT dir.Name, dir.ID FROM {data_directory_links} AS dir
+    INNER JOIN {data_directory_links_definition_relation} AS rel
+      ON rel.Link = dir.ID
+    WHERE rel.Type = 5479
+  ");
+  $data = array();
+  while ($row = db_fetch_object($results)) {
+    node_delete($dirs[$row->ID]);
+    
+    // if (!isset($dirs[$row->ID])) {
+      // dpr("Error: Bogus ID in"); dpr($row);
+      // continue;
+    // }
+    // $data['node/' . $dirs[$row->ID]] = $row->Name;
+  }
+  dpr($data);
+  
 
   dpr("done.");
   dpr(count($errors) . ' Errors:');
