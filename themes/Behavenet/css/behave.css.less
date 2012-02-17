@@ -182,9 +182,17 @@ ul.menu li a:hover {
  */
 .behavenet-collapsible-menu ul {
   list-style: none;
+  margin-left: -15px;   /* Push to far left of div so we have as much room as possible */
 }
-.behavenet-collapsible-menu ul ul {
-  /*display: none; */
+.behavenet-collapsible-menu li.hasChildren {
+  /* Removes space added by arrow character */
+  margin-left: -14px;
+}
+.behavenet-collapsible-menu li.hasChildren ul {
+  margin-left: 0;
+}
+.behavenet-collapsible-menu li {
+  margin-bottom: (@space-h / 2);
 }
 
 
