@@ -413,13 +413,53 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane = new stdClass;
     $pane->pid = 'new-7';
     $pane->panel = 'left_sidebar';
-    $pane->type = 'block';
-    $pane->subtype = 'menu-menu-directories';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => 'Directories',
+      'admin_title' => 'Nested menu',
+      'title' => 'Glossaries',
+      'body' => '<div class="behavenet-collapsible-menu">
+<ul>
+  <li><a href="taxonomy/term/6678">Addiction</a>
+    <ul>
+      <li><a href="taxonomy/term/10770">12 Step talk</a></li>
+      <li><a href="taxonomy/term/6663">Recovery</a></li>
+    </ul>
+  </li>
+  <li><a href="taxonomy/term/7558">Forensic</a></li>
+  <li><a href="taxonomy/term/7814">HIPPA</a></li>
+  <li><a href="taxonomy/term/7885">Memory</a></li>
+  <li><a href="taxonomy/term/8171">Pharmacology</a></li>
+  <li><a href="taxonomy/term/8041">Psychopathology</a></li>
+  <li><a href="taxonomy/term/11328">Psychotherapy</a>
+    <ul>
+      <li>Adlerian (Individual) Psychology</li>
+      <li><a href="taxonomy/term/8654">Cognitive Behavior Therapy</a></li>
+      <li><a href="taxonomy/term/9120">Eye Movement Desensitization &amp; Reprocessing</a></li>
+      <li><a href="taxonomy/term/8798">Family Psychotherapy</a></li>
+      <li><a href="taxonomy/term/8947">Gestalt Therapy</a></li>
+      <li><a href="taxonomy/term/9127">Internal Family Systems</a></li>
+      <li><a href="taxonomy/term/9018">Jungian</a></li>
+      <li><a href="taxonomy/term/9061">Narrative</a></li>
+      <li><a href="taxonomy/term/11331">Psychoanalytic</a></li>
+      <li><a href="taxonomy/term/8603">Psychodynamic</a></li>
+      <li>Transactional Analysis</li>
+    </ul>
+  </li>
+  <li>Reimbursement</li>
+  <li>Sleep Disorders Medicine
+    <ul>
+      <li>Chronobiology</li>
+      <li>EEG</li>
+      <li>Polysomnography</li>
+    </ul>
+  </li>
+  <li>Stuttering</li>
+</ul></div>',
+      'format' => '2',
+      'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -432,6 +472,26 @@ print behavenet_get_birth_death_dates(%node:nid);
     $display->panels['left_sidebar'][1] = 'new-7';
     $pane = new stdClass;
     $pane->pid = 'new-8';
+    $pane->panel = 'left_sidebar';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-directories';
+    $pane->shown = FALSE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Directories',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $display->content['new-8'] = $pane;
+    $display->panels['left_sidebar'][2] = 'new-8';
+    $pane = new stdClass;
+    $pane->pid = 'new-9';
     $pane->panel = 'left_sidebar';
     $pane->type = 'block';
     $pane->subtype = 'adsense_managed-1';
@@ -447,11 +507,11 @@ print behavenet_get_birth_death_dates(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-8'] = $pane;
-    $display->panels['left_sidebar'][2] = 'new-8';
+    $pane->position = 3;
+    $display->content['new-9'] = $pane;
+    $display->panels['left_sidebar'][3] = 'new-9';
     $pane = new stdClass;
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-10';
     $pane->panel = 'main';
     $pane->type = 'page_title';
     $pane->subtype = 'page_title';
@@ -474,10 +534,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     );
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-9'] = $pane;
-    $display->panels['main'][0] = 'new-9';
+    $display->content['new-10'] = $pane;
+    $display->panels['main'][0] = 'new-10';
     $pane = new stdClass;
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-11';
     $pane->panel = 'main';
     $pane->type = 'page_messages';
     $pane->subtype = 'page_messages';
@@ -491,10 +551,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-10'] = $pane;
-    $display->panels['main'][1] = 'new-10';
+    $display->content['new-11'] = $pane;
+    $display->panels['main'][1] = 'new-11';
     $pane = new stdClass;
-    $pane->pid = 'new-11';
+    $pane->pid = 'new-12';
     $pane->panel = 'main';
     $pane->type = 'page_content';
     $pane->subtype = 'page_content';
@@ -515,10 +575,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     );
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-11'] = $pane;
-    $display->panels['main'][2] = 'new-11';
+    $display->content['new-12'] = $pane;
+    $display->panels['main'][2] = 'new-12';
     $pane = new stdClass;
-    $pane->pid = 'new-12';
+    $pane->pid = 'new-13';
     $pane->panel = 'main';
     $pane->type = 'views_panes';
     $pane->subtype = 'People-panel_pane_1';
@@ -544,10 +604,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 3;
-    $display->content['new-12'] = $pane;
-    $display->panels['main'][3] = 'new-12';
+    $display->content['new-13'] = $pane;
+    $display->panels['main'][3] = 'new-13';
     $pane = new stdClass;
-    $pane->pid = 'new-13';
+    $pane->pid = 'new-14';
     $pane->panel = 'main_callout';
     $pane->type = 'panels_mini';
     $pane->subtype = 'people_callout';
@@ -580,10 +640,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-13'] = $pane;
-    $display->panels['main_callout'][0] = 'new-13';
+    $display->content['new-14'] = $pane;
+    $display->panels['main_callout'][0] = 'new-14';
     $pane = new stdClass;
-    $pane->pid = 'new-14';
+    $pane->pid = 'new-15';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_general_asin';
@@ -617,10 +677,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-14'] = $pane;
-    $display->panels['main_callout'][1] = 'new-14';
+    $display->content['new-15'] = $pane;
+    $display->panels['main_callout'][1] = 'new-15';
     $pane = new stdClass;
-    $pane->pid = 'new-15';
+    $pane->pid = 'new-16';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_generic_graphic';
@@ -658,10 +718,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-15'] = $pane;
-    $display->panels['main_callout'][2] = 'new-15';
+    $display->content['new-16'] = $pane;
+    $display->panels['main_callout'][2] = 'new-16';
     $pane = new stdClass;
-    $pane->pid = 'new-16';
+    $pane->pid = 'new-17';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_drug_image';
@@ -694,10 +754,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 3;
-    $display->content['new-16'] = $pane;
-    $display->panels['main_callout'][3] = 'new-16';
+    $display->content['new-17'] = $pane;
+    $display->panels['main_callout'][3] = 'new-17';
     $pane = new stdClass;
-    $pane->pid = 'new-17';
+    $pane->pid = 'new-18';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_tt_extras_image';
@@ -735,10 +795,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 4;
-    $display->content['new-17'] = $pane;
-    $display->panels['main_callout'][4] = 'new-17';
+    $display->content['new-18'] = $pane;
+    $display->panels['main_callout'][4] = 'new-18';
     $pane = new stdClass;
-    $pane->pid = 'new-18';
+    $pane->pid = 'new-19';
     $pane->panel = 'main_callout';
     $pane->type = 'views_panes';
     $pane->subtype = 'Credit-panel_pane_1';
@@ -767,10 +827,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 5;
-    $display->content['new-18'] = $pane;
-    $display->panels['main_callout'][5] = 'new-18';
+    $display->content['new-19'] = $pane;
+    $display->panels['main_callout'][5] = 'new-19';
     $pane = new stdClass;
-    $pane->pid = 'new-19';
+    $pane->pid = 'new-20';
     $pane->panel = 'main_callout';
     $pane->type = 'block';
     $pane->subtype = 'adsense_managed-2';
@@ -787,10 +847,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 6;
-    $display->content['new-19'] = $pane;
-    $display->panels['main_callout'][6] = 'new-19';
+    $display->content['new-20'] = $pane;
+    $display->panels['main_callout'][6] = 'new-20';
     $pane = new stdClass;
-    $pane->pid = 'new-20';
+    $pane->pid = 'new-21';
     $pane->panel = 'main_callout';
     $pane->type = 'panels_mini';
     $pane->subtype = 'goodtherapy_250_160';
@@ -807,8 +867,8 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 7;
-    $display->content['new-20'] = $pane;
-    $display->panels['main_callout'][7] = 'new-20';
+    $display->content['new-21'] = $pane;
+    $display->panels['main_callout'][7] = 'new-21';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-6';
   $handler->conf['display'] = $display;
