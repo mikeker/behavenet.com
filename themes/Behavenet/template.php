@@ -287,3 +287,25 @@ function behavenet_display_books_movies($data) {
   }
   return $output;
 }
+
+/**
+ * Displays the children of a term. Defaults to jump-menu.
+ * Other styles to be added later.
+ */
+function behavenet_display_term_children($tid, $style = 'jump-menu') {
+  $children = taxonomy_get_children($tid);
+  if (!count($children)) {
+    return NULL;
+  }
+  $output = '';
+  
+  if ('jump-menu' == $style) {
+    $output .= '<select class="jump-menu"><option selected>- Choose -</option>'; 
+    foreach ($children as $tid => $term) {
+      $output .= '<option value="'. url('taxonomy/term/'. $tid) .'">'. $term->name .'</option>';
+    }
+    $output .= '</select>';
+  }
+
+  return $output;  
+}
