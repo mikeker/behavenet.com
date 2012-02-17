@@ -14,15 +14,17 @@ if (Drupal.jsEnabled) {
       animation : 300
     };
 
-    $('ul.bef-tree').each(function() {
+    $('ul.bef-tree:not(.processed), .behavenet-collapsible-menu ul:not(processed)').each(function() {
       // Find any nested UL elements and hide them until exposed.
-      $(this).find('ul').each(function() {
-        $(this)
-          .hide()
-          .parent().children('div.form-item')
-            .prepend('<span class="jtree close" style="cursor:pointer;">' + o.close_char + '</span>')
-        ;
-      });
+      $(this)
+        .addClass('processed')
+        .find('ul').each(function() {
+          $(this)
+            .hide()
+            .parent().children('div.form-item')
+              .prepend('<span class="jtree close" style="cursor:pointer;">' + o.close_char + '</span>')
+          ;
+        });
     });
 
     // Setup click events
