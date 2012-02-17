@@ -157,7 +157,7 @@ function media_content_default_fields() {
       'text_parts' => array(),
       'year_range' => '-3:+3',
       'label_position' => 'above',
-      'label' => 'Publication date',
+      'label' => 'Published',
       'weight' => '-1',
       'description' => '',
       'type' => 'date_text',
@@ -894,7 +894,7 @@ function media_content_default_fields() {
   t('Author Last Name');
   t('Blog entry');
   t('Chemical Class');
-  t('Publication date');
+  t('Published');
   t('Related content');
   t('Terms');
   t('Year Released');
