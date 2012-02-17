@@ -481,18 +481,18 @@ print behavenet_display_term_children(7358);
       <li><a href="taxonomy/term/9061">Narrative</a></li>
       <li><a href="taxonomy/term/11331">Psychoanalytic</a></li>
       <li><a href="taxonomy/term/8603">Psychodynamic</a></li>
-      <li>Transactional Analysis</li>
+      <li><a href="taxonomy/term/9140">Transactional Analysis</a></li>
     </ul>
   </li>
-  <li>Reimbursement</li>
-  <li>Sleep Disorders Medicine
+  <li><a href="taxonomy/term/8520">Reimbursement</a></li>
+  <li><a href="taxonomy/term/8349">Sleep Disorders Medicine</a>
     <ul>
-      <li>Chronobiology</li>
-      <li>EEG</li>
-      <li>Polysomnography</li>
+      <li><a href="taxonomy/term/7627">Chronobiology</a></li>
+      <li><a href="taxonomy/term/6831">EEG</a></li>
+      <li><a href="taxonomy/term/6847">Polysomnography</a></li>
     </ul>
   </li>
-  <li>Stuttering</li>
+  <li><a href="taxonomy/term/7481">Stuttering</a></li>
 </ul></div>',
       'format' => '2',
       'substitute' => 1,
