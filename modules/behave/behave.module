@@ -1311,17 +1311,7 @@ function behavenet_views_pre_render(&$view) {
             // @TODO: These need to be purged for real, not just hidden!
             continue;
           }
-
-          // Special case: DSM should be displayed in allcaps
-          $type = (strtolower($row->node_type) == 'dsm' ? 'DSM' : ucwords($row->node_type));
-
-          // Adjust some of node types:
-          if ('Generic' == $type) {
-            $type = 'Molecular entity';
-          }
-          if ('Combination' == $type) {
-            $type = 'Combinations';
-          }
+          $type = _behavenet_tweak_types($row->node_type);
 
           // Check if this entry was found because of a word match in the title or because
           // of other fields.  If the latter, highlight that in the results

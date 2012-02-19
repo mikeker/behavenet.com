@@ -98,27 +98,24 @@ function behavenet_preprocess_content_field(&$vars) {
   if ('movie' == $vars['node']->type || 'book' == $vars['node']->type || 'people' == $vars['node']->type) {
     if ('field_terms' == $vars['field_name'] || 'field_general_terms' == $vars['field_name']) {
       // We'll show terms when we display related content
-      $vars['field_empty'] = TRUE;
+      if (!empty($vars['node']->field_general_related_content)) {
+        // Show as part of "related content"
+        $vars['field_empty'] = TRUE;
+      }
     }
     if ('field_general_related_content' == $vars['field_name']) {
-      $links = array();
-      $terms = taxonomy_link('taxonomy terms', $vars['node']);
-      foreach ($terms as $link) {
-        $links[] = l($link['title'], $link['href'], $link['attributes']);
+      $output = behavenet_display_rc_and_terms($vars['node']);
+      if (empty($output)) {
+        $vars['field_empty'] = TRUE;
       }
-      foreach ($vars['items'] as $item) {
-        $links[] = $item['view'];
+      else {
+        $vars['field_empty'] = FALSE;
+        $vars['items'] = array(0 => array('view' => $output));
+        // Remove label
+        $vars['label'] = '';
+        $vars['label_display'] = '';
       }
-      // Rewrite output as a single pipe-delimited field
-      $output = '<div class="terms-and-related-content">';
-      $output .= implode(' | ', $links);
-      $output .= '</div>';
-      $vars['items'] = array(0 => array('view' => $output));
-
-      // Remove label
-      $vars['label'] = '';
-      $vars['label_display'] = '';
-    }
+    } 
   }
 
   // Link directly to company web site -- skip link to internal node
@@ -308,4 +305,36 @@ function behavenet_display_term_children($tid, $style = 'jump-menu') {
   }
 
   return $output;  
+}
+
+
+/**
+ * Returns the display of related content and terms in pipe-delimited format
+ * for a given node.
+ * 
+ * @param $node - either an nid or a fully loaded node object.
+ */
+function behavenet_display_rc_and_terms($node) {
+  if (is_numeric($node)) {
+    $node = node_load($node);
+  }
+  
+  $links = array();
+  $terms = taxonomy_link('taxonomy terms', $node);
+  if ($terms) {
+    foreach ($terms as $link) {
+      $links[] = l($link['title'], $link['href'], $link['attributes']);
+    }
+  }
+  foreach ($node->field_general_related_content as $item) {
+    if (!empty($item['nid'])) {
+      $links[] = l($item['safe']['title'], 'node/' . $item['nid']);
+    }
+  }
+  
+  // Rewrite output as a single pipe-delimited field
+  $output = '<div class="terms-and-related-content">';
+  $output .= implode(' | ', $links);
+  $output .= '</div>';
+  return $output;
 }
