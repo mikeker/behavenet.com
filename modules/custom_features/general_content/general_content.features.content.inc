@@ -2551,9 +2551,10 @@ function general_content_content_default_fields() {
     'field_name' => 'field_general_description',
     'type_name' => 'sources',
     'display_settings' => array(
+      'weight' => 0,
+      'parent' => '',
       'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
+        'format' => 'hidden',
       ),
       'teaser' => array(
         'format' => 'default',

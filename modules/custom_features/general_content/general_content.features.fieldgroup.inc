@@ -182,7 +182,7 @@ function general_content_fieldgroup_default_groups() {
         'description' => '',
       ),
       'display' => array(
-        'weight' => '0',
+        'weight' => '1',
         'parent' => '',
         'label' => 'above',
         'teaser' => array(
