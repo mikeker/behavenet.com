@@ -73,6 +73,19 @@ function behavenet_preprocess_content_field(&$vars) {
     $vars['items'][0]['view'] = $link;
   }
 
+  // Avoid overly long lists of slang terms taking over the page
+  if ('field_gen_slang_terms' == $vars['field_name']) {
+    if (count($vars['items'] > 10)) {
+      // Rewrite as dropdown list
+      $output = '<select>'; 
+      foreach ($vars['items'] as $item) {
+        $output .= '<option>' . $item['view'] . '</option>';
+      }
+      $output .= '</select>';
+      $vars['items'] = array(0 => array('view' => $output));
+    }
+  }
+
   // Combine author first/last name for books
   if ('book' == $vars['node']->type) {
     if ('field_book_lastname' == $vars['field_name']) {
