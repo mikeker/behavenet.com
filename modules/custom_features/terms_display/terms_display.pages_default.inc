@@ -341,7 +341,7 @@ if (!empty($syn)) {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'This term appears in',
+      'admin_title' => 'This term appears in (member of these lists)',
       'title' => 'This term appears in',
       'body' => '<?php
 $lists = _behavenet_get_lists(%term:tid);
@@ -585,6 +585,29 @@ return $return;
     $pane = new stdClass;
     $pane->pid = 'new-16';
     $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'drugs_by_term-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_terms_1',
+      ),
+      'override_title' => 1,
+      'override_title_text' => 'Generics',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 15;
+    $display->content['new-16'] = $pane;
+    $display->panels['middle'][15] = 'new-16';
+    $pane = new stdClass;
+    $pane->pid = 'new-17';
+    $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'Compounds';
     $pane->shown = TRUE;
@@ -630,11 +653,11 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 15;
-    $display->content['new-16'] = $pane;
-    $display->panels['middle'][15] = 'new-16';
+    $pane->position = 16;
+    $display->content['new-17'] = $pane;
+    $display->panels['middle'][16] = 'new-17';
     $pane = new stdClass;
-    $pane->pid = 'new-17';
+    $pane->pid = 'new-18';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'Compounds';
@@ -681,11 +704,11 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 16;
-    $display->content['new-17'] = $pane;
-    $display->panels['middle'][16] = 'new-17';
+    $pane->position = 17;
+    $display->content['new-18'] = $pane;
+    $display->panels['middle'][17] = 'new-18';
     $pane = new stdClass;
-    $pane->pid = 'new-18';
+    $pane->pid = 'new-19';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'drug_combos';
@@ -732,11 +755,11 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 17;
-    $display->content['new-18'] = $pane;
-    $display->panels['middle'][17] = 'new-18';
+    $pane->position = 18;
+    $display->content['new-19'] = $pane;
+    $display->panels['middle'][18] = 'new-19';
     $pane = new stdClass;
-    $pane->pid = 'new-19';
+    $pane->pid = 'new-20';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'drug_sources';
@@ -783,9 +806,9 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 18;
-    $display->content['new-19'] = $pane;
-    $display->panels['middle'][18] = 'new-19';
+    $pane->position = 19;
+    $display->content['new-20'] = $pane;
+    $display->panels['middle'][19] = 'new-20';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

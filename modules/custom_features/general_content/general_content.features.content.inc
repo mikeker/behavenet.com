@@ -2483,6 +2483,370 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_backref_2dc7f9be564f86d135
+  $fields['sources-field_backref_2dc7f9be564f86d135'] = array(
+    'field_name' => 'field_backref_2dc7f9be564f86d135',
+    'type_name' => 'sources',
+    'display_settings' => array(
+      'weight' => '12',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'noderelationships_backref',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'noderelationships',
+    'active' => '1',
+    'referrer_type' => 'combinations',
+    'referrer_field' => 'field_combo_source',
+    'widget' => array(
+      'label' => 'Back references from Source in Drug Combinations',
+      'weight' => '12',
+      'description' => '',
+      'type' => 'noderelationships_backref',
+      'module' => 'noderelationships',
+    ),
+  );
+
+  // Exported field: field_backref_363a38d6ca035e6d58
+  $fields['sources-field_backref_363a38d6ca035e6d58'] = array(
+    'field_name' => 'field_backref_363a38d6ca035e6d58',
+    'type_name' => 'sources',
+    'display_settings' => array(
+      'weight' => '13',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'noderelationships_backref',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'noderelationships',
+    'active' => '1',
+    'referrer_type' => 'generic',
+    'referrer_field' => 'field_generic_sources',
+    'widget' => array(
+      'label' => 'Back references from Sources in Generic',
+      'weight' => '13',
+      'description' => '',
+      'type' => 'noderelationships_backref',
+      'module' => 'noderelationships',
+    ),
+  );
+
+  // Exported field: field_backref_8915d9a3cd04bfc178
+  $fields['sources-field_backref_8915d9a3cd04bfc178'] = array(
+    'field_name' => 'field_backref_8915d9a3cd04bfc178',
+    'type_name' => 'sources',
+    'display_settings' => array(
+      'weight' => '15',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'noderelationships_backref',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'noderelationships',
+    'active' => '1',
+    'referrer_type' => 'movie',
+    'referrer_field' => 'field_general_related_content',
+    'widget' => array(
+      'label' => 'Back references from Related content in Movie',
+      'weight' => '15',
+      'description' => '',
+      'type' => 'noderelationships_backref',
+      'module' => 'noderelationships',
+    ),
+  );
+
+  // Exported field: field_backref_9fc35d8433c26e0d19
+  $fields['sources-field_backref_9fc35d8433c26e0d19'] = array(
+    'field_name' => 'field_backref_9fc35d8433c26e0d19',
+    'type_name' => 'sources',
+    'display_settings' => array(
+      'weight' => '17',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'noderelationships_backref',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'noderelationships',
+    'active' => '1',
+    'referrer_type' => 'combinations',
+    'referrer_field' => 'field_combo_drugs',
+    'widget' => array(
+      'label' => 'Back references from Drug in Drug Combinations',
+      'weight' => '17',
+      'description' => '',
+      'type' => 'noderelationships_backref',
+      'module' => 'noderelationships',
+    ),
+  );
+
+  // Exported field: field_backref_a55011e0f8fab90b4c
+  $fields['sources-field_backref_a55011e0f8fab90b4c'] = array(
+    'field_name' => 'field_backref_a55011e0f8fab90b4c',
+    'type_name' => 'sources',
+    'display_settings' => array(
+      'weight' => '14',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'noderelationships_backref',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'noderelationships',
+    'active' => '1',
+    'referrer_type' => 'preparation',
+    'referrer_field' => 'field_generic_sources',
+    'widget' => array(
+      'label' => 'Back references from Sources in Preparation',
+      'weight' => '14',
+      'description' => '',
+      'type' => 'noderelationships_backref',
+      'module' => 'noderelationships',
+    ),
+  );
+
+  // Exported field: field_backref_acb5ba612831aff248
+  $fields['sources-field_backref_acb5ba612831aff248'] = array(
+    'field_name' => 'field_backref_acb5ba612831aff248',
+    'type_name' => 'sources',
+    'display_settings' => array(
+      'weight' => '16',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'noderelationships_backref',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'noderelationships',
+    'active' => '1',
+    'referrer_type' => 'people',
+    'referrer_field' => 'field_general_related_content',
+    'widget' => array(
+      'label' => 'Back references from Related content in People',
+      'weight' => '16',
+      'description' => '',
+      'type' => 'noderelationships_backref',
+      'module' => 'noderelationships',
+    ),
+  );
+
+  // Exported field: field_backref_e9efb956d0a3bfd521
+  $fields['sources-field_backref_e9efb956d0a3bfd521'] = array(
+    'field_name' => 'field_backref_e9efb956d0a3bfd521',
+    'type_name' => 'sources',
+    'display_settings' => array(
+      'weight' => '11',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'noderelationships_backref',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'noderelationships',
+    'active' => '1',
+    'referrer_type' => 'book',
+    'referrer_field' => 'field_general_related_content',
+    'widget' => array(
+      'label' => 'Back references from Related content in Book',
+      'weight' => '11',
+      'description' => '',
+      'type' => 'noderelationships_backref',
+      'module' => 'noderelationships',
+    ),
+  );
+
   // Exported field: field_gen_slang_terms
   $fields['sources-field_gen_slang_terms'] = array(
     'field_name' => 'field_gen_slang_terms',
@@ -3061,6 +3425,13 @@ function general_content_content_default_fields() {
   // Included for use with string extractors like potx.
   t('Alternate Names');
   t('Approval Date');
+  t('Back references from Drug in Drug Combinations');
+  t('Back references from Related content in Book');
+  t('Back references from Related content in Movie');
+  t('Back references from Related content in People');
+  t('Back references from Source in Drug Combinations');
+  t('Back references from Sources in Generic');
+  t('Back references from Sources in Preparation');
   t('Company');
   t('Company Web site');
   t('Credit');

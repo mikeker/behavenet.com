@@ -9,7 +9,8 @@
  * @return none
  */
 function behavenet_preprocess_content_field(&$vars) {
-  // Convert these fields from URLs entered as text to links
+
+   // Convert these fields from URLs entered as text to links
   $convert = array(
     // CCK_field_name => link_text (empty means use the URL)
     'field_company_url' => '',
@@ -37,6 +38,22 @@ function behavenet_preprocess_content_field(&$vars) {
     }
     else {
       $vars['items'][0]['view'] = l($convert[$vars['field_name']], $url, $options);
+    }
+  }
+
+  // Link directly to company web site -- skip link to internal node
+  if ('field_drug_company' == $vars['field_name']) {
+    if (empty($company->field_company_url[0]['value'])) {
+      $vars['field_empty'] = TRUE;
+    }
+    else {
+      $company = node_load($vars['items'][0]['nid']);
+      $url = $company->field_company_url[0]['value'];
+      if (0 !== strpos($url, 'http://')) {
+        // Correct poorly formed URLs in the original dataset
+        $url = "http://$url";
+      }
+      $vars['items'][0]['view'] = l('Company Web site', $url, array('external' => TRUE));
     }
   }
 
@@ -73,110 +90,6 @@ function behavenet_preprocess_content_field(&$vars) {
   if ('field_drug_generic' == $vars['field_name'] && 'drug' == $vars['node']->type) {
     $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
   }
-
-  /*
-   * Change display for Generic drugs
-   */
-  if ('generic' == $vars['node']->type) {
-    if ('field_generic_alt_name' == $vars['field_name']) {
-      $vars['label'] = $vars['label_display'] = '';
-      $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
-    }
-  }
-
-  /*
-   * Change display details for People
-   */
-  if ('people' == $vars['node']->type) {
-    // Put alternate people names in parenthesis
-    if ('field_people_alt_names' == $vars['field_name']) {
-      $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
-    }
-  }
-
-  // Combine Terms and Related Content fields
-  if ('movie' == $vars['node']->type || 'book' == $vars['node']->type || 'people' == $vars['node']->type) {
-    if ('field_terms' == $vars['field_name'] || 'field_general_terms' == $vars['field_name']) {
-      // We'll show terms when we display related content
-      if (!empty($vars['node']->field_general_related_content)) {
-        // Show as part of "related content"
-        $vars['field_empty'] = TRUE;
-      }
-    }
-    if ('field_general_related_content' == $vars['field_name']) {
-      $output = behavenet_display_rc_and_terms($vars['node']);
-      if (empty($output)) {
-        $vars['field_empty'] = TRUE;
-      }
-      else {
-        $vars['field_empty'] = FALSE;
-        $vars['items'] = array(0 => array('view' => $output));
-        // Remove label
-        $vars['label'] = '';
-        $vars['label_display'] = '';
-      }
-    } 
-  }
-
-  // Link directly to company web site -- skip link to internal node
-  if ('field_drug_company' == $vars['field_name']) {
-    if (empty($company->field_company_url[0]['value'])) {
-      $vars['field_empty'] = TRUE;
-    }
-    else {
-      $company = node_load($vars['items'][0]['nid']);
-      $url = $company->field_company_url[0]['value'];
-      if (0 !== strpos($url, 'http://')) {
-        // Correct poorly formed URLs in the original dataset
-        $url = "http://$url";
-      }
-      $vars['items'][0]['view'] = l('Company Web site', $url, array('external' => TRUE));
-    }
-  }
-
-  // Changes to how drug combination are shown
-  if ('combinations' == $vars['node']->type) {
-    // Only show alternate combo names if more than one name is listed
-    if ('field_combo_titles' == $vars['field_name']) {
-      if (1 == count($vars['items'])) {
-        $vars['field_empty'] = TRUE;
-      }
-    }
-
-    // Rewrite output of generics to be similar to:
-    //    <tradename> is a combination of <list of generics>
-    if ('field_combo_drugs' == $vars['field_name']) {
-      $tradename = '';
-      $node = $vars['node'];
-      if (!empty($node->field_combo_tradename[0])) {
-        $tradename = l(
-          $node->field_combo_tradename[0]['safe']['title'],
-          'node/' . $node->field_combo_tradename[0]['safe']['nid']
-        );
-      }
-      else if (!empty($node->field_combo_titles[0])) {
-        $tradename = $node->field_combo_titles[0]['safe'];
-      }
-      else {
-        $tradename = 'Unknown';
-      }
-      if (1 == count($vars['items'])) {
-        $vars['items'][0]['view'] = "$tradename is a combination including "
-          . $vars['items'][0]['view'];
-      }
-      else {
-        $generics = array();
-        foreach ($vars['items'] as $index => $item) {
-          $generics[] = $item['view'];
-          $vars['items'][$index]['empty'] = TRUE;
-        }
-        $vars['items'][0]['view'] = "$tradename is a combination of "
-          . implode_and($generics);
-        $vars['items'][0]['empty'] = FALSE;
-      }
-    }
-  }
-
 
   // Adjust the display of combination fields such that they show the generics
   if ('field_drug_combo' == $vars['field_name'] && $vars['items'][0]['nid']) {
@@ -219,6 +132,117 @@ function behavenet_preprocess_content_field(&$vars) {
         $vars['items'][$index]['view'] = '';
       }
       $vars['items'][$index]['view'] .= l($indication->title, "node/$indication->nid");
+    }
+  }
+
+  /*
+   * Rewrite display for noderelationship fields.
+   * 
+   * NOTE: we assume that the display is a jump menu, but that's handled
+   * by the view behavenet_backref
+   */
+  if ('noderelationships_backref' == $vars['field_type'] && !$vars['field_empty']) {
+    // Backreferences module gives us terrible labels
+    $pos = strpos($vars['label'], ' in ');
+    if ($pos !== FALSE) {
+      $vars['label'] = substr($vars['label'], $pos + 4);
+      if ('s' != substr($vars['label'], -1)) {
+        // Make it plural
+        $vars['label'] .= 's';
+      }
+      $vars['label_display'] = 'above';
+    }
+  }
+
+
+  /*
+   * Change display for Generic drugs
+   */
+  if ('generic' == $vars['node']->type) {
+    if ('field_generic_alt_name' == $vars['field_name']) {
+      $vars['label'] = $vars['label_display'] = '';
+      $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
+    }
+  }
+
+  /*
+   * Change display details for People
+   */
+  if ('people' == $vars['node']->type) {
+    // Put alternate people names in parenthesis
+    if ('field_people_alt_names' == $vars['field_name']) {
+      $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
+    }
+  }
+
+  /*
+   *  Combine Terms and Related Content fields for books, movies, people
+   */
+  if ('movie' == $vars['node']->type || 'book' == $vars['node']->type || 'people' == $vars['node']->type) {
+    if ('field_terms' == $vars['field_name'] || 'field_general_terms' == $vars['field_name']) {
+      // We'll show terms when we display related content
+      if (!empty($vars['node']->field_general_related_content)) {
+        // Show as part of "related content"
+        $vars['field_empty'] = TRUE;
+      }
+    }
+    if ('field_general_related_content' == $vars['field_name']) {
+      $output = behavenet_display_rc_and_terms($vars['node']);
+      if (empty($output)) {
+        $vars['field_empty'] = TRUE;
+      }
+      else {
+        $vars['field_empty'] = FALSE;
+        $vars['items'] = array(0 => array('view' => $output));
+        // Remove label
+        $vars['label'] = '';
+        $vars['label_display'] = '';
+      }
+    } 
+  }
+
+  /*
+   * Rewrite display for drug combinations
+   */
+  if ('combinations' == $vars['node']->type) {
+    // Only show alternate combo names if more than one name is listed
+    if ('field_combo_titles' == $vars['field_name']) {
+      if (1 == count($vars['items'])) {
+        $vars['field_empty'] = TRUE;
+      }
+    }
+
+    // Rewrite output of generics to be similar to:
+    //    <tradename> is a combination of <list of generics>
+    if ('field_combo_drugs' == $vars['field_name']) {
+      $tradename = '';
+      $node = $vars['node'];
+      if (!empty($node->field_combo_tradename[0])) {
+        $tradename = l(
+          $node->field_combo_tradename[0]['safe']['title'],
+          'node/' . $node->field_combo_tradename[0]['safe']['nid']
+        );
+      }
+      else if (!empty($node->field_combo_titles[0])) {
+        $tradename = $node->field_combo_titles[0]['safe'];
+      }
+      else {
+        $tradename = 'Unknown';
+      }
+      if (1 == count($vars['items'])) {
+        $vars['items'][0]['view'] = "$tradename is a combination including "
+          . $vars['items'][0]['view'];
+      }
+      else {
+        $generics = array();
+        foreach ($vars['items'] as $index => $item) {
+          $generics[] = $item['view'];
+          $vars['items'][$index]['empty'] = TRUE;
+        }
+        $vars['items'][0]['view'] = "$tradename is a combination of "
+          . implode_and($generics);
+        $vars['items'][0]['empty'] = FALSE;
+      }
     }
   }
 }
