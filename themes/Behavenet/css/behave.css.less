@@ -5,6 +5,8 @@
 @background = #F6F6F6;
 @contrast = #7E0E00;
 @contrast-dark = #535353;
+@callout-width-inner = 240px;
+@callout-width-outer = 270px;
 
 
 // Mixins
@@ -32,6 +34,9 @@ a:hover {
 select {
   /* Keep drop downs from getting out of hand */
   max-width: 600px;
+}
+body {
+  font-size: 90%;
 }
 
 /*
@@ -63,7 +68,7 @@ select {
   margin-left: -5px;
 }
 #page-main-callout select {
-  width: 240px;
+  width: @callout-width;
 }
 
 /*
@@ -81,7 +86,7 @@ select {
   clear: right;
 }
 #views-exposed-form-search-default .views-widget-filter-keys input {
-  width: 240px;
+  width: @callout-width;
 }
 #views-exposed-form-search-default #edit-submit-search {
   width: 70px;
@@ -119,6 +124,42 @@ select {
  */
 #page-main h2 {
   margin-bottom: 0;
+}
+
+/*
+ * Pods: used mostly on main menu landing pages to help divide content
+ * into small groupings similar to how a grid system works, but using
+ * percentage to keep the fluid wikipedia-like style
+ */
+.pods-three-wide,
+.pods-two-wide,
+.pods-four-wide
+{
+  clear: left;
+  margin: 0 @callout-width-outer 0 0;
+  padding: 0;
+}
+.pod {
+  display: inline-block;
+  margin: 0;
+  float: left; // Removes 4px margin-right on inline-block elements
+  min-width: 150px;
+}
+.pod-inner {
+  padding: @space-v @space-h;
+}
+.pod h4 {
+  text-align: center;
+  font-weight: bold;
+}
+.pods-four-wide .pod {
+  width: 24.75%;
+}
+.pods-three-wide .pod {
+  width: 33%;
+}
+.pods-two-wide .pod {
+  width: 49.5%;
 }
 
 /*
