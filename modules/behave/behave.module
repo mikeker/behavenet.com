@@ -416,7 +416,11 @@ function hook_ckeditor_link_TYPE_settings() {
 function behavenet_not_found() {
   $full = check_plain($_SERVER['REQUEST_URI']);
   $base = basename($full);
-  $term = strstr($base, '.htm', TRUE);
+  $pos = strpos($base, '.htm');
+  $term = $base;
+  if ($pos) {
+    $term = substr($base, 0, $pos);
+  } 
   
   // Check URLs table to see if we have a full string match
   $found = array();
