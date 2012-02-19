@@ -213,6 +213,22 @@ function behavenet_preprocess_content_field(&$vars) {
       }
     } 
   }
+  else {
+    // Make sure terms list doesn't take over the page: convert to jump menu
+    // if longer than 10 items
+    if ('field_terms' == $vars['field_name'] || 'field_general_terms' == $vars['field_name']) {
+      if (count($vars['items']) > 10) {
+        $output .= '<select class="jump-menu"><option selected>- Choose -</option>'; 
+        foreach ($vars['items'] as $item) {
+          $line = str_replace('<a href="', '<option value="', $item['view']);
+          $line = str_replace('</a>', '</option>', $line);
+          $output .= $line;
+        }
+        $output .= '</select>';
+        $vars['items'] = array(0 => array('view' => $output));
+      } 
+    }        
+  }
 
   /*
    * Rewrite display for drug combinations
