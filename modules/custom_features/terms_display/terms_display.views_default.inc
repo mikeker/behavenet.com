@@ -59,11 +59,13 @@ function terms_display_views_default_views() {
       'label' => '',
       'alter' => array(
         'alter_text' => 1,
-        'text' => '<h3 class="dsm-title">[title]</h3> <span class="dsm-version">([field_dsm_version_value])</span>',
+        'text' => '<h3 class="dsm-title">[title]</h3>',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -78,11 +80,56 @@ function terms_display_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'link_to_node' => 0,
       'exclude' => 0,
       'id' => 'title',
       'table' => 'node',
       'field' => 'title',
+      'relationship' => 'none',
+    ),
+    'phpcode_3' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'value' => '<span class="dsm-version">
+<?php
+$delta = $data->node_data_field_dsm_body_delta;
+$version = $data->node_data_field_dsm_version_field_dsm_version_value[$delta][\'value\'];
+if (11774 == $version) {
+  print \'(\' . l(\'DSM IV - TR\', \'taxonomy/term/7261\') . \')\';
+}
+else if (11773 == $version) {
+  print \'(\' . l(\'DSM IV\', \'taxonomy/term/7276\') . \')\';
+}
+?>
+</span>',
+      'exclude' => 0,
+      'id' => 'phpcode_3',
+      'table' => 'customfield',
+      'field' => 'phpcode',
       'relationship' => 'none',
     ),
     'phpcode' => array(
@@ -1347,12 +1394,14 @@ print implode(\'<hr />\', $output);
     'tid' => array(
       'label' => 'Term ID',
       'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
+        'alter_text' => 1,
+        'text' => 'taxonomy/term/[tid]',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -1367,17 +1416,24 @@ print implode(\'<hr />\', $output);
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'set_precision' => FALSE,
       'precision' => 0,
       'decimal' => '.',
-      'separator' => ',',
+      'separator' => '',
+      'format_plural' => 0,
+      'format_plural_singular' => '1',
+      'format_plural_plural' => '@count',
       'prefix' => '',
       'suffix' => '',
-      'exclude' => 0,
+      'exclude' => 1,
       'id' => 'tid',
       'table' => 'term_data',
       'field' => 'tid',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
   ));
   $handler->override_option('sorts', array(
@@ -1533,6 +1589,56 @@ print implode(\'<hr />\', $output);
     'weight' => 0,
     'name' => 'navigation',
   ));
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->override_option('filters', array(
+    'vid' => array(
+      'operator' => 'in',
+      'value' => array(
+        5 => '5',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'vid',
+      'table' => 'term_data',
+      'field' => 'vid',
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('items_per_page', 0);
+  $handler->override_option('use_pager', '0');
+  $handler->override_option('style_plugin', 'jump_menu');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'path' => 'tid',
+    'hide' => 1,
+    'text' => 'Go',
+    'choose' => '- Choose -',
+    'default_value' => 0,
+  ));
+  $handler->override_option('pane_title', 'Terms jump-menu');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'Behavenet',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => 0,
+    'items_per_page' => 0,
+    'offset' => 0,
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => 0,
+    'fields_override' => 0,
+  ));
+  $handler->override_option('argument_input', array());
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
 
   $views[$view->name] = $view;
 
