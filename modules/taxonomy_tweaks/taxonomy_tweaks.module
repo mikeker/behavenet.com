@@ -352,3 +352,19 @@ function taxonomy_tweaks_is_acronym($tid) {
   ));
   return (!empty($result));
 }
+
+
+/**
+ * Returns an array of tid's that are acronyms
+ */
+function taxonomy_tweaks_get_acronyms() {
+  $list = array();
+  $results = db_query("
+    SELECT tt.tid FROM {tax_tweaks} AS tt
+    WHERE tt.is_acronym = 1
+  ");
+  while ($row = db_fetch_object($results)) {
+    $list[] = $row->tid;
+  }
+  return $list;
+}

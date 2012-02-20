@@ -392,6 +392,10 @@ function behavenet_display_rc_and_terms($node) {
   return $output;
 }
 
+/*
+ * Pulls recent entries from an RSS feed and displays them as
+ * "date entry_title" in an unformatted list
+ */
 function behavenet_get_recent_from_rss($url, $num_entries = 10) {
   // Grab entries
   $ch = curl_init($url);
@@ -413,4 +417,37 @@ function behavenet_get_recent_from_rss($url, $num_entries = 10) {
     }
   }
   print implode('<br />', $items);
+}
+
+/*
+ * Builds a jump-menu of acronyms
+ */
+function behavenet_list_acronyms() {
+  $acronyms = taxonomy_tweaks_get_acronyms();
+  $items = array();
+  foreach ($acronyms as $tid) {
+    $term = taxonomy_get_term($tid);
+    if ($term) {
+      $items[url("taxonomy/term/$tid")] = $term->name;
+    }
+  }
+  return behavenet_build_jump_menu($items);
+}
+
+/*
+ * Displays an array of url => title as a jump menu
+ */
+function behavenet_build_jump_menu($items, $sort_by_title = TRUE) {
+  $output = '';
+  if (count($items)) {
+    if ($sort_by_title) {
+      asort($items);
+    }
+    $output .= '<select class="jump-menu"><option selected>- Choose -</option>'; 
+    foreach ($items as $url => $item) {
+      $output .= '<option value="' . $url . '">' . $item . '</option>';
+    }
+    $output .= '</select>';
+  }
+  return $output;
 }
