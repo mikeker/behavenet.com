@@ -391,3 +391,26 @@ function behavenet_display_rc_and_terms($node) {
   $output .= '</div>';
   return $output;
 }
+
+function behavenet_get_recent_from_rss($url, $num_entries = 10) {
+  // Grab entries
+  $ch = curl_init($url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+  curl_setopt($ch, CURLOPT_HEADER, 0);
+  $page = curl_exec($ch);
+  curl_close($ch);
+
+  // Parse entries
+  $xml = new SimpleXMLElement($page);
+  $items = array();
+  $count = 1;
+  foreach ($xml->entry as $entry) {
+    $items[] = format_date(strtotime($entry->published), 'custom', 'm/d/y')
+      . ' ' . l($entry->title, $entry->link[4]['href']);
+    $count++;
+    if ($count > $num_entries) {
+      break;
+    }
+  }
+  print implode('<br />', $items);
+}
