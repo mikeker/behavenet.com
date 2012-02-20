@@ -578,8 +578,11 @@ print behavenet_display_term_children(7358);
 <ul>
   <li><a href="taxonomy/term/6678">Addiction</a>
     <ul>
-      <li><a href="taxonomy/term/10770">12 Step talk</a></li>
-      <li><a href="taxonomy/term/6663">Recovery</a></li>
+      <li><a href="taxonomy/term/6663">Recovery</a>
+        <ul>
+          <li><a href="taxonomy/term/10770">12 Step talk</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="taxonomy/term/7558">Forensic</a></li>
