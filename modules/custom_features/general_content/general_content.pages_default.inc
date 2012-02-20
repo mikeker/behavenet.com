@@ -350,6 +350,34 @@ print behavenet_display_term_children(7358);
     $pane->position = 9;
     $display->content['new-10'] = $pane;
     $display->panels['middle'][9] = 'new-10';
+    $pane = new stdClass;
+    $pane->pid = 'new-11';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Directory-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'php',
+          'settings' => array(
+            'description' => 'Resources? (nid == 27647)',
+            'php' => 'return (isset($contexts[\'argument_nid_1\']) && $contexts[\'argument_nid_1\']->data->nid == 27647);',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 10;
+    $display->content['new-11'] = $pane;
+    $display->panels['middle'][10] = 'new-11';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
