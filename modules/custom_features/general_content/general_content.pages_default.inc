@@ -661,7 +661,7 @@ print behavenet_display_term_children(7358);
   <li><a href="taxonomy/term/8041">Psychopathology</a></li>
   <li><a href="taxonomy/term/11328">Psychotherapy</a>
     <ul>
-      <li>Adlerian (Individual) Psychology</li>
+      <li><a href="taxonomy/term/8207">Adlerian (Individual) Psychology</a></li>
       <li><a href="taxonomy/term/8654">Cognitive Behavior Therapy</a></li>
       <li><a href="taxonomy/term/9120">Eye Movement Desensitization &amp; Reprocessing</a></li>
       <li><a href="taxonomy/term/8798">Family Psychotherapy</a></li>
