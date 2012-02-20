@@ -163,10 +163,10 @@ function behavenet_directory_views_default_views() {
       'group' => '0',
       'exposed' => TRUE,
       'expose' => array(
-        'use_operator' => 0,
         'operator' => 'term_node_tid_depth_op',
-        'identifier' => 'location',
         'label' => 'Location',
+        'use_operator' => 0,
+        'identifier' => 'location',
         'bef_filter_description' => '',
         'bef_format' => 'default',
         'optional' => 0,
@@ -181,7 +181,7 @@ function behavenet_directory_views_default_views() {
       'type' => 'select',
       'limit' => TRUE,
       'vid' => '13',
-      'depth' => '-10',
+      'depth' => '10',
       'id' => 'term_node_tid_depth',
       'table' => 'node',
       'field' => 'term_node_tid_depth',
@@ -195,6 +195,7 @@ function behavenet_directory_views_default_views() {
     'tid' => array(
       'operator' => 'or',
       'value' => array(
+        10733 => '10733',
         10730 => '10730',
         10732 => '10732',
         10734 => '10734',
@@ -229,6 +230,9 @@ function behavenet_directory_views_default_views() {
       'hierarchy' => 1,
       'relationship' => 'none',
       'reduce_duplicates' => 0,
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
   ));
   $handler->override_option('access', array(
