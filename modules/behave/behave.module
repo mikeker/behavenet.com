@@ -316,7 +316,7 @@ function behave_ckeditor_link_behavenet_terms_autocomplete($string) {
     LIMIT 0, 10
   ", $string);
   while ($row = db_fetch_object($result)) {
-    $matches["node/$row->nid"] = _behavenet_tweak_types($row->type) . ": $row->title";
+    $matches["node/$row->nid"] = _behavenet_tweak_types($row->type) . " $row->title";
   }
 
   // Now term matches
@@ -827,7 +827,7 @@ function behavenet_term_autocomplete($string) {
         $n = '"'. str_replace('"', '""', $tag->name) .'"';
       }
       if (!empty($tag->syn)) {
-        $tag->name .= " (Synonym: $tag->syn)";
+        $tag->name .= " (Synonym $tag->syn)";
       }
       $matches[$prefix . $n] = check_plain($tag->name);
     }
@@ -897,7 +897,7 @@ function behavenet_term_autocomplete($string) {
         $n = '"'. str_replace('"', '""', $row->title) .'"';
       }
       $matches[$prefix . $n] = check_plain($row->title
-        . ' (Author: '
+        . ' (Author '
         . $row->first . ' ' . $row->last
         . ')'
       );
@@ -930,7 +930,7 @@ function behavenet_term_autocomplete($string) {
           $start++;
         }
         $matches[$prefix . $n] = check_plain($row->title
-          . ' (Actor: '
+          . ' (Actor '
           . trim(substr($row->names, $start, $end - $start))
           . ')'
         );
@@ -955,7 +955,7 @@ function behavenet_term_autocomplete($string) {
         $n = '"'. str_replace('"', '""', $row->title) .'"';
       }
       $matches[$prefix . $n] = check_plain($row->title
-        . ' (Alt spelling: '
+        . ' (Alt spelling '
         . $row->field_generic_alt_name_value
         . ')'
       );
@@ -1054,14 +1054,14 @@ function _behavenet_term_autocomplete_admin($string) {
       if (count($lists) || count($parents)) {
         $text .= ' (';
         if (count($lists)) {
-          $text .= 'Lists: ';
+          $text .= 'Lists ';
           $text .= implode(', ', $lists);
         }
         if (count($parents)) {
           if (count($lists)) {
             $text .= ', ';
           }
-          $text .= 'Parents: ';
+          $text .= 'Parents ';
           $text .= implode(' | ', $parents);
         }
         $text .= ')';
@@ -1260,8 +1260,8 @@ function behavenet_views_pre_render(&$view) {
               $list_links[] = l($list_term->name, "taxonomy/term/$list_term->tid");
             }
             $output .= format_plural(count($lists),
-              'Term: !term from the !list list',
-              'Term: !term from the !list lists',
+              'Term !term from the !list list',
+              'Term !term from the !list lists',
               array(
                 '!term' => l($term->name, "taxonomy/term/$term->tid"),
                 '!list' => implode_and($list_links),
@@ -1269,7 +1269,7 @@ function behavenet_views_pre_render(&$view) {
             );
           }
           else {
-            $output .= 'Term: ' . l($term->name, "taxonomy/term/$term->tid");
+            $output .= 'Term ' . l($term->name, "taxonomy/term/$term->tid");
           }
 
           // Add ancestory
@@ -1288,7 +1288,7 @@ function behavenet_views_pre_render(&$view) {
               }
             }
             if (count($parents)) {
-              $output .= '<br />Parent terms:<ul><li>'
+              $output .= '<br />Parent terms<ul><li>'
                   . implode('</li><li>', $parents)
                   . '</li></ul>';
             }
@@ -1334,16 +1334,16 @@ function behavenet_views_pre_render(&$view) {
               if ('compound' == $row->node_type) {
                 $drug = node_load($node->field_compound_drug[0]['nid']);
                 array_push($results[$key],
-                  "$type of " . l($drug->title, "node/$drug->nid") . ': '
+                  "$type of " . l($drug->title, "node/$drug->nid") . ' '
                   . l($row->node_title, "node/$row->nid")
-                  . ' (slang: ' . implode(', ', $slang_terms) . ')'
+                  . ' (slang ' . implode(', ', $slang_terms) . ')'
                 );
                 $displayed = TRUE;
               }
               else {
-                array_push($results[$key], "$type: "
+                array_push($results[$key], "$type "
                   . l($row->node_title, "node/$row->nid")
-                  . ' (slang: ' . implode(', ', $slang_terms) . ')'
+                  . ' (slang ' . implode(', ', $slang_terms) . ')'
                 );
                 $displayed = TRUE;
               }
@@ -1358,16 +1358,16 @@ function behavenet_views_pre_render(&$view) {
               }
             }
             if (count($acronyms)) {
-              array_push($results[$key], "$type: "
+              array_push($results[$key], "$type "
                   . l($row->node_title, "node/$row->nid")
-                  . ' (acronym: ' . implode(', ', $acronyms) . ')'
+                  . ' (acronym ' . implode(', ', $acronyms) . ')'
               );
               $displayed = TRUE;
             }
           }
           if (!$displayed) {
             // Display as is
-            array_push($results[$key], "$type: " . l($row->node_title, "node/$row->nid"));
+            array_push($results[$key], "$type " . l($row->node_title, "node/$row->nid"));
           }
         }
 
@@ -1388,7 +1388,7 @@ function behavenet_views_pre_render(&$view) {
             $results[$key] = array();
           }
           $type = _behavenet_tweak_types($row->type);
-          array_push($results[$key], "$type: " . l($row->title, "node/$row->nid"));
+          array_push($results[$key], "$type " . l($row->title, "node/$row->nid"));
         }
 
         // Next search for combination alternate titles
@@ -1409,7 +1409,7 @@ function behavenet_views_pre_render(&$view) {
           }
           $item = l($row->combo_title, "node/$row->nid");
           if ($row->combo_title != $row->alt_title) {
-            $item .= " (a.k.a.: $row->alt_title)";
+            $item .= " (a.k.a. $row->alt_title)";
           }
           array_push($results[$key], $item);
           $existing[$row->nid] = TRUE;

@@ -36,7 +36,7 @@
         <div class="field-item <?php print ($count % 2 ? 'odd' : 'even') ?>">
           <?php if ($label_display == 'inline') { ?>
             <div class="field-label-inline<?php print($delta ? '' : '-first')?>">
-              <?php print t($label) ?>:&nbsp;</div>
+              <?php print t($label) ?>&nbsp;</div>
           <?php } ?>
           <?php print $item['view'] ?>
         </div>
