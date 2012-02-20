@@ -309,25 +309,6 @@ function generic_drugs_views_default_views() {
       'field' => 'type',
       'relationship' => 'none',
     ),
-    'title' => array(
-      'operator' => 'contains',
-      'value' => '',
-      'group' => '0',
-      'exposed' => TRUE,
-      'expose' => array(
-        'use_operator' => 0,
-        'operator' => 'title_op',
-        'identifier' => 'title',
-        'label' => 'Title contains',
-        'optional' => 1,
-        'remember' => 0,
-      ),
-      'case' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-    ),
   ));
   $handler->override_option('access', array(
     'type' => 'none',
@@ -335,9 +316,8 @@ function generic_drugs_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
-  $handler->override_option('use_ajax', TRUE);
   $handler->override_option('items_per_page', 0);
-  $handler->override_option('use_pager', '1');
+  $handler->override_option('use_pager', '0');
   $handler->override_option('style_plugin', 'jump_menu');
   $handler->override_option('style_options', array(
     'grouping' => '',
@@ -490,6 +470,7 @@ function generic_drugs_views_default_views() {
     ),
   ));
   $handler->override_option('items_per_page', 50);
+  $handler->override_option('use_pager', '1');
   $handler->override_option('style_plugin', 'table');
   $handler->override_option('style_options', array(
     'grouping' => '',
@@ -535,6 +516,27 @@ function generic_drugs_views_default_views() {
     'weight' => 0,
     'name' => 'navigation',
   ));
+  $handler = $view->new_display('panel_pane', 'Generics jump-menu', 'panel_pane_1');
+  $handler->override_option('pane_title', 'Generics jump-menu');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'Behavenet',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => 0,
+    'items_per_page' => 0,
+    'offset' => 0,
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => 0,
+    'fields_override' => 0,
+  ));
+  $handler->override_option('argument_input', array());
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
 
   $views[$view->name] = $view;
 

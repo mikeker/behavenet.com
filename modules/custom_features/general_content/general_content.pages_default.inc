@@ -196,6 +196,38 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane = new stdClass;
     $pane->pid = 'new-6';
     $pane->panel = 'middle';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'drug_page_lists';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'node/27644',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $display->content['new-6'] = $pane;
+    $display->panels['middle'][5] = 'new-6';
+    $pane = new stdClass;
+    $pane->pid = 'new-7';
+    $pane->panel = 'middle';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
@@ -226,11 +258,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
-    $display->content['new-6'] = $pane;
-    $display->panels['middle'][5] = 'new-6';
+    $pane->position = 6;
+    $display->content['new-7'] = $pane;
+    $display->panels['middle'][6] = 'new-7';
     $pane = new stdClass;
-    $pane->pid = 'new-7';
+    $pane->pid = 'new-8';
     $pane->panel = 'middle';
     $pane->type = 'views';
     $pane->subtype = 'Media';
@@ -261,11 +293,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
-    $display->content['new-7'] = $pane;
-    $display->panels['middle'][6] = 'new-7';
+    $pane->position = 7;
+    $display->content['new-8'] = $pane;
+    $display->panels['middle'][7] = 'new-8';
     $pane = new stdClass;
-    $pane->pid = 'new-8';
+    $pane->pid = 'new-9';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Indications-panel_pane_2';
@@ -295,11 +327,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 7;
-    $display->content['new-8'] = $pane;
-    $display->panels['middle'][7] = 'new-8';
+    $pane->position = 8;
+    $display->content['new-9'] = $pane;
+    $display->panels['middle'][8] = 'new-9';
     $pane = new stdClass;
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-10';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Media-panel_pane_3';
@@ -321,11 +353,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
-    $display->content['new-9'] = $pane;
-    $display->panels['middle'][8] = 'new-9';
+    $pane->position = 9;
+    $display->content['new-10'] = $pane;
+    $display->panels['middle'][9] = 'new-10';
     $pane = new stdClass;
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-11';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Media-panel_pane_2';
@@ -347,11 +379,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
-    $display->content['new-10'] = $pane;
-    $display->panels['middle'][9] = 'new-10';
+    $pane->position = 10;
+    $display->content['new-11'] = $pane;
+    $display->panels['middle'][10] = 'new-11';
     $pane = new stdClass;
-    $pane->pid = 'new-11';
+    $pane->pid = 'new-12';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Directory-panel_pane_2';
@@ -375,9 +407,9 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
-    $display->content['new-11'] = $pane;
-    $display->panels['middle'][10] = 'new-11';
+    $pane->position = 11;
+    $display->content['new-12'] = $pane;
+    $display->panels['middle'][11] = 'new-12';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

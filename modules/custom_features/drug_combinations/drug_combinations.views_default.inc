@@ -256,7 +256,7 @@ function drug_combinations_views_default_views() {
   ));
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_2');
+  $handler = $view->new_display('panel_pane', 'Combos by drug', 'panel_pane_2');
   $handler->override_option('arguments', array(
     'field_combo_drugs_nid' => array(
       'default_action' => 'not found',
@@ -366,6 +366,27 @@ function drug_combinations_views_default_views() {
       'label' => 'Content: Drug (field_combo_drugs)',
     ),
   ));
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_3');
+  $handler->override_option('pane_title', 'Combinations jump-menu');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'Behavenet',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => 0,
+    'items_per_page' => 0,
+    'offset' => 0,
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => 0,
+    'fields_override' => 0,
+  ));
+  $handler->override_option('argument_input', array());
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
 

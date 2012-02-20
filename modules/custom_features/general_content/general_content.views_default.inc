@@ -608,6 +608,119 @@ return FALSE;',
     'weight' => 0,
     'name' => 'navigation',
   ));
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->override_option('arguments', array(
+    'vid' => array(
+      'default_action' => 'not found',
+      'style_plugin' => 'default_summary',
+      'style_options' => array(),
+      'wildcard' => 'all',
+      'wildcard_substitution' => 'All',
+      'title' => 'All %1',
+      'breadcrumb' => '',
+      'default_argument_type' => 'fixed',
+      'default_argument' => '',
+      'validate_type' => 'none',
+      'validate_fail' => 'not found',
+      'id' => 'vid',
+      'table' => 'vocabulary',
+      'field' => 'vid',
+      'validate_user_argument_type' => 'uid',
+      'validate_user_roles' => array(
+        2 => 0,
+      ),
+      'relationship' => 'none',
+      'default_options_div_prefix' => '',
+      'default_argument_fixed' => '',
+      'default_argument_user' => 0,
+      'default_argument_php' => '',
+      'validate_argument_node_type' => array(
+        'directory' => 0,
+        'combinations' => 0,
+        'company' => 0,
+        'compound' => 0,
+        'device' => 0,
+        'indication' => 0,
+        'page' => 0,
+        'people' => 0,
+        'preparation' => 0,
+        'sources' => 0,
+        'generic' => 0,
+        'book' => 0,
+        'movie' => 0,
+        'credit' => 0,
+        'dsm' => 0,
+        'dsm_caution' => 0,
+        'tax_tweaks_extras' => 0,
+        'drug' => 0,
+        'panel' => 0,
+      ),
+      'validate_argument_node_access' => 0,
+      'validate_argument_nid_type' => 'nid',
+      'validate_argument_vocabulary' => array(
+        9 => 0,
+        3 => 0,
+        10 => 0,
+        11 => 0,
+        12 => 0,
+        2 => 0,
+        13 => 0,
+        5 => 0,
+      ),
+      'validate_argument_type' => 'tid',
+      'validate_argument_transform' => 0,
+      'validate_user_restrict_roles' => 0,
+      'validate_argument_php' => '',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'default_taxonomy_tid_term_page' => 0,
+      'default_taxonomy_tid_node' => 0,
+      'default_taxonomy_tid_limit' => 0,
+      'default_taxonomy_tid_vids' => array(
+        9 => 0,
+        3 => 0,
+        10 => 0,
+        11 => 0,
+        12 => 0,
+        2 => 0,
+        13 => 0,
+        5 => 0,
+      ),
+    ),
+  ));
+  $handler->override_option('use_ajax', FALSE);
+  $handler->override_option('items_per_page', 0);
+  $handler->override_option('use_pager', '0');
+  $handler->override_option('pane_title', 'Vocab listing jump-menu');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'Behavenet',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => 0,
+    'items_per_page' => 0,
+    'offset' => 0,
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => 0,
+    'fields_override' => 0,
+  ));
+  $handler->override_option('argument_input', array(
+    'vid' => array(
+      'type' => 'user',
+      'context' => 'node.termpath-raw',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Vocabulary ID',
+    ),
+  ));
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
 
   $views[$view->name] = $view;
 
