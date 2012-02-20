@@ -31,27 +31,31 @@ if (Drupal.jsEnabled) {
     $elem.each(function() {
       // Find any nested UL elements and hide them until exposed.
       if (isBEF) {
-        $(this)
-          .addClass('processed')
-          .find('ul').each(function() {
-            $(this)
-              .hide()
-              .parent().children('div.form-item')
-                .prepend('<span class="jtree close" style="cursor:pointer;">' + o.close_char + '</span>')
-                .addClass('hasChildren')
-            ;
-          });
+        var $this = $(this);
+        if (!$this.parent().children('div.form-item').hasClass('hasChildren')) {
+          $this
+            .addClass('processed')
+            .find('ul').each(function() {
+              $(this)
+                .hide()
+                .parent().children('div.form-item')
+                  .prepend('<span class="jtree close" style="cursor:pointer;">' + o.close_char + '</span>')
+                  .addClass('hasChildren');
+            });
+        }
       }
       else {
         $(this)
           .addClass('processed')
           .find('ul').each(function() {
-            $(this)
-              .hide()
-              .parent()
-                .prepend('<span class="jtree close" style="cursor:pointer;">' + o.close_char + '</span>')
-                .addClass('hasChildren')
-            ;
+            var $this = $(this);
+            if (!$this.parent().hasClass('hasChildren')) {
+              $this
+                .hide()
+                .parent()
+                  .prepend('<span class="jtree close" style="cursor:pointer;">' + o.close_char + '</span>')
+                  .addClass('hasChildren');
+            }
           });
       }
     });
