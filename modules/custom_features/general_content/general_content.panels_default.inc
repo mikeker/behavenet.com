@@ -249,6 +249,181 @@ function general_content_default_panels_mini() {
   $mini = new stdClass;
   $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
   $mini->api_version = 1;
+  $mini->name = 'home_page';
+  $mini->category = 'Behavenet';
+  $mini->admin_title = 'Home Page top items';
+  $mini->admin_description = '';
+  $mini->requiredcontexts = array();
+  $mini->contexts = array();
+  $mini->relationships = array();
+  $display = new panels_display;
+  $display->layout = 'behavenet_threecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'left' => NULL,
+      'middle' => NULL,
+      'right' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass;
+    $pane->pid = 'new-1';
+    $pane->panel = 'left';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Daily Tweets',
+      'body' => '<p>CNS Drug: <a href="http://tweetchat.com/room/CNSDOD">#CNSDOD</a><br/>Notable Person: <a href="http://tweetchat.com/room/BHCPOD">#BHCPOD</a><br/>Term: <a href="http://tweetchat.com/room/BHCTOD">#BHCTOD</a></p>',
+      'format' => '3',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['left'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'Weekly Chats',
+      'body' => '<p>Tuesday 9 PM Eastern:<br /><a href="http://behavenetmovies.blogspot.com/p/watch-tweetchat_19.html"><img width="16px" height="16px" border="0" src="/sites/behavenet.com/themes/Behavenet/images/blogger.png" /></a><img src="http://www.assoc-amazon.com/e/ir?t=behavenetrinc&amp;l=as2&amp;o=1&amp;a=B00006L92B" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;"><b>Movies, Drugs and Psychiatry </b>
+<a target="_blank" href="http://www.twitter.com/behavenetmovies">@BehaveNetMovies</a>
+<a href="http://tweetchat.com/room/session9">#session9</a><br /><b>Mental Health Social Media</b>
+<a target="_blank" href="http://www.twitter.com/mhsmchat">@MHSMchat</a> <a href="http://tweetchat.com/room/mhsm">#MHSM</a><br />Sunday 9 PM Eastern:<br /><b>Health Care Social Media</b><a target="_blank" href="http://www.twitter.com/healthsocmed">@HealthSocMed</a> <a href="http://tweetchat.com/room/HCSM">#HCSM</a></p>',
+      'format' => '3',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-2'] = $pane;
+    $display->panels['middle'][0] = 'new-2';
+    $pane = new stdClass;
+    $pane->pid = 'new-3';
+    $pane->panel = 'right';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => 'National Conferences',
+      'body' => '<p>February<br />22-26 <a href="http://www.acpsych.org">ACP</a> <a href="http://tweetchat.com/room/acp2012">#ACP2012</a></p>',
+      'format' => '3',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-3'] = $pane;
+    $display->panels['right'][0] = 'new-3';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $mini->display = $display;
+  $export['home_page'] = $mini;
+
+  $mini = new stdClass;
+  $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
+  $mini->api_version = 1;
+  $mini->name = 'opinion_and_movies';
+  $mini->category = 'Behavenet';
+  $mini->admin_title = 'Home page opinion and movies';
+  $mini->admin_description = '';
+  $mini->requiredcontexts = array();
+  $mini->contexts = array();
+  $mini->relationships = array();
+  $display = new panels_display;
+  $display->layout = 'behavenet_twocol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'left' => NULL,
+      'right' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass;
+    $pane->pid = 'new-1';
+    $pane->panel = 'left';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Opinion Feed',
+      'title' => 'Opinion',
+      'body' => '<?php behavenet_get_recent_from_rss(\'http://behavenetopinion.blogspot.com/rss.xml\'); ?>
+',
+      'format' => '4',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['left'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'right';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Media-panel_pane_4';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Movies',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-2'] = $pane;
+    $display->panels['right'][0] = 'new-2';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-1';
+  $mini->display = $display;
+  $export['opinion_and_movies'] = $mini;
+
+  $mini = new stdClass;
+  $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
+  $mini->api_version = 1;
   $mini->name = 'people_callout';
   $mini->category = 'Behavenet';
   $mini->admin_title = 'People right-side callout';
