@@ -797,13 +797,20 @@ print behavenet_display_term_children(7358);
     $pane = new stdClass;
     $pane->pid = 'new-8';
     $pane->panel = 'left_sidebar';
-    $pane->type = 'block';
-    $pane->subtype = 'menu-menu-directories';
-    $pane->shown = FALSE;
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => 'Directories',
+      'admin_title' => 'Follow us links',
+      'title' => '',
+      'body' => '<div class="follow-us-links">
+<?php $images = drupal_get_path(\'theme\', \'Behavenet\') . \'/images\'; ?>
+<a href="http://www.facebook.com/pages/BehaveNet/121151723906"><img src="<?php print "$images/findus_facebook.gif"; ?>" /></a><br />
+<a href="http://twitter.com/behavenet"><img src="<?php print "$images/findus_twitter.gif"; ?>" /></a>
+</div>',
+      'format' => '4',
+      'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
