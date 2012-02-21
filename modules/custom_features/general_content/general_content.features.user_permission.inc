@@ -25,7 +25,9 @@ function general_content_user_default_permissions() {
   // Exported permission: create device content
   $permissions['create device content'] = array(
     'name' => 'create device content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: create indication content
@@ -197,7 +199,9 @@ function general_content_user_default_permissions() {
   // Exported permission: edit any device content
   $permissions['edit any device content'] = array(
     'name' => 'edit any device content',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: edit any indication content

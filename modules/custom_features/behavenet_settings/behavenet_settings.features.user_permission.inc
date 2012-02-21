@@ -214,7 +214,9 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: administer site configuration
   $permissions['administer site configuration'] = array(
     'name' => 'administer site configuration',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: administer taxonomy
@@ -444,7 +446,10 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: view imagecache Image-Standard
   $permissions['view imagecache Image-Standard'] = array(
     'name' => 'view imagecache Image-Standard',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+    ),
   );
 
   // Exported permission: view pane admin links
