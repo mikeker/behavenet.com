@@ -305,8 +305,8 @@ else {
   $handler->override_option('pane_title', 'Indications by Drug');
   $handler->override_option('pane_description', '');
   $handler->override_option('pane_category', array(
-    'name' => 'View panes',
-    'weight' => 0,
+    'name' => 'Behavenet',
+    'weight' => '0',
   ));
   $handler->override_option('allow', array(
     'use_pager' => FALSE,
