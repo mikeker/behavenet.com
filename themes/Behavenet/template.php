@@ -174,7 +174,11 @@ function behavenet_preprocess_content_field(&$vars) {
   if ('generic' == $vars['node']->type) {
     if ('field_generic_alt_name' == $vars['field_name']) {
       $vars['label'] = $vars['label_display'] = '';
-      $vars['items'][0]['view'] = '(' . $vars['items'][0]['view'] . ')';
+      $alts = array();
+      foreach ($vars['items'] as $item) {
+        $alts[] = $item['view'];
+      }
+      $vars['items'] = array(0 => array('view' => '(' . implode(', ', $alts) . ')'));
     }
   }
 
