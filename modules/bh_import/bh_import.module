@@ -464,23 +464,29 @@ function bh_import_test() {
 
   $dirs = build_lookup('directories');
   $results = db_query("
-    SELECT dir.Name, dir.ID FROM {data_directory_links} AS dir
+    SELECT dir.Name, dir.ID, rel.Type FROM {data_directory_links} AS dir
     INNER JOIN {data_directory_links_definition_relation} AS rel
       ON rel.Link = dir.ID
     WHERE rel.Type = 5479
+      OR  rel.Type = 5482
   ");
   $data = array();
+  $fe = array();
   while ($row = db_fetch_object($results)) {
-    $nid = $dirs[$row->ID];
-    node_delete($nid);
-    dpr("deleted $nid");
-    // if (!isset($dirs[$row->ID])) {
-      // dpr("Error: Bogus ID in"); dpr($row);
-      // continue;
-    // }
-    // $data['node/' . $dirs[$row->ID]] = $row->Name;
+    if (!isset($dirs[$row->ID])) {
+      dpr("Error: Bogus ID in"); dpr($row);
+      continue;
+    }
+    if ($row->Type == 5482) {
+      $fe['node/' . $dirs[$row->ID]] = $row->Name;
+    }
+    else {
+      $data['node/' . $dirs[$row->ID]] = $row->Name;
+    }
   }
-  // dpr($data);
+  dpr($data);
+  dpr($fe);
+  dpr(array_intersect_key($fe, $data));
   
 
   dpr("done.");
