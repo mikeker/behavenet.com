@@ -86,14 +86,16 @@ function behavenet_directory_views_default_views() {
       'relationship' => 'none',
     ),
     'field_general_terms_value' => array(
-      'label' => 'Terms',
+      'label' => 'Type',
       'alter' => array(
         'alter_text' => 0,
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -108,8 +110,9 @@ function behavenet_directory_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'link_to_node' => 0,
-      'label_type' => 'widget',
+      'label_type' => 'custom',
       'format' => 'link',
       'multiple' => array(
         'group' => 1,
@@ -122,6 +125,9 @@ function behavenet_directory_views_default_views() {
       'table' => 'node_data_field_general_terms',
       'field' => 'field_general_terms_value',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
   ));
   $handler->override_option('filters', array(
@@ -247,22 +253,27 @@ function behavenet_directory_views_default_views() {
   $handler->override_option('style_options', array(
     'grouping' => '',
     'override' => 1,
-    'sticky' => 0,
+    'sticky' => 1,
     'order' => 'asc',
+    'summary' => '',
     'columns' => array(
       'title' => 'title',
       'field_location_value' => 'field_location_value',
+      'field_general_terms_value' => 'field_general_terms_value',
     ),
     'info' => array(
       'title' => array(
-        'sortable' => 0,
+        'sortable' => 1,
         'separator' => '',
       ),
       'field_location_value' => array(
         'separator' => '',
       ),
+      'field_general_terms_value' => array(
+        'separator' => '',
+      ),
     ),
-    'default' => '-1',
+    'default' => 'title',
   ));
   $handler = $view->new_display('page', 'Directories by Location', 'page_1');
   $handler->override_option('path', 'list/directories');
