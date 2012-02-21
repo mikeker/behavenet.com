@@ -194,10 +194,8 @@ function behavenet_preprocess_content_field(&$vars) {
   if ('movie' == $vars['node']->type || 'book' == $vars['node']->type || 'people' == $vars['node']->type) {
     if ('field_terms' == $vars['field_name'] || 'field_general_terms' == $vars['field_name']) {
       // We'll show terms when we display related content
-      if (!empty($vars['node']->field_general_related_content)) {
-        // Show as part of "related content"
-        $vars['field_empty'] = TRUE;
-      }
+      // Show as part of "related content"
+      $vars['field_empty'] = TRUE;
     }
     if ('field_general_related_content' == $vars['field_name']) {
       $output = behavenet_display_rc_and_terms($vars['node']);
@@ -379,9 +377,11 @@ function behavenet_display_rc_and_terms($node) {
       $links[] = l($link['title'], $link['href'], $link['attributes']);
     }
   }
-  foreach ($node->field_general_related_content as $item) {
-    if (!empty($item['nid'])) {
-      $links[] = l($item['safe']['title'], 'node/' . $item['nid']);
+  if (!empty($node->field_general_related_content)) {
+    foreach ($node->field_general_related_content as $item) {
+      if (!empty($item['nid'])) {
+        $links[] = l($item['safe']['title'], 'node/' . $item['nid']);
+      }
     }
   }
   

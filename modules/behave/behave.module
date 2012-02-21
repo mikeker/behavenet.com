@@ -546,13 +546,13 @@ function behavenet_get_birth_death_dates($nid) {
   }
   $birth = $death = '';
   if (!empty($node->field_people_dob[0]['value'])) {
-    $birth = date_format_date($node->field_people_dob[0]['value'], 'custom', 'M d, Y');
+    $birth = strftime('%B %d, %Y', strtotime($node->field_people_dob[0]['value']));
   }
   else {
     $birth = '?';
   }
   if (!empty($node->field_people_dod[0]['value'])) {
-    $death = date_format_date($node->field_people_dod[0]['value'], 'custom', 'M d, Y');
+    $death = strftime('%B %d, %Y', strtotime($node->field_people_dod[0]['value']));
   }
   else {
     $death = '?';
