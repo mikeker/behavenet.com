@@ -309,7 +309,7 @@ function behavenet_preprocess_panels_pane(&$vars) {
     if (user_access('administer behavenet')) {
       // Add admin-only edit link to mini panels for easier access to static content
       // http://local.new.behavenet.com/admin/build/mini-panels/list/home_page/edit
-      $edit = 'admin/build/mini-panels/list/' . $vars['pane']->subtype . '/edit';
+      $edit = 'admin/build/mini-panels/list/' . $vars['pane']->subtype . '/edit/content';
       $link = l('Edit this content', $edit);
       $vars['content'] = '<div class="behavenet-admin-links">' . $link . "</div>"
          . $vars['content'];
