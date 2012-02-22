@@ -203,6 +203,28 @@ td {
 }
 
 /*
+ * Behavenet admin links
+ */
+.pane-content {
+  position: relative;
+}
+.behavenet-admin-links {
+  display: none;
+  position: absolute;
+  top: 0; left: 0;
+  font-size: 85%;
+  z-index: 200;
+  padding: (@space-v / 2) (@space-h / 2);
+}
+.behavenet-admin-links-highlight .panel-panel {
+  background-color: @highlight;
+}
+.behavenet-admin-links-active {
+  display: block;
+}
+
+
+/*
  * Menus
  */
 div.admin-links,

@@ -154,7 +154,9 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: administer mini panels
   $permissions['administer mini panels'] = array(
     'name' => 'administer mini panels',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: administer nodes

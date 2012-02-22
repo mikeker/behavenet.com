@@ -4,6 +4,30 @@ if (Drupal.jsEnabled) {
     behave_jump_menu_init($('select.jump-menu:not(processed)'));
     behave_collasible_menu_init($('ul.bef-tree:not(.processed)'), true);
     behave_collasible_menu_init($('.behavenet-collapsible-menu ul:not(processed)'), false);
+    
+    // Handle Behavenet admin links
+    $('.behavenet-admin-links').hover(
+      function() {
+        $(this).addClass('behavenet-admin-links-active');
+      },
+      function() {
+        $(this).removeClass('behavenet-admin-links-active');
+      }
+    )
+    $('.behavenet-admin-links + div.panel-display').hover(
+      function() {
+        $(this)
+          .addClass('behavenet-admin-links-highlight')
+          .siblings('.behavenet-admin-links')
+            .addClass('behavenet-admin-links-active');
+      },
+      function(e) {
+        $(this)
+          .removeClass('behavenet-admin-links-highlight')
+          .siblings('.behavenet-admin-links')
+            .removeClass('behavenet-admin-links-active');
+      }
+    );
   };
   
   /*
