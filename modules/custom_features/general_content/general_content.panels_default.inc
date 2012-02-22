@@ -382,7 +382,7 @@ function general_content_default_panels_mini() {
     $pane->configuration = array(
       'admin_title' => 'Opinion Feed',
       'title' => 'Opinion',
-      'body' => '<?php behavenet_get_recent_from_rss(\'http://behavenetopinion.blogspot.com/rss.xml\'); ?>
+      'body' => '<?php behavenet_get_recent_from_rss(\'http://behavenetopinion.blogspot.com/rss.xml\', 5); ?>
 ',
       'format' => '4',
       'substitute' => TRUE,
