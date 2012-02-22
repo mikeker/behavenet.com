@@ -418,7 +418,10 @@ function behavenet_get_recent_from_rss($url, $num_entries = 10) {
   curl_setopt($ch, CURLOPT_HEADER, 0);
   $page = curl_exec($ch);
   curl_close($ch);
-
+  if (empty($page)) {
+    return '';
+  }
+  
   // Parse entries
   $xml = new SimpleXMLElement($page);
   $items = array();

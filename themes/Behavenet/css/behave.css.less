@@ -5,8 +5,8 @@
 @background = #F6F6F6;
 @contrast = #7E0E00;
 @contrast-dark = #535353;
-@callout-width-inner = 240px;
-@callout-width-outer = 270px;
+@callout-width-inner = 300px;
+@callout-width-outer = @callout-width-inner + (3 * @space-h);
 
 
 // Mixins
@@ -59,6 +59,14 @@ td {
 }
 
 /*
+ * Header
+ */
+#page-header .leaderboard-ad {
+  text-align: center;
+}
+
+
+/*
  * Right-hand callout
  */
 #page-main-callout {
@@ -66,6 +74,7 @@ td {
   margin-left: @space-h;
   padding: @space-v @space-h;
   .rounded();
+  width: @callout-width-inner;
 }
 #page-main-callout .field-type-filefield,
 #page-main-callout .field-field-general-asin,
@@ -77,7 +86,7 @@ td {
   margin-left: -5px;
 }
 #page-main-callout select {
-  width: @callout-width;
+  width: @callout-width-inner;
 }
 
 /*
@@ -85,21 +94,20 @@ td {
  */
 #views-exposed-form-search-default {
   float: right;
-  width: 250px;
+  width: (@callout-width-inner + 10);
 }
 #views-exposed-form-search-default .views-exposed-form .views-exposed-widget {
+  float: left;
   padding: 0;
 }
 #views-exposed-form-search-default input {
   margin: 0;
-  clear: right;
 }
 #views-exposed-form-search-default .views-widget-filter-keys input {
-  width: @callout-width;
+  width: (@callout-width-inner - 70);
 }
 #views-exposed-form-search-default #edit-submit-search {
   width: 70px;
-  margin-left: 175px;
 }
 
 /*

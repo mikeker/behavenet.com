@@ -715,7 +715,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'leaderboard-ad',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $display->content['new-4'] = $pane;
