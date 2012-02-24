@@ -823,7 +823,7 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     </ul>
   </li>
   <li><a href="taxonomy/term/7558">Forensic</a></li>
-  <li><a href="taxonomy/term/7814">HIPPA</a></li>
+  <li><a href="taxonomy/term/7814">HIPAA</a></li>
   <li><a href="taxonomy/term/7885">Memory</a></li>
   <li><a href="taxonomy/term/8171">Pharmacology</a></li>
   <li><a href="taxonomy/term/8041">Psychopathology</a></li>
