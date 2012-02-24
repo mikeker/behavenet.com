@@ -827,7 +827,7 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
   <li><a href="taxonomy/term/7885">Memory</a></li>
   <li><a href="taxonomy/term/8171">Pharmacology</a></li>
   <li><a href="taxonomy/term/8041">Psychopathology</a></li>
-  <li><a href="taxonomy/term/11328">Psychotherapy</a>
+  <li><a href="taxonomy/term/7084">Psychotherapy</a>
     <ul>
       <li><a href="taxonomy/term/8207">Adlerian (Individual) Psychology</a></li>
       <li><a href="taxonomy/term/8654">Cognitive Behavior Therapy</a></li>
