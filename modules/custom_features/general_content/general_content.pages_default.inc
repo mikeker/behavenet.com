@@ -630,10 +630,10 @@ print behavenet_display_term_children(7358);
 <script type="text/javascript">
 //<![CDATA[
 ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/_default;pos=bottom;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
+document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/psychiatric;pos=bottom;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
 //]]>
 </script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/_default;pos=bottom;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/_default;pos=bottom;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
+<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/psychiatric;pos=bottom;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/psychiatric;pos=bottom;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
 <!-- end ad tag -->
 ',
       'format' => '2',
@@ -702,10 +702,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
 <script type="text/javascript">
 //<![CDATA[
 ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/_default;pos=top;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
+document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/psychiatric;pos=top;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
 //]]>
 </script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/_default;pos=top;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/_default;pos=top;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
+<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/psychiatric;pos=top;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/psychiatric;pos=top;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
 <!-- end ad tag -->
 ',
       'format' => '2',
@@ -905,10 +905,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
 <script type="text/javascript">
 //<![CDATA[
 ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/_default;pos=sky1;sz=120x600,160x600;ord=\' + ord + \'?"><\\/script>\');
+document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/psychiatric;pos=sky1;sz=120x600,160x600;ord=\' + ord + \'?"><\\/script>\');
 //]]>
 </script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/_default;pos=sky1;sz=120x600,160x600;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/_default;pos=sky1;sz=120x600,160x600;ord=123456789?" border="0" alt="" /></a></noscript>
+<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/psychiatric;pos=sky1;sz=120x600,160x600;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/psychiatric;pos=sky1;sz=120x600,160x600;ord=123456789?" border="0" alt="" /></a></noscript>
 <!-- end ad tag -->
 ',
       'format' => '2',
@@ -1256,10 +1256,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
 <script type="text/javascript">
 //<![CDATA[
 ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/_default;pos=rec1;sz=300x250;ord=\' + ord + \'?"><\\/script>\');
+document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/psychiatric;pos=rec1;sz=300x250;ord=\' + ord + \'?"><\\/script>\');
 //]]>
 </script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/_default;pos=rec1;sz=300x250;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/_default;pos=rec1;sz=300x250;ord=123456789?" border="0" alt="" /></a></noscript>
+<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/psychiatric;pos=rec1;sz=300x250;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/psychiatric;pos=rec1;sz=300x250;ord=123456789?" border="0" alt="" /></a></noscript>
 <!-- end ad tag -->
 ',
       'format' => '2',
