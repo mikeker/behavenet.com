@@ -1440,6 +1440,9 @@ function behavenet_views_pre_render(&$view) {
           $output .= '</ul>';
         }
       }
+      if (empty($output)) {
+        $output = '<p>' . t('There were no results for the terms entered.') . '</p>';
+      }
       $view->attachment_before = $output;
     }                   // if (count($keys)) {
   }                     // if ('search' == $vars['view']->name) {
