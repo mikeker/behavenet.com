@@ -830,7 +830,7 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     </ul>
   </li>
   <li><a href="taxonomy/term/8520">Reimbursement</a></li>
-  <li><a href="taxonomy/term/8349">Sleep Disorders</a>
+  <li><a href="taxonomy/term/8349">Sleep Medicine</a>
     <ul>
       <li><a href="taxonomy/term/7627">Chronobiology</a></li>
       <li><a href="taxonomy/term/6831">EEG</a></li>
