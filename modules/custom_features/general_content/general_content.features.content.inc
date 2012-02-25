@@ -1836,6 +1836,110 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_backref_5df57c69c10ab6fb0a
+  $fields['preparation-field_backref_5df57c69c10ab6fb0a'] = array(
+    'field_name' => 'field_backref_5df57c69c10ab6fb0a',
+    'type_name' => 'preparation',
+    'display_settings' => array(
+      'weight' => '12',
+      'parent' => '',
+      'label' => array(
+        'format' => 'above',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'noderelationships_backref',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'noderelationships',
+    'active' => '1',
+    'referrer_type' => 'combinations',
+    'referrer_field' => 'field_combo_drugs',
+    'widget' => array(
+      'label' => 'Back references from Drug in Drug Combinations',
+      'weight' => '12',
+      'description' => '',
+      'type' => 'noderelationships_backref',
+      'module' => 'noderelationships',
+    ),
+  );
+
+  // Exported field: field_backref_6ad844a61923d113cb
+  $fields['preparation-field_backref_6ad844a61923d113cb'] = array(
+    'field_name' => 'field_backref_6ad844a61923d113cb',
+    'type_name' => 'preparation',
+    'display_settings' => array(
+      'weight' => '13',
+      'parent' => '',
+      'label' => array(
+        'format' => 'above',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'noderelationships_backref',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'noderelationships',
+    'active' => '1',
+    'referrer_type' => 'people',
+    'referrer_field' => 'field_general_related_content',
+    'widget' => array(
+      'label' => 'Back references from Related content in People',
+      'weight' => '13',
+      'description' => '',
+      'type' => 'noderelationships_backref',
+      'module' => 'noderelationships',
+    ),
+  );
+
   // Exported field: field_gen_slang_terms
   $fields['preparation-field_gen_slang_terms'] = array(
     'field_name' => 'field_gen_slang_terms',
