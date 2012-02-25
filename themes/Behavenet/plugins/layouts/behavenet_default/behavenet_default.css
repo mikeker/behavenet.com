@@ -11,6 +11,9 @@
   float: right;
   clear: right;
   width: 240px;
+  /* Keeps blocks to our left from laying on top of us */
+  position: relative;
+  z-index: 100;
 }
 #page-main, #page-header, #page-footer {
   margin-left: 170px;
