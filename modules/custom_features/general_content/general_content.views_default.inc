@@ -829,7 +829,8 @@ return FALSE;',
   $handler->override_option('use_ajax', TRUE);
   $handler->override_option('items_per_page', 0);
   $handler->override_option('use_pager', '1');
-  $handler->override_option('use_more', 1);
+  $handler->override_option('use_more', 0);
+  $handler->override_option('use_more_always', 0);
   $handler->override_option('style_plugin', 'jump_menu');
   $handler->override_option('style_options', array(
     'grouping' => '',

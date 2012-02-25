@@ -622,7 +622,18 @@ print behavenet_display_term_children(7358);
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'php',
+          'settings' => array(
+            'description' => 'behavenet_show_ads()',
+            'php' => 'return behavenet_show_ads();',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'admin_title' => 'Bottom Leaderboard Ad',
       'title' => '',
@@ -694,7 +705,18 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'php',
+          'settings' => array(
+            'description' => 'behavenet_show_ads()',
+            'php' => 'return behavenet_show_ads();',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'admin_title' => 'Leaderboard Ad',
       'title' => '',
@@ -897,7 +919,18 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'php',
+          'settings' => array(
+            'description' => 'behavenet_show_ads()',
+            'php' => 'return behavenet_show_ads();',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'admin_title' => 'Skyscraper Ad 1',
       'title' => '',
@@ -932,7 +965,7 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->access = array();
     $pane->configuration = array(
       'markup' => 'h1',
-      'class' => '',
+      'class' => 'page-title',
       'id' => '',
       'override_title' => 0,
       'override_title_text' => '',
@@ -1248,7 +1281,18 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'php',
+          'settings' => array(
+            'description' => 'behavenet_show_ads()',
+            'php' => 'return behavenet_show_ads();',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'admin_title' => 'Rectangle Ad (300 x 250)',
       'title' => '',

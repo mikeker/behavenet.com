@@ -24,11 +24,20 @@
  * @see template_preprocess_content_field()
  */
 ?>
-<?php if (!$field_empty) : ?>
+<?php if ($field_empty) { return; } ?>
+<?php if ($is_backref) {
+  // The backref field is overriden in behavenet_noderelationships_backref_view
+  // because the theme provided by the module is includes silly <dd> and <dl> tags
+  print '<h2 class="page-title">' . $label . '</h2>';
+  print $items[0]['view'];
+} 
+else { 
+?>
 <div class="field field-type-<?php print $field_type_css ?> field-<?php print $field_name_css ?>">
   <?php if ($label_display == 'above') : ?>
     <div class="field-label"><?php print t($label) ?>:&nbsp;</div>
   <?php endif;?>
+    
   <div class="field-items">
     <?php $count = 1;
     foreach ($items as $delta => $item) :
@@ -45,4 +54,4 @@
     endforeach;?>
   </div>
 </div>
-<?php endif; ?>
+<?php } ?>

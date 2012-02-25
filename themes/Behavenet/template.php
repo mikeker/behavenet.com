@@ -163,7 +163,7 @@ function behavenet_preprocess_content_field(&$vars) {
         // Make it plural
         $vars['label'] .= 's';
       }
-      $vars['label_display'] = 'above';
+      $vars['is_backref'] = TRUE;
     }
   }
 
@@ -318,6 +318,14 @@ function behavenet_preprocess_panels_pane(&$vars) {
 }
 
 
+/**
+ * Overrides function theme_noderelationships_backref_view provided by the
+ * noderelationships module
+ */
+function behavenet_noderelationships_backref_view($title, $content) {
+  return '<div class="pane-content">'. $content .'</div>';
+}
+
 /*****************************************************************************
  *
  * One-off display functions for the Behavenet theme
@@ -468,4 +476,17 @@ function behavenet_build_jump_menu($items, $sort_by_title = TRUE) {
     $output .= '</select>';
   }
   return $output;
+}
+
+/*
+ * Returns TRUE if this user should have ads shown to them
+ * 
+ * Current removes ads for uid == 1
+ */
+function behavenet_show_ads() {
+  global $user;
+  if (1 == $user->uid) {
+    return FALSE;
+  }
+  return TRUE;
 }

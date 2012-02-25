@@ -127,7 +127,7 @@ function general_content_fieldgroup_default_groups() {
         'description' => '',
       ),
       'display' => array(
-        'weight' => '1',
+        'weight' => '2',
         'parent' => '',
         'label' => 'above',
         'teaser' => array(

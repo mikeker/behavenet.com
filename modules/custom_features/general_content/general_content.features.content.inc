@@ -1904,9 +1904,10 @@ function general_content_content_default_fields() {
     'field_name' => 'field_general_description',
     'type_name' => 'preparation',
     'display_settings' => array(
+      'weight' => '1',
+      'parent' => '',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
@@ -2491,7 +2492,7 @@ function general_content_content_default_fields() {
       'weight' => '12',
       'parent' => '',
       'label' => array(
-        'format' => 'hidden',
+        'format' => 'above',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -2543,7 +2544,7 @@ function general_content_content_default_fields() {
       'weight' => '13',
       'parent' => '',
       'label' => array(
-        'format' => 'hidden',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -2587,58 +2588,6 @@ function general_content_content_default_fields() {
     ),
   );
 
-  // Exported field: field_backref_8915d9a3cd04bfc178
-  $fields['sources-field_backref_8915d9a3cd04bfc178'] = array(
-    'field_name' => 'field_backref_8915d9a3cd04bfc178',
-    'type_name' => 'sources',
-    'display_settings' => array(
-      'weight' => '15',
-      'parent' => '',
-      'label' => array(
-        'format' => 'hidden',
-      ),
-      'teaser' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '2' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-    ),
-    'widget_active' => '1',
-    'type' => 'noderelationships_backref',
-    'required' => '0',
-    'multiple' => '0',
-    'module' => 'noderelationships',
-    'active' => '1',
-    'referrer_type' => 'movie',
-    'referrer_field' => 'field_general_related_content',
-    'widget' => array(
-      'label' => 'Back references from Related content in Movie',
-      'weight' => '15',
-      'description' => '',
-      'type' => 'noderelationships_backref',
-      'module' => 'noderelationships',
-    ),
-  );
-
   // Exported field: field_backref_9fc35d8433c26e0d19
   $fields['sources-field_backref_9fc35d8433c26e0d19'] = array(
     'field_name' => 'field_backref_9fc35d8433c26e0d19',
@@ -2647,7 +2596,7 @@ function general_content_content_default_fields() {
       'weight' => '17',
       'parent' => '',
       'label' => array(
-        'format' => 'hidden',
+        'format' => 'above',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -2699,7 +2648,7 @@ function general_content_content_default_fields() {
       'weight' => '14',
       'parent' => '',
       'label' => array(
-        'format' => 'hidden',
+        'format' => 'above',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -2751,7 +2700,7 @@ function general_content_content_default_fields() {
       'weight' => '16',
       'parent' => '',
       'label' => array(
-        'format' => 'hidden',
+        'format' => 'above',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -2789,58 +2738,6 @@ function general_content_content_default_fields() {
     'widget' => array(
       'label' => 'Back references from Related content in People',
       'weight' => '16',
-      'description' => '',
-      'type' => 'noderelationships_backref',
-      'module' => 'noderelationships',
-    ),
-  );
-
-  // Exported field: field_backref_e9efb956d0a3bfd521
-  $fields['sources-field_backref_e9efb956d0a3bfd521'] = array(
-    'field_name' => 'field_backref_e9efb956d0a3bfd521',
-    'type_name' => 'sources',
-    'display_settings' => array(
-      'weight' => '11',
-      'parent' => '',
-      'label' => array(
-        'format' => 'hidden',
-      ),
-      'teaser' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '2' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-    ),
-    'widget_active' => '1',
-    'type' => 'noderelationships_backref',
-    'required' => '0',
-    'multiple' => '0',
-    'module' => 'noderelationships',
-    'active' => '1',
-    'referrer_type' => 'book',
-    'referrer_field' => 'field_general_related_content',
-    'widget' => array(
-      'label' => 'Back references from Related content in Book',
-      'weight' => '11',
       'description' => '',
       'type' => 'noderelationships_backref',
       'module' => 'noderelationships',
@@ -3426,8 +3323,6 @@ function general_content_content_default_fields() {
   t('Alternate Names');
   t('Approval Date');
   t('Back references from Drug in Drug Combinations');
-  t('Back references from Related content in Book');
-  t('Back references from Related content in Movie');
   t('Back references from Related content in People');
   t('Back references from Source in Drug Combinations');
   t('Back references from Sources in Generic');

@@ -47,6 +47,10 @@ thead th {
 td {
   padding: (@space-v / 2) @space-h;
 }
+#page-title, .page-title {
+  margin-top: @space-v;
+  margin-bottom: @space-v;
+}
 
 /*
  * Major zone styling
@@ -117,8 +121,8 @@ td {
  * left sidebar, but under the main content area
  */
 #page-footer {
-  padding-top: 2 * @space-v;
-  padding-bottom: 2 * @space-v;
+  margin-top: 2 * @space-v;
+  margin-bottom: 2 * @space-v;
   text-align: center;
   font-size: 80%;
 }
@@ -129,6 +133,7 @@ td {
  * left.
  */
 #page-title,
+.page-title,
 .panel-region-separator,
 .clear-fix
 {
@@ -249,7 +254,11 @@ div.tabs {
   // page-based contextual links
   clear: left;
 }
+div.main-tabs {
+  display: inline-block;
+}
 ul.menu {
+  overflow: hidden;
 }
 ul.menu li {
   float: left;
@@ -258,23 +267,12 @@ ul.menu li {
 ul.menu li a {
   text-decoration: none;
   padding: (@space-v / 2) @space-h;
+  display: block;
 }
 ul.menu li a:hover {
   background-color: @highlight;
 }
-#page-left-sidebar ul.menu {
-  padding: 0 @space-h;
-}
-#page-left-sidebar ul.menu li {
-  float: none;
-  font-size: 85%;
-}
-#page-left-sidebar ul.menu li a {
-  padding: 0;
-  padding-left: (2 * @space-h);
-  text-indent: (-2 * @space-h);
-  display: block;
-}
+
 
 /*
  * Left hand sidebar collapsible menu
