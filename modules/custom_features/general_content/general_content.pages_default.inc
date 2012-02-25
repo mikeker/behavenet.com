@@ -862,7 +862,7 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
       'admin_title' => 'Follow us links',
       'title' => '',
       'body' => '<div class="follow-us-links">
-<?php $images = drupal_get_path(\'theme\', \'Behavenet\') . \'/images\'; ?>
+<?php $images = base_path() . drupal_get_path(\'theme\', \'Behavenet\') . \'/images\'; ?>
 <a href="http://www.facebook.com/pages/BehaveNet/121151723906"><img src="<?php print "$images/findus_facebook.gif"; ?>" /></a><br />
 <a href="http://twitter.com/behavenet"><img src="<?php print "$images/findus_twitter.gif"; ?>" /></a>
 </div>',
