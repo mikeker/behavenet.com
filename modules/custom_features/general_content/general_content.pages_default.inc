@@ -333,41 +333,6 @@ print behavenet_display_term_children(7358);
     $pane = new stdClass;
     $pane->pid = 'new-10';
     $pane->panel = 'middle';
-    $pane->type = 'views';
-    $pane->subtype = 'Media';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '0',
-      'pager_id' => '',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'default',
-      'context' => array(
-        0 => 'argument_nid_1.nid',
-      ),
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 9;
-    $display->content['new-10'] = $pane;
-    $display->panels['middle'][9] = 'new-10';
-    $pane = new stdClass;
-    $pane->pid = 'new-11';
-    $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Indications-panel_pane_1';
     $pane->shown = TRUE;
@@ -396,11 +361,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
-    $display->content['new-11'] = $pane;
-    $display->panels['middle'][10] = 'new-11';
+    $pane->position = 9;
+    $display->content['new-10'] = $pane;
+    $display->panels['middle'][9] = 'new-10';
     $pane = new stdClass;
-    $pane->pid = 'new-12';
+    $pane->pid = 'new-11';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Indications-panel_pane_2';
@@ -430,11 +395,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 11;
-    $display->content['new-12'] = $pane;
-    $display->panels['middle'][11] = 'new-12';
+    $pane->position = 10;
+    $display->content['new-11'] = $pane;
+    $display->panels['middle'][10] = 'new-11';
     $pane = new stdClass;
-    $pane->pid = 'new-13';
+    $pane->pid = 'new-12';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Media-panel_pane_3';
@@ -456,11 +421,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 12;
-    $display->content['new-13'] = $pane;
-    $display->panels['middle'][12] = 'new-13';
+    $pane->position = 11;
+    $display->content['new-12'] = $pane;
+    $display->panels['middle'][11] = 'new-12';
     $pane = new stdClass;
-    $pane->pid = 'new-14';
+    $pane->pid = 'new-13';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Media-panel_pane_2';
@@ -482,11 +447,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 13;
-    $display->content['new-14'] = $pane;
-    $display->panels['middle'][13] = 'new-14';
+    $pane->position = 12;
+    $display->content['new-13'] = $pane;
+    $display->panels['middle'][12] = 'new-13';
     $pane = new stdClass;
-    $pane->pid = 'new-15';
+    $pane->pid = 'new-14';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Directory-panel_pane_2';
@@ -510,11 +475,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 14;
-    $display->content['new-15'] = $pane;
-    $display->panels['middle'][14] = 'new-15';
+    $pane->position = 13;
+    $display->content['new-14'] = $pane;
+    $display->panels['middle'][13] = 'new-14';
     $pane = new stdClass;
-    $pane->pid = 'new-16';
+    $pane->pid = 'new-15';
     $pane->panel = 'middle';
     $pane->type = 'panels_mini';
     $pane->subtype = 'home_page';
@@ -542,11 +507,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 15;
-    $display->content['new-16'] = $pane;
-    $display->panels['middle'][15] = 'new-16';
+    $pane->position = 14;
+    $display->content['new-15'] = $pane;
+    $display->panels['middle'][14] = 'new-15';
     $pane = new stdClass;
-    $pane->pid = 'new-17';
+    $pane->pid = 'new-16';
     $pane->panel = 'middle';
     $pane->type = 'panels_mini';
     $pane->subtype = 'opinion_and_movies';
@@ -574,9 +539,9 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 16;
-    $display->content['new-17'] = $pane;
-    $display->panels['middle'][16] = 'new-17';
+    $pane->position = 15;
+    $display->content['new-16'] = $pane;
+    $display->panels['middle'][15] = 'new-16';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
