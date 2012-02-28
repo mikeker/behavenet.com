@@ -274,16 +274,19 @@ function general_content_default_panels_mini() {
     $pane = new stdClass;
     $pane->pid = 'new-1';
     $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Daily Tweets',
-      'body' => '<p>CNS Drug: <a href="http://tweetchat.com/room/CNSDOD">#CNSDOD</a><br/>Notable Person: <a href="http://tweetchat.com/room/BHCPOD">#BHCPOD</a><br/>Term: <a href="http://tweetchat.com/room/BHCTOD">#BHCTOD</a></p>',
-      'format' => '3',
-      'substitute' => TRUE,
+      'nid' => '27767',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'full',
+      'link_node_title' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -297,19 +300,19 @@ function general_content_default_panels_mini() {
     $pane = new stdClass;
     $pane->pid = 'new-2';
     $pane->panel = 'middle';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Weekly Chats',
-      'body' => '<p>Tuesday 9 PM Eastern:<br /><a href="http://behavenetmovies.blogspot.com/p/watch-tweetchat_19.html"><img width="16px" height="16px" border="0" src="/sites/behavenet.com/themes/Behavenet/images/blogger.png" /></a><img src="http://www.assoc-amazon.com/e/ir?t=behavenetrinc&amp;l=as2&amp;o=1&amp;a=B00006L92B" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;"><b>Movies, Drugs and Psychiatry </b>
-<a target="_blank" href="http://www.twitter.com/behavenetmovies">@BehaveNetMovies</a>
-<a href="http://tweetchat.com/room/session9">#session9</a><br /><b>Mental Health Social Media</b>
-<a target="_blank" href="http://www.twitter.com/mhsmchat">@MHSMchat</a> <a href="http://tweetchat.com/room/mhsm">#MHSM</a><br />Sunday 9 PM Eastern:<br /><b>Health Care Social Media</b><a target="_blank" href="http://www.twitter.com/healthsocmed">@HealthSocMed</a> <a href="http://tweetchat.com/room/HCSM">#HCSM</a></p>',
-      'format' => '3',
-      'substitute' => TRUE,
+      'nid' => '27768',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'full',
+      'link_node_title' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -323,16 +326,19 @@ function general_content_default_panels_mini() {
     $pane = new stdClass;
     $pane->pid = 'new-3';
     $pane->panel = 'right';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'National Conferences',
-      'body' => '<p>February<br />22-26 <a href="http://www.acpsych.org">ACP</a> <a href="http://tweetchat.com/room/acp2012">#ACP2012</a></p>',
-      'format' => '3',
-      'substitute' => TRUE,
+      'nid' => '27769',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'full',
+      'link_node_title' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(

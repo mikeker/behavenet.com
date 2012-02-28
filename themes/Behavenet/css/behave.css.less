@@ -256,8 +256,13 @@ div.admin-links,
 div.views-admin-links,
 div.panel-pane:hover div.panel-hide
 {
-  display: none;
+  display: none
 }
+/* Except for the edit node links on the front page */
+#mini-panel-home_page div.pod:hover div.panel-hide {
+  display: block;
+}
+
 div.tabs {
   // page-based contextual links
   clear: left;
