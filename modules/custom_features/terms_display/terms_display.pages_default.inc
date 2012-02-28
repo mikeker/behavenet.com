@@ -144,6 +144,34 @@ function terms_display_default_page_manager_handlers() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
+      'admin_title' => 'Synonyms',
+      'title' => '',
+      'body' => '<?php
+$syn = taxonomy_get_synonyms(%term:tid);
+if (!empty($syn)) {
+  print \'<p>(\' . implode(\', \', $syn) . \')</p>\';
+}
+?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['middle'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
       'admin_title' => 'Breadcrumbs',
       'title' => '',
       'body' => '<?php
@@ -161,11 +189,11 @@ if (!empty($crumbs)) {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['middle'][0] = 'new-1';
+    $pane->position = 1;
+    $display->content['new-2'] = $pane;
+    $display->panels['middle'][1] = 'new-2';
     $pane = new stdClass;
-    $pane->pid = 'new-2';
+    $pane->pid = 'new-3';
     $pane->panel = 'middle';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -189,34 +217,6 @@ if (!empty($crumbs)) {
 print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term:tid\');
 ?>)
 ',
-      'format' => '4',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-2'] = $pane;
-    $display->panels['middle'][1] = 'new-2';
-    $pane = new stdClass;
-    $pane->pid = 'new-3';
-    $pane->panel = 'middle';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Synonyms',
-      'title' => '',
-      'body' => '<?php
-$syn = taxonomy_get_synonyms(%term:tid);
-if (!empty($syn)) {
-  print \'<p>(\' . implode(\', \', $syn) . \')</p>\';
-}
-?>',
       'format' => '4',
       'substitute' => 1,
     );
