@@ -388,7 +388,8 @@ function general_content_default_panels_mini() {
     $pane->configuration = array(
       'admin_title' => 'Opinion Feed',
       'title' => 'Opinion',
-      'body' => '<?php behavenet_get_recent_from_rss(\'http://behavenetopinion.blogspot.com/rss.xml\', 5); ?>
+      'body' => '<a href="http://behavenetopinion.blogspot.com/"><img src="<?php print base_path() . drupal_get_path(\'theme\', \'Behavenet\') . \'/images/blogger-rectangle.gif\'; ?>" /></a><br />
+<?php behavenet_get_recent_from_rss(\'http://behavenetopinion.blogspot.com/rss.xml\', 5); ?>
 ',
       'format' => '4',
       'substitute' => TRUE,

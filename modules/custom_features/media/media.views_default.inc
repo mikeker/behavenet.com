@@ -435,6 +435,9 @@ function media_views_default_views() {
     ),
   ));
   $handler->override_option('arguments', array());
+  $handler->override_option('header', '<a href="http://behavenetmovies.blogspot.com/"><img src="<?php print base_path() . drupal_get_path(\'theme\', \'Behavenet\') . \'/images/blogger-rectangle.gif\'; ?>" /></a><br />');
+  $handler->override_option('header_format', '4');
+  $handler->override_option('header_empty', 0);
   $handler->override_option('items_per_page', 5);
   $handler->override_option('style_plugin', 'default');
   $handler->override_option('style_options', array(
