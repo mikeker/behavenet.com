@@ -1,5 +1,22 @@
 if (Drupal.jsEnabled) {
-
+  
+  /*
+   * Change the width and placement of the autocomplete popup
+   */
+  Drupal.jsAC.prototype._original_populatePopup = Drupal.jsAC.prototype.populatePopup;
+  Drupal.jsAC.prototype.populatePopup = function () {
+    
+    // Call the original routine
+    this._original_populatePopup();
+    
+    // Adjust width and placement of the autocomplete window
+    var $popup = $(this.popup);
+    $popup.css({
+      width: ($popup.width() * 2) + 'px',
+      marginLeft: (-1 * $popup.width()) + 'px'
+    });
+  };
+  
   Drupal.behaviors.behavenet = function() {
     behave_jump_menu_init($('select.jump-menu:not(processed)'));
     behave_collasible_menu_init($('ul.bef-tree:not(.processed)'), true);
