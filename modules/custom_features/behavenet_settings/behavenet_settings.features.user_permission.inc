@@ -436,7 +436,9 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: use panels in place editing
   $permissions['use panels in place editing'] = array(
     'name' => 'use panels in place editing',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: view all panes
@@ -457,7 +459,9 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: view pane admin links
   $permissions['view pane admin links'] = array(
     'name' => 'view pane admin links',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
   );
 
   // Exported permission: view revisions
