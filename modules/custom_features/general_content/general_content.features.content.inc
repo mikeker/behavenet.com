@@ -1148,6 +1148,63 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_general_upload
+  $fields['page-field_general_upload'] = array(
+    'field_name' => 'field_general_upload',
+    'type_name' => 'page',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'filefield',
+    'required' => '0',
+    'multiple' => '1',
+    'module' => 'filefield',
+    'active' => '1',
+    'list_field' => '0',
+    'list_default' => 1,
+    'description_field' => '0',
+    'widget' => array(
+      'file_extensions' => 'pdf txt jpg jpeg png gif',
+      'file_path' => '',
+      'progress_indicator' => 'bar',
+      'max_filesize_per_file' => '',
+      'max_filesize_per_node' => '',
+      'label' => 'Uploaded files',
+      'weight' => '-2',
+      'description' => '',
+      'type' => 'filefield_widget',
+      'module' => 'filefield',
+    ),
+  );
+
   // Exported field: field_general_related_content
   $fields['people-field_general_related_content'] = array(
     'field_name' => 'field_general_related_content',
@@ -3454,6 +3511,7 @@ function general_content_content_default_fields() {
   t('Sources');
   t('Terms');
   t('Trade name drug');
+  t('Uploaded files');
 
   return $fields;
 }

@@ -924,5 +924,21 @@ function general_content_strongarm() {
   $strongarm->value = 1;
   $export['show_preview_changes_device'] = $strongarm;
 
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'content_extra_weights_page';
+  $strongarm->value = array(
+    'title' => '-5',
+    'body_field' => '-3',
+    'revision_information' => '0',
+    'author' => '-1',
+    'options' => '1',
+    'comment_settings' => '2',
+    'menu' => '-4',
+    'path' => '3',
+  );
+  $export['content_extra_weights_page'] = $strongarm;
+
   return $export;
 }
