@@ -727,20 +727,6 @@ function behavenet_settings_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_path';
-  $strongarm->value = 'xmlsitemap';
-  $export['xmlsitemap_path'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_base_url';
-  $strongarm->value = 'http://local.new.behavenet.com';
-  $export['xmlsitemap_base_url'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'xmlsitemap_lastmod_format';
   $strongarm->value = 'Y-m-d\\TH:i\\Z';
   $export['xmlsitemap_lastmod_format'] = $strongarm;
