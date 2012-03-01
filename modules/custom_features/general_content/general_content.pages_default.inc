@@ -542,6 +542,76 @@ print behavenet_display_term_children(7358);
     $pane->position = 15;
     $display->content['new-16'] = $pane;
     $display->panels['middle'][15] = 'new-16';
+    $pane = new stdClass;
+    $pane->pid = 'new-17';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'People-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'node/27646',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 16;
+    $display->content['new-17'] = $pane;
+    $display->panels['middle'][16] = 'new-17';
+    $pane = new stdClass;
+    $pane->pid = 'new-18';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'node/27646',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'admin_title' => 'Eponyms',
+      'title' => 'Eponyms',
+      'body' => '<?php
+$items = array();
+foreach (taxonomy_get_related(10839) as $term) {
+  $items[url(\'taxonomy/term/\'. $term->tid)] = $term->name;
+}
+print behavenet_build_jump_menu($items);
+?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 17;
+    $display->content['new-18'] = $pane;
+    $display->panels['middle'][17] = 'new-18';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -1002,35 +1072,6 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $display->panels['main'][2] = 'new-14';
     $pane = new stdClass;
     $pane->pid = 'new-15';
-    $pane->panel = 'main';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'People-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'path_visibility',
-          'settings' => array(
-            'visibility_setting' => '1',
-            'paths' => 'people',
-          ),
-          'context' => 'empty',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-15'] = $pane;
-    $display->panels['main'][3] = 'new-15';
-    $pane = new stdClass;
-    $pane->pid = 'new-16';
     $pane->panel = 'main_callout';
     $pane->type = 'panels_mini';
     $pane->subtype = 'people_callout';
@@ -1063,10 +1104,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-16'] = $pane;
-    $display->panels['main_callout'][0] = 'new-16';
+    $display->content['new-15'] = $pane;
+    $display->panels['main_callout'][0] = 'new-15';
     $pane = new stdClass;
-    $pane->pid = 'new-17';
+    $pane->pid = 'new-16';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_general_asin';
@@ -1100,10 +1141,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-17'] = $pane;
-    $display->panels['main_callout'][1] = 'new-17';
+    $display->content['new-16'] = $pane;
+    $display->panels['main_callout'][1] = 'new-16';
     $pane = new stdClass;
-    $pane->pid = 'new-18';
+    $pane->pid = 'new-17';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_generic_graphic';
@@ -1141,10 +1182,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-18'] = $pane;
-    $display->panels['main_callout'][2] = 'new-18';
+    $display->content['new-17'] = $pane;
+    $display->panels['main_callout'][2] = 'new-17';
     $pane = new stdClass;
-    $pane->pid = 'new-19';
+    $pane->pid = 'new-18';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_drug_image';
@@ -1177,10 +1218,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 3;
-    $display->content['new-19'] = $pane;
-    $display->panels['main_callout'][3] = 'new-19';
+    $display->content['new-18'] = $pane;
+    $display->panels['main_callout'][3] = 'new-18';
     $pane = new stdClass;
-    $pane->pid = 'new-20';
+    $pane->pid = 'new-19';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_tt_extras_image';
@@ -1218,10 +1259,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 4;
-    $display->content['new-20'] = $pane;
-    $display->panels['main_callout'][4] = 'new-20';
+    $display->content['new-19'] = $pane;
+    $display->panels['main_callout'][4] = 'new-19';
     $pane = new stdClass;
-    $pane->pid = 'new-21';
+    $pane->pid = 'new-20';
     $pane->panel = 'main_callout';
     $pane->type = 'views_panes';
     $pane->subtype = 'Credit-panel_pane_1';
@@ -1250,10 +1291,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 5;
-    $display->content['new-21'] = $pane;
-    $display->panels['main_callout'][5] = 'new-21';
+    $display->content['new-20'] = $pane;
+    $display->panels['main_callout'][5] = 'new-20';
     $pane = new stdClass;
-    $pane->pid = 'new-22';
+    $pane->pid = 'new-21';
     $pane->panel = 'main_callout';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -1293,10 +1334,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 6;
-    $display->content['new-22'] = $pane;
-    $display->panels['main_callout'][6] = 'new-22';
+    $display->content['new-21'] = $pane;
+    $display->panels['main_callout'][6] = 'new-21';
     $pane = new stdClass;
-    $pane->pid = 'new-23';
+    $pane->pid = 'new-22';
     $pane->panel = 'main_callout';
     $pane->type = 'panels_mini';
     $pane->subtype = 'goodtherapy_250_160';
@@ -1313,8 +1354,8 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 7;
-    $display->content['new-23'] = $pane;
-    $display->panels['main_callout'][7] = 'new-23';
+    $display->content['new-22'] = $pane;
+    $display->panels['main_callout'][7] = 'new-22';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-8';
   $handler->conf['display'] = $display;

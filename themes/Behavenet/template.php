@@ -296,12 +296,11 @@ function behavenet_preprocess_panels_pane(&$vars) {
     $lists = variable_get('behave_lists_tids', '');
     if (in_array($ltid, $lists)) {
       $vars['title'] = t('Glossary');
-      $html = '<select class="jump-menu"><option selected>- Choose -</option>';
+      $items = array();
       foreach (taxonomy_get_related($ltid) as $term) {
-        $html .= '<option value="'. url('taxonomy/term/'. $term->tid) .'">'. $term->name .'</option>';
+        $items[url('taxonomy/term/'. $term->tid)] = $term->name;
       }
-      $html .= '</select>';
-      $vars['content'] = $html;
+      $vars['content'] = behavenet_build_jump_menu($items);
     }
   }
 
