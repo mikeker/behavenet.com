@@ -594,7 +594,7 @@ return $return;
         0 => 'argument_terms_1',
       ),
       'override_title' => 1,
-      'override_title_text' => 'Generics',
+      'override_title_text' => 'Molecular entities',
     );
     $pane->cache = array();
     $pane->style = array(
