@@ -89,7 +89,7 @@ function taxonomy_tweaks_form_tax_tweaks_extras_node_form_alter(&$form, &$form_s
   );
   $form['title']['#default_value'] = "Extra details for '$term->name'";
   $form['title']['#access'] = FALSE;
-  
+
   // Update the node body with the current term description
   $form['#node']->field_tt_extras_description[0]['value'] = $term->description;
 
@@ -220,40 +220,34 @@ function taxonomy_tweaks_submit($form, &$form_state) {
     drupal_set_message (t('The term %term has been deleted.', array('%term' => $term->name)));
     $form_state['redirect'] = '<front>';
   }
-  else if ('Set As Acronym' == $vals['op'] || 'Remove Acronym Setting' == $vals['op']){
+  else {
+    // Grab existing Tax Tweaks info or create a new entry and Tax Tweaks node
     $result = db_query("
       SELECT * FROM {tax_tweaks}
       WHERE tid = %d
     ", $tid);
     $row = db_fetch_object($result);
 
+    $nid = 0;
     if (!$row) {
       // Create a new row
       $nid = _taxonomy_tweaks_create_extras($tid);
-      db_query("
-        INSERT INTO {tax_tweaks}
-        (tid, is_acronym, extras_nid)
-        VALUES (%d, %d, %d)
-      ", $tid, $is_acronym, $nid);
     }
     else {
-      // Update existing row
+      $nid = $row->extras_nid;
+    }
+
+    if ('Set As Acronym' == $vals['op'] || 'Remove Acronym Setting' == $vals['op']){
       db_query("
         UPDATE {tax_tweaks}
         SET is_acronym = %d
         WHERE tid = %d
       ", $is_acronym, $tid);
     }
-  }
-  else if ('Edit extra fields for this term' == $vals['op']) {
-    $nid = taxonomy_tweaks_get_extras($tid);
-    if (empty($nid)) {
-      // Create a new extras node with the existing description in it
-      $nid = _taxonomy_tweaks_create_extras($tid);
+    else if ('Edit extra fields for this term' == $vals['op']) {
+      // Redirect the user to the edit page.
+      drupal_goto("node/$nid/edit/$tid");
     }
-
-    // And redirect the user to the edit page.
-    drupal_goto("node/$nid/edit/$tid");
   }
 }
 
