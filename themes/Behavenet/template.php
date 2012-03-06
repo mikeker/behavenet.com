@@ -77,7 +77,7 @@ function behavenet_preprocess_content_field(&$vars) {
   if ('field_gen_slang_terms' == $vars['field_name']) {
     if (count($vars['items'] > 10)) {
       // Rewrite as dropdown list
-      $output = '<select>'; 
+      $output = '<select>';
       foreach ($vars['items'] as $item) {
         $output .= '<option>' . $item['view'] . '</option>';
       }
@@ -150,7 +150,7 @@ function behavenet_preprocess_content_field(&$vars) {
 
   /*
    * Rewrite display for noderelationship fields.
-   * 
+   *
    * NOTE: we assume that the display is a jump menu, but that's handled
    * by the view behavenet_backref
    */
@@ -213,14 +213,14 @@ function behavenet_preprocess_content_field(&$vars) {
         $vars['label'] = '';
         $vars['label_display'] = '';
       }
-    } 
+    }
   }
   else {
     // Make sure terms list doesn't take over the page: convert to jump menu
     // if longer than 10 items
     if ('field_terms' == $vars['field_name'] || 'field_general_terms' == $vars['field_name']) {
       if (count($vars['items']) > 10) {
-        $output .= '<select class="jump-menu"><option selected>- Choose -</option>'; 
+        $output .= '<select class="jump-menu"><option selected>- Choose -</option>';
         foreach ($vars['items'] as $item) {
           $line = str_replace('<a href="', '<option value="', $item['view']);
           $line = str_replace('</a>', '</option>', $line);
@@ -228,8 +228,8 @@ function behavenet_preprocess_content_field(&$vars) {
         }
         $output .= '</select>';
         $vars['items'] = array(0 => array('view' => $output));
-      } 
-    }        
+      }
+    }
   }
 
   /*
@@ -358,30 +358,30 @@ function behavenet_display_term_children($tid, $style = 'jump-menu') {
     return NULL;
   }
   $output = '';
-  
+
   if ('jump-menu' == $style) {
-    $output .= '<select class="jump-menu"><option selected>- Choose -</option>'; 
+    $output .= '<select class="jump-menu"><option selected>- Choose -</option>';
     foreach ($children as $tid => $term) {
       $output .= '<option value="'. url('taxonomy/term/'. $tid) .'">'. $term->name .'</option>';
     }
     $output .= '</select>';
   }
 
-  return $output;  
+  return $output;
 }
 
 
 /**
  * Returns the display of related content and terms in pipe-delimited format
  * for a given node.
- * 
+ *
  * @param $node - either an nid or a fully loaded node object.
  */
 function behavenet_display_rc_and_terms($node) {
   if (is_numeric($node)) {
     $node = node_load($node);
   }
-  
+
   $links = array();
   $terms = taxonomy_link('taxonomy terms', $node);
   if ($terms) {
@@ -396,7 +396,7 @@ function behavenet_display_rc_and_terms($node) {
       }
     }
   }
-  
+
   // Rewrite output as a single pipe-delimited field
   $output = '<div class="terms-and-related-content">';
   $output .= implode(' | ', $links);
@@ -411,14 +411,14 @@ function behavenet_display_rc_and_terms($node) {
 function behavenet_get_recent_from_rss($url, $num_entries = 10) {
   // Grab entries
   $ch = curl_init($url);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
   curl_setopt($ch, CURLOPT_HEADER, 0);
   $page = curl_exec($ch);
   curl_close($ch);
   if (empty($page)) {
     return '';
   }
-  
+
   // Parse entries
   $xml = new SimpleXMLElement($page);
   $items = array();
@@ -458,7 +458,7 @@ function behavenet_build_jump_menu($items, $sort_by_title = TRUE) {
     if ($sort_by_title) {
       asort($items);
     }
-    $output .= '<select class="jump-menu"><option selected>- Choose -</option>'; 
+    $output .= '<select class="jump-menu"><option selected>- Choose -</option>';
     foreach ($items as $url => $item) {
       $output .= '<option value="' . $url . '">' . $item . '</option>';
     }
@@ -469,7 +469,7 @@ function behavenet_build_jump_menu($items, $sort_by_title = TRUE) {
 
 /*
  * Returns TRUE if this user should have ads shown to them
- * 
+ *
  * Current removes ads for uid == 1
  */
 function behavenet_show_ads() {
@@ -478,4 +478,76 @@ function behavenet_show_ads() {
     return FALSE;
   }
   return TRUE;
+}
+
+/*
+ * Returns the appropriate ad tag for a given piece of content
+ */
+function behavenet_get_node_ad_tag($node) {
+  if (is_numeric($node)) {
+    $node = node_load($node);
+  }
+  $tags = behavenet_get_ad_tag_lookup();
+  $possible = array();
+  foreach ($tags as $tid => $tag) {
+    // Since tags are ordered from most specific to least specific, we can use
+    // the first match we get
+    if (isset($node->taxonomy[$tid])) {
+      return $tag;
+    }
+  }
+
+  // Check ancestors of terms on this node for possibilities
+  $parents = array();
+  foreach ($node->taxonomy as $tid => $term) {
+    $parents += taxonomy_get_parents_all($tid);
+  }
+  foreach ($tags as $tid => $tag) {
+    if (isset($parents[$tid])) {
+      return $tag;
+    }
+  }
+
+  // Default
+  return 'psychiatry';
+}
+
+function behavenet_get_term_ad_tag($term) {
+  if (is_numeric($term)) {
+    $term = taxonomy_get_term($term);
+  }
+
+  $tags = behavenet_get_ad_tag_lookup();
+  if (isset($tags[$term->tid])) {
+    return $tags[$term->tid];
+  }
+
+  // Check ancestors
+  $parents = taxonomy_get_parents_all($term->tid);
+  foreach ($tags as $tid => $tag) {
+    if (isset($parents[$tid])) {
+      return $tag;
+    }
+  }
+
+  // Default
+  return 'psychiatry';
+}
+
+/*
+ * Returns an ad tag lookup in the form of tid => tag_name
+ */
+function behavenet_get_ad_tag_lookup() {
+  return (array(
+    7194 => 'anxiety',
+    7279 => 'dementia',
+    7297 => 'eating',
+    7268 => 'dissociat',
+    7360 => 'Mood',
+    7341 => 'impulse',
+    7415 => 'personal',
+    7467 => 'sleep',
+    7482 => 'substance',
+    7358 => 'mental',
+  ));
 }
