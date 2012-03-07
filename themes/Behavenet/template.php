@@ -477,11 +477,31 @@ function behavenet_build_jump_menu($items, $sort_by_title = TRUE) {
 function behavenet_show_ads() {
   global $user;
   if (1 == $user->uid) {
-    return FALSE;
+    return TRUE;
   }
   return TRUE;
 }
 
+/*
+ * Single point of entry to ad tags to make the panels code simplier
+ */
+function behavenet_get_ad_tag($node = NULL, $term = NULL) {
+  static $tag = '';
+  if (empty($tag)) {
+    $tag = 'psychiatry';    // Default
+    if (!empty($node)) {
+      $tag = behavenet_get_node_ad_tag($node);
+    }
+    if (!empty($term)) {
+      $tag = behavenet_get_term_ad_tag($term);
+    }
+    if (user_access('administer behavenet')) {
+      drupal_set_message ("Admin: Ad tag for this page is $tag");
+    }
+  }
+  
+  return $tag;
+}
 /*
  * Returns the appropriate ad tag for a given piece of content
  */

@@ -676,13 +676,13 @@ print behavenet_build_jump_menu($items);
 <script type="text/javascript">
 //<![CDATA[
 ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/psychiatric;pos=bottom;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
+document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=bottom;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
 //]]>
 </script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/psychiatric;pos=bottom;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/psychiatric;pos=bottom;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
+<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=bottom;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=bottom;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
 <!-- end ad tag -->
 ',
-      'format' => '2',
+      'format' => '4',
       'substitute' => 1,
     );
     $pane->cache = array();
@@ -759,13 +759,13 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
 <script type="text/javascript">
 //<![CDATA[
 ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/psychiatric;pos=top;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
+document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=top;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
 //]]>
 </script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/psychiatric;pos=top;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/psychiatric;pos=top;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
+<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=top;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=top;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
 <!-- end ad tag -->
 ',
-      'format' => '2',
+      'format' => '4',
       'substitute' => 1,
     );
     $pane->cache = array();
@@ -973,13 +973,13 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
 <script type="text/javascript">
 //<![CDATA[
 ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/psychiatric;pos=sky1;sz=120x600,160x600;ord=\' + ord + \'?"><\\/script>\');
+document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=sky1;sz=120x600,160x600;ord=\' + ord + \'?"><\\/script>\');
 //]]>
 </script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/psychiatric;pos=sky1;sz=120x600,160x600;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/psychiatric;pos=sky1;sz=120x600,160x600;ord=123456789?" border="0" alt="" /></a></noscript>
+<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=sky1;sz=120x600,160x600;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=sky1;sz=120x600,160x600;ord=123456789?" border="0" alt="" /></a></noscript>
 <!-- end ad tag -->
 ',
-      'format' => '2',
+      'format' => '4',
       'substitute' => 1,
     );
     $pane->cache = array();
@@ -1318,13 +1318,13 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
 <script type="text/javascript">
 //<![CDATA[
 ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/psychiatric;pos=rec1;sz=300x250;ord=\' + ord + \'?"><\\/script>\');
+document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=rec1;sz=300x250;ord=\' + ord + \'?"><\\/script>\');
 //]]>
 </script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/psychiatric;pos=rec1;sz=300x250;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/psychiatric;pos=rec1;sz=300x250;ord=123456789?" border="0" alt="" /></a></noscript>
+<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=rec1;sz=300x250;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=rec1;sz=300x250;ord=123456789?" border="0" alt="" /></a></noscript>
 <!-- end ad tag -->
 ',
-      'format' => '2',
+      'format' => '4',
       'substitute' => 1,
     );
     $pane->cache = array();
