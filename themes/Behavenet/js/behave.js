@@ -1,14 +1,14 @@
 if (Drupal.jsEnabled) {
-  
+
   /*
    * Change the width and placement of the autocomplete popup
    */
   Drupal.jsAC.prototype._original_populatePopup = Drupal.jsAC.prototype.populatePopup;
   Drupal.jsAC.prototype.populatePopup = function () {
-    
+
     // Call the original routine
     this._original_populatePopup();
-    
+
     // Adjust width and placement of the autocomplete window
     var $popup = $(this.popup);
     $popup.css({
@@ -16,12 +16,12 @@ if (Drupal.jsEnabled) {
       marginLeft: (-1 * $popup.width()) + 'px'
     });
   };
-  
+
   Drupal.behaviors.behavenet = function() {
     behave_jump_menu_init($('select.jump-menu:not(processed)'));
     behave_collasible_menu_init($('ul.bef-tree:not(.processed)'), true);
     behave_collasible_menu_init($('.behavenet-collapsible-menu ul:not(processed)'), false);
-    
+
     // Handle Behavenet admin links
     $('.behavenet-admin-links').hover(
       function() {
@@ -46,11 +46,11 @@ if (Drupal.jsEnabled) {
       }
     );
   };
-  
+
   /*
    * Helper functions
    */
-  
+
   /**
    * Initialize jump menus that are not built by Views.
    */
@@ -60,7 +60,7 @@ if (Drupal.jsEnabled) {
       return false;
     });
   }
-  
+
   function behave_collasible_menu_init($elem, isBEF) {
     // options
     var o = {
@@ -142,5 +142,25 @@ if (Drupal.jsEnabled) {
         }
       });
     }
-  }  
+  }
+
+  /*
+   * Determines if we're displaying on a mobile device. This test is from
+   * Medica's ad network and misses many mobile devices. But it's the test they
+   * wanted us to use...
+   */
+  function behave_is_mobile() {
+    if ('undefined' == typeof Drupal.settings.behavenet) {
+      Drupal.settings.behavenet = {};
+    }
+    if ('undefined' == typeof Drupal.settings.behavenet.is_mobile) {
+      if (navigator.userAgent.match(/iphone|ipod|android/i)) {
+        Drupal.settings.behavenet.is_mobile = true;
+      }
+      else {
+        Drupal.settings.behavenet.is_mobile = false;
+      }
+    }
+    return Drupal.settings.behavenet.is_mobile;
+  }
 }

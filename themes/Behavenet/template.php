@@ -308,7 +308,6 @@ function behavenet_preprocess_panels_pane(&$vars) {
 
 }
 
-
 /**
  * Overrides function theme_noderelationships_backref_view provided by the
  * noderelationships module
@@ -499,7 +498,7 @@ function behavenet_get_ad_tag($node = NULL, $term = NULL) {
       drupal_set_message ("Admin: Ad tag for this page is $tag");
     }
   }
-  
+
   return $tag;
 }
 /*

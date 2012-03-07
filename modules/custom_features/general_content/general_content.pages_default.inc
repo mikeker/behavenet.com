@@ -675,8 +675,10 @@ print behavenet_build_jump_menu($items);
       'body' => '<!-- begin ad tag -->
 <script type="text/javascript">
 //<![CDATA[
+if (!behave_is_mobile()) {
 ord=Math.random()*10000000000000000;
 document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=bottom;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
+}
 //]]>
 </script>
 <noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=bottom;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=bottom;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
@@ -740,6 +742,29 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Mobile-only ads',
+      'title' => '',
+      'body' => '<script type="text/javascript">if(behave_is_mobile())document.write(\'\\x3cscript type="text/javascript" src="http://impel.mobiletheory.com/ad/mobiletheory.php?f=c&pid=NDY2">\\x3c/script>\');</script>',
+      'format' => '2',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-4'] = $pane;
+    $display->panels['header'][0] = 'new-4';
+    $pane = new stdClass;
+    $pane->pid = 'new-5';
+    $pane->panel = 'header';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
     $pane->access = array(
       'plugins' => array(
         0 => array(
@@ -758,8 +783,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
       'body' => '<!-- begin ad tag -->
 <script type="text/javascript">
 //<![CDATA[
+if (!behave_is_mobile()) {
 ord=Math.random()*10000000000000000;
 document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=top;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
+}
 //]]>
 </script>
 <noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=top;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=top;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
@@ -777,11 +804,11 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
       'css_class' => 'leaderboard-ad',
     );
     $pane->extras = array();
-    $pane->position = 0;
-    $display->content['new-4'] = $pane;
-    $display->panels['header'][0] = 'new-4';
+    $pane->position = 1;
+    $display->content['new-5'] = $pane;
+    $display->panels['header'][1] = 'new-5';
     $pane = new stdClass;
-    $pane->pid = 'new-5';
+    $pane->pid = 'new-6';
     $pane->panel = 'header';
     $pane->type = 'block';
     $pane->subtype = 'views--exp-search-default';
@@ -798,11 +825,11 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
-    $display->content['new-5'] = $pane;
-    $display->panels['header'][1] = 'new-5';
+    $pane->position = 2;
+    $display->content['new-6'] = $pane;
+    $display->panels['header'][2] = 'new-6';
     $pane = new stdClass;
-    $pane->pid = 'new-6';
+    $pane->pid = 'new-7';
     $pane->panel = 'header';
     $pane->type = 'block';
     $pane->subtype = 'menu-menu-main-tabs';
@@ -821,11 +848,11 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
       'css_class' => 'main-tabs',
     );
     $pane->extras = array();
-    $pane->position = 2;
-    $display->content['new-6'] = $pane;
-    $display->panels['header'][2] = 'new-6';
+    $pane->position = 3;
+    $display->content['new-7'] = $pane;
+    $display->panels['header'][3] = 'new-7';
     $pane = new stdClass;
-    $pane->pid = 'new-7';
+    $pane->pid = 'new-8';
     $pane->panel = 'header';
     $pane->type = 'pane_messages';
     $pane->subtype = 'pane_messages';
@@ -838,11 +865,11 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-7'] = $pane;
-    $display->panels['header'][3] = 'new-7';
+    $pane->position = 4;
+    $display->content['new-8'] = $pane;
+    $display->panels['header'][4] = 'new-8';
     $pane = new stdClass;
-    $pane->pid = 'new-8';
+    $pane->pid = 'new-9';
     $pane->panel = 'left_sidebar';
     $pane->type = 'page_logo';
     $pane->subtype = 'page_logo';
@@ -856,10 +883,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-8'] = $pane;
-    $display->panels['left_sidebar'][0] = 'new-8';
+    $display->content['new-9'] = $pane;
+    $display->panels['left_sidebar'][0] = 'new-9';
     $pane = new stdClass;
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-10';
     $pane->panel = 'left_sidebar';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -919,10 +946,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-9'] = $pane;
-    $display->panels['left_sidebar'][1] = 'new-9';
+    $display->content['new-10'] = $pane;
+    $display->panels['left_sidebar'][1] = 'new-10';
     $pane = new stdClass;
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-11';
     $pane->panel = 'left_sidebar';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -946,10 +973,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-10'] = $pane;
-    $display->panels['left_sidebar'][2] = 'new-10';
+    $display->content['new-11'] = $pane;
+    $display->panels['left_sidebar'][2] = 'new-11';
     $pane = new stdClass;
-    $pane->pid = 'new-11';
+    $pane->pid = 'new-12';
     $pane->panel = 'left_sidebar';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -972,8 +999,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
       'body' => '<!-- begin ad tag -->
 <script type="text/javascript">
 //<![CDATA[
+if (!behave_is_mobile()) {
 ord=Math.random()*10000000000000000;
 document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=sky1;sz=120x600,160x600;ord=\' + ord + \'?"><\\/script>\');
+}
 //]]>
 </script>
 <noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=sky1;sz=120x600,160x600;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=sky1;sz=120x600,160x600;ord=123456789?" border="0" alt="" /></a></noscript>
@@ -989,10 +1018,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 3;
-    $display->content['new-11'] = $pane;
-    $display->panels['left_sidebar'][3] = 'new-11';
+    $display->content['new-12'] = $pane;
+    $display->panels['left_sidebar'][3] = 'new-12';
     $pane = new stdClass;
-    $pane->pid = 'new-12';
+    $pane->pid = 'new-13';
     $pane->panel = 'main';
     $pane->type = 'page_title';
     $pane->subtype = 'page_title';
@@ -1027,10 +1056,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-12'] = $pane;
-    $display->panels['main'][0] = 'new-12';
+    $display->content['new-13'] = $pane;
+    $display->panels['main'][0] = 'new-13';
     $pane = new stdClass;
-    $pane->pid = 'new-13';
+    $pane->pid = 'new-14';
     $pane->panel = 'main';
     $pane->type = 'page_messages';
     $pane->subtype = 'page_messages';
@@ -1044,10 +1073,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-13'] = $pane;
-    $display->panels['main'][1] = 'new-13';
+    $display->content['new-14'] = $pane;
+    $display->panels['main'][1] = 'new-14';
     $pane = new stdClass;
-    $pane->pid = 'new-14';
+    $pane->pid = 'new-15';
     $pane->panel = 'main';
     $pane->type = 'page_content';
     $pane->subtype = 'page_content';
@@ -1068,10 +1097,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-14'] = $pane;
-    $display->panels['main'][2] = 'new-14';
+    $display->content['new-15'] = $pane;
+    $display->panels['main'][2] = 'new-15';
     $pane = new stdClass;
-    $pane->pid = 'new-15';
+    $pane->pid = 'new-16';
     $pane->panel = 'main_callout';
     $pane->type = 'panels_mini';
     $pane->subtype = 'people_callout';
@@ -1104,10 +1133,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-15'] = $pane;
-    $display->panels['main_callout'][0] = 'new-15';
+    $display->content['new-16'] = $pane;
+    $display->panels['main_callout'][0] = 'new-16';
     $pane = new stdClass;
-    $pane->pid = 'new-16';
+    $pane->pid = 'new-17';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_general_asin';
@@ -1141,10 +1170,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $display->content['new-16'] = $pane;
-    $display->panels['main_callout'][1] = 'new-16';
+    $display->content['new-17'] = $pane;
+    $display->panels['main_callout'][1] = 'new-17';
     $pane = new stdClass;
-    $pane->pid = 'new-17';
+    $pane->pid = 'new-18';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_generic_graphic';
@@ -1182,10 +1211,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
-    $display->content['new-17'] = $pane;
-    $display->panels['main_callout'][2] = 'new-17';
+    $display->content['new-18'] = $pane;
+    $display->panels['main_callout'][2] = 'new-18';
     $pane = new stdClass;
-    $pane->pid = 'new-18';
+    $pane->pid = 'new-19';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_drug_image';
@@ -1218,10 +1247,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 3;
-    $display->content['new-18'] = $pane;
-    $display->panels['main_callout'][3] = 'new-18';
+    $display->content['new-19'] = $pane;
+    $display->panels['main_callout'][3] = 'new-19';
     $pane = new stdClass;
-    $pane->pid = 'new-19';
+    $pane->pid = 'new-20';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_tt_extras_image';
@@ -1259,10 +1288,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 4;
-    $display->content['new-19'] = $pane;
-    $display->panels['main_callout'][4] = 'new-19';
+    $display->content['new-20'] = $pane;
+    $display->panels['main_callout'][4] = 'new-20';
     $pane = new stdClass;
-    $pane->pid = 'new-20';
+    $pane->pid = 'new-21';
     $pane->panel = 'main_callout';
     $pane->type = 'views_panes';
     $pane->subtype = 'Credit-panel_pane_1';
@@ -1291,10 +1320,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 5;
-    $display->content['new-20'] = $pane;
-    $display->panels['main_callout'][5] = 'new-20';
+    $display->content['new-21'] = $pane;
+    $display->panels['main_callout'][5] = 'new-21';
     $pane = new stdClass;
-    $pane->pid = 'new-21';
+    $pane->pid = 'new-22';
     $pane->panel = 'main_callout';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -1317,8 +1346,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
       'body' => '<!-- begin ad tag -->
 <script type="text/javascript">
 //<![CDATA[
+if (!behave_is_mobile()) {
 ord=Math.random()*10000000000000000;
 document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=rec1;sz=300x250;ord=\' + ord + \'?"><\\/script>\');
+}
 //]]>
 </script>
 <noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=rec1;sz=300x250;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=rec1;sz=300x250;ord=123456789?" border="0" alt="" /></a></noscript>
@@ -1334,10 +1365,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 6;
-    $display->content['new-21'] = $pane;
-    $display->panels['main_callout'][6] = 'new-21';
+    $display->content['new-22'] = $pane;
+    $display->panels['main_callout'][6] = 'new-22';
     $pane = new stdClass;
-    $pane->pid = 'new-22';
+    $pane->pid = 'new-23';
     $pane->panel = 'main_callout';
     $pane->type = 'panels_mini';
     $pane->subtype = 'goodtherapy_250_160';
@@ -1354,10 +1385,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 7;
-    $display->content['new-22'] = $pane;
-    $display->panels['main_callout'][7] = 'new-22';
+    $display->content['new-23'] = $pane;
+    $display->panels['main_callout'][7] = 'new-23';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-8';
+  $display->title_pane = 'new-9';
   $handler->conf['display'] = $display;
   $export['site_template_panel_context'] = $handler;
 

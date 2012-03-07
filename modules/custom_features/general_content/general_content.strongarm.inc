@@ -9,6 +9,27 @@ function general_content_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ant_device';
+  $strongarm->value = '0';
+  $export['ant_device'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_compound';
+  $strongarm->value = '0';
+  $export['ant_compound'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_company';
+  $strongarm->value = '0';
+  $export['ant_company'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_pattern';
   $strongarm->value = '[title-raw]';
   $export['pathauto_node_pattern'] = $strongarm;
@@ -82,55 +103,6 @@ function general_content_strongarm() {
   $strongarm->name = 'pathauto_node_sources_pattern';
   $strongarm->value = '';
   $export['pathauto_node_sources_pattern'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_forum_pattern';
-  $strongarm->value = '';
-  $export['pathauto_node_forum_pattern'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_image_pattern';
-  $strongarm->value = '';
-  $export['pathauto_node_image_pattern'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_story_pattern';
-  $strongarm->value = '';
-  $export['pathauto_node_story_pattern'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_definition_pattern';
-  $strongarm->value = '';
-  $export['pathauto_node_definition_pattern'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'ant_company';
-  $strongarm->value = '0';
-  $export['ant_company'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'ant_compound';
-  $strongarm->value = '0';
-  $export['ant_compound'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'ant_device';
-  $strongarm->value = '0';
-  $export['ant_device'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -780,6 +752,22 @@ function general_content_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'content_extra_weights_page';
+  $strongarm->value = array(
+    'title' => '-5',
+    'body_field' => '-3',
+    'revision_information' => '0',
+    'author' => '-1',
+    'options' => '1',
+    'comment_settings' => '2',
+    'menu' => '-4',
+    'path' => '3',
+  );
+  $export['content_extra_weights_page'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'content_extra_weights_people';
   $strongarm->value = array(
     'title' => '-5',
@@ -913,6 +901,34 @@ function general_content_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_definition_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_definition_pattern'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_forum_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_forum_pattern'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_image_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_image_pattern'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_story_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_story_pattern'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'show_diff_inline_device';
   $strongarm->value = 0;
   $export['show_diff_inline_device'] = $strongarm;
@@ -923,22 +939,6 @@ function general_content_strongarm() {
   $strongarm->name = 'show_preview_changes_device';
   $strongarm->value = 1;
   $export['show_preview_changes_device'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'content_extra_weights_page';
-  $strongarm->value = array(
-    'title' => '-5',
-    'body_field' => '-3',
-    'revision_information' => '0',
-    'author' => '-1',
-    'options' => '1',
-    'comment_settings' => '2',
-    'menu' => '-4',
-    'path' => '3',
-  );
-  $export['content_extra_weights_page'] = $strongarm;
 
   return $export;
 }
