@@ -9,6 +9,13 @@ function terms_display_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ant_credit';
+  $strongarm->value = '0';
+  $export['ant_credit'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_tax_tweaks_extras_pattern';
   $strongarm->value = 'node/[nid]';
   $export['pathauto_node_tax_tweaks_extras_pattern'] = $strongarm;
@@ -75,27 +82,6 @@ function terms_display_strongarm() {
   $strongarm->name = 'pathauto_taxonomy_5_pattern';
   $strongarm->value = '';
   $export['pathauto_taxonomy_5_pattern'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_taxonomy_1_pattern';
-  $strongarm->value = 'chemical-class/[catpath-raw]';
-  $export['pathauto_taxonomy_1_pattern'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_term_pattern';
-  $strongarm->value = 'terms/[title-raw]';
-  $export['pathauto_node_term_pattern'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'ant_credit';
-  $strongarm->value = '0';
-  $export['ant_credit'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -545,6 +531,20 @@ function terms_display_strongarm() {
     0 => 'revision',
   );
   $export['node_options_tax_tweaks_extras'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_term_pattern';
+  $strongarm->value = 'terms/[title-raw]';
+  $export['pathauto_node_term_pattern'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_1_pattern';
+  $strongarm->value = 'chemical-class/[catpath-raw]';
+  $export['pathauto_taxonomy_1_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

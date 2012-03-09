@@ -897,46 +897,46 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
       'title' => 'Glossaries',
       'body' => '<div class="behavenet-collapsible-menu">
 <ul>
-  <li><a href="/taxonomy/term/6678">Addiction</a>
+  <li><a href="<?php print url(\'taxonomy/term/6678\'); ?>">Addiction</a>
     <ul>
-      <li><a href="/taxonomy/term/6663">Recovery</a>
+      <li><a href="<?php print url(\'taxonomy/term/6663\'); ?>">Recovery</a>
         <ul>
-          <li><a href="/taxonomy/term/10770">12 Step talk</a></li>
+          <li><a href="<?php print url(\'taxonomy/term/10770\'); ?>">12 Step talk</a></li>
         </ul>
       </li>
     </ul>
   </li>
-  <li><a href="/taxonomy/term/7558">Forensic</a></li>
-  <li><a href="/taxonomy/term/7814">HIPAA</a></li>
-  <li><a href="/taxonomy/term/7885">Memory</a></li>
-  <li><a href="/taxonomy/term/8171">Pharmacology</a></li>
-  <li><a href="/taxonomy/term/8041">Psychopathology</a></li>
-  <li><a href="/taxonomy/term/7084">Psychotherapy</a>
+  <li><a href="<?php print url(\'taxonomy/term/7558\'); ?>">Forensic</a></li>
+  <li><a href="<?php print url(\'taxonomy/term/7814\'); ?>">HIPAA</a></li>
+  <li><a href="<?php print url(\'taxonomy/term/7885\'); ?>">Memory</a></li>
+  <li><a href="<?php print url(\'taxonomy/term/8171\'); ?>">Pharmacology</a></li>
+  <li><a href="<?php print url(\'taxonomy/term/8041\'); ?>">Psychopathology</a></li>
+  <li><a href="<?php print url(\'taxonomy/term/7084\'); ?>">Psychotherapy</a>
     <ul>
-      <li><a href="/taxonomy/term/8207">Adlerian (Individual) Psychology</a></li>
-      <li><a href="/taxonomy/term/8654">Cognitive Behavior Therapy</a></li>
-      <li><a href="/taxonomy/term/9120">Eye Movement Desensitization &amp; Reprocessing</a></li>
-      <li><a href="/taxonomy/term/8798">Family Psychotherapy</a></li>
-      <li><a href="/taxonomy/term/8947">Gestalt Therapy</a></li>
-      <li><a href="/taxonomy/term/9127">Internal Family Systems</a></li>
-      <li><a href="/taxonomy/term/9018">Jungian</a></li>
-      <li><a href="/taxonomy/term/9061">Narrative</a></li>
-      <li><a href="/taxonomy/term/11331">Psychoanalytic</a></li>
-      <li><a href="/taxonomy/term/8603">Psychodynamic</a></li>
-      <li><a href="/taxonomy/term/9140">Transactional Analysis</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/8207\'); ?>">Adlerian (Individual) Psychology</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/8654\'); ?>">Cognitive Behavior Therapy</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/9120\'); ?>">Eye Movement Desensitization &amp; Reprocessing</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/8798\'); ?>">Family Psychotherapy</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/8947\'); ?>">Gestalt Therapy</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/9127\'); ?>">Internal Family Systems</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/9018\'); ?>">Jungian</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/9061\'); ?>">Narrative</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/11331\'); ?>">Psychoanalytic</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/8603\'); ?>">Psychodynamic</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/9140\'); ?>">Transactional Analysis</a></li>
     </ul>
   </li>
-  <li><a href="/taxonomy/term/8520">Reimbursement</a></li>
-  <li><a href="/taxonomy/term/8349">Sleep Medicine</a>
+  <li><a href="<?php print url(\'taxonomy/term/8520\'); ?>">Reimbursement</a></li>
+  <li><a href="<?php print url(\'taxonomy/term/8349\'); ?>">Sleep Medicine</a>
     <ul>
-      <li><a href="/taxonomy/term/7627">Chronobiology</a></li>
-      <li><a href="/taxonomy/term/6831">EEG</a></li>
-      <li><a href="/taxonomy/term/6847">Polysomnography</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/7627\'); ?>">Chronobiology</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/6831\'); ?>">EEG</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/6847\'); ?>">Polysomnography</a></li>
     </ul>
   </li>
-  <li><a href="/taxonomy/term/7481">Stuttering</a></li>
+  <li><a href="<?php print url(\'taxonomy/term/7481\'); ?>">Stuttering</a></li>
 </ul></div>',
-      'format' => '2',
+      'format' => '4',
       'substitute' => 1,
     );
     $pane->cache = array();

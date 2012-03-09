@@ -394,11 +394,11 @@ if (count($children) <= 10) {
 }
 else {
   // Longer lists output as dropdowns
-  $return = \'<select class="jump-menu">\';
+  $items = array();
   foreach ($children as $term) {
-    $return .= \'<option value="/taxonomy/term/\'. $term->tid . \'">\' . $term->name . \'</option>\';
+    $items[url("taxonomy/term/$term->tid")] = $term->name;
   }
-  $return .= \'</select>\';
+  $return = behavenet_build_jump_menu($items);
 }
 
 return $return;
