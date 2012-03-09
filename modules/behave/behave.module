@@ -48,6 +48,7 @@ function behave_menu() {
     'title' => 'Page not found',
     'page callback' => 'behavenet_not_found',
     'access arguments' => array('access content'),
+    'page arguments' => array(2),
     'type' => MENU_CALLBACK,
   );
 
@@ -409,19 +410,34 @@ function hook_ckeditor_link_TYPE_settings() {
  *****************************************************************************/
 
 /**
- * Attempts to redirect page not found URLs.  Mostly these will be legacy links 
+ * Attempts to redirect page not found URLs.  Mostly these will be legacy links
  * pointing to the old site.  If an exact match is found, it will add it to the
  * path aliases table
+ *
+ * Note: This relies on the following rule appearing the site's .htaccess file
+ * just about the main Drupal RewriteCond lines
+ *
+  # Rewrite old behavenet.com URLs to point to our new URL lookup function
+  RewriteCond %{REQUEST_URI} \.htm$
+  RewriteRule ^(.*)$ index.php?q=behavenet/not_found/$1 [L,QSA]
+ *
  */
 function behavenet_not_found() {
-  $full = check_plain($_SERVER['REQUEST_URI']);
+  $args = arg();
+
+  // remove 'behavenet' and 'not_found' from the path
+  array_shift($args);
+  array_shift($args);
+  $uri = implode('/', $args);
+
+  $full = check_plain($uri);
   $base = basename($full);
   $pos = strpos($base, '.htm');
   $term = $base;
   if ($pos) {
     $term = substr($base, 0, $pos);
-  } 
-  
+  }
+
   // Check URLs table to see if we have a full string match
   $found = array();
   $results = db_query("
@@ -432,7 +448,7 @@ function behavenet_not_found() {
   while ($row = db_fetch_object($results)) {
     $found[] = $row;
   }
-  
+
   // If we didn't get an exact match, try matching from the basename
   if (!count($found)) {
     $results = db_query("
@@ -459,10 +475,10 @@ function behavenet_not_found() {
         $links[] = l($node->title, "node/$node->nid");
       }
     }
-    
+
     $output = '
       <p>The page you are looking for no longer exists or has moved. Here are some possible
-      options or you can use the search box, above.</p> 
+      options or you can use the search box, above.</p>
     ';
     $output .= '<ul><li>';
     $output .= implode('</li><li>', $links);
@@ -473,7 +489,7 @@ function behavenet_not_found() {
     // We found exactly one option for redirection. Use it.
     $master = $found[0];
   }
-    
+
   if (!empty($master)) {
     // Use the $master info to redirect the user to the correct node/term
     $src = '';
@@ -495,7 +511,7 @@ function behavenet_not_found() {
   else {
     $output = '
       <p>The page you are looking for does not exist. Please use the search field
-      above to search this site.</p> 
+      above to search this site.</p>
     ';
     return $output;
   }
@@ -576,7 +592,7 @@ function behavenet_get_generic_breadcrumbs($nid) {
   ", $nid))) {
     return NULL;
   }
-    
+
   $results = db_query("
     SELECT n.nid, n.title FROM {node} AS n
     INNER JOIN {content_type_drug} AS d
@@ -594,7 +610,7 @@ function behavenet_get_generic_breadcrumbs($nid) {
     $output = '<div class="field"><div class="field-items"><div class="field-item"><div class="field-label-inline-first">Tradenames </div>';
     $output .= '<select class="jump-menu"><option selected>- Choose -</option>';
     foreach ($crumbs as $option => $url) {
-      $output .= "<option value=\"$url\">$option</option>"; 
+      $output .= "<option value=\"$url\">$option</option>";
     }
     $output .= '</select>';
     $output .= '</div></div></div>';
