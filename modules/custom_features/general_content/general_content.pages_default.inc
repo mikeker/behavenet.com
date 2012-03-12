@@ -303,11 +303,12 @@ print behavenet_list_acronyms();
     $pane->access = array(
       'plugins' => array(
         0 => array(
-          'name' => 'php',
+          'name' => 'path_visibility',
           'settings' => array(
-            'description' => 'NID == 27648 (Disorders)',
-            'php' => 'return (isset($contexts[\'argument_nid_1\']) && $contexts[\'argument_nid_1\']->data->nid == 27648);',
+            'visibility_setting' => '1',
+            'paths' => 'node/27648',
           ),
+          'context' => 'empty',
           'not' => FALSE,
         ),
       ),
@@ -453,36 +454,8 @@ print behavenet_display_term_children(7358);
     $pane = new stdClass;
     $pane->pid = 'new-14';
     $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'Directory-panel_pane_2';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'php',
-          'settings' => array(
-            'description' => 'Resources? (nid == 27647)',
-            'php' => 'return (isset($contexts[\'argument_nid_1\']) && $contexts[\'argument_nid_1\']->data->nid == 27647);',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 13;
-    $display->content['new-14'] = $pane;
-    $display->panels['middle'][13] = 'new-14';
-    $pane = new stdClass;
-    $pane->pid = 'new-15';
-    $pane->panel = 'middle';
     $pane->type = 'panels_mini';
-    $pane->subtype = 'home_page';
+    $pane->subtype = 'goodtherapy_250_160';
     $pane->shown = TRUE;
     $pane->access = array(
       'plugins' => array(
@@ -490,7 +463,7 @@ print behavenet_display_term_children(7358);
           'name' => 'path_visibility',
           'settings' => array(
             'visibility_setting' => '1',
-            'paths' => '<front>',
+            'paths' => 'node/27647',
           ),
           'context' => 'empty',
           'not' => FALSE,
@@ -507,6 +480,35 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
+    $pane->position = 13;
+    $display->content['new-14'] = $pane;
+    $display->panels['middle'][13] = 'new-14';
+    $pane = new stdClass;
+    $pane->pid = 'new-15';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Directory-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'node/27647',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
     $pane->position = 14;
     $display->content['new-15'] = $pane;
     $display->panels['middle'][14] = 'new-15';
@@ -514,7 +516,7 @@ print behavenet_display_term_children(7358);
     $pane->pid = 'new-16';
     $pane->panel = 'middle';
     $pane->type = 'panels_mini';
-    $pane->subtype = 'opinion_and_movies';
+    $pane->subtype = 'home_page';
     $pane->shown = TRUE;
     $pane->access = array(
       'plugins' => array(
@@ -545,6 +547,38 @@ print behavenet_display_term_children(7358);
     $pane = new stdClass;
     $pane->pid = 'new-17';
     $pane->panel = 'middle';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'opinion_and_movies';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => '<front>',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 16;
+    $display->content['new-17'] = $pane;
+    $display->panels['middle'][16] = 'new-17';
+    $pane = new stdClass;
+    $pane->pid = 'new-18';
+    $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'People-panel_pane_1';
     $pane->shown = TRUE;
@@ -568,11 +602,11 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 16;
-    $display->content['new-17'] = $pane;
-    $display->panels['middle'][16] = 'new-17';
+    $pane->position = 17;
+    $display->content['new-18'] = $pane;
+    $display->panels['middle'][17] = 'new-18';
     $pane = new stdClass;
-    $pane->pid = 'new-18';
+    $pane->pid = 'new-19';
     $pane->panel = 'middle';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -609,9 +643,9 @@ print behavenet_build_jump_menu($items);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 17;
-    $display->content['new-18'] = $pane;
-    $display->panels['middle'][17] = 'new-18';
+    $pane->position = 18;
+    $display->content['new-19'] = $pane;
+    $display->panels['middle'][18] = 'new-19';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -1367,26 +1401,6 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->position = 6;
     $display->content['new-22'] = $pane;
     $display->panels['main_callout'][6] = 'new-22';
-    $pane = new stdClass;
-    $pane->pid = 'new-23';
-    $pane->panel = 'main_callout';
-    $pane->type = 'panels_mini';
-    $pane->subtype = 'goodtherapy_250_160';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 7;
-    $display->content['new-23'] = $pane;
-    $display->panels['main_callout'][7] = 'new-23';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-9';
   $handler->conf['display'] = $display;
