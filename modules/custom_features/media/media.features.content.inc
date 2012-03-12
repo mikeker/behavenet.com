@@ -752,7 +752,7 @@ function media_content_default_fields() {
     'field_name' => 'field_general_terms',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '9',
+      'weight' => '12',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -803,7 +803,7 @@ function media_content_default_fields() {
       'group_parent' => '0',
       'show_depth' => 1,
       'label' => 'Terms',
-      'weight' => '9',
+      'weight' => '12',
       'description' => '',
       'type' => 'content_taxonomy_autocomplete',
       'module' => 'content_taxonomy_autocomplete',
@@ -1131,6 +1131,69 @@ function media_content_default_fields() {
     ),
   );
 
+  // Exported field: field_movie_spoiler
+  $fields['movie-field_movie_spoiler'] = array(
+    'field_name' => 'field_movie_spoiler',
+    'type_name' => 'movie',
+    'display_settings' => array(
+      'weight' => '9',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'number_integer',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'number',
+    'active' => '1',
+    'prefix' => '',
+    'suffix' => '',
+    'min' => '',
+    'max' => '',
+    'allowed_values' => '0
+1|<span class="spoiler">Spoiler alert!</span>',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'value' => 0,
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Spoiler alert',
+      'weight' => '9',
+      'description' => '',
+      'type' => 'optionwidgets_onoff',
+      'module' => 'optionwidgets',
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Actors');
@@ -1144,6 +1207,7 @@ function media_content_default_fields() {
   t('Facebook page');
   t('Published');
   t('Related content');
+  t('Spoiler alert');
   t('Terms');
   t('Twitter Hashtag');
   t('Year Released');
