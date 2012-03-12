@@ -24,7 +24,7 @@ function behavenet_preprocess_content_field(&$vars) {
       . '/images/blogger.png" alt="Blogger icon" title="Read a blog entry about this movie" />'
       . ' Movies, Drugs and Psychiatry</span>',
     'field_general_facebook_page' => 'Facebook page',
-    'field_general_twitter_hashtag' => '%value'
+    'field_general_twitter' => '%value'
   );
   if (in_array($vars['field_name'], array_keys($convert))) {
     // Convert to a clickable link
@@ -36,8 +36,14 @@ function behavenet_preprocess_content_field(&$vars) {
       // Movie blog is an image.
       $options['html'] = TRUE;
     }
-    if ('field_general_twitter_hashtag') {
-      $url = "https://twitter.com/$url";
+    if ('field_general_twitter' == $vars['field_name']) {
+      // @hashtag goes to Twitter, #hashtag goes to TweetChat
+      if ('#' == substr($url, 0, 1)) {
+        $url = 'http://tweetchat.com/room/' . substr($url, 1);
+      }
+      else if ('@' == substr($url, 0, 1)) {
+        $url = "https://twitter.com/$url";
+      }
     }
     
     // Protect from poorly formed URLs

@@ -670,7 +670,7 @@ function media_content_default_fields() {
     'field_name' => 'field_general_related_content',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '8',
+      'weight' => '11',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -810,9 +810,9 @@ function media_content_default_fields() {
     ),
   );
 
-  // Exported field: field_general_twitter_hashtag
-  $fields['movie-field_general_twitter_hashtag'] = array(
-    'field_name' => 'field_general_twitter_hashtag',
+  // Exported field: field_general_twitter
+  $fields['movie-field_general_twitter'] = array(
+    'field_name' => 'field_general_twitter',
     'type_name' => 'movie',
     'display_settings' => array(
       'weight' => '2',
@@ -861,13 +861,13 @@ function media_content_default_fields() {
       'default_value' => array(
         '0' => array(
           'value' => '',
-          '_error_element' => 'default_value_widget][field_general_twitter_hashtag][0][value',
+          '_error_element' => 'default_value_widget][field_general_twitter][0][value',
         ),
       ),
       'default_value_php' => NULL,
-      'label' => 'Twitter Hashtag',
+      'label' => 'Twitter',
       'weight' => '2',
-      'description' => 'Be sure to include the initial \'#\' character (eg: <i>#hashtag</i>).',
+      'description' => 'Enter a TweetChat hashtag (eg: <i>#movie-name</i>, including the \'#\' character) or a Twitter user (eg: <i>@movie-name</i>, including the \'@\' character).',
       'type' => 'text_textfield',
       'module' => 'text',
     ),
@@ -941,7 +941,7 @@ function media_content_default_fields() {
     'field_name' => 'field_movie_blog',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '10',
+      'weight' => '9',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -1004,7 +1004,7 @@ function media_content_default_fields() {
     'field_name' => 'field_movie_blog_entry',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '11',
+      'weight' => '10',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -1136,7 +1136,7 @@ function media_content_default_fields() {
     'field_name' => 'field_movie_spoiler',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '9',
+      'weight' => '8',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -1209,7 +1209,7 @@ function media_content_default_fields() {
   t('Related content');
   t('Spoiler alert');
   t('Terms');
-  t('Twitter Hashtag');
+  t('Twitter');
   t('Year Released');
 
   return $fields;
