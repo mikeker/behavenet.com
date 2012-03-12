@@ -88,7 +88,7 @@ function behavenet_preprocess_content_field(&$vars) {
 
   // Rewrite secondary Amazon links
   if ('field_general_additional_asin' == $vars['field_name'] && 'inline' == $vars['element']['items'][0]['#formatter']) {
-    $vars['label'] = 'Other formats ';
+    $vars['label'] = 'Other formats';
   }
 
   // Avoid overly long lists of slang terms taking over the page
@@ -164,6 +164,13 @@ function behavenet_preprocess_content_field(&$vars) {
       }
       $vars['items'][$index]['view'] .= l($indication->title, "node/$indication->nid");
     }
+  }
+
+  /*
+   * Movie display adjustments
+   */
+  if ('field_movie_release' == $vars['field_name']) {
+    $vars['label'] = 'Released';
   }
 
   /*
