@@ -432,7 +432,7 @@ function media_content_default_fields() {
     'field_name' => 'field_chemical_class',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '4',
+      'weight' => '7',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -483,10 +483,66 @@ function media_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Chemical Class',
-      'weight' => '5',
+      'weight' => '7',
       'description' => '',
       'type' => 'content_taxonomy_select',
       'module' => 'content_taxonomy_options',
+    ),
+  );
+
+  // Exported field: field_general_additional_asin
+  $fields['movie-field_general_additional_asin'] = array(
+    'field_name' => 'field_general_additional_asin',
+    'type_name' => 'movie',
+    'display_settings' => array(
+      'weight' => '4',
+      'parent' => '',
+      'label' => array(
+        'format' => 'inline',
+      ),
+      'teaser' => array(
+        'format' => 'inline',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'inline',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'asin',
+    'required' => '0',
+    'multiple' => '1',
+    'module' => 'asin',
+    'active' => '1',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'asin' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Additional ASINs',
+      'weight' => '4',
+      'description' => 'Use these fields for additional ASINs associated with this movie entry, such as other movie formats or the book it was based on.',
+      'type' => 'asin_text',
+      'module' => 'asin',
     ),
   );
 
@@ -495,7 +551,7 @@ function media_content_default_fields() {
     'field_name' => 'field_general_asin',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '-1',
+      'weight' => '3',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -539,10 +595,73 @@ function media_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Amazon ASIN',
-      'weight' => '4',
-      'description' => '',
+      'weight' => '3',
+      'description' => 'Enter the primary ASIN associated with this movie.',
       'type' => 'asin_text',
       'module' => 'asin',
+    ),
+  );
+
+  // Exported field: field_general_facebook_page
+  $fields['movie-field_general_facebook_page'] = array(
+    'field_name' => 'field_general_facebook_page',
+    'type_name' => 'movie',
+    'display_settings' => array(
+      'weight' => '1',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '0',
+    'max_length' => '',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'rows' => 5,
+      'size' => '60',
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+          '_error_element' => 'default_value_widget][field_general_facebook_page][0][value',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Facebook page',
+      'weight' => '1',
+      'description' => 'Enter the URL of this movie\'s Facebook page. Be sure to include <i>http://</i>.',
+      'type' => 'text_textfield',
+      'module' => 'text',
     ),
   );
 
@@ -551,7 +670,7 @@ function media_content_default_fields() {
     'field_name' => 'field_general_related_content',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '5',
+      'weight' => '8',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -621,7 +740,7 @@ function media_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Related content',
-      'weight' => '6',
+      'weight' => '8',
       'description' => '',
       'type' => 'nodereference_autocomplete',
       'module' => 'nodereference',
@@ -633,7 +752,7 @@ function media_content_default_fields() {
     'field_name' => 'field_general_terms',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '6',
+      'weight' => '9',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -684,10 +803,73 @@ function media_content_default_fields() {
       'group_parent' => '0',
       'show_depth' => 1,
       'label' => 'Terms',
-      'weight' => '7',
+      'weight' => '9',
       'description' => '',
       'type' => 'content_taxonomy_autocomplete',
       'module' => 'content_taxonomy_autocomplete',
+    ),
+  );
+
+  // Exported field: field_general_twitter_hashtag
+  $fields['movie-field_general_twitter_hashtag'] = array(
+    'field_name' => 'field_general_twitter_hashtag',
+    'type_name' => 'movie',
+    'display_settings' => array(
+      'weight' => '2',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '0',
+    'max_length' => '',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'rows' => 5,
+      'size' => '60',
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+          '_error_element' => 'default_value_widget][field_general_twitter_hashtag][0][value',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Twitter Hashtag',
+      'weight' => '2',
+      'description' => 'Be sure to include the initial \'#\' character (eg: <i>#hashtag</i>).',
+      'type' => 'text_textfield',
+      'module' => 'text',
     ),
   );
 
@@ -696,7 +878,7 @@ function media_content_default_fields() {
     'field_name' => 'field_movie_actors',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '1',
+      'weight' => '5',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -747,7 +929,7 @@ function media_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Actors',
-      'weight' => '1',
+      'weight' => '5',
       'description' => '',
       'type' => 'text_textfield',
       'module' => 'text',
@@ -759,7 +941,7 @@ function media_content_default_fields() {
     'field_name' => 'field_movie_blog',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '3',
+      'weight' => '10',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -809,10 +991,73 @@ function media_content_default_fields() {
         ),
       ),
       'default_value_php' => NULL,
-      'label' => 'Blog entry',
-      'weight' => '3',
+      'label' => 'Blog entry (Blogger.com)',
+      'weight' => '10',
       'description' => '',
       'type' => 'text_textfield',
+      'module' => 'text',
+    ),
+  );
+
+  // Exported field: field_movie_blog_entry
+  $fields['movie-field_movie_blog_entry'] = array(
+    'field_name' => 'field_movie_blog_entry',
+    'type_name' => 'movie',
+    'display_settings' => array(
+      'weight' => '11',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '1',
+    'max_length' => '',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'rows' => '5',
+      'size' => 60,
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+          '_error_element' => 'default_value_widget][field_movie_blog_entry][0][value',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Blog entry',
+      'weight' => '11',
+      'description' => '',
+      'type' => 'text_textarea',
       'module' => 'text',
     ),
   );
@@ -822,7 +1067,7 @@ function media_content_default_fields() {
     'field_name' => 'field_movie_release',
     'type_name' => 'movie',
     'display_settings' => array(
-      'weight' => '2',
+      'weight' => '6',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
@@ -879,7 +1124,7 @@ function media_content_default_fields() {
       'year_range' => '-100:+3',
       'label_position' => 'above',
       'label' => 'Year Released',
-      'weight' => '2',
+      'weight' => '6',
       'description' => '',
       'type' => 'date_select',
       'module' => 'date',
@@ -889,14 +1134,18 @@ function media_content_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Actors');
+  t('Additional ASINs');
   t('Amazon ASIN');
   t('Author First Name');
   t('Author Last Name');
   t('Blog entry');
+  t('Blog entry (Blogger.com)');
   t('Chemical Class');
+  t('Facebook page');
   t('Published');
   t('Related content');
   t('Terms');
+  t('Twitter Hashtag');
   t('Year Released');
 
   return $fields;

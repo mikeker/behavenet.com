@@ -23,23 +23,34 @@ function behavenet_preprocess_content_field(&$vars) {
       . drupal_get_path('theme', 'Behavenet')
       . '/images/blogger.png" alt="Blogger icon" title="Read a blog entry about this movie" />'
       . ' Movies, Drugs and Psychiatry</span>',
+    'field_general_facebook_page' => 'Facebook page',
+    'field_general_twitter_hashtag' => '%value'
   );
   if (in_array($vars['field_name'], array_keys($convert))) {
     // Convert to a clickable link
     $url = trim($vars['items'][0]['value']);
-    if (FALSE === stristr($url, 'http://')) {
-      $url = "http://$url";
-    }
+
+    // Some fields need special tweaking
     $options = array();
     if ('field_movie_blog' == $vars['field_name']) {
       // Movie blog is an image.
       $options['html'] = TRUE;
     }
+    if ('field_general_twitter_hashtag') {
+      $url = "https://twitter.com/$url";
+    }
+    
+    // Protect from poorly formed URLs
+    if (FALSE === stristr($url, 'http://') && FALSE === stristr($url, 'https://')) {
+      $url = "http://$url";
+    }
+    
     if (empty($convert[$vars['field_name']])) {
       $vars['items'][0]['view'] = l($vars['items'][0]['value'], $url, $options);
     }
     else {
-      $vars['items'][0]['view'] = l($convert[$vars['field_name']], $url, $options);
+      $text = str_replace('%value', $vars['items'][0]['view'], $convert[$vars['field_name']]);
+      $vars['items'][0]['view'] = l($text, $url, $options);
     }
   }
 
@@ -73,6 +84,11 @@ function behavenet_preprocess_content_field(&$vars) {
       $link = l('Buy from Amazon', $amzn['detailpageurl']);
     }
     $vars['items'][0]['view'] = $link;
+  }
+
+  // Rewrite secondary Amazon links
+  if ('field_general_additional_asin' == $vars['field_name'] && 'inline' == $vars['element']['items'][0]['#formatter']) {
+    $vars['label'] = 'Other formats ';
   }
 
   // Avoid overly long lists of slang terms taking over the page
