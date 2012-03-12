@@ -873,6 +873,67 @@ function media_content_default_fields() {
     ),
   );
 
+  // Exported field: field_general_twitter_hashtag
+  $fields['movie-field_general_twitter_hashtag'] = array(
+    'field_name' => 'field_general_twitter_hashtag',
+    'type_name' => 'movie',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'text',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'text',
+    'active' => '1',
+    'text_processing' => '0',
+    'max_length' => '',
+    'allowed_values' => '1
+3
+',
+    'allowed_values_php' => '',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'value' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'test',
+      'weight' => '20',
+      'description' => '',
+      'type' => 'optionwidgets_select',
+      'module' => 'optionwidgets',
+    ),
+  );
+
   // Exported field: field_movie_actors
   $fields['movie-field_movie_actors'] = array(
     'field_name' => 'field_movie_actors',
@@ -1211,6 +1272,7 @@ function media_content_default_fields() {
   t('Terms');
   t('Twitter');
   t('Year Released');
+  t('test');
 
   return $fields;
 }
