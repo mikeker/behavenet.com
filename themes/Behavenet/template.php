@@ -178,6 +178,11 @@ function behavenet_preprocess_content_field(&$vars) {
   if ('field_movie_release' == $vars['field_name']) {
     $vars['label'] = 'Released';
   }
+  if ('field_movie_spoiler' == $vars['field_name']) {
+    if (0 == $vars['items'][0]['safe']) {
+      $vars['field_empty'] = TRUE;
+    }
+  }
 
   /*
    * Rewrite display for noderelationship fields.

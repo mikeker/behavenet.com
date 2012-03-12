@@ -1142,11 +1142,11 @@ function media_content_default_fields() {
         'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'default',
+        'format' => 'unformatted',
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
+        'format' => 'unformatted',
         'exclude' => 0,
       ),
       '4' => array(
