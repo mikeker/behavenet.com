@@ -45,12 +45,12 @@ function behavenet_preprocess_content_field(&$vars) {
         $url = "https://twitter.com/$url";
       }
     }
-    
+
     // Protect from poorly formed URLs
     if (FALSE === stristr($url, 'http://') && FALSE === stristr($url, 'https://')) {
       $url = "http://$url";
     }
-    
+
     if (empty($convert[$vars['field_name']])) {
       $vars['items'][0]['view'] = l($vars['items'][0]['value'], $url, $options);
     }
@@ -179,8 +179,11 @@ function behavenet_preprocess_content_field(&$vars) {
     $vars['label'] = 'Released';
   }
   if ('field_movie_spoiler' == $vars['field_name']) {
-    if (0 == $vars['items'][0]['safe']) {
+    if (0 == $vars['items'][0]['value']) {
       $vars['field_empty'] = TRUE;
+    }
+    else {
+      $vars['items'][0]['view'] = '<span class="spoiler">Spoiler alert!</span>';
     }
   }
 

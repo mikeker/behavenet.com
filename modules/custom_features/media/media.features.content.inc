@@ -740,7 +740,7 @@ function media_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Related content',
-      'weight' => '11',
+      'weight' => '9',
       'description' => '',
       'type' => 'nodereference_autocomplete',
       'module' => 'nodereference',
@@ -803,7 +803,7 @@ function media_content_default_fields() {
       'group_parent' => '0',
       'show_depth' => 1,
       'label' => 'Terms',
-      'weight' => '12',
+      'weight' => '10',
       'description' => '',
       'type' => 'content_taxonomy_autocomplete',
       'module' => 'content_taxonomy_autocomplete',
@@ -870,67 +870,6 @@ function media_content_default_fields() {
       'description' => 'Enter a TweetChat hashtag (eg: <i>#movie-name</i>, including the \'#\' character) or a Twitter user (eg: <i>@movie-name</i>, including the \'@\' character).',
       'type' => 'text_textfield',
       'module' => 'text',
-    ),
-  );
-
-  // Exported field: field_general_twitter_hashtag
-  $fields['movie-field_general_twitter_hashtag'] = array(
-    'field_name' => 'field_general_twitter_hashtag',
-    'type_name' => 'movie',
-    'display_settings' => array(
-      'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
-      ),
-      'teaser' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '2' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '3' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      'token' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-    ),
-    'widget_active' => '1',
-    'type' => 'text',
-    'required' => '0',
-    'multiple' => '0',
-    'module' => 'text',
-    'active' => '1',
-    'text_processing' => '0',
-    'max_length' => '',
-    'allowed_values' => '1
-3
-',
-    'allowed_values_php' => '',
-    'widget' => array(
-      'default_value' => array(
-        '0' => array(
-          'value' => '',
-        ),
-      ),
-      'default_value_php' => NULL,
-      'label' => 'test',
-      'weight' => '20',
-      'description' => '',
-      'type' => 'optionwidgets_select',
-      'module' => 'optionwidgets',
     ),
   );
 
@@ -1053,7 +992,7 @@ function media_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Blog entry (Blogger.com)',
-      'weight' => '9',
+      'weight' => '11',
       'description' => '',
       'type' => 'text_textfield',
       'module' => 'text',
@@ -1116,7 +1055,7 @@ function media_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Blog entry',
-      'weight' => '10',
+      'weight' => '12',
       'description' => '',
       'type' => 'text_textarea',
       'module' => 'text',
@@ -1272,7 +1211,6 @@ function media_content_default_fields() {
   t('Terms');
   t('Twitter');
   t('Year Released');
-  t('test');
 
   return $fields;
 }
