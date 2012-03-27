@@ -212,7 +212,7 @@ function behave_update_index() {
     ORDER BY d.reindex ASC, t.tid ASC", 0, $limit);
 
   while ($term = db_fetch_object($result)) {
-    $text = '<h1>' . check_plain($term->name) . '</h1>';
+    $text = '<h1>' . check_plain(trim($term->name)) . '</h1>';
 
     // Update index
     search_index($term->tid, 'term', $text);
