@@ -577,10 +577,15 @@ function behavenet_get_term_ad_tag($term) {
     return $tags[$term->tid];
   }
 
-  // Check ancestors
+  // Check ancestors -- still need to go through the order specified in $tags
+  // since that goes from most specific to least specific
   $parents = taxonomy_get_parents_all($term->tid);
+  $ptids = array();
+  foreach ($parents as $parent) {
+    $ptids[] = $parent->tid;
+  }
   foreach ($tags as $tid => $tag) {
-    if (isset($parents[$tid])) {
+    if (in_array($tid, $ptids)) {
       return $tag;
     }
   }
