@@ -95,7 +95,7 @@ function behavenet_preprocess_content_field(&$vars) {
 
   // Rewrite secondary Amazon links
   if ('field_general_additional_asin' == $vars['field_name'] && 'inline' == $vars['element']['items'][0]['#formatter']) {
-    $vars['label'] = 'Other formats';
+    $vars['label'] = 'Read the book';
   }
 
   // Avoid overly long lists of slang terms taking over the page
