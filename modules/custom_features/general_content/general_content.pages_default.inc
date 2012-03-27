@@ -1280,6 +1280,45 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane = new stdClass;
     $pane->pid = 'new-20';
     $pane->panel = 'main_callout';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'terms_extras-panel_pane_3';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'term_vocabulary',
+          'settings' => array(
+            'vids' => array(
+              9 => 9,
+              3 => 3,
+              10 => 10,
+              12 => 12,
+              2 => 2,
+              5 => 5,
+            ),
+          ),
+          'context' => 'term',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'term',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $display->content['new-20'] = $pane;
+    $display->panels['main_callout'][3] = 'new-20';
+    $pane = new stdClass;
+    $pane->pid = 'new-21';
+    $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_drug_image';
     $pane->shown = TRUE;
@@ -1310,11 +1349,11 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
-    $display->content['new-20'] = $pane;
-    $display->panels['main_callout'][3] = 'new-20';
+    $pane->position = 4;
+    $display->content['new-21'] = $pane;
+    $display->panels['main_callout'][4] = 'new-21';
     $pane = new stdClass;
-    $pane->pid = 'new-21';
+    $pane->pid = 'new-22';
     $pane->panel = 'main_callout';
     $pane->type = 'content_field';
     $pane->subtype = 'field_tt_extras_image';
@@ -1351,11 +1390,11 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
-    $display->content['new-21'] = $pane;
-    $display->panels['main_callout'][4] = 'new-21';
+    $pane->position = 5;
+    $display->content['new-22'] = $pane;
+    $display->panels['main_callout'][5] = 'new-22';
     $pane = new stdClass;
-    $pane->pid = 'new-22';
+    $pane->pid = 'new-23';
     $pane->panel = 'main_callout';
     $pane->type = 'views_panes';
     $pane->subtype = 'Credit-panel_pane_1';
@@ -1383,11 +1422,11 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
-    $display->content['new-22'] = $pane;
-    $display->panels['main_callout'][5] = 'new-22';
+    $pane->position = 6;
+    $display->content['new-23'] = $pane;
+    $display->panels['main_callout'][6] = 'new-23';
     $pane = new stdClass;
-    $pane->pid = 'new-23';
+    $pane->pid = 'new-24';
     $pane->panel = 'main_callout';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -1428,9 +1467,9 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
-    $display->content['new-23'] = $pane;
-    $display->panels['main_callout'][6] = 'new-23';
+    $pane->position = 7;
+    $display->content['new-24'] = $pane;
+    $display->panels['main_callout'][7] = 'new-24';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-10';
   $handler->conf['display'] = $display;

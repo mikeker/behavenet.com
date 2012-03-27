@@ -253,37 +253,20 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     $pane = new stdClass;
     $pane->pid = 'new-5';
     $pane->panel = 'middle';
-    $pane->type = 'views';
-    $pane->subtype = 'terms_extras';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'terms_extras-panel_pane_2';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '10',
-      'pager_id' => '',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'default',
       'context' => array(
-        0 => 'argument_terms_1.tid',
+        0 => 'argument_terms_1',
       ),
-      'override_title' => 0,
-      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'terms-extras',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 4;
     $display->content['new-5'] = $pane;

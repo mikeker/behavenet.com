@@ -1651,7 +1651,7 @@ print implode(\'<hr />\', $output);
   $view->core = 0;
   $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-  $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler = $view->new_display('default', 'Default', 'default');
   $handler->override_option('fields', array(
     'field_tt_extras_image_fid' => array(
       'label' => '',
@@ -1758,9 +1758,11 @@ print implode(\'<hr />\', $output);
       'default_argument_user' => 0,
       'default_argument_php' => '',
       'validate_argument_node_type' => array(
+        'directory' => 0,
         'combinations' => 0,
         'company' => 0,
         'compound' => 0,
+        'device' => 0,
         'indication' => 0,
         'page' => 0,
         'people' => 0,
@@ -1769,12 +1771,12 @@ print implode(\'<hr />\', $output);
         'generic' => 0,
         'book' => 0,
         'movie' => 0,
+        'credit' => 0,
         'dsm' => 0,
         'dsm_caution' => 0,
+        'tax_tweaks_extras' => 0,
         'drug' => 0,
         'panel' => 0,
-        'directory' => 0,
-        'tax_tweaks_extras' => 0,
       ),
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
@@ -1782,17 +1784,32 @@ print implode(\'<hr />\', $output);
         9 => 9,
         3 => 3,
         10 => 10,
-        4 => 4,
+        12 => 12,
         2 => 2,
         5 => 5,
-        8 => 0,
         11 => 0,
-        7 => 0,
+        13 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
       'validate_user_restrict_roles' => 0,
       'validate_argument_php' => '',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'default_taxonomy_tid_term_page' => 0,
+      'default_taxonomy_tid_node' => 0,
+      'default_taxonomy_tid_limit' => 0,
+      'default_taxonomy_tid_vids' => array(
+        9 => 0,
+        3 => 0,
+        10 => 0,
+        11 => 0,
+        12 => 0,
+        2 => 0,
+        13 => 0,
+        5 => 0,
+      ),
     ),
   ));
   $handler->override_option('filters', array(
@@ -1821,7 +1838,7 @@ print implode(\'<hr />\', $output);
   ));
   $handler->override_option('header_format', '3');
   $handler->override_option('header_empty', 0);
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler = $view->new_display('panel_pane', 'Credit by Term', 'panel_pane_1');
   $handler->override_option('relationships', array(
     'field_tt_extras_credit_nid' => array(
       'label' => 'Credit',
@@ -1887,6 +1904,152 @@ print implode(\'<hr />\', $output);
   $handler->override_option('pane_category', array(
     'name' => 'View panes',
     'weight' => 0,
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => FALSE,
+    'items_per_page' => FALSE,
+    'offset' => FALSE,
+    'link_to_view' => FALSE,
+    'more_link' => FALSE,
+    'path_override' => FALSE,
+    'title_override' => FALSE,
+    'exposed_form' => FALSE,
+    'fields_override' => FALSE,
+  ));
+  $handler->override_option('argument_input', array(
+    'field_tt_extras_term_value' => array(
+      'type' => 'context',
+      'context' => 'term.tid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Term (field_tt_extras_term)',
+    ),
+  ));
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
+  $handler = $view->new_display('panel_pane', 'Outside Media by Term', 'panel_pane_2');
+  $handler->override_option('fields', array(
+    'field_outside_video_embed' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'link_to_node' => 0,
+      'label_type' => 'none',
+      'format' => 'video_video',
+      'multiple' => array(
+        'group' => TRUE,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => FALSE,
+      ),
+      'exclude' => 0,
+      'id' => 'field_outside_video_embed',
+      'table' => 'node_data_field_outside_video',
+      'field' => 'field_outside_video_embed',
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('pane_title', 'Outside Media by Term');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'Behavenet',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => FALSE,
+    'items_per_page' => FALSE,
+    'offset' => FALSE,
+    'link_to_view' => FALSE,
+    'more_link' => FALSE,
+    'path_override' => FALSE,
+    'title_override' => FALSE,
+    'exposed_form' => FALSE,
+    'fields_override' => FALSE,
+  ));
+  $handler->override_option('argument_input', array(
+    'field_tt_extras_term_value' => array(
+      'type' => 'context',
+      'context' => 'term.tid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Term (field_tt_extras_term)',
+    ),
+  ));
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
+  $handler = $view->new_display('panel_pane', 'Image by Term', 'panel_pane_3');
+  $handler->override_option('fields', array(
+    'field_tt_extras_image_fid' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'link_to_node' => 0,
+      'label_type' => 'none',
+      'format' => 'right_callout_image_default',
+      'multiple' => array(
+        'group' => TRUE,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => FALSE,
+      ),
+      'exclude' => 0,
+      'id' => 'field_tt_extras_image_fid',
+      'table' => 'node_data_field_tt_extras_image',
+      'field' => 'field_tt_extras_image_fid',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+  ));
+  $handler->override_option('pane_title', 'Image by Term');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'Behavenet',
+    'weight' => '0',
   ));
   $handler->override_option('allow', array(
     'use_pager' => FALSE,
