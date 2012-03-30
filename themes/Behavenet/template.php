@@ -101,6 +101,11 @@ function behavenet_preprocess_content_field(&$vars) {
 
   // Avoid overly long lists of slang terms taking over the page
   if ('field_gen_slang_terms' == $vars['field_name']) {
+    // Order list alphabetically
+    usort($vars['items'], function ($a, $b) {
+      return strnatcasecmp($a['value'], $b['value']);
+    });
+
     if (count($vars['items'] > 10)) {
       // Rewrite as dropdown list
       $output = '<select>';
