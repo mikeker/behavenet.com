@@ -69,11 +69,12 @@ function behavenet_preprocess_content_field(&$vars) {
     else {
       $company = node_load($vars['items'][0]['nid']);
       $url = $company->field_company_url[0]['value'];
+      $name = empty($company->title) ? 'Company Web site' : $company->title;
       if (0 !== strpos($url, 'http://')) {
         // Correct poorly formed URLs in the original dataset
         $url = "http://$url";
       }
-      $vars['items'][0]['view'] = l('Company Web site', $url, array('external' => TRUE));
+      $vars['items'][0]['view'] = l($name, $url, array('external' => TRUE));
     }
   }
 
