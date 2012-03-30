@@ -293,6 +293,15 @@ function behavenet_preprocess_content_field(&$vars) {
       if (1 == count($vars['items'])) {
         $vars['field_empty'] = TRUE;
       }
+      if (count($vars['items'] > 10)) {
+        // Rewrite as dropdown list
+        $output = '<select>';
+        foreach ($vars['items'] as $item) {
+          $output .= '<option>' . $item['view'] . '</option>';
+        }
+        $output .= '</select>';
+        $vars['items'] = array(0 => array('view' => $output));
+      }
     }
 
     // Rewrite output of generics to be similar to:
