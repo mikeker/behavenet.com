@@ -502,7 +502,7 @@ function behavenet_build_jump_menu($items, $sort_by_title = TRUE) {
   $output = '';
   if (count($items)) {
     if ($sort_by_title) {
-      asort($items);
+      natcasesort($items);
     }
     $output .= '<select class="jump-menu"><option selected>- Choose -</option>';
     foreach ($items as $url => $item) {
