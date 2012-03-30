@@ -802,6 +802,15 @@ return FALSE;',
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('sorts', array(
+    'title' => array(
+      'order' => 'ASC',
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'relationship' => 'none',
+    ),
+  ));
   $handler->override_option('filters', array(
     'status_extra' => array(
       'id' => 'status_extra',
