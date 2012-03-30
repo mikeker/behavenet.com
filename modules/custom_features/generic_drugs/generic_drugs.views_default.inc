@@ -184,20 +184,6 @@ function generic_drugs_views_default_views() {
   $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
-  $handler->override_option('relationships', array(
-    'field_generic_sources_nid' => array(
-      'label' => 'Sources',
-      'required' => 0,
-      'delta' => '-1',
-      'id' => 'field_generic_sources_nid',
-      'table' => 'node_data_field_generic_sources',
-      'field' => 'field_generic_sources_nid',
-      'override' => array(
-        'button' => 'Override',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
   $handler->override_option('fields', array(
     'title' => array(
       'label' => '',
@@ -327,7 +313,21 @@ function generic_drugs_views_default_views() {
     'choose' => '- Choose -',
     'default_value' => 0,
   ));
-  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler = $view->new_display('page', 'List of Generics', 'page_1');
+  $handler->override_option('relationships', array(
+    'field_generic_sources_nid' => array(
+      'label' => 'Sources',
+      'required' => 0,
+      'delta' => '-1',
+      'id' => 'field_generic_sources_nid',
+      'table' => 'node_data_field_generic_sources',
+      'field' => 'field_generic_sources_nid',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
   $handler->override_option('fields', array(
     'title' => array(
       'label' => 'Drug name',
@@ -517,7 +517,7 @@ function generic_drugs_views_default_views() {
     'name' => 'navigation',
   ));
   $handler = $view->new_display('panel_pane', 'Generics jump-menu', 'panel_pane_1');
-  $handler->override_option('pane_title', 'Generics jump-menu');
+  $handler->override_option('pane_title', 'All Generics jump-menu');
   $handler->override_option('pane_description', '');
   $handler->override_option('pane_category', array(
     'name' => 'Behavenet',
@@ -534,7 +534,16 @@ function generic_drugs_views_default_views() {
     'exposed_form' => 0,
     'fields_override' => 0,
   ));
-  $handler->override_option('argument_input', array());
+  $handler->override_option('argument_input', array(
+    'type' => array(
+      'type' => 'context',
+      'context' => 'node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Node: Type',
+    ),
+  ));
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
 

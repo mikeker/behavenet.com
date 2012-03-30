@@ -1720,11 +1720,11 @@ function general_content_content_default_fields() {
         'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'image_plain',
+        'format' => 'right_callout_image_default',
         'exclude' => 1,
       ),
       'full' => array(
-        'format' => 'image_plain',
+        'format' => 'right_callout_image_default',
         'exclude' => 1,
       ),
       '4' => array(
@@ -2653,7 +2653,7 @@ function general_content_content_default_fields() {
       'weight' => '12',
       'parent' => '',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -2757,7 +2757,7 @@ function general_content_content_default_fields() {
       'weight' => '17',
       'parent' => '',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -2809,7 +2809,7 @@ function general_content_content_default_fields() {
       'weight' => '14',
       'parent' => '',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -2861,7 +2861,7 @@ function general_content_content_default_fields() {
       'weight' => '16',
       'parent' => '',
       'label' => array(
-        'format' => 'above',
+        'format' => 'inline',
       ),
       'teaser' => array(
         'format' => 'default',

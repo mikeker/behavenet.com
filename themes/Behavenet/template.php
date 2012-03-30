@@ -203,6 +203,12 @@ function behavenet_preprocess_content_field(&$vars) {
         // Make it plural
         $vars['label'] .= 's';
       }
+      
+      // Swap out the Generics label for Molecular entity
+      if ('Generics' == $vars['label']) {
+        $vars['label'] = t('Molecular entity');
+      }
+      
       $vars['is_backref'] = TRUE;
     }
   }
