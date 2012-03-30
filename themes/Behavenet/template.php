@@ -1,4 +1,8 @@
 <?php
+function cmp_values($a, $b) {
+  return strnatcasecmp($a['value'], $b['value']);
+}
+
 /**
  * Preprocess function for CCK fields.
  *
@@ -102,9 +106,7 @@ function behavenet_preprocess_content_field(&$vars) {
   // Avoid overly long lists of slang terms taking over the page
   if ('field_gen_slang_terms' == $vars['field_name']) {
     // Order list alphabetically
-    usort($vars['items'], function ($a, $b) {
-      return strnatcasecmp($a['value'], $b['value']);
-    });
+    usort($vars['items'], 'cmp_values');
 
     if (count($vars['items'] > 10)) {
       // Rewrite as dropdown list
@@ -209,12 +211,12 @@ function behavenet_preprocess_content_field(&$vars) {
         // Make it plural
         $vars['label'] .= 's';
       }
-      
+
       // Swap out the Generics label for Molecular entity
       if ('Generics' == $vars['label']) {
         $vars['label'] = t('Molecular entity');
       }
-      
+
       $vars['is_backref'] = TRUE;
     }
   }

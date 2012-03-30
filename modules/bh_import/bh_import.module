@@ -458,6 +458,10 @@ function _bh_url_replace(&$string, &$error) {
 
 function bh_import_test() {
   ini_set('max_execution_time', 300);
+  bh_find_alias_dups();
+  exit;
+
+
   $success = $error = array();
   // $terms = build_lookup('terms');
   // dpr($terms); exit;
@@ -487,7 +491,7 @@ function bh_import_test() {
   dpr($data);
   dpr($fe);
   dpr(array_intersect_key($fe, $data));
-  
+
 
   dpr("done.");
   dpr(count($errors) . ' Errors:');
@@ -3422,7 +3426,34 @@ function array_nsearch($needle, array $haystack) {
 }
 
 
+function bh_find_alias_dups() {
+  $results = db_query("
+    SELECT * FROM {url_alias}
+    WHERE dst IS NOT NULL
+  ");
+  $dups = array();
+  $aliases = array();
+  while ($row = db_fetch_object($results)) {
+    $aliases[$row->dst] = $row->src;
+  }
 
+  foreach($aliases as $dst => $src) {
+    $root = preg_replace('/-\d+$/', '', $dst);
+    if ($root != $dst) {
+      if (!isset($aliases[$root])) {
+        // Probably a name with a number at the end, not a real dup
+        continue;
+      }
+      if (!isset($dups[$root])) {
+        // Add original alias
+        $dups[$root][] = array($root => $aliases[$root]);
+      }
+      $dups[$root][] = array($dst => $src);
+    }
+  }
+  dpr(count($dups) . ' possible dups.');
+  dpr($dups); exit;
+}
 
 
 ?>
