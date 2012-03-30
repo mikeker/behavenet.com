@@ -79,15 +79,18 @@ td {
   padding: @space-v @space-h;
   .rounded();
   width: @callout-width-inner;
-}
-#page-main-callout .field-type-filefield,
-#page-main-callout .field-field-general-asin,
-#page-main-callout h4
-{
-  text-align: center;
-}
-#page-main-callout select {
-  width: @callout-width-inner;
+
+  .field-type-filefield,
+  .field-field-general-asin,
+  h4
+  {
+    text-align: center;
+    margin-bottom: @space-v;
+  }
+
+  select {
+   width: @callout-width-inner;
+  }
 }
 
 /*
