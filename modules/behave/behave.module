@@ -607,7 +607,7 @@ function behavenet_get_generic_breadcrumbs($nid) {
   if (count($crumbs)) {
     // Sort alphabetically
     ksort($crumbs);
-    $output = '<div class="field"><div class="field-items"><div class="field-item"><div class="field-label-inline-first">Tradenames </div>';
+    $output = '<div class="field"><div class="field-items"><div class="field-item"><div class="field-label-inline-first">Brand names </div>';
     $output .= '<select class="jump-menu"><option selected>- Choose -</option>';
     foreach ($crumbs as $option => $url) {
       $output .= "<option value=\"$url\">$option</option>";
@@ -1208,6 +1208,9 @@ function _behavenet_tweak_types($type) {
 
     case 'generic':
       return 'Molecular entity';
+      
+    case 'drug':
+      return 'Brand';
 
     default:
       return ucwords($type);
