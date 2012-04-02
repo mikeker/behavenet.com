@@ -190,7 +190,7 @@ function general_content_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Sources',
+      'override_title_text' => 'Drug sources',
     );
     $pane->cache = array();
     $pane->style = array(
