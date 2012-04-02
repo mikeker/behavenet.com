@@ -502,7 +502,7 @@ function behavenet_settings_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_404';
-  $strongarm->value = 'behavenet/not_found';
+  $strongarm->value = 'node/28575';
   $export['site_404'] = $strongarm;
 
   $strongarm = new stdClass;

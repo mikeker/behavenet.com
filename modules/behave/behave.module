@@ -415,7 +415,7 @@ function hook_ckeditor_link_TYPE_settings() {
  * path aliases table
  *
  * Note: This relies on the following rule appearing the site's .htaccess file
- * just about the main Drupal RewriteCond lines
+ * just above the main Drupal RewriteCond lines
  *
   # Rewrite old behavenet.com URLs to point to our new URL lookup function
   RewriteCond %{REQUEST_URI} \.htm$
@@ -505,15 +505,11 @@ function behavenet_not_found() {
     }
     if (!empty($src)) {
       $_REQUEST['destination'] = '';
-      drupal_goto($src, NULL, NULL, 301);
+      drupal_goto($src, NULL, 301);
     }
   }
   else {
-    $output = '
-      <p>The page you are looking for does not exist. Please use the search field
-      above to search this site.</p>
-    ';
-    return $output;
+    drupal_goto('node/28575', array(), 404);
   }
 }
 
