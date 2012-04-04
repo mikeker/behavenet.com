@@ -383,8 +383,7 @@ function behavenet_settings_user_default_permissions() {
   $permissions['show format selection for blocks'] = array(
     'name' => 'show format selection for blocks',
     'roles' => array(
-      '0' => 'anonymous user',
-      '1' => 'authenticated user',
+      '0' => 'authenticated user',
     ),
   );
 
@@ -392,8 +391,7 @@ function behavenet_settings_user_default_permissions() {
   $permissions['show format selection for comments'] = array(
     'name' => 'show format selection for comments',
     'roles' => array(
-      '0' => 'anonymous user',
-      '1' => 'authenticated user',
+      '0' => 'authenticated user',
     ),
   );
 
@@ -401,8 +399,7 @@ function behavenet_settings_user_default_permissions() {
   $permissions['show format selection for nodes'] = array(
     'name' => 'show format selection for nodes',
     'roles' => array(
-      '0' => 'anonymous user',
-      '1' => 'authenticated user',
+      '0' => 'authenticated user',
     ),
   );
 
@@ -410,8 +407,7 @@ function behavenet_settings_user_default_permissions() {
   $permissions['show format tips'] = array(
     'name' => 'show format tips',
     'roles' => array(
-      '0' => 'anonymous user',
-      '1' => 'authenticated user',
+      '0' => 'authenticated user',
     ),
   );
 
