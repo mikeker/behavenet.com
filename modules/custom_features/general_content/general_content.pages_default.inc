@@ -13,7 +13,7 @@ function general_content_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -26;
+  $handler->weight = -27;
   $handler->conf = array(
     'title' => 'General content',
     'no_blocks' => FALSE,
@@ -612,6 +612,72 @@ print behavenet_build_jump_menu($items);
     $pane->position = 17;
     $display->content['new-18'] = $pane;
     $display->panels['middle'][17] = 'new-18';
+    $pane = new stdClass;
+    $pane->pid = 'new-19';
+    $pane->panel = 'middle';
+    $pane->type = 'node_comments';
+    $pane->subtype = 'node_comments';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'mode' => '2',
+      'order' => '2',
+      'comments_per_page' => '50',
+      'anchor' => 1,
+      'context' => 'argument_nid_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'comments-list',
+    );
+    $pane->extras = array();
+    $pane->position = 18;
+    $display->content['new-19'] = $pane;
+    $display->panels['middle'][18] = 'new-19';
+    $pane = new stdClass;
+    $pane->pid = 'new-20';
+    $pane->panel = 'middle';
+    $pane->type = 'node_comment_form';
+    $pane->subtype = 'node_comment_form';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'movie' => 'movie',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'anon_links' => 0,
+      'context' => 'argument_nid_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'comment-form',
+    );
+    $pane->extras = array();
+    $pane->position = 19;
+    $display->content['new-20'] = $pane;
+    $display->panels['middle'][19] = 'new-20';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

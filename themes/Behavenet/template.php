@@ -366,7 +366,6 @@ function behavenet_preprocess_panels_pane(&$vars) {
       $vars['content'] = behavenet_build_jump_menu($items);
     }
   }
-
 }
 
 /**

@@ -174,6 +174,14 @@ function behave_form_alter(&$form, &$form_state, $form_id) {
   //  }
 }
 
+function behave_link_alter(&$links, $node, $comment = NULL) {
+  if (isset($links['comment_reply'])) {
+    // Reply links are dumb...
+    unset($links['comment_reply']);
+  }
+}
+
+
 /**
  * Implements hook_nodeapi
  * @param $node
