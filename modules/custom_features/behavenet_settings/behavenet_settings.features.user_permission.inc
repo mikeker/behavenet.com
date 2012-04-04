@@ -52,6 +52,15 @@ function behavenet_settings_user_default_permissions() {
     ),
   );
 
+  // Exported permission: access comments
+  $permissions['access comments'] = array(
+    'name' => 'access comments',
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+    ),
+  );
+
   // Exported permission: access content
   $permissions['access content'] = array(
     'name' => 'access content',
@@ -116,6 +125,14 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: administer ckeditor link
   $permissions['administer ckeditor link'] = array(
     'name' => 'administer ckeditor link',
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
+  );
+
+  // Exported permission: administer comments
+  $permissions['administer comments'] = array(
+    'name' => 'administer comments',
     'roles' => array(
       '0' => 'authenticated user',
     ),
@@ -357,6 +374,23 @@ function behavenet_settings_user_default_permissions() {
     ),
   );
 
+  // Exported permission: post comments
+  $permissions['post comments'] = array(
+    'name' => 'post comments',
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+    ),
+  );
+
+  // Exported permission: post comments without approval
+  $permissions['post comments without approval'] = array(
+    'name' => 'post comments without approval',
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
+  );
+
   // Exported permission: restore from backup
   $permissions['restore from backup'] = array(
     'name' => 'restore from backup',
@@ -406,6 +440,14 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: show format tips
   $permissions['show format tips'] = array(
     'name' => 'show format tips',
+    'roles' => array(
+      '0' => 'authenticated user',
+    ),
+  );
+
+  // Exported permission: show more format tips link
+  $permissions['show more format tips link'] = array(
+    'name' => 'show more format tips link',
     'roles' => array(
       '0' => 'authenticated user',
     ),
