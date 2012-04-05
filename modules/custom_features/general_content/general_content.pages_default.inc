@@ -808,7 +808,18 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'php',
+          'settings' => array(
+            'description' => '',
+            'php' => 'return behavenet_show_ads();',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'admin_title' => 'Interstitial Ad',
       'title' => '',

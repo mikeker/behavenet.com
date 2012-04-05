@@ -536,7 +536,7 @@ function behavenet_build_jump_menu($items, $sort_by_title = TRUE) {
 function behavenet_show_ads() {
   global $user;
   if (1 == $user->uid) {
-    return TRUE;
+    return FALSE;
   }
   return TRUE;
 }
