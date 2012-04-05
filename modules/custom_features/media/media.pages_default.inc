@@ -48,10 +48,11 @@ function media_default_page_manager_handlers() {
   );
   $display->cache = array();
   $display->title = '';
+  $display->uuid = '873af140-a383-0534-694b-5ffdc162f03f';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->pid = 'new-1';
+    $pane->pid = 'new-88096a0b-f5c7-6774-952e-8dca11bcca1a';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Movies-panel_pane_1';
@@ -68,10 +69,11 @@ function media_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $display->content['new-1'] = $pane;
-    $display->panels['middle'][0] = 'new-1';
+    $pane->uuid = '88096a0b-f5c7-6774-952e-8dca11bcca1a';
+    $display->content['new-88096a0b-f5c7-6774-952e-8dca11bcca1a'] = $pane;
+    $display->panels['middle'][0] = 'new-88096a0b-f5c7-6774-952e-8dca11bcca1a';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = 'new-88096a0b-f5c7-6774-952e-8dca11bcca1a';
   $handler->conf['display'] = $display;
   $export['node_view_panel_context_4'] = $handler;
 

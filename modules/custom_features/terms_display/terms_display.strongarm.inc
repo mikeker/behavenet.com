@@ -164,56 +164,56 @@ function terms_display_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_credit';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['comment_anonymous_credit'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_dsm';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['comment_anonymous_dsm'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_dsm_caution';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['comment_anonymous_dsm_caution'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_tax_tweaks_extras';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['comment_anonymous_tax_tweaks_extras'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_controls_credit';
-  $strongarm->value = '3';
+  $strongarm->value = 3;
   $export['comment_controls_credit'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_controls_dsm';
-  $strongarm->value = '3';
+  $strongarm->value = 3;
   $export['comment_controls_dsm'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_controls_dsm_caution';
-  $strongarm->value = '3';
+  $strongarm->value = 3;
   $export['comment_controls_dsm_caution'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_controls_tax_tweaks_extras';
-  $strongarm->value = '3';
+  $strongarm->value = 3;
   $export['comment_controls_tax_tweaks_extras'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -227,84 +227,84 @@ function terms_display_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_credit';
-  $strongarm->value = '4';
+  $strongarm->value = 4;
   $export['comment_default_mode_credit'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_dsm';
-  $strongarm->value = '4';
+  $strongarm->value = 4;
   $export['comment_default_mode_dsm'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_dsm_caution';
-  $strongarm->value = '4';
+  $strongarm->value = 4;
   $export['comment_default_mode_dsm_caution'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_tax_tweaks_extras';
-  $strongarm->value = '4';
+  $strongarm->value = 4;
   $export['comment_default_mode_tax_tweaks_extras'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_order_credit';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_default_order_credit'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_order_dsm';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_default_order_dsm'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_order_dsm_caution';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_default_order_dsm_caution'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_order_tax_tweaks_extras';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_default_order_tax_tweaks_extras'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_credit';
-  $strongarm->value = '50';
+  $strongarm->value = 50;
   $export['comment_default_per_page_credit'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_dsm';
-  $strongarm->value = '50';
+  $strongarm->value = 50;
   $export['comment_default_per_page_dsm'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_dsm_caution';
-  $strongarm->value = '50';
+  $strongarm->value = 50;
   $export['comment_default_per_page_dsm_caution'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_tax_tweaks_extras';
-  $strongarm->value = '50';
+  $strongarm->value = 50;
   $export['comment_default_per_page_tax_tweaks_extras'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -325,84 +325,84 @@ function terms_display_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_credit';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['comment_form_location_credit'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_dsm';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['comment_form_location_dsm'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_dsm_caution';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['comment_form_location_dsm_caution'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_tax_tweaks_extras';
-  $strongarm->value = '0';
+  $strongarm->value = 0;
   $export['comment_form_location_tax_tweaks_extras'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_credit';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_preview_credit'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_dsm';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_preview_dsm'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_dsm_caution';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_preview_dsm_caution'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_tax_tweaks_extras';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_preview_tax_tweaks_extras'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_credit';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_subject_field_credit'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_dsm';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_subject_field_dsm'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_dsm_caution';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_subject_field_dsm_caution'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_tax_tweaks_extras';
-  $strongarm->value = '1';
+  $strongarm->value = 1;
   $export['comment_subject_field_tax_tweaks_extras'] = $strongarm;
 
   $strongarm = new stdClass;

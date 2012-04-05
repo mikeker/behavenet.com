@@ -458,7 +458,26 @@ function _bh_url_replace(&$string, &$error) {
 
 function bh_import_test() {
   ini_set('max_execution_time', 300);
-  bh_find_alias_dups();
+  // bh_find_alias_dups();
+  exit; 
+  
+  $results = db_query("SELECT did FROM {panels_display} WHERE uuid LIKE '' OR uuid IS NULL");
+  $dids = array();
+  while ($row = db_fetch_object($results)) {
+    $dids[] = $row->did;
+  }
+  if (count($dids)) {
+    $displays = panels_load_displays($dids);
+    foreach ($displays as $display) {
+      // A display save also triggers pane saves.
+      panels_save_display($display);
+    }
+    if (count($displays)) {
+      $msg[] = t('Added uuids to displays and panes stored in the db.');
+    }
+  }
+  dpr($msg);
+  dpr('done.');  
   exit;
 
 
