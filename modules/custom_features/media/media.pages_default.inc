@@ -48,11 +48,11 @@ function media_default_page_manager_handlers() {
   );
   $display->cache = array();
   $display->title = '';
-  $display->uuid = '873af140-a383-0534-694b-5ffdc162f03f';
+  $display->uuid = 'fa88ada1-974b-bf34-b5f1-f623e173ab00';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->pid = 'new-88096a0b-f5c7-6774-952e-8dca11bcca1a';
+    $pane->pid = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
     $pane->subtype = 'Movies-panel_pane_1';
@@ -69,11 +69,11 @@ function media_default_page_manager_handlers() {
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $pane->uuid = '88096a0b-f5c7-6774-952e-8dca11bcca1a';
-    $display->content['new-88096a0b-f5c7-6774-952e-8dca11bcca1a'] = $pane;
-    $display->panels['middle'][0] = 'new-88096a0b-f5c7-6774-952e-8dca11bcca1a';
+    $pane->uuid = 'e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
+    $display->content['new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73'] = $pane;
+    $display->panels['middle'][0] = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-88096a0b-f5c7-6774-952e-8dca11bcca1a';
+  $display->title_pane = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
   $handler->conf['display'] = $display;
   $export['node_view_panel_context_4'] = $handler;
 
