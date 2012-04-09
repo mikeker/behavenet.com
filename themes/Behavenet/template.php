@@ -27,9 +27,9 @@ function behavenet_preprocess_content_field(&$vars) {
       . drupal_get_path('theme', 'Behavenet')
       . '/images/blogger.png" alt="Blogger icon" title="Read a blog entry about this movie" />'
       . ' Movies, Drugs and Psychiatry</span>',
-    'field_general_facebook_page' => 'Facebook page',
+    'field_general_facebook_page' => 'Facebook',
     'field_general_twitter' => '%value',
-    'field_movie_url' => 'Official movie Web site',
+    'field_movie_url' => 'Official Web site',
   );
   if (in_array($vars['field_name'], array_keys($convert))) {
     // Convert to a clickable link
