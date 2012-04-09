@@ -459,8 +459,39 @@ function _bh_url_replace(&$string, &$error) {
 function bh_import_test() {
   ini_set('max_execution_time', 300);
   // bh_find_alias_dups();
-  exit; 
-  
+  exit;
+
+  // DONE:
+  // Find any nodes and/or terms that do not have aliases
+      // AND n.type NOT IN ('tax_tweaks_extras', 'indication', 'dsm', 'directory')
+  $results = db_query("
+    SELECT n.nid, n.type, n.title FROM {node} AS n
+    LEFT JOIN {url_alias} AS alias
+      ON CONCAT('node/', CAST(n.nid AS CHAR)) = alias.src
+    WHERE alias.src IS NULL
+      AND n.status = 1
+      AND n.type IN ('movie', 'book', 'people')
+  ");
+  $missing = array();
+  $count = 0;
+  while ($row = db_fetch_object($results)) {
+    // Check if this node should have a pathauto generated alias
+    $node = node_load($row->nid);
+    _pathauto_include();
+    $placeholders = pathauto_get_placeholders('node', $node);
+    $pathauto_alias = pathauto_create_alias('node', 'update', $placeholders, "node/{$node->nid}", $node->nid, $node->type, $node->language);
+    dpr("udpated $node->title to the url $pathauto_alias");
+
+
+    // $missing[$row->type][] = $row;
+    // $count++;
+  }
+  // dpr("missing $count aliases");
+  // dpr($missing);
+
+
+  exit;
+
   $results = db_query("SELECT did FROM {panels_display} WHERE uuid LIKE '' OR uuid IS NULL");
   $dids = array();
   while ($row = db_fetch_object($results)) {
@@ -477,7 +508,7 @@ function bh_import_test() {
     }
   }
   dpr($msg);
-  dpr('done.');  
+  dpr('done.');
   exit;
 
 
