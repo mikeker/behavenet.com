@@ -13,7 +13,7 @@ function general_content_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -26;
+  $handler->weight = -28;
   $handler->conf = array(
     'title' => 'People main page',
     'no_blocks' => FALSE,
@@ -167,7 +167,7 @@ print behavenet_build_jump_menu($items);
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Home page',
     'no_blocks' => FALSE,
