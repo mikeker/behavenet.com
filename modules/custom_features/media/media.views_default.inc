@@ -345,132 +345,6 @@ function media_views_default_views() {
   ));
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
-  $handler = $view->new_display('panel_pane', 'Recent movies', 'panel_pane_4');
-  $handler->override_option('fields', array(
-    'created' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'absolute' => 0,
-        'link_class' => '',
-        'alt' => '',
-        'rel' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'hide_alter_empty' => 1,
-      'date_format' => 'custom',
-      'custom_date_format' => 'm/d/y',
-      'exclude' => 0,
-      'id' => 'created',
-      'table' => 'node',
-      'field' => 'created',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-    ),
-    'title' => array(
-      'label' => '',
-      'alter' => array(
-        'alter_text' => 0,
-        'text' => '',
-        'make_link' => 0,
-        'path' => '',
-        'absolute' => 0,
-        'link_class' => '',
-        'alt' => '',
-        'rel' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'target' => '',
-        'help' => '',
-        'trim' => 0,
-        'max_length' => '',
-        'word_boundary' => 1,
-        'ellipsis' => 1,
-        'html' => 0,
-        'strip_tags' => 0,
-      ),
-      'empty' => '',
-      'hide_empty' => 0,
-      'empty_zero' => 0,
-      'hide_alter_empty' => 1,
-      'link_to_node' => 1,
-      'exclude' => 0,
-      'id' => 'title',
-      'table' => 'node',
-      'field' => 'title',
-      'relationship' => 'none',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-    ),
-  ));
-  $handler->override_option('sorts', array(
-    'created' => array(
-      'order' => 'DESC',
-      'granularity' => 'second',
-      'id' => 'created',
-      'table' => 'node',
-      'field' => 'created',
-      'override' => array(
-        'button' => 'Use default',
-      ),
-      'relationship' => 'none',
-    ),
-  ));
-  $handler->override_option('arguments', array());
-  $handler->override_option('header', '<a href="http://behavenetmovies.blogspot.com/"><img src="<?php print base_path() . drupal_get_path(\'theme\', \'Behavenet\') . \'/images/blogger-rectangle.gif\'; ?>" /></a><br />');
-  $handler->override_option('header_format', '4');
-  $handler->override_option('header_empty', 0);
-  $handler->override_option('items_per_page', 5);
-  $handler->override_option('style_plugin', 'default');
-  $handler->override_option('style_options', array(
-    'grouping' => '',
-  ));
-  $handler->override_option('row_options', array(
-    'inline' => array(
-      'created' => 'created',
-      'title' => 'title',
-    ),
-    'separator' => ' ',
-    'hide_empty' => 0,
-  ));
-  $handler->override_option('pane_title', 'Recent Movies');
-  $handler->override_option('pane_description', '');
-  $handler->override_option('pane_category', array(
-    'name' => 'Behavenet',
-    'weight' => '0',
-  ));
-  $handler->override_option('allow', array(
-    'use_pager' => 0,
-    'items_per_page' => 0,
-    'offset' => 0,
-    'link_to_view' => 0,
-    'more_link' => 0,
-    'path_override' => 0,
-    'title_override' => 'title_override',
-    'exposed_form' => 0,
-    'fields_override' => 0,
-  ));
-  $handler->override_option('argument_input', array());
-  $handler->override_option('link_to_view', 0);
-  $handler->override_option('inherit_panels_path', 0);
 
   $views[$view->name] = $view;
 
@@ -610,7 +484,7 @@ function media_views_default_views() {
     'choose' => '- Choose -',
     'default_value' => 0,
   ));
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler = $view->new_display('panel_pane', 'All movies jump menu', 'panel_pane_1');
   $handler->override_option('pane_title', 'All movies jump menu');
   $handler->override_option('pane_description', '');
   $handler->override_option('pane_category', array(
@@ -631,6 +505,197 @@ function media_views_default_views() {
   $handler->override_option('argument_input', array());
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
+  $handler = $view->new_display('panel_pane', 'Most recent entry', 'panel_pane_2');
+  $handler->override_option('fields', array(
+    'title' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 1,
+        'text' => '<h3>[title]</h3>',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'link_to_node' => 1,
+      'exclude' => 0,
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+    'field_movie_blog_entry_value' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 1,
+        'max_length' => '500',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 1,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'link_to_node' => 0,
+      'label_type' => 'none',
+      'format' => 'default',
+      'multiple' => array(
+        'group' => TRUE,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => FALSE,
+      ),
+      'exclude' => 0,
+      'id' => 'field_movie_blog_entry_value',
+      'table' => 'node_data_field_movie_blog_entry',
+      'field' => 'field_movie_blog_entry_value',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+    'view_node' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'text' => 'Read more...',
+      'exclude' => 0,
+      'id' => 'view_node',
+      'table' => 'node',
+      'field' => 'view_node',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('sorts', array(
+    'created' => array(
+      'order' => 'DESC',
+      'granularity' => 'second',
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('items_per_page', 1);
+  $handler->override_option('style_plugin', 'default');
+  $handler->override_option('style_options', array());
+  $handler->override_option('row_options', array(
+    'inline' => array(),
+    'separator' => '',
+    'hide_empty' => 1,
+  ));
+  $handler->override_option('pane_title', 'Most recent movie blog entry');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'Behavenet',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => 0,
+    'items_per_page' => 'items_per_page',
+    'offset' => 0,
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => 0,
+    'fields_override' => 0,
+  ));
+  $handler->override_option('argument_input', array());
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
+  $handler = $view->new_display('attachment', 'Next 4 entries', 'attachment_1');
+  $handler->override_option('sorts', array(
+    'created' => array(
+      'order' => 'DESC',
+      'granularity' => 'second',
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('items_per_page', 4);
+  $handler->override_option('offset', 1);
+  $handler->override_option('style_plugin', 'list');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
+    'type' => 'ul',
+  ));
+  $handler->override_option('attachment_position', 'after');
+  $handler->override_option('inherit_arguments', TRUE);
+  $handler->override_option('inherit_exposed_filters', FALSE);
+  $handler->override_option('inherit_pager', FALSE);
+  $handler->override_option('render_pager', TRUE);
+  $handler->override_option('displays', array(
+    'panel_pane_2' => 'panel_pane_2',
+    'default' => 0,
+    'panel_pane_1' => 0,
+  ));
 
   $views[$view->name] = $view;
 
