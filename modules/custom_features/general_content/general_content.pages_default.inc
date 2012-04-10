@@ -1253,22 +1253,15 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $display->content['new-6fa76278-7f63-0f64-897e-3b28142a747d'] = $pane;
     $display->panels['left_sidebar'][1] = 'new-6fa76278-7f63-0f64-897e-3b28142a747d';
     $pane = new stdClass;
-    $pane->pid = 'new-10ae3d43-2dd7-c6f4-f531-9f89a5076b07';
+    $pane->pid = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
     $pane->panel = 'left_sidebar';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'social_media_block';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Follow us links',
-      'title' => '',
-      'body' => '<div class="follow-us-links">
-<?php $images = base_path() . drupal_get_path(\'theme\', \'Behavenet\') . \'/images\'; ?>
-<a href="http://www.facebook.com/pages/BehaveNet/121151723906"><img src="<?php print "$images/findus_facebook.gif"; ?>" /></a><br />
-<a href="http://twitter.com/behavenet"><img src="<?php print "$images/findus_twitter.gif"; ?>" /></a>
-</div>',
-      'format' => '4',
-      'substitute' => 1,
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -1277,9 +1270,9 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
-    $pane->uuid = '10ae3d43-2dd7-c6f4-f531-9f89a5076b07';
-    $display->content['new-10ae3d43-2dd7-c6f4-f531-9f89a5076b07'] = $pane;
-    $display->panels['left_sidebar'][2] = 'new-10ae3d43-2dd7-c6f4-f531-9f89a5076b07';
+    $pane->uuid = '8ee52c91-c81d-1044-7500-81090f20a104';
+    $display->content['new-8ee52c91-c81d-1044-7500-81090f20a104'] = $pane;
+    $display->panels['left_sidebar'][2] = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
     $pane = new stdClass;
     $pane->pid = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
     $pane->panel = 'left_sidebar';
