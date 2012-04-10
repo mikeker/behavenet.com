@@ -1294,7 +1294,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'daily-tweets',
+    );
     $pane->extras = array();
     $pane->position = 3;
     $pane->uuid = '45ad5814-ce2b-8314-49ca-946ae623b75d';
