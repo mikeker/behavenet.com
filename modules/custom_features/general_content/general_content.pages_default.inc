@@ -1274,6 +1274,33 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $display->content['new-8ee52c91-c81d-1044-7500-81090f20a104'] = $pane;
     $display->panels['left_sidebar'][2] = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
     $pane = new stdClass;
+    $pane->pid = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
+    $pane->panel = 'left_sidebar';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '27767',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'full',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => 'Daily Tweets',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->uuid = '45ad5814-ce2b-8314-49ca-946ae623b75d';
+    $display->content['new-45ad5814-ce2b-8314-49ca-946ae623b75d'] = $pane;
+    $display->panels['left_sidebar'][3] = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
+    $pane = new stdClass;
     $pane->pid = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
     $pane->panel = 'left_sidebar';
     $pane->type = 'custom';
@@ -1315,10 +1342,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 4;
     $pane->uuid = '3145d2d3-c226-77a4-d54a-03a442e34030';
     $display->content['new-3145d2d3-c226-77a4-d54a-03a442e34030'] = $pane;
-    $display->panels['left_sidebar'][3] = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
+    $display->panels['left_sidebar'][4] = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
     $pane = new stdClass;
     $pane->pid = 'new-a2616248-a51f-bf84-156a-6235ebe2e705';
     $pane->panel = 'main';
