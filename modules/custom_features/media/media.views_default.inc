@@ -783,7 +783,7 @@ function media_views_default_views() {
       'label' => '',
       'alter' => array(
         'alter_text' => 1,
-        'text' => '[created] - [title]',
+        'text' => '[created] - <a href="[path]">[title]</a>',
         'make_link' => 0,
         'path' => '',
         'absolute' => 0,
@@ -805,7 +805,7 @@ function media_views_default_views() {
       'hide_empty' => 0,
       'empty_zero' => 0,
       'hide_alter_empty' => 1,
-      'link_to_node' => 1,
+      'link_to_node' => 0,
       'exclude' => 0,
       'id' => 'title',
       'table' => 'node',

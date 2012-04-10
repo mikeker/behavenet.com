@@ -13,7 +13,7 @@ function media_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -30;
+  $handler->weight = -29;
   $handler->conf = array(
     'title' => 'Movie main page',
     'no_blocks' => 0,
@@ -52,6 +52,49 @@ function media_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
+    $pane->pid = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Movies-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->uuid = 'e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
+    $display->content['new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73'] = $pane;
+    $display->panels['middle'][0] = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
+    $pane = new stdClass;
+    $pane->pid = 'new-fe708945-966e-2c34-017c-d91079690d96';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Movies-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'items_per_page' => '1',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->uuid = 'fe708945-966e-2c34-017c-d91079690d96';
+    $display->content['new-fe708945-966e-2c34-017c-d91079690d96'] = $pane;
+    $display->panels['middle'][1] = 'new-fe708945-966e-2c34-017c-d91079690d96';
+    $pane = new stdClass;
     $pane->pid = 'new-636bddd1-427d-f154-21fb-b964d9397cff';
     $pane->panel = 'middle';
     $pane->type = 'node_content';
@@ -76,53 +119,10 @@ function media_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 2;
     $pane->uuid = '636bddd1-427d-f154-21fb-b964d9397cff';
     $display->content['new-636bddd1-427d-f154-21fb-b964d9397cff'] = $pane;
-    $display->panels['middle'][0] = 'new-636bddd1-427d-f154-21fb-b964d9397cff';
-    $pane = new stdClass;
-    $pane->pid = 'new-fe708945-966e-2c34-017c-d91079690d96';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'Movies-panel_pane_2';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'items_per_page' => '1',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->uuid = 'fe708945-966e-2c34-017c-d91079690d96';
-    $display->content['new-fe708945-966e-2c34-017c-d91079690d96'] = $pane;
-    $display->panels['middle'][1] = 'new-fe708945-966e-2c34-017c-d91079690d96';
-    $pane = new stdClass;
-    $pane->pid = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'Movies-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => 'All movies',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->uuid = 'e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
-    $display->content['new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73'] = $pane;
-    $display->panels['middle'][2] = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
+    $display->panels['middle'][2] = 'new-636bddd1-427d-f154-21fb-b964d9397cff';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
   $handler->conf['display'] = $display;
