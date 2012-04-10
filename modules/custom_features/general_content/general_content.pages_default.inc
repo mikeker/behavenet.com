@@ -167,7 +167,7 @@ print behavenet_build_jump_menu($items);
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -29;
+  $handler->weight = -30;
   $handler->conf = array(
     'title' => 'Home page',
     'no_blocks' => FALSE,

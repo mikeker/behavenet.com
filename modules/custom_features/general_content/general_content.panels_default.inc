@@ -288,7 +288,7 @@ function general_content_default_panels_mini() {
   $mini->contexts = array();
   $mini->relationships = array();
   $display = new panels_display;
-  $display->layout = 'behavenet_threecol';
+  $display->layout = 'behavenet_twocol';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -330,33 +330,6 @@ function general_content_default_panels_mini() {
     $pane->uuid = '0471d52b-60b9-d544-6153-a6c6010ea33b';
     $display->content['new-0471d52b-60b9-d544-6153-a6c6010ea33b'] = $pane;
     $display->panels['left'][0] = 'new-0471d52b-60b9-d544-6153-a6c6010ea33b';
-    $pane = new stdClass;
-    $pane->pid = 'new-753a9817-5430-6344-19c4-e048a031de47';
-    $pane->panel = 'middle';
-    $pane->type = 'node';
-    $pane->subtype = 'node';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'nid' => '27768',
-      'links' => 0,
-      'leave_node_title' => 0,
-      'identifier' => '',
-      'build_mode' => 'full',
-      'link_node_title' => 0,
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->uuid = '753a9817-5430-6344-19c4-e048a031de47';
-    $display->content['new-753a9817-5430-6344-19c4-e048a031de47'] = $pane;
-    $display->panels['middle'][0] = 'new-753a9817-5430-6344-19c4-e048a031de47';
     $pane = new stdClass;
     $pane->pid = 'new-88b194c8-f9df-8b44-81c9-3df34bb6e89e';
     $pane->panel = 'right';
