@@ -173,10 +173,10 @@ function general_content_menu_default_menu_links() {
     'menu_name' => 'menu-main-tabs',
     'link_path' => 'node/27647',
     'router_path' => 'node/%',
-    'link_title' => 'Resources',
+    'link_title' => 'Directories',
     'options' => array(
       'attributes' => array(
-        'title' => 'Resources',
+        'title' => '',
       ),
     ),
     'module' => 'menu',
@@ -208,13 +208,13 @@ function general_content_menu_default_menu_links() {
   // Included for use with string extractors like potx.
   t('Academic Center');
   t('Advocacy');
+  t('Directories');
   t('Disorders');
   t('Drugs');
   t('Forensic Examiner');
   t('Home');
   t('People');
   t('Professional Association');
-  t('Resources');
   t('Support');
   t('Terms');
 
