@@ -499,5 +499,71 @@ function general_content_default_panels_mini() {
   $mini->display = $display;
   $export['people_callout'] = $mini;
 
+  $mini = new stdClass;
+  $mini->disabled = FALSE; /* Edit this to true to make a default mini disabled initially */
+  $mini->api_version = 1;
+  $mini->name = 'social_media_block';
+  $mini->category = 'Behavenet';
+  $mini->admin_title = 'Social media block';
+  $mini->admin_description = '';
+  $mini->requiredcontexts = array();
+  $mini->contexts = array();
+  $mini->relationships = array();
+  $display = new panels_display;
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = 'Connect with us';
+  $display->uuid = '020eec27-0d26-f634-5ddb-abf503768b1d';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass;
+    $pane->pid = 'new-c64485a9-2adb-d784-41aa-2ca3a54f2610';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<div class="social-media-links">
+<div class="social-media-links-row">
+  <a href="http://www.facebook.com/pages/BehaveNet/121151723906"><span class="social-media-icon social-media-icon-facebook"></span></a>Become a fan on<br><a href="http://www.facebook.com/pages/BehaveNet/121151723906">Facebook</a>
+</div>
+<div class="social-media-links-row">
+  <a href="http://twitter.com/behavenet"><span class="social-media-icon social-media-icon-twitter"></span></a>Follow us on<br><a href="http://twitter.com/behavenet">Twitter</a>
+</div>
+<div class="social-media-links-row">
+  <a href="https://member.cmpmedica.com/register.php?campaign=SSONP&leadsource=130B7ACB-9CE9-4562-8C37-B5E3E5E49EAA&referrer=!!!aHR0cCUzQS8vYmVoYXZlbmV0LmNvbS8="><span class="social-media-icon social-media-icon-email"></span></a>Sign up for our<br><a href="https://member.cmpmedica.com/register.php?campaign=SSONP&leadsource=130B7ACB-9CE9-4562-8C37-B5E3E5E49EAA&referrer=!!!aHR0cCUzQS8vYmVoYXZlbmV0LmNvbS8=">Newletter</a>
+</div>
+<div class="social-media-links-row">
+  <a href="http://behavenet.com/rss.xml"><span class="social-media-icon social-media-icon-rss"></span></a>Subscribe to our<br><a href="http://behavenet.com/rss.xml">RSS Feed</a>
+</div>
+</div>',
+      'format' => '2',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->uuid = 'c64485a9-2adb-d784-41aa-2ca3a54f2610';
+    $display->content['new-c64485a9-2adb-d784-41aa-2ca3a54f2610'] = $pane;
+    $display->panels['middle'][0] = 'new-c64485a9-2adb-d784-41aa-2ca3a54f2610';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $mini->display = $display;
+  $export['social_media_block'] = $mini;
+
   return $export;
 }
