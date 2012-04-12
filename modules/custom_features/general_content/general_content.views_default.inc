@@ -130,7 +130,7 @@ function general_content_views_default_views() {
   ));
   $handler->override_option('title', 'Compounds');
   $handler->override_option('use_ajax', TRUE);
-  $handler->override_option('items_per_page', 50);
+  $handler->override_option('items_per_page', 0);
   $handler->override_option('use_pager', '1');
   $handler->override_option('style_plugin', 'jump_menu');
   $handler->override_option('style_options', array(
@@ -209,6 +209,83 @@ function general_content_views_default_views() {
     'weight' => 0,
     'name' => 'navigation',
   ));
+  $handler = $view->new_display('panel_pane', 'Compounds jump menu', 'panel_pane_1');
+  $handler->override_option('pane_title', 'All Compounds jump menu');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'Behavenet',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => 0,
+    'items_per_page' => 0,
+    'offset' => 0,
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => 0,
+    'fields_override' => 0,
+  ));
+  $handler->override_option('argument_input', array());
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
+  $handler = $view->new_display('panel_pane', 'All preps jump menu', 'panel_pane_2');
+  $handler->override_option('filters', array(
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'relationship' => 'none',
+    ),
+    'type' => array(
+      'operator' => 'in',
+      'value' => array(
+        'preparation' => 'preparation',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
+      'relationship' => 'none',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+    ),
+  ));
+  $handler->override_option('pane_title', 'All preparations jump menu');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'Behavenet',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => 0,
+    'items_per_page' => 0,
+    'offset' => 0,
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => 0,
+    'fields_override' => 0,
+  ));
+  $handler->override_option('argument_input', array());
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
 
   $views[$view->name] = $view;
 

@@ -60,7 +60,7 @@ function general_content_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Tradename drugs',
+      'override_title_text' => 'Tradenames',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -177,7 +177,7 @@ function general_content_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Drug combinations',
+      'override_title_text' => 'Combinations',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -198,7 +198,7 @@ function general_content_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Drug sources',
+      'override_title_text' => 'Sources',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -210,6 +210,27 @@ function general_content_default_panels_mini() {
     $pane->uuid = '286f8891-9c11-b664-15fa-be881320cbee';
     $display->content['new-286f8891-9c11-b664-15fa-be881320cbee'] = $pane;
     $display->panels['middle'][7] = 'new-286f8891-9c11-b664-15fa-be881320cbee';
+    $pane = new stdClass;
+    $pane->pid = 'new-62709c2c-cad7-7914-1955-e31c894b60d6';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Compounds-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Compounds',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->uuid = '62709c2c-cad7-7914-1955-e31c894b60d6';
+    $display->content['new-62709c2c-cad7-7914-1955-e31c894b60d6'] = $pane;
+    $display->panels['middle'][8] = 'new-62709c2c-cad7-7914-1955-e31c894b60d6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $mini->display = $display;
