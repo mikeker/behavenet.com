@@ -181,7 +181,8 @@ print behavenet_build_jump_menu($items);
           'name' => 'path_visibility',
           'settings' => array(
             'visibility_setting' => '1',
-            'paths' => '<front>',
+            'paths' => '<front>
+node/27648',
           ),
           'context' => 'empty',
           'not' => FALSE,
@@ -1746,6 +1747,31 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->uuid = '84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $display->content['new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2'] = $pane;
     $display->panels['main_callout'][7] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
+    $pane = new stdClass;
+    $pane->pid = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
+    $pane->panel = 'main_callout';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Opinion blog feed',
+      'title' => 'Opinion',
+      'body' => '<a href="http://behavenetopinion.blogspot.com/"><img src="<?php print base_path() . drupal_get_path(\'theme\', \'Behavenet\') . \'/images/blogger-rectangle.gif\'; ?>" /></a><br />
+<?php behavenet_get_recent_from_rss(\'http://behavenetopinion.blogspot.com/rss.xml\', 5); ?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->uuid = '3086f958-1fd4-64c4-3180-193cde5deb69';
+    $display->content['new-3086f958-1fd4-64c4-3180-193cde5deb69'] = $pane;
+    $display->panels['main_callout'][8] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
   $handler->conf['display'] = $display;
