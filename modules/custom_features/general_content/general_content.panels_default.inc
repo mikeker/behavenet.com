@@ -231,6 +231,27 @@ function general_content_default_panels_mini() {
     $pane->uuid = '62709c2c-cad7-7914-1955-e31c894b60d6';
     $display->content['new-62709c2c-cad7-7914-1955-e31c894b60d6'] = $pane;
     $display->panels['middle'][8] = 'new-62709c2c-cad7-7914-1955-e31c894b60d6';
+    $pane = new stdClass;
+    $pane->pid = 'new-9dd9c00d-dbe4-0c94-75f5-fdab219b2e21';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Compounds-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Preparations',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 9;
+    $pane->uuid = '9dd9c00d-dbe4-0c94-75f5-fdab219b2e21';
+    $display->content['new-9dd9c00d-dbe4-0c94-75f5-fdab219b2e21'] = $pane;
+    $display->panels['middle'][9] = 'new-9dd9c00d-dbe4-0c94-75f5-fdab219b2e21';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $mini->display = $display;
