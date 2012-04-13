@@ -1396,36 +1396,6 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $display->content['new-8ee52c91-c81d-1044-7500-81090f20a104'] = $pane;
     $display->panels['left_sidebar'][2] = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
     $pane = new stdClass;
-    $pane->pid = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
-    $pane->panel = 'left_sidebar';
-    $pane->type = 'node';
-    $pane->subtype = 'node';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'nid' => '27767',
-      'links' => 0,
-      'leave_node_title' => 0,
-      'identifier' => '',
-      'build_mode' => 'full',
-      'link_node_title' => 0,
-      'override_title' => 1,
-      'override_title_text' => 'Daily Tweets',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'daily-tweets',
-    );
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->uuid = '45ad5814-ce2b-8314-49ca-946ae623b75d';
-    $display->content['new-45ad5814-ce2b-8314-49ca-946ae623b75d'] = $pane;
-    $display->panels['left_sidebar'][3] = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
-    $pane = new stdClass;
     $pane->pid = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
     $pane->panel = 'left_sidebar';
     $pane->type = 'custom';
@@ -1467,10 +1437,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 3;
     $pane->uuid = '3145d2d3-c226-77a4-d54a-03a442e34030';
     $display->content['new-3145d2d3-c226-77a4-d54a-03a442e34030'] = $pane;
-    $display->panels['left_sidebar'][4] = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
+    $display->panels['left_sidebar'][3] = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
     $pane = new stdClass;
     $pane->pid = 'new-a2616248-a51f-bf84-156a-6235ebe2e705';
     $pane->panel = 'main';
@@ -1823,6 +1793,36 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $display->content['new-6ba974f7-a60b-a974-01e9-f0e0872e61da'] = $pane;
     $display->panels['main_callout'][6] = 'new-6ba974f7-a60b-a974-01e9-f0e0872e61da';
     $pane = new stdClass;
+    $pane->pid = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
+    $pane->panel = 'main_callout';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '27767',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'full',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => 'Daily Tweets',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'daily-tweets',
+    );
+    $pane->extras = array();
+    $pane->position = 7;
+    $pane->uuid = '45ad5814-ce2b-8314-49ca-946ae623b75d';
+    $display->content['new-45ad5814-ce2b-8314-49ca-946ae623b75d'] = $pane;
+    $display->panels['main_callout'][7] = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
+    $pane = new stdClass;
     $pane->pid = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $pane->panel = 'main_callout';
     $pane->type = 'custom';
@@ -1864,10 +1864,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 7;
+    $pane->position = 8;
     $pane->uuid = '84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $display->content['new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2'] = $pane;
-    $display->panels['main_callout'][7] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
+    $display->panels['main_callout'][8] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $pane = new stdClass;
     $pane->pid = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
     $pane->panel = 'main_callout';
@@ -1889,10 +1889,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
+    $pane->position = 9;
     $pane->uuid = '3086f958-1fd4-64c4-3180-193cde5deb69';
     $display->content['new-3086f958-1fd4-64c4-3180-193cde5deb69'] = $pane;
-    $display->panels['main_callout'][8] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
+    $display->panels['main_callout'][9] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
   $handler->conf['display'] = $display;
