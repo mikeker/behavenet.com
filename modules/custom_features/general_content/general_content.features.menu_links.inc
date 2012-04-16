@@ -101,7 +101,7 @@ function general_content_menu_default_menu_links() {
     'menu_name' => 'menu-main-tabs',
     'link_path' => '<front>',
     'router_path' => '',
-    'link_title' => 'Home',
+    'link_title' => 'Disorders',
     'options' => array(
       'attributes' => array(
         'title' => '',
@@ -212,7 +212,6 @@ function general_content_menu_default_menu_links() {
   t('Disorders');
   t('Drugs');
   t('Forensic Examiner');
-  t('Home');
   t('People');
   t('Professional Association');
   t('Support');
