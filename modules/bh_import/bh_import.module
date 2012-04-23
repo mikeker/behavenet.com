@@ -459,6 +459,55 @@ function _bh_url_replace(&$string, &$error) {
 function bh_import_test() {
   ini_set('max_execution_time', 300);
   // bh_find_alias_dups();
+
+  // Find missing terms for directory entries
+  $terms = build_lookup('terms');
+  $dirs = build_lookup('directories');
+
+  $results = db_query("
+    SELECT dir.Name, dir.ID, links.Type, links.Term, links.Organization, links.Drug FROM {data_directory_links} AS dir
+    LEFT JOIN {data_directory_links_definition_relation} AS links
+      ON dir.ID = links.link
+    WHERE 1
+  ");
+
+  $data = array();
+  while ($row = db_fetch_object($results)) {
+    if (!isset($dirs[$row->ID])) {
+      dpr($row, 'Missing directory ID in');
+      continue;
+    }
+    if (!isset($terms[$row->Term])) {
+      dpr($row, 'Bogus term ID');
+      continue;
+    }
+    // $row->term_obj= taxonomy_get_term($terms[$row->Term]);
+    if (isset($data[$dirs[$row->ID]])) {
+      dpr($row, 'Warning: error multiple entries for');
+    }
+    else {
+      $data[$dirs[$row->ID]] = $row;
+    }
+  }
+
+  $success = array();
+  $error = array();
+  foreach ($data as $dir_nid => $row) {
+    $node = node_load($dir_nid);
+    if (_bh_add_term($node, $terms[$row->Term])) {
+      $success[] = "Updated $node->title to include $row->Term";
+    }
+    else {
+      $error[] = "$node->title already had $row->Term associated with it";
+    }
+    node_save($node);
+  }
+
+  dpr(count($success) . ' successful updates:');
+  dpr($success);
+  dpr(count($error) . ' errors:');
+  dpr($error);
+
   exit;
 
   // DONE:
