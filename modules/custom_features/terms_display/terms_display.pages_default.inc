@@ -1562,6 +1562,30 @@ return $return;
     $pane->uuid = 'd88141a7-6b29-4384-1df9-5dc687d59308';
     $display->content['new-d88141a7-6b29-4384-1df9-5dc687d59308'] = $pane;
     $display->panels['middle'][20] = 'new-d88141a7-6b29-4384-1df9-5dc687d59308';
+    $pane = new stdClass;
+    $pane->pid = 'new-b5b377c8-4d5b-1da4-e5bc-b5cfcd388985';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Directory-panel_pane_3';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_terms_1',
+      ),
+      'override_title' => 1,
+      'override_title_text' => 'Resources',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 21;
+    $pane->uuid = 'b5b377c8-4d5b-1da4-e5bc-b5cfcd388985';
+    $display->content['new-b5b377c8-4d5b-1da4-e5bc-b5cfcd388985'] = $pane;
+    $display->panels['middle'][21] = 'new-b5b377c8-4d5b-1da4-e5bc-b5cfcd388985';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
