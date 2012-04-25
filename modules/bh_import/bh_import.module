@@ -460,6 +460,8 @@ function bh_import_test() {
   ini_set('max_execution_time', 300);
   // bh_find_alias_dups();
 
+  exit;
+
   // Find missing terms for directory entries
   $terms = build_lookup('terms');
   $dirs = build_lookup('directories');
