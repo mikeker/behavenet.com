@@ -530,12 +530,10 @@ function behavenet_build_jump_menu($items, $sort_by_title = TRUE) {
 
 /*
  * Returns TRUE if this user should have ads shown to them
- *
- * Current removes ads for uid == 1
  */
 function behavenet_show_ads() {
   global $user;
-  if (1 == $user->uid) {
+  if ($user->uid > 0) {
     return FALSE;
   }
   return TRUE;
