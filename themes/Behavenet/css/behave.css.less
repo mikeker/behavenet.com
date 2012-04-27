@@ -7,6 +7,8 @@
 @contrast-dark = #535353;
 @callout-width-inner = 300px;
 @callout-width-outer = @callout-width-inner + (3 * @space-h);
+@left-sidebar-width-inner = 160px;
+@left-sidebar-width-outer = 180px;
 
 
 // Mixins
@@ -71,8 +73,18 @@ td {
 /*
  * Header
  */
-#page-header .leaderboard-ad {
-  text-align: center;
+#page-header {
+  position: relative;
+  
+  #logo {
+    position: absolute;
+    top: 0; left: 0;
+  }
+  .leaderboard-ad {
+    width: 730px;
+    margin: 0 auto;
+    padding-left: @left-sidebar-width-outer;
+  }
 }
 
 
@@ -81,11 +93,16 @@ td {
  */
 #page-main-callout {
   background: @background;
-  margin-left: @space-h;
-  padding: @space-v @space-h;
   .rounded();
   width: @callout-width-inner;
+  
+  // Extend background color to the footer
+  padding-bottom: 9999px;
+  margin-bottom: -9999px;
 
+  #page-main-callout-inner {
+    margin: @space-v @space-h;
+  }
   .field-type-filefield,
   .field-field-general-asin,
   h4
@@ -275,6 +292,7 @@ div.tabs {
 }
 div.main-tabs {
   display: inline-block;
+  margin-left: @left-sidebar-width-outer;
 
   a {
     font-weight: bold;

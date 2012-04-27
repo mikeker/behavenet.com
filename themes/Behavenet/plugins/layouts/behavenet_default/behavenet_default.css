@@ -1,23 +1,38 @@
-#page-left-sidebar {
-  float: left;
-  width: 160px;
-  margin-left: -100%;
+body {
+  min-width: 550px;
 }
-#page-main-wrapper {
+
+#content-wrapper {
+  padding-left: 180px;
+  padding-right: 320px;
+  overflow: hidden;
+}
+
+/* Columns */
+#page-left-sidebar, #page-main-callout, #page-main {
   float: left;
-  width: 100%;
+  position: relative;
+}  
+
+#page-left-sidebar {
+  width: 160px;
+  right: 160px;
+  margin-left: -100%;
+  
 }
 #page-main-callout {
-  float: right;
-  clear: right;
-  width: 240px;
+  /* Originally a callout, now a generic, fixed-width sidebar */
+  width: 300px;
+  margin-right: -300px;
+  
   /* Keeps blocks to our left from laying on top of us */
-  position: relative;
   z-index: 100;
 }
-#page-main, #page-header, #page-footer {
-  margin-left: 170px;
+#page-main {
+  width: 100%;
 }
+
 #page-footer {  
   clear: both;
 }
+
