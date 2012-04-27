@@ -316,7 +316,7 @@ node/27648',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -22;
+  $handler->weight = -25;
   $handler->conf = array(
     'title' => 'General content',
     'no_blocks' => FALSE,
@@ -374,6 +374,43 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $display->content['new-1d3ad850-457b-d274-f5fb-4dbba92754e4'] = $pane;
     $display->panels['middle'][0] = 'new-1d3ad850-457b-d274-f5fb-4dbba92754e4';
     $pane = new stdClass;
+    $pane->pid = 'new-95647de8-2488-c604-e5e8-77100be9f422';
+    $pane->panel = 'middle';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_people_alt_names';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'people' => 'people',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'label' => 'normal',
+      'formatter' => 'default',
+      'context' => 'argument_nid_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->uuid = '95647de8-2488-c604-e5e8-77100be9f422';
+    $display->content['new-95647de8-2488-c604-e5e8-77100be9f422'] = $pane;
+    $display->panels['middle'][1] = 'new-95647de8-2488-c604-e5e8-77100be9f422';
+    $pane = new stdClass;
     $pane->pid = 'new-0cef0ad5-71fa-14c4-e1f1-61d284db14b2';
     $pane->panel = 'middle';
     $pane->type = 'content_field';
@@ -393,10 +430,49 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->uuid = '0cef0ad5-71fa-14c4-e1f1-61d284db14b2';
     $display->content['new-0cef0ad5-71fa-14c4-e1f1-61d284db14b2'] = $pane;
-    $display->panels['middle'][1] = 'new-0cef0ad5-71fa-14c4-e1f1-61d284db14b2';
+    $display->panels['middle'][2] = 'new-0cef0ad5-71fa-14c4-e1f1-61d284db14b2';
+    $pane = new stdClass;
+    $pane->pid = 'new-e4db65d0-1ac2-e3f4-85e6-468a44dabef0';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'people' => 'people',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'admin_title' => 'Birth/Death dates',
+      'title' => '',
+      'body' => '<?php
+print behavenet_get_birth_death_dates(%node:nid);
+?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->uuid = 'e4db65d0-1ac2-e3f4-85e6-468a44dabef0';
+    $display->content['new-e4db65d0-1ac2-e3f4-85e6-468a44dabef0'] = $pane;
+    $display->panels['middle'][3] = 'new-e4db65d0-1ac2-e3f4-85e6-468a44dabef0';
     $pane = new stdClass;
     $pane->pid = 'new-6bfc2e2d-d0de-af84-9da0-c4872aebe680';
     $pane->panel = 'middle';
@@ -422,10 +498,10 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 4;
     $pane->uuid = '6bfc2e2d-d0de-af84-9da0-c4872aebe680';
     $display->content['new-6bfc2e2d-d0de-af84-9da0-c4872aebe680'] = $pane;
-    $display->panels['middle'][2] = 'new-6bfc2e2d-d0de-af84-9da0-c4872aebe680';
+    $display->panels['middle'][4] = 'new-6bfc2e2d-d0de-af84-9da0-c4872aebe680';
     $pane = new stdClass;
     $pane->pid = 'new-de321885-aeaa-f014-c5ac-212d46e5b65d';
     $pane->panel = 'middle';
@@ -455,10 +531,10 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 5;
     $pane->uuid = 'de321885-aeaa-f014-c5ac-212d46e5b65d';
     $display->content['new-de321885-aeaa-f014-c5ac-212d46e5b65d'] = $pane;
-    $display->panels['middle'][3] = 'new-de321885-aeaa-f014-c5ac-212d46e5b65d';
+    $display->panels['middle'][5] = 'new-de321885-aeaa-f014-c5ac-212d46e5b65d';
     $pane = new stdClass;
     $pane->pid = 'new-474d8166-0a41-7814-8daf-a48b547e0784';
     $pane->panel = 'middle';
@@ -493,10 +569,10 @@ print behavenet_list_acronyms();
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 6;
     $pane->uuid = '474d8166-0a41-7814-8daf-a48b547e0784';
     $display->content['new-474d8166-0a41-7814-8daf-a48b547e0784'] = $pane;
-    $display->panels['middle'][4] = 'new-474d8166-0a41-7814-8daf-a48b547e0784';
+    $display->panels['middle'][6] = 'new-474d8166-0a41-7814-8daf-a48b547e0784';
     $pane = new stdClass;
     $pane->pid = 'new-6b75a35f-bf11-9ab4-0d34-47f60cf43e3e';
     $pane->panel = 'middle';
@@ -526,10 +602,10 @@ print behavenet_list_acronyms();
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 7;
     $pane->uuid = '6b75a35f-bf11-9ab4-0d34-47f60cf43e3e';
     $display->content['new-6b75a35f-bf11-9ab4-0d34-47f60cf43e3e'] = $pane;
-    $display->panels['middle'][5] = 'new-6b75a35f-bf11-9ab4-0d34-47f60cf43e3e';
+    $display->panels['middle'][7] = 'new-6b75a35f-bf11-9ab4-0d34-47f60cf43e3e';
     $pane = new stdClass;
     $pane->pid = 'new-782ed461-eaba-5324-e136-6805f2771a95';
     $pane->panel = 'middle';
@@ -564,10 +640,10 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 8;
     $pane->uuid = '782ed461-eaba-5324-e136-6805f2771a95';
     $display->content['new-782ed461-eaba-5324-e136-6805f2771a95'] = $pane;
-    $display->panels['middle'][6] = 'new-782ed461-eaba-5324-e136-6805f2771a95';
+    $display->panels['middle'][8] = 'new-782ed461-eaba-5324-e136-6805f2771a95';
     $pane = new stdClass;
     $pane->pid = 'new-3ab7b95b-b083-5034-d5ec-166e1463f090';
     $pane->panel = 'middle';
@@ -599,10 +675,10 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 7;
+    $pane->position = 9;
     $pane->uuid = '3ab7b95b-b083-5034-d5ec-166e1463f090';
     $display->content['new-3ab7b95b-b083-5034-d5ec-166e1463f090'] = $pane;
-    $display->panels['middle'][7] = 'new-3ab7b95b-b083-5034-d5ec-166e1463f090';
+    $display->panels['middle'][9] = 'new-3ab7b95b-b083-5034-d5ec-166e1463f090';
     $pane = new stdClass;
     $pane->pid = 'new-a7d1b78a-986a-e1a4-4129-754fefec64a7';
     $pane->panel = 'middle';
@@ -626,10 +702,10 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
+    $pane->position = 10;
     $pane->uuid = 'a7d1b78a-986a-e1a4-4129-754fefec64a7';
     $display->content['new-a7d1b78a-986a-e1a4-4129-754fefec64a7'] = $pane;
-    $display->panels['middle'][8] = 'new-a7d1b78a-986a-e1a4-4129-754fefec64a7';
+    $display->panels['middle'][10] = 'new-a7d1b78a-986a-e1a4-4129-754fefec64a7';
     $pane = new stdClass;
     $pane->pid = 'new-5daa3699-bd4d-d0c4-91c9-f820dece0d97';
     $pane->panel = 'middle';
@@ -653,10 +729,10 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
+    $pane->position = 11;
     $pane->uuid = '5daa3699-bd4d-d0c4-91c9-f820dece0d97';
     $display->content['new-5daa3699-bd4d-d0c4-91c9-f820dece0d97'] = $pane;
-    $display->panels['middle'][9] = 'new-5daa3699-bd4d-d0c4-91c9-f820dece0d97';
+    $display->panels['middle'][11] = 'new-5daa3699-bd4d-d0c4-91c9-f820dece0d97';
     $pane = new stdClass;
     $pane->pid = 'new-e126766b-cad8-1a24-191d-070c5ebfcd29';
     $pane->panel = 'middle';
@@ -686,10 +762,10 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
+    $pane->position = 12;
     $pane->uuid = 'e126766b-cad8-1a24-191d-070c5ebfcd29';
     $display->content['new-e126766b-cad8-1a24-191d-070c5ebfcd29'] = $pane;
-    $display->panels['middle'][10] = 'new-e126766b-cad8-1a24-191d-070c5ebfcd29';
+    $display->panels['middle'][12] = 'new-e126766b-cad8-1a24-191d-070c5ebfcd29';
     $pane = new stdClass;
     $pane->pid = 'new-b9bd81b9-4704-5f34-7dde-738ed56e2fb6';
     $pane->panel = 'middle';
@@ -716,30 +792,17 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 11;
+    $pane->position = 13;
     $pane->uuid = 'b9bd81b9-4704-5f34-7dde-738ed56e2fb6';
     $display->content['new-b9bd81b9-4704-5f34-7dde-738ed56e2fb6'] = $pane;
-    $display->panels['middle'][11] = 'new-b9bd81b9-4704-5f34-7dde-738ed56e2fb6';
+    $display->panels['middle'][13] = 'new-b9bd81b9-4704-5f34-7dde-738ed56e2fb6';
     $pane = new stdClass;
     $pane->pid = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
     $pane->panel = 'middle';
     $pane->type = 'node_comments';
     $pane->subtype = 'node_comments';
     $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'node_type',
-          'settings' => array(
-            'type' => array(
-              'movie' => 'movie',
-            ),
-          ),
-          'context' => 'argument_nid_1',
-          'not' => FALSE,
-        ),
-      ),
-    );
+    $pane->access = array();
     $pane->configuration = array(
       'mode' => '2',
       'order' => '2',
@@ -758,10 +821,10 @@ print behavenet_display_term_children(7358);
       'css_class' => 'comments-list',
     );
     $pane->extras = array();
-    $pane->position = 12;
+    $pane->position = 14;
     $pane->uuid = '75988c4b-863f-54b4-3d7b-466b8234632b';
     $display->content['new-75988c4b-863f-54b4-3d7b-466b8234632b'] = $pane;
-    $display->panels['middle'][12] = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
+    $display->panels['middle'][14] = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
     $pane = new stdClass;
     $pane->pid = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
     $pane->panel = 'middle';
@@ -797,10 +860,10 @@ print behavenet_display_term_children(7358);
       'css_class' => 'comment-form',
     );
     $pane->extras = array();
-    $pane->position = 13;
+    $pane->position = 15;
     $pane->uuid = '13588c1f-d1a1-4ed4-9586-563587ffbe75';
     $display->content['new-13588c1f-d1a1-4ed4-9586-563587ffbe75'] = $pane;
-    $display->panels['middle'][13] = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
+    $display->panels['middle'][15] = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -1703,18 +1766,9 @@ print behavenet_display_term_children(7358);
     $pane->configuration = array(
       'admin_title' => 'Bottom Leaderboard Ad',
       'title' => '',
-      'body' => '<!-- begin ad tag -->
-<script type="text/javascript">
-//<![CDATA[
-if (!behave_is_mobile()) {
-ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=bottom;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
-}
-//]]>
-</script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=bottom;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=bottom;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
-<!-- end ad tag -->
-',
+      'body' => '<?php
+  print behavenet_get_ad(\'728x90\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'bottom\');
+?>',
       'format' => '4',
       'substitute' => 1,
     );
@@ -1837,6 +1891,24 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     $display->content['new-7d45874d-3dc7-34f4-3d4b-3181dea146b9'] = $pane;
     $display->panels['header'][0] = 'new-7d45874d-3dc7-34f4-3d4b-3181dea146b9';
     $pane = new stdClass;
+    $pane->pid = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
+    $pane->panel = 'header';
+    $pane->type = 'page_logo';
+    $pane->subtype = 'page_logo';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->uuid = 'a0f83f80-007e-7314-b96d-995964c370ad';
+    $display->content['new-a0f83f80-007e-7314-b96d-995964c370ad'] = $pane;
+    $display->panels['header'][1] = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
+    $pane = new stdClass;
     $pane->pid = 'new-9c251e93-6d21-0304-21bd-e455c61bfd3b';
     $pane->panel = 'header';
     $pane->type = 'custom';
@@ -1857,18 +1929,9 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     $pane->configuration = array(
       'admin_title' => 'Leaderboard Ad',
       'title' => '',
-      'body' => '<!-- begin ad tag -->
-<script type="text/javascript">
-//<![CDATA[
-if (!behave_is_mobile()) {
-ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=top;sz=728x90;ord=\' + ord + \'?"><\\/script>\');
-}
-//]]>
-</script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=top;sz=728x90;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=top;sz=728x90;ord=123456789?" border="0" alt="" /></a></noscript>
-<!-- end ad tag -->
-',
+      'body' => '<?php
+  print behavenet_get_ad(\'728x90\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'top\');
+?>',
       'format' => '4',
       'substitute' => 1,
     );
@@ -1881,10 +1944,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
       'css_class' => 'leaderboard-ad',
     );
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->uuid = '9c251e93-6d21-0304-21bd-e455c61bfd3b';
     $display->content['new-9c251e93-6d21-0304-21bd-e455c61bfd3b'] = $pane;
-    $display->panels['header'][1] = 'new-9c251e93-6d21-0304-21bd-e455c61bfd3b';
+    $display->panels['header'][2] = 'new-9c251e93-6d21-0304-21bd-e455c61bfd3b';
     $pane = new stdClass;
     $pane->pid = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
     $pane->panel = 'header';
@@ -1903,10 +1966,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->uuid = '40097a7f-5512-0074-e136-94a39aa0726d';
     $display->content['new-40097a7f-5512-0074-e136-94a39aa0726d'] = $pane;
-    $display->panels['header'][2] = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
+    $display->panels['header'][3] = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
     $pane = new stdClass;
     $pane->pid = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $pane->panel = 'header';
@@ -1927,46 +1990,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
       'css_class' => 'main-tabs',
     );
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 4;
     $pane->uuid = '9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $display->content['new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3'] = $pane;
-    $display->panels['header'][3] = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
-    $pane = new stdClass;
-    $pane->pid = 'new-cf1a6057-f27a-da04-d160-0af4cc6814a9';
-    $pane->panel = 'header';
-    $pane->type = 'pane_messages';
-    $pane->subtype = 'pane_messages';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->uuid = 'cf1a6057-f27a-da04-d160-0af4cc6814a9';
-    $display->content['new-cf1a6057-f27a-da04-d160-0af4cc6814a9'] = $pane;
-    $display->panels['header'][4] = 'new-cf1a6057-f27a-da04-d160-0af4cc6814a9';
-    $pane = new stdClass;
-    $pane->pid = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
-    $pane->panel = 'left_sidebar';
-    $pane->type = 'page_logo';
-    $pane->subtype = 'page_logo';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->uuid = 'a0f83f80-007e-7314-b96d-995964c370ad';
-    $display->content['new-a0f83f80-007e-7314-b96d-995964c370ad'] = $pane;
-    $display->panels['left_sidebar'][0] = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
+    $display->panels['header'][4] = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $pane = new stdClass;
     $pane->pid = 'new-6fa76278-7f63-0f64-897e-3b28142a747d';
     $pane->panel = 'left_sidebar';
@@ -2027,10 +2054,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->uuid = '6fa76278-7f63-0f64-897e-3b28142a747d';
     $display->content['new-6fa76278-7f63-0f64-897e-3b28142a747d'] = $pane;
-    $display->panels['left_sidebar'][1] = 'new-6fa76278-7f63-0f64-897e-3b28142a747d';
+    $display->panels['left_sidebar'][0] = 'new-6fa76278-7f63-0f64-897e-3b28142a747d';
     $pane = new stdClass;
     $pane->pid = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
     $pane->panel = 'left_sidebar';
@@ -2048,10 +2075,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->uuid = '8ee52c91-c81d-1044-7500-81090f20a104';
     $display->content['new-8ee52c91-c81d-1044-7500-81090f20a104'] = $pane;
-    $display->panels['left_sidebar'][2] = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
+    $display->panels['left_sidebar'][1] = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
     $pane = new stdClass;
     $pane->pid = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
     $pane->panel = 'left_sidebar';
@@ -2073,18 +2100,9 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->configuration = array(
       'admin_title' => 'Skyscraper Ad 1',
       'title' => '',
-      'body' => '<!-- begin ad tag -->
-<script type="text/javascript">
-//<![CDATA[
-if (!behave_is_mobile()) {
-ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=sky1;sz=120x600,160x600;ord=\' + ord + \'?"><\\/script>\');
-}
-//]]>
-</script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=sky1;sz=120x600,160x600;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=sky1;sz=120x600,160x600;ord=123456789?" border="0" alt="" /></a></noscript>
-<!-- end ad tag -->
-',
+      'body' => '<?php
+  print behavenet_get_ad(\'120x600\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'sky1\');
+?>',
       'format' => '4',
       'substitute' => 1,
     );
@@ -2094,10 +2112,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 2;
     $pane->uuid = '3145d2d3-c226-77a4-d54a-03a442e34030';
     $display->content['new-3145d2d3-c226-77a4-d54a-03a442e34030'] = $pane;
-    $display->panels['left_sidebar'][3] = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
+    $display->panels['left_sidebar'][2] = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
     $pane = new stdClass;
     $pane->pid = 'new-a2616248-a51f-bf84-156a-6235ebe2e705';
     $pane->panel = 'main';
@@ -2138,6 +2156,24 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $display->content['new-a2616248-a51f-bf84-156a-6235ebe2e705'] = $pane;
     $display->panels['main'][0] = 'new-a2616248-a51f-bf84-156a-6235ebe2e705';
     $pane = new stdClass;
+    $pane->pid = 'new-cf1a6057-f27a-da04-d160-0af4cc6814a9';
+    $pane->panel = 'main';
+    $pane->type = 'pane_messages';
+    $pane->subtype = 'pane_messages';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->uuid = 'cf1a6057-f27a-da04-d160-0af4cc6814a9';
+    $display->content['new-cf1a6057-f27a-da04-d160-0af4cc6814a9'] = $pane;
+    $display->panels['main'][1] = 'new-cf1a6057-f27a-da04-d160-0af4cc6814a9';
+    $pane = new stdClass;
     $pane->pid = 'new-a99b6d09-b692-7df4-3951-eed79c62671e';
     $pane->panel = 'main';
     $pane->type = 'page_messages';
@@ -2151,10 +2187,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->uuid = 'a99b6d09-b692-7df4-3951-eed79c62671e';
     $display->content['new-a99b6d09-b692-7df4-3951-eed79c62671e'] = $pane;
-    $display->panels['main'][1] = 'new-a99b6d09-b692-7df4-3951-eed79c62671e';
+    $display->panels['main'][2] = 'new-a99b6d09-b692-7df4-3951-eed79c62671e';
     $pane = new stdClass;
     $pane->pid = 'new-6a68ad39-7fdc-aec4-e5eb-546ee98ce68e';
     $pane->panel = 'main';
@@ -2176,10 +2212,10 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
       'css_class' => 'search-form',
     );
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->uuid = '6a68ad39-7fdc-aec4-e5eb-546ee98ce68e';
     $display->content['new-6a68ad39-7fdc-aec4-e5eb-546ee98ce68e'] = $pane;
-    $display->panels['main'][2] = 'new-6a68ad39-7fdc-aec4-e5eb-546ee98ce68e';
+    $display->panels['main'][3] = 'new-6a68ad39-7fdc-aec4-e5eb-546ee98ce68e';
     $pane = new stdClass;
     $pane->pid = 'new-81099c77-56fa-e334-152c-106ed669bf40';
     $pane->panel = 'main_callout';
@@ -2500,18 +2536,9 @@ document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/a
     $pane->configuration = array(
       'admin_title' => 'Rectangle Ad (300 x 250)',
       'title' => '',
-      'body' => '<!-- begin ad tag -->
-<script type="text/javascript">
-//<![CDATA[
-if (!behave_is_mobile()) {
-ord=Math.random()*10000000000000000;
-document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=rec1;sz=300x250;ord=\' + ord + \'?"><\\/script>\');
-}
-//]]>
-</script>
-<noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=rec1;sz=300x250;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=rec1;sz=300x250;ord=123456789?" border="0" alt="" /></a></noscript>
-<!-- end ad tag -->
-',
+      'body' => '<?php
+  print behavenet_get_ad(\'300x250\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'rec1\');
+?>',
       'format' => '4',
       'substitute' => 1,
     );
