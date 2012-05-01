@@ -2546,7 +2546,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-ads',
+    );
     $pane->extras = array();
     $pane->position = 8;
     $pane->uuid = '84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
