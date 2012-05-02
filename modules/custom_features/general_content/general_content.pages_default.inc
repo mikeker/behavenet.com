@@ -2101,7 +2101,7 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
       'admin_title' => 'Skyscraper Ad 1',
       'title' => '',
       'body' => '<?php
-  print behavenet_get_ad(\'120x600\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'sky1\');
+  print behavenet_get_ad(\'160x600\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'sky1\');
 ?>',
       'format' => '4',
       'substitute' => 1,
