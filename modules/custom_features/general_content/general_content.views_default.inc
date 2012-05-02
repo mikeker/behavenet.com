@@ -828,7 +828,7 @@ return FALSE;',
     'type' => 'none',
   ));
   $handler->override_option('use_ajax', TRUE);
-  $handler->override_option('items_per_page', 50);
+  $handler->override_option('items_per_page', 0);
   $handler->override_option('use_pager', '1');
   $handler->override_option('style_plugin', 'jump_menu');
   $handler->override_option('style_options', array(
@@ -937,7 +937,6 @@ return FALSE;',
     ),
   ));
   $handler->override_option('use_ajax', FALSE);
-  $handler->override_option('items_per_page', 0);
   $handler->override_option('use_pager', '0');
   $handler->override_option('pane_title', 'Vocab listing jump-menu');
   $handler->override_option('pane_description', '');
