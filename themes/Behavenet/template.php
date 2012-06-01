@@ -542,21 +542,22 @@ function behavenet_show_ads() {
 function behavenet_get_ad($size, $tag, $location) {
   list($width, $height) = explode('x', $size);
   $output = '
-<script type="text/javascript">
-if (!behave_is_mobile()) {
-  ord=Math.random()*10000000000000000;
-  document.write(\'<iframe src="http://ad.doubleclick.net/adj/ubm.behavenet/' . $tag . ';pos=' . $location . ';sz=' . $size . ';ord=\' + ord + \'?" width="' . $width . '" height="' . $height . '" marginwidth="0" marginheight="0" frameborder="0" scrolling="no">\');
-  if (navigator.userAgent.indexOf("Gecko")==-1) {
-    document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/' . $tag . ';pos=' . $location . ';sz=' . $size . ';abr=!ie;ord=\' + ord + \'?"><\/script>\');
-  }
-  document.write(\'</iframe>\');
-}
-</script>
-<noscript>
-  <a href="http://ad.doubleclick.net/jump/ubm.behavenet/$tag;pos=$location;sz=$size;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/$tag;pos=$location;sz=$size;ord=123456789?" border="0" alt="" /></a>
-</noscript>';
-  
-  // dpr($output); exit;
+    <div class="behavenet-ad behavenet-ad-' . $location . '">
+      <script type="text/javascript">
+        //<![CDATA[
+        if (!behave_is_mobile()) {
+          ord=Math.random()*10000000000000000;
+          document.write(\'<iframe src="http://ad.doubleclick.net/adi/ubm.behavenet/' . $tag . ';pos=' . $location .';sz=' . $size . ';ord=\' + ord + \'?" width="' . $width . '" height="' . $height . '" marginwidth="0" marginheight="0" frameborder="0" scrolling="no">\');
+          if (navigator.userAgent.indexOf("Gecko")==-1) {
+            document.write(\'<script type="text/javascript" src="http://ad.doubleclick.net/adj/ubm.behavenet/' . $tag . ';pos=' . $location . ';sz=' . $size . ';abr=!ie;ord=\' + ord + \'?"><\/script>\');
+          }
+          document.write(\'</iframe>\');
+        }
+        //]]>
+      </script>
+      <noscript><a href="http://ad.doubleclick.net/jump/ubm.behavenet/' . $tag . ';pos=' . $location . ';sz=' . $size . ';ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/ubm.behavenet/' . $tag . ';pos=' . $location . ';sz=' . $size . ';ord=123456789?" border="0" alt="" /></a></noscript>
+    </div>
+  ';
   return $output;  
 }
 
