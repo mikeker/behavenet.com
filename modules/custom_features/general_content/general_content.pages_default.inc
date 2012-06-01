@@ -2004,8 +2004,7 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     $pane->configuration = array(
       'admin_title' => 'Nested menu',
       'title' => 'Glossaries',
-      'body' => '<div class="behavenet-collapsible-menu">
-<ul>
+      'body' => '<div class="behavenet-collapsible-menu"><ul>
   <li><a href="<?php print url(\'taxonomy/term/6678\'); ?>">Addiction</a>
     <ul>
       <li><a href="<?php print url(\'taxonomy/term/6663\'); ?>">Recovery</a>
@@ -2018,21 +2017,23 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
   <li><a href="<?php print url(\'taxonomy/term/7558\'); ?>">Forensic</a></li>
   <li><a href="<?php print url(\'taxonomy/term/7814\'); ?>">HIPAA</a></li>
   <li><a href="<?php print url(\'taxonomy/term/7885\'); ?>">Memory</a></li>
+  <li><a href="<?php print url(\'taxonomy/term/7390\'); ?>">OCD</a></li>
   <li><a href="<?php print url(\'taxonomy/term/8171\'); ?>">Pharmacology</a></li>
   <li><a href="<?php print url(\'taxonomy/term/8041\'); ?>">Psychopathology</a></li>
   <li><a href="<?php print url(\'taxonomy/term/7084\'); ?>">Psychotherapy</a>
     <ul>
-      <li><a href="<?php print url(\'taxonomy/term/8207\'); ?>">Adlerian (Individual) Psychology</a></li>
-      <li><a href="<?php print url(\'taxonomy/term/8654\'); ?>">Cognitive Behavior Therapy</a></li>
-      <li><a href="<?php print url(\'taxonomy/term/9120\'); ?>">Eye Movement Desensitization &amp; Reprocessing</a></li>
-      <li><a href="<?php print url(\'taxonomy/term/8798\'); ?>">Family Psychotherapy</a></li>
-      <li><a href="<?php print url(\'taxonomy/term/8947\'); ?>">Gestalt Therapy</a></li>
-      <li><a href="<?php print url(\'taxonomy/term/9127\'); ?>">Internal Family Systems</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/8207\'); ?>">Adlerian</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/8654\'); ?>">CBT</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/9120\'); ?>">EMDR</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/8798\'); ?>">Family</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/8947\'); ?>">Gestalt</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/9127\'); ?>">IFS</a></li>
       <li><a href="<?php print url(\'taxonomy/term/9018\'); ?>">Jungian</a></li>
       <li><a href="<?php print url(\'taxonomy/term/9061\'); ?>">Narrative</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/13693\'); ?>">PCT</a></li>
       <li><a href="<?php print url(\'taxonomy/term/11331\'); ?>">Psychoanalytic</a></li>
       <li><a href="<?php print url(\'taxonomy/term/8603\'); ?>">Psychodynamic</a></li>
-      <li><a href="<?php print url(\'taxonomy/term/9140\'); ?>">Transactional Analysis</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/9140\'); ?>">TA</a></li>
     </ul>
   </li>
   <li><a href="<?php print url(\'taxonomy/term/8520\'); ?>">Reimbursement</a></li>
@@ -2044,7 +2045,9 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     </ul>
   </li>
   <li><a href="<?php print url(\'taxonomy/term/7481\'); ?>">Stuttering</a></li>
-</ul></div>',
+  <li><a href="<?php print url(\'taxonomy/term/10922\'); ?>">TMS</a></li>
+  <li><a href="<?php print url(\'taxonomy/term/8650\'); ?>">VNS</a></li>
+</ul></div> ',
       'format' => '4',
       'substitute' => 1,
     );
