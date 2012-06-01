@@ -278,11 +278,11 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     );
     $pane->configuration = array(
       'admin_title' => 'Phobias jump menu',
-      'title' => 'Phobias',
+      'title' => 'Feared Objects & Situations',
       'body' => '<select class="jump-menu"><option selected>- Choose -</option>
-<option value="/triskadekaphobia">13, the number</option>
+<option value="/triskaidekaphobia">13, the number</option>
 <option value="/tetraphobia">4, the number</option>
-<option value="/hexakosioihexekontahexaphobia">13, the number</option>
+<option value="/hexakosioihexekontahexaphobia">666, the number</option>
 <option value="/octophobia">8, the number</option>
 <option value="/agraphobia">abuse, sexual</option>
 <option value="/dystychiphobia">accidents</option>
@@ -319,7 +319,7 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
 <option value="/clinophobia">beds</option>
 <option value="/apiphobia">bees</option>
 <option value="/hobophobia">beggars</option>
-<option value="/ergasiophobia">behaior</option>
+<option value="/ergasiophobia">behavior</option>
 <option value="/omphalophobia">belly buttons</option>
 <option value="/cyclophobia">bicycles</option>
 <option value="/ornithophobia">birds</option>
@@ -912,7 +912,7 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
 <option value="/microphobia">things, small</option>
 <option value="/phronemophobia">thinking</option>
 <option value="/phrenophobia">thinking</option>
-<option value="/triskadekaphobia">thirteen, the number</option>
+<option value="/triskaidekaphobia">thirteen, the number</option>
 <option value="/astraphobia">thunder</option>
 <option value="/astraphobia">thunder</option>
 <option value="/tonitrophobia">thunder</option>

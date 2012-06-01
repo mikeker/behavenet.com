@@ -12,19 +12,19 @@ body {
 #page-left-sidebar, #page-main-callout, #page-main {
   float: left;
   position: relative;
-}  
+}
 
 #page-left-sidebar {
   width: 160px;
-  right: 160px;
+  right: 175px;
   margin-left: -100%;
-  
+
 }
 #page-main-callout {
   /* Originally a callout, now a generic, fixed-width sidebar */
   width: 300px;
   margin-right: -300px;
-  
+
   /* Keeps blocks to our left from laying on top of us */
   z-index: 100;
 }
@@ -32,7 +32,7 @@ body {
   width: 100%;
 }
 
-#page-footer {  
+#page-footer {
   clear: both;
 }
 

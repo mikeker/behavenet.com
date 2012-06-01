@@ -2104,7 +2104,7 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
       'admin_title' => 'Skyscraper Ad 1',
       'title' => '',
       'body' => '<?php
-  print behavenet_get_ad(\'120x600\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'sky1\');
+  print behavenet_get_ad(\'160x600\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'sky1\');
 ?>',
       'format' => '4',
       'substitute' => 1,
@@ -2489,6 +2489,41 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     $display->content['new-6ba974f7-a60b-a974-01e9-f0e0872e61da'] = $pane;
     $display->panels['main_callout'][6] = 'new-6ba974f7-a60b-a974-01e9-f0e0872e61da';
     $pane = new stdClass;
+    $pane->pid = 'new-d76ecdc1-5ef5-d4b4-cd64-9b36a6494322';
+    $pane->panel = 'main_callout';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'perm',
+          'settings' => array(
+            'perm' => 'administer behavenet',
+          ),
+          'context' => 'logged-in-user',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'admin_title' => 'Edit Daily Tweets link',
+      'title' => '',
+      'body' => 'Admin: <a href="/node/27767/edit">Edit Daily Tweets</a>',
+      'format' => '1',
+      'substitute' => 0,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 7;
+    $pane->uuid = 'd76ecdc1-5ef5-d4b4-cd64-9b36a6494322';
+    $display->content['new-d76ecdc1-5ef5-d4b4-cd64-9b36a6494322'] = $pane;
+    $display->panels['main_callout'][7] = 'new-d76ecdc1-5ef5-d4b4-cd64-9b36a6494322';
+    $pane = new stdClass;
     $pane->pid = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
     $pane->panel = 'main_callout';
     $pane->type = 'node';
@@ -2514,10 +2549,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
       'css_class' => 'daily-tweets',
     );
     $pane->extras = array();
-    $pane->position = 7;
+    $pane->position = 8;
     $pane->uuid = '45ad5814-ce2b-8314-49ca-946ae623b75d';
     $display->content['new-45ad5814-ce2b-8314-49ca-946ae623b75d'] = $pane;
-    $display->panels['main_callout'][7] = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
+    $display->panels['main_callout'][8] = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
     $pane = new stdClass;
     $pane->pid = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $pane->panel = 'main_callout';
@@ -2549,12 +2584,15 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-ads',
+    );
     $pane->extras = array();
-    $pane->position = 8;
+    $pane->position = 9;
     $pane->uuid = '84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $display->content['new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2'] = $pane;
-    $display->panels['main_callout'][8] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
+    $display->panels['main_callout'][9] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $pane = new stdClass;
     $pane->pid = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
     $pane->panel = 'main_callout';
@@ -2576,10 +2614,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
+    $pane->position = 10;
     $pane->uuid = '3086f958-1fd4-64c4-3180-193cde5deb69';
     $display->content['new-3086f958-1fd4-64c4-3180-193cde5deb69'] = $pane;
-    $display->panels['main_callout'][9] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
+    $display->panels['main_callout'][10] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
   $handler->conf['display'] = $display;

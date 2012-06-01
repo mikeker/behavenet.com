@@ -35,6 +35,7 @@ a:hover {
 }
 select {
   /* Keep drop downs from getting out of hand */
+  width: 99%;
   max-width: 600px;
 }
 body {
@@ -75,7 +76,7 @@ td {
  */
 #page-header {
   position: relative;
-  
+
   #logo {
     position: absolute;
     top: 0; left: 0;
@@ -95,7 +96,7 @@ td {
   background: @background;
   .rounded();
   width: @callout-width-inner;
-  
+
   // Extend background color to the footer
   padding-bottom: 9999px;
   margin-bottom: -9999px;
@@ -114,7 +115,6 @@ td {
   select {
    width: @callout-width-inner;
   }
-  
   // Ads run the full width of the sidebar
   .behavenet-ad {
     margin-left: -10px;

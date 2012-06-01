@@ -541,6 +541,7 @@ function behavenet_show_ads() {
 
 function behavenet_get_ad($size, $tag, $location) {
   list($width, $height) = explode('x', $size);
+
   $output = '
     <div class="behavenet-ad behavenet-ad-' . $location . '">
       <script type="text/javascript">
