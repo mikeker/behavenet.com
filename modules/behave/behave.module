@@ -82,14 +82,29 @@ function behave_form_alter(&$form, &$form_state, $form_id) {
   // dsm($form_id);
   // dsm($form);
 
-  if (isset($form['field_general_terms'])) {
+  if (isset($form['field_general_terms']) || isset($form['field_terms'])) {
+    $field = '';
+    if (isset($form['field_general_terms'])) {
+      $field =& $form['field_general_terms'];
+      $form['behavenet_terms_field'] = array(
+        '#type' => 'value',
+        '#value' => 'field_general_terms'
+      );
+    }
+    else {
+      $field =& $form['field_terms'];
+      $form['behavenet_terms_field'] = array(
+        '#type' => 'value',
+        '#value' => 'field_terms'
+      );
+    }
 
-    $form['field_general_terms']['#type'] = 'value';
-    $form['field_general_terms']['#value'] = $form['field_general_terms']['#default_value'];
+    $field['#type'] = 'value';
+    $field['#value'] = $field['#default_value'];
 
     $existing = array();
-    if (!empty($form['field_general_terms']['#default_value'])) {
-      foreach ($form['field_general_terms']['#default_value'] as $index => $info) {
+    if (!empty($field['#default_value'])) {
+      foreach ($field['#default_value'] as $index => $info) {
         // Add an option to remove existing terms
         if (empty($info['value'])) {
           continue;
@@ -116,7 +131,7 @@ function behave_form_alter(&$form, &$form_state, $form_id) {
 
     $form['field_general_terms_ac'] = array(
       '#type' => 'textfield',
-      '#title' => $form['field_general_terms']['#title'],
+      '#title' => $field['#title'],
       '#maxlength' => 999,
       '#autocomplete_path' => 'behavenet/term/autocomplete_admin',
       '#description' => 'Begin typing to see autocomplete options. Separate multiple terms with a comma.',
@@ -247,9 +262,10 @@ function behave_terms_admin_ac_submit($form, &$form_state) {
     $remove = array_filter($form_state['values']['field_general_terms_existing']);
   }
 
-  // Collect and compact the General Terms array
+  // Collect and compact the terms array in question
+  $term_field = $form_state['values']['behavenet_terms_field']; 
   $terms = array();
-  foreach ($form_state['values']['field_general_terms'] as $entry) {
+  foreach ($form_state['values'][$term_field] as $entry) {
     if (!empty($entry['value']) && !in_array($entry['value'], $remove)) {
       $terms[] = $entry;
     }
@@ -260,7 +276,7 @@ function behave_terms_admin_ac_submit($form, &$form_state) {
   if (empty($terms)) {
     $terms = array(0 => array('value' => ''));
   }
-  $form_state['values']['field_general_terms'] = $terms;
+  $form_state['values'][$term_field] = $terms;
 }
 
 
