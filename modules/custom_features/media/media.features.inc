@@ -45,6 +45,77 @@ function media_node_info() {
 }
 
 /**
+ * Implementation of hook_rules_defaults().
+ */
+function media_rules_defaults() {
+  return array(
+    'rules' => array(
+      'rules_new_comment_entered' => array(
+        '#type' => 'rule',
+        '#set' => 'event_comment_insert',
+        '#label' => 'New comment entered',
+        '#active' => 1,
+        '#weight' => '0',
+        '#categories' => array(
+          '0' => 'Behavenet',
+          'media' => 'media',
+        ),
+        '#status' => 'default',
+        '#conditions' => array(),
+        '#actions' => array(
+          '0' => array(
+            '#weight' => 0,
+            '#type' => 'action',
+            '#settings' => array(
+              'to' => 'mike.keran@gmail.com',
+              'from' => '',
+              'subject' => 'There is a new comment on Behavenet.com',
+              'message' => 'A new comment has been entered on Behavenet.com:
+
+<blockquote>[comment:comment-body]</blockquote>
+
+Before that comment will be visible to the public, it must be approved.
+
+    http://behavenet.com/admin/content/comment/approval',
+              '#eval input' => array(
+                'token_rules_input_evaluator' => array(
+                  'subject' => array(
+                    '0' => ':global',
+                  ),
+                  'message' => array(
+                    '0' => 'comment',
+                    '1' => ':global',
+                  ),
+                  'from' => array(
+                    '0' => ':global',
+                  ),
+                  'to' => array(
+                    '0' => ':global',
+                  ),
+                ),
+              ),
+            ),
+            '#name' => 'rules_action_mail',
+            '#info' => array(
+              'label' => 'Send Berry email about new comments',
+              'label callback' => FALSE,
+              'module' => 'System',
+              'eval input' => array(
+                '0' => 'subject',
+                '1' => 'message',
+                '2' => 'from',
+                '3' => 'to',
+              ),
+            ),
+          ),
+        ),
+        '#version' => 6003,
+      ),
+    ),
+  );
+}
+
+/**
  * Implementation of hook_views_api().
  */
 function media_views_api() {
