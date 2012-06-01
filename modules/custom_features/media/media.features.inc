@@ -65,14 +65,25 @@ function media_rules_defaults() {
         '#actions' => array(
           '0' => array(
             '#weight' => 0,
-            '#type' => 'action',
+            '#info' => array(
+              'label' => 'Send Berry email about new comments',
+              'label callback' => FALSE,
+              'module' => 'System',
+              'eval input' => array(
+                '0' => 'subject',
+                '1' => 'message',
+                '2' => 'from',
+                '3' => 'to',
+              ),
+            ),
+            '#name' => 'rules_action_mail',
             '#settings' => array(
-              'to' => 'mike.keran@gmail.com',
+              'to' => 'behavenet@gmail.com',
               'from' => '',
               'subject' => 'There is a new comment on Behavenet.com',
               'message' => 'A new comment has been entered on Behavenet.com:
 
-<blockquote>[comment:comment-body]</blockquote>
+[comment:comment-body]
 
 Before that comment will be visible to the public, it must be approved.
 
@@ -95,18 +106,7 @@ Before that comment will be visible to the public, it must be approved.
                 ),
               ),
             ),
-            '#name' => 'rules_action_mail',
-            '#info' => array(
-              'label' => 'Send Berry email about new comments',
-              'label callback' => FALSE,
-              'module' => 'System',
-              'eval input' => array(
-                '0' => 'subject',
-                '1' => 'message',
-                '2' => 'from',
-                '3' => 'to',
-              ),
-            ),
+            '#type' => 'action',
           ),
         ),
         '#version' => 6003,
