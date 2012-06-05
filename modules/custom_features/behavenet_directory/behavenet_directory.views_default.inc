@@ -704,6 +704,50 @@ function behavenet_directory_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'field_directory_url_url' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'link_to_node' => 0,
+      'label_type' => 'none',
+      'format' => 'plain',
+      'multiple' => array(
+        'group' => TRUE,
+        'multiple_number' => '',
+        'multiple_from' => '',
+        'multiple_reversed' => FALSE,
+      ),
+      'exclude' => 1,
+      'id' => 'field_directory_url_url',
+      'table' => 'node_data_field_directory_url',
+      'field' => 'field_directory_url_url',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('sorts', array(
     'title' => array(
@@ -833,12 +877,36 @@ function behavenet_directory_views_default_views() {
       'field' => 'type',
       'relationship' => 'none',
     ),
+    'tid' => array(
+      'operator' => 'or',
+      'value' => array(
+        0 => '11961',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'type' => 'textfield',
+      'limit' => TRUE,
+      'vid' => '13',
+      'id' => 'tid',
+      'table' => 'term_node',
+      'field' => 'tid',
+      'hierarchy' => 0,
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
   ));
   $handler->override_option('items_per_page', 0);
   $handler->override_option('style_plugin', 'jump_menu');
   $handler->override_option('style_options', array(
     'grouping' => '',
-    'path' => 'path',
+    'path' => 'field_directory_url_url',
     'hide' => 1,
     'text' => 'Go',
     'choose' => '- Choose -',

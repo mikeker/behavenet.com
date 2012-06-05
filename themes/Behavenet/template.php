@@ -658,3 +658,10 @@ function behavenet_get_ad_tag_lookup() {
     7358 => 'mental',
   ));
 }
+
+/**
+ * Returns an array of different directory type term IDs
+ */
+function behavenet_get_directory_types() {
+  return array(10733, 10730, 10732, 10734, 10729, 10727, 10735, 10728);
+}
