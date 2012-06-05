@@ -236,16 +236,21 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     $display->content['new-bc7b733a-e542-8d04-9592-9594d2dd4aa7'] = $pane;
     $display->panels['middle'][2] = 'new-bc7b733a-e542-8d04-9592-9594d2dd4aa7';
     $pane = new stdClass;
-    $pane->pid = 'new-ea0819ad-95c6-55a4-61aa-27c21ace89f7';
+    $pane->pid = 'new-aebef287-8680-4e24-713e-9e8f9fe086d5';
     $pane->panel = 'middle';
-    $pane->type = 'term_description';
-    $pane->subtype = 'term_description';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'context' => 'argument_terms_1',
-      'override_title' => 1,
-      'override_title_text' => '',
+      'admin_title' => 'Term description',
+      'title' => '',
+      'body' => '<?php
+$term = behavenet_load_term(%term:tid);
+print $term->description;
+?>',
+      'format' => '4',
+      'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -254,9 +259,9 @@ print l(\'Edit this term\', \'admin/content/taxonomy_manager/voc/%term:vid/%term
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 3;
-    $pane->uuid = 'ea0819ad-95c6-55a4-61aa-27c21ace89f7';
-    $display->content['new-ea0819ad-95c6-55a4-61aa-27c21ace89f7'] = $pane;
-    $display->panels['middle'][3] = 'new-ea0819ad-95c6-55a4-61aa-27c21ace89f7';
+    $pane->uuid = 'aebef287-8680-4e24-713e-9e8f9fe086d5';
+    $display->content['new-aebef287-8680-4e24-713e-9e8f9fe086d5'] = $pane;
+    $display->panels['middle'][3] = 'new-aebef287-8680-4e24-713e-9e8f9fe086d5';
     $pane = new stdClass;
     $pane->pid = 'new-c758714a-08ec-c534-ed43-9e805addb52e';
     $pane->panel = 'middle';

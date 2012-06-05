@@ -434,6 +434,20 @@ function hook_ckeditor_link_TYPE_settings() {
  *****************************************************************************/
 
 /**
+ * Loads a term based on either tid or term object. Runs input filters on 
+ * the term description.
+ */
+function behavenet_load_term($term) {
+  if (is_numeric($term)) {
+    $term = taxonomy_get_term($term);
+  }
+  if (!empty($term->description)) {
+    $term->description = amazon_filter_filter('process', 0, -1, $term->description);
+  }
+  return $term;
+}
+ 
+/**
  * Attempts to redirect page not found URLs.  Mostly these will be legacy links
  * pointing to the old site.  If an exact match is found, it will add it to the
  * path aliases table
