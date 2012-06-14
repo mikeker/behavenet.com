@@ -6,6 +6,12 @@
 function general_content_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: access service links
+  $permissions['access service links'] = array(
+    'name' => 'access service links',
+    'roles' => array(),
+  );
+
   // Exported permission: create company content
   $permissions['create company content'] = array(
     'name' => 'create company content',
@@ -289,6 +295,12 @@ function general_content_user_default_permissions() {
   // Exported permission: edit own sources content
   $permissions['edit own sources content'] = array(
     'name' => 'edit own sources content',
+    'roles' => array(),
+  );
+
+  // Exported permission: use PHP for service visibility
+  $permissions['use PHP for service visibility'] = array(
+    'name' => 'use PHP for service visibility',
     'roles' => array(),
   );
 
