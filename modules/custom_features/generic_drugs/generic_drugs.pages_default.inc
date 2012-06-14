@@ -13,7 +13,7 @@ function generic_drugs_default_page_manager_handlers() {
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -26;
+  $handler->weight = -24;
   $handler->conf = array(
     'title' => 'Drugs',
     'no_blocks' => 0,
@@ -239,30 +239,6 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     $display->content['new-8b1758b4-2398-0ea4-1985-bae7881ef2cc'] = $pane;
     $display->panels['middle'][4] = 'new-8b1758b4-2398-0ea4-1985-bae7881ef2cc';
     $pane = new stdClass;
-    $pane->pid = 'new-bd5d60e6-524b-2894-d910-3b9e4c65a26f';
-    $pane->panel = 'middle';
-    $pane->type = 'content_field';
-    $pane->subtype = 'field_outside_video';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'normal',
-      'formatter' => 'video_video',
-      'context' => 'argument_nid_1',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->uuid = 'bd5d60e6-524b-2894-d910-3b9e4c65a26f';
-    $display->content['new-bd5d60e6-524b-2894-d910-3b9e4c65a26f'] = $pane;
-    $display->panels['middle'][5] = 'new-bd5d60e6-524b-2894-d910-3b9e4c65a26f';
-    $pane = new stdClass;
     $pane->pid = 'new-8a22db34-9630-c5d4-4183-480b42fd0c38';
     $pane->panel = 'middle';
     $pane->type = 'term_list';
@@ -283,10 +259,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 5;
     $pane->uuid = '8a22db34-9630-c5d4-4183-480b42fd0c38';
     $display->content['new-8a22db34-9630-c5d4-4183-480b42fd0c38'] = $pane;
-    $display->panels['middle'][6] = 'new-8a22db34-9630-c5d4-4183-480b42fd0c38';
+    $display->panels['middle'][5] = 'new-8a22db34-9630-c5d4-4183-480b42fd0c38';
     $pane = new stdClass;
     $pane->pid = 'new-74fe7855-41f4-20c4-ed85-edc76e43a55d';
     $pane->panel = 'middle';
@@ -310,10 +286,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 7;
+    $pane->position = 6;
     $pane->uuid = '74fe7855-41f4-20c4-ed85-edc76e43a55d';
     $display->content['new-74fe7855-41f4-20c4-ed85-edc76e43a55d'] = $pane;
-    $display->panels['middle'][7] = 'new-74fe7855-41f4-20c4-ed85-edc76e43a55d';
+    $display->panels['middle'][6] = 'new-74fe7855-41f4-20c4-ed85-edc76e43a55d';
     $pane = new stdClass;
     $pane->pid = 'new-376eb690-8238-a0c4-e57a-e7e88b5e7e47';
     $pane->panel = 'middle';
@@ -334,10 +310,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
+    $pane->position = 7;
     $pane->uuid = '376eb690-8238-a0c4-e57a-e7e88b5e7e47';
     $display->content['new-376eb690-8238-a0c4-e57a-e7e88b5e7e47'] = $pane;
-    $display->panels['middle'][8] = 'new-376eb690-8238-a0c4-e57a-e7e88b5e7e47';
+    $display->panels['middle'][7] = 'new-376eb690-8238-a0c4-e57a-e7e88b5e7e47';
     $pane = new stdClass;
     $pane->pid = 'new-eb896c1a-b12a-4a44-39df-939738f0fcce';
     $pane->panel = 'middle';
@@ -369,10 +345,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
+    $pane->position = 8;
     $pane->uuid = 'eb896c1a-b12a-4a44-39df-939738f0fcce';
     $display->content['new-eb896c1a-b12a-4a44-39df-939738f0fcce'] = $pane;
-    $display->panels['middle'][9] = 'new-eb896c1a-b12a-4a44-39df-939738f0fcce';
+    $display->panels['middle'][8] = 'new-eb896c1a-b12a-4a44-39df-939738f0fcce';
     $pane = new stdClass;
     $pane->pid = 'new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
     $pane->panel = 'middle';
@@ -405,10 +381,34 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
+    $pane->position = 9;
     $pane->uuid = 'acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
     $display->content['new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3'] = $pane;
-    $display->panels['middle'][10] = 'new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
+    $display->panels['middle'][9] = 'new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
+    $pane = new stdClass;
+    $pane->pid = 'new-bd5d60e6-524b-2894-d910-3b9e4c65a26f';
+    $pane->panel = 'middle';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_outside_video';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'normal',
+      'formatter' => 'video_video',
+      'context' => 'argument_nid_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 10;
+    $pane->uuid = 'bd5d60e6-524b-2894-d910-3b9e4c65a26f';
+    $display->content['new-bd5d60e6-524b-2894-d910-3b9e4c65a26f'] = $pane;
+    $display->panels['middle'][10] = 'new-bd5d60e6-524b-2894-d910-3b9e4c65a26f';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
