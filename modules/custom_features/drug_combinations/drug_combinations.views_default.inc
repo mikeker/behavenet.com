@@ -131,7 +131,7 @@ function drug_combinations_views_default_views() {
   $handler->override_option('cache', array(
     'type' => 'none',
   ));
-  $handler->override_option('title', 'Drug Combinations');
+  $handler->override_option('title', 'Drug Combination');
   $handler->override_option('items_per_page', 0);
   $handler->override_option('style_plugin', 'jump_menu');
   $handler->override_option('style_options', array(
@@ -234,15 +234,15 @@ function drug_combinations_views_default_views() {
     'weight' => '0',
   ));
   $handler->override_option('allow', array(
-    'use_pager' => FALSE,
-    'items_per_page' => FALSE,
-    'offset' => FALSE,
-    'link_to_view' => FALSE,
-    'more_link' => FALSE,
-    'path_override' => FALSE,
-    'title_override' => FALSE,
-    'exposed_form' => FALSE,
-    'fields_override' => FALSE,
+    'use_pager' => 0,
+    'items_per_page' => 0,
+    'offset' => 0,
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => 0,
+    'fields_override' => 0,
   ));
   $handler->override_option('argument_input', array(
     'field_combo_source_nid' => array(
@@ -346,15 +346,15 @@ function drug_combinations_views_default_views() {
     'weight' => '0',
   ));
   $handler->override_option('allow', array(
-    'use_pager' => FALSE,
-    'items_per_page' => FALSE,
-    'offset' => FALSE,
-    'link_to_view' => FALSE,
-    'more_link' => FALSE,
-    'path_override' => FALSE,
-    'title_override' => FALSE,
-    'exposed_form' => FALSE,
-    'fields_override' => FALSE,
+    'use_pager' => 0,
+    'items_per_page' => 0,
+    'offset' => 0,
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => 0,
+    'fields_override' => 0,
   ));
   $handler->override_option('argument_input', array(
     'field_combo_drugs_nid' => array(
