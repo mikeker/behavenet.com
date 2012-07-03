@@ -9,7 +9,10 @@ function general_content_user_default_permissions() {
   // Exported permission: access service links
   $permissions['access service links'] = array(
     'name' => 'access service links',
-    'roles' => array(),
+    'roles' => array(
+      '0' => 'anonymous user',
+      '1' => 'authenticated user',
+    ),
   );
 
   // Exported permission: create company content
