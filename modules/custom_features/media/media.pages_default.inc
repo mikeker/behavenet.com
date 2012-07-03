@@ -52,6 +52,30 @@ function media_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
+    $pane->pid = 'new-22e238ba-f486-6514-5192-2420cfc77e21';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Intro text',
+      'title' => '',
+      'body' => '<p>A catalog of films, indexed by time, with content, themes or depictions related to psychiatry, substance abuse and their treatment.</p>',
+      'format' => '2',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->uuid = '22e238ba-f486-6514-5192-2420cfc77e21';
+    $display->content['new-22e238ba-f486-6514-5192-2420cfc77e21'] = $pane;
+    $display->panels['middle'][0] = 'new-22e238ba-f486-6514-5192-2420cfc77e21';
+    $pane = new stdClass;
     $pane->pid = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
@@ -68,10 +92,10 @@ function media_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->uuid = 'e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
     $display->content['new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73'] = $pane;
-    $display->panels['middle'][0] = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
+    $display->panels['middle'][1] = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
     $pane = new stdClass;
     $pane->pid = 'new-fe708945-966e-2c34-017c-d91079690d96';
     $pane->panel = 'middle';
@@ -90,10 +114,10 @@ function media_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->uuid = 'fe708945-966e-2c34-017c-d91079690d96';
     $display->content['new-fe708945-966e-2c34-017c-d91079690d96'] = $pane;
-    $display->panels['middle'][1] = 'new-fe708945-966e-2c34-017c-d91079690d96';
+    $display->panels['middle'][2] = 'new-fe708945-966e-2c34-017c-d91079690d96';
     $pane = new stdClass;
     $pane->pid = 'new-636bddd1-427d-f154-21fb-b964d9397cff';
     $pane->panel = 'middle';
@@ -119,10 +143,10 @@ function media_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->uuid = '636bddd1-427d-f154-21fb-b964d9397cff';
     $display->content['new-636bddd1-427d-f154-21fb-b964d9397cff'] = $pane;
-    $display->panels['middle'][2] = 'new-636bddd1-427d-f154-21fb-b964d9397cff';
+    $display->panels['middle'][3] = 'new-636bddd1-427d-f154-21fb-b964d9397cff';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
   $handler->conf['display'] = $display;
