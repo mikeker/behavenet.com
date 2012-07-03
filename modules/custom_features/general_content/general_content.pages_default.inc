@@ -2555,15 +2555,26 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     $display->content['new-45ad5814-ce2b-8314-49ca-946ae623b75d'] = $pane;
     $display->panels['main_callout'][8] = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
     $pane = new stdClass;
-    $pane->pid = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
+    $pane->pid = 'new-299a99be-4a6a-6b34-65b6-e19b28a8020c';
     $pane->panel = 'main_callout';
     $pane->type = 'block';
-    $pane->subtype = 'service_links-service_links';
+    $pane->subtype = 'service_links-service_links_not_node';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'context_exists',
+          'settings' => array(
+            'exists' => '1',
+          ),
+          'context' => 'node',
+          'not' => TRUE,
+        ),
+      ),
+    );
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => 'Share this with',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -2572,9 +2583,41 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 9;
+    $pane->uuid = '299a99be-4a6a-6b34-65b6-e19b28a8020c';
+    $display->content['new-299a99be-4a6a-6b34-65b6-e19b28a8020c'] = $pane;
+    $display->panels['main_callout'][9] = 'new-299a99be-4a6a-6b34-65b6-e19b28a8020c';
+    $pane = new stdClass;
+    $pane->pid = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
+    $pane->panel = 'main_callout';
+    $pane->type = 'block';
+    $pane->subtype = 'service_links-service_links';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'context_exists',
+          'settings' => array(
+            'exists' => '1',
+          ),
+          'context' => 'node',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Share this with',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 10;
     $pane->uuid = '0204fb31-9f41-70c4-fdb4-efa070c15e5b';
     $display->content['new-0204fb31-9f41-70c4-fdb4-efa070c15e5b'] = $pane;
-    $display->panels['main_callout'][9] = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
+    $display->panels['main_callout'][10] = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
     $pane = new stdClass;
     $pane->pid = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $pane->panel = 'main_callout';
@@ -2611,10 +2654,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
       'css_class' => 'behavenet-ads',
     );
     $pane->extras = array();
-    $pane->position = 10;
+    $pane->position = 11;
     $pane->uuid = '84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $display->content['new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2'] = $pane;
-    $display->panels['main_callout'][10] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
+    $display->panels['main_callout'][11] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $pane = new stdClass;
     $pane->pid = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
     $pane->panel = 'main_callout';
@@ -2636,10 +2679,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 11;
+    $pane->position = 12;
     $pane->uuid = '3086f958-1fd4-64c4-3180-193cde5deb69';
     $display->content['new-3086f958-1fd4-64c4-3180-193cde5deb69'] = $pane;
-    $display->panels['main_callout'][11] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
+    $display->panels['main_callout'][12] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
   $handler->conf['display'] = $display;
