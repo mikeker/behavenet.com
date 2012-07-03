@@ -316,7 +316,7 @@ node/27648',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -25;
+  $handler->weight = -22;
   $handler->conf = array(
     'title' => 'General content',
     'no_blocks' => FALSE,
@@ -523,7 +523,7 @@ print behavenet_get_birth_death_dates(%node:nid);
     );
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Terms',
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
