@@ -532,14 +532,27 @@ function behavenet_build_jump_menu($items, $sort_by_title = TRUE) {
  * Returns the HTML needed show a QR code for the given relative URL or the
  * current URL if none is specified.
  */
-function behavenet_node_qr($url) {
+function behavenet_node_qr($url = '') {
   if (empty($url)) {
     // Use current URL
-    $url = url(implode('/', arg()), array('absolute' => TRUE));
+    $args = arg();
+    if (empty($args)) {
+      $url = url('<front>', array('absolute' => TRUE));
+    }
+    else {
+      $url = url(implode('/', arg()), array('absolute' => TRUE));
+    }
   }
   else {
     $url = url($url, array('absolute' => TRUE, 'alias' => TRUE));
   }
+
+  // Check for query strings
+  list($base, $query) = explode('?', $_SERVER['REQUEST_URI']);
+  if (!empty($query)) {
+    $url .= '?' . $query;
+  }
+
   return '<div class="behavenet-url-qr">'
     . theme('mobilecode', $url, array('#preset' => 'behavenet_qr'))
     . '</div>';

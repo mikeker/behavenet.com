@@ -2565,10 +2565,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
       'admin_title' => 'QR code for this URL',
       'title' => '',
       'body' => '<?php
-print behavenet_node_qr(%alias:raw);
+print behavenet_node_qr();
 ?>',
       'format' => '4',
-      'substitute' => 1,
+      'substitute' => 0,
     );
     $pane->cache = array();
     $pane->style = array(
