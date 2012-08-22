@@ -8022,12 +8022,13 @@ function general_content_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'service_links_show';
   $strongarm->value = array(
-    'facebook_widget' => 1,
+    'facebook_share' => 0,
     'twitter_widget' => 1,
-    'facebook_like' => 0,
+    'facebook_like' => 1,
     'digg_smart_button' => 0,
     'google_plus_one' => 1,
     'linkedin_share_button' => 0,
+    'pinterest_button' => 0,
   );
   $export['service_links_show'] = $strongarm;
 
@@ -8036,12 +8037,13 @@ function general_content_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'service_links_weight';
   $strongarm->value = array(
-    'facebook_widget' => '0',
+    'facebook_share' => '0',
     'twitter_widget' => '0',
     'facebook_like' => '0',
     'digg_smart_button' => '0',
     'google_plus_one' => '0',
     'linkedin_share_button' => '0',
+    'pinterest_button' => '0',
   );
   $export['service_links_weight'] = $strongarm;
 
