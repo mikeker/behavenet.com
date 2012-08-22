@@ -8027,7 +8027,7 @@ function general_content_strongarm() {
     'facebook_like' => 1,
     'digg_smart_button' => 0,
     'google_plus_one' => 1,
-    'linkedin_share_button' => 0,
+    'linkedin_share_button' => 1,
     'pinterest_button' => 0,
   );
   $export['service_links_show'] = $strongarm;
