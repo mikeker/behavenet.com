@@ -2555,6 +2555,32 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     $display->content['new-45ad5814-ce2b-8314-49ca-946ae623b75d'] = $pane;
     $display->panels['main_callout'][8] = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
     $pane = new stdClass;
+    $pane->pid = 'new-5ac9c293-7333-84b4-99ab-abd9744d4659';
+    $pane->panel = 'main_callout';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'QR code for this URL',
+      'title' => '',
+      'body' => '<?php
+print behavenet_node_qr(%alias:raw);
+?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 9;
+    $pane->uuid = '5ac9c293-7333-84b4-99ab-abd9744d4659';
+    $display->content['new-5ac9c293-7333-84b4-99ab-abd9744d4659'] = $pane;
+    $display->panels['main_callout'][9] = 'new-5ac9c293-7333-84b4-99ab-abd9744d4659';
+    $pane = new stdClass;
     $pane->pid = 'new-299a99be-4a6a-6b34-65b6-e19b28a8020c';
     $pane->panel = 'main_callout';
     $pane->type = 'block';
@@ -2582,10 +2608,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
+    $pane->position = 10;
     $pane->uuid = '299a99be-4a6a-6b34-65b6-e19b28a8020c';
     $display->content['new-299a99be-4a6a-6b34-65b6-e19b28a8020c'] = $pane;
-    $display->panels['main_callout'][9] = 'new-299a99be-4a6a-6b34-65b6-e19b28a8020c';
+    $display->panels['main_callout'][10] = 'new-299a99be-4a6a-6b34-65b6-e19b28a8020c';
     $pane = new stdClass;
     $pane->pid = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
     $pane->panel = 'main_callout';
@@ -2614,10 +2640,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
+    $pane->position = 11;
     $pane->uuid = '0204fb31-9f41-70c4-fdb4-efa070c15e5b';
     $display->content['new-0204fb31-9f41-70c4-fdb4-efa070c15e5b'] = $pane;
-    $display->panels['main_callout'][10] = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
+    $display->panels['main_callout'][11] = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
     $pane = new stdClass;
     $pane->pid = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $pane->panel = 'main_callout';
@@ -2654,10 +2680,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
       'css_class' => 'behavenet-ads',
     );
     $pane->extras = array();
-    $pane->position = 11;
+    $pane->position = 12;
     $pane->uuid = '84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $display->content['new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2'] = $pane;
-    $display->panels['main_callout'][11] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
+    $display->panels['main_callout'][12] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $pane = new stdClass;
     $pane->pid = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
     $pane->panel = 'main_callout';
@@ -2679,10 +2705,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 12;
+    $pane->position = 13;
     $pane->uuid = '3086f958-1fd4-64c4-3180-193cde5deb69';
     $display->content['new-3086f958-1fd4-64c4-3180-193cde5deb69'] = $pane;
-    $display->panels['main_callout'][12] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
+    $display->panels['main_callout'][13] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
   $handler->conf['display'] = $display;
