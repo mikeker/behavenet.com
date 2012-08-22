@@ -2645,6 +2645,36 @@ print behavenet_node_qr(%alias:raw);
     $display->content['new-0204fb31-9f41-70c4-fdb4-efa070c15e5b'] = $pane;
     $display->panels['main_callout'][11] = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
     $pane = new stdClass;
+    $pane->pid = 'new-ca4a71a4-5867-f334-1143-f2b610e8b7f0';
+    $pane->panel = 'main_callout';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'GoodTherapy',
+      'title' => '',
+      'body' => '<div class="behavenet-goodtherapy">
+<a href="http://www.goodtherapy.org/behavenet-welcome-therapist.html"><img src="http://www.goodtherapy.org/graph/join-gt-banners/BehaveNet_165x265.jpg" alt="Join GoodTherapy.org" width="162" height="264" border="0" usemap="#shmLink1" title="Join GoodTherapy.org" />
+<map name="shmLink1" id="shmLink1">
+  <area shape="rect" coords="145,249,166,270" href="http://www.goodtherapy.org/" />
+</map>
+</a>
+</div>',
+      'format' => '2',
+      'substitute' => 0,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 12;
+    $pane->uuid = 'ca4a71a4-5867-f334-1143-f2b610e8b7f0';
+    $display->content['new-ca4a71a4-5867-f334-1143-f2b610e8b7f0'] = $pane;
+    $display->panels['main_callout'][12] = 'new-ca4a71a4-5867-f334-1143-f2b610e8b7f0';
+    $pane = new stdClass;
     $pane->pid = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $pane->panel = 'main_callout';
     $pane->type = 'custom';
@@ -2680,10 +2710,10 @@ print behavenet_node_qr(%alias:raw);
       'css_class' => 'behavenet-ads',
     );
     $pane->extras = array();
-    $pane->position = 12;
+    $pane->position = 13;
     $pane->uuid = '84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $display->content['new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2'] = $pane;
-    $display->panels['main_callout'][12] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
+    $display->panels['main_callout'][13] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
     $pane = new stdClass;
     $pane->pid = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
     $pane->panel = 'main_callout';
@@ -2705,10 +2735,10 @@ print behavenet_node_qr(%alias:raw);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 13;
+    $pane->position = 14;
     $pane->uuid = '3086f958-1fd4-64c4-3180-193cde5deb69';
     $display->content['new-3086f958-1fd4-64c4-3180-193cde5deb69'] = $pane;
-    $display->panels['main_callout'][13] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
+    $display->panels['main_callout'][14] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
   $handler->conf['display'] = $display;
