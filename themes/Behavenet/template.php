@@ -529,10 +529,18 @@ function behavenet_build_jump_menu($items, $sort_by_title = TRUE) {
 }
 
 /*
- * Returns the HTML needed show a QR code for the given relative URL
+ * Returns the HTML needed show a QR code for the given relative URL or the
+ * current URL if none is specified.
  */
 function behavenet_node_qr($url) {
-  $url = url($url, array('absolute' => TRUE, 'alias' => TRUE));
+  if (empty($url)) {
+    // Use current URL
+    $url = url(implode('/', arg()), array('absolute' => TRUE));
+    dsm($url);
+  }
+  else {
+    $url = url($url, array('absolute' => TRUE, 'alias' => TRUE));
+  }
   return '<div class="behavenet-url-qr">'
     . theme('mobilecode', $url, array('#preset' => 'behavenet_qr'))
     . '</div>';
