@@ -536,7 +536,6 @@ function behavenet_node_qr($url) {
   if (empty($url)) {
     // Use current URL
     $url = url(implode('/', arg()), array('absolute' => TRUE));
-    dsm($url);
   }
   else {
     $url = url($url, array('absolute' => TRUE, 'alias' => TRUE));
