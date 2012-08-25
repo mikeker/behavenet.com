@@ -2655,9 +2655,9 @@ print behavenet_node_qr();
       'admin_title' => 'GoodTherapy',
       'title' => '',
       'body' => '<div class="behavenet-goodtherapy">
-<a href="http://www.goodtherapy.org/behavenet-welcome-therapist.html"><img src="http://www.goodtherapy.org/graph/join-gt-banners/BehaveNet_165x265.jpg" alt="Join GoodTherapy.org" width="162" height="264" border="0" usemap="#shmLink1" title="Join GoodTherapy.org" />
-<map name="shmLink1" id="shmLink1">
-  <area shape="rect" coords="145,249,166,270" href="http://www.goodtherapy.org/" />
+<a href="http://www.goodtherapy.org/behavenet-welcome-therapist.html"><img src="http://www.goodtherapy.org/graph/join-gt-banners/BehaveNet_300x182.jpg" alt="Join GoodTherapy.org" width="300" height="182" border="0" usemap="#behLink1" title="Join GoodTherapy.org" />
+<map name="behLink1" id="behLink1">
+  <area shape="rect" coords="14,127,154,182" href="http://www.goodtherapy.org/" />
 </map>
 </a>
 </div>',
