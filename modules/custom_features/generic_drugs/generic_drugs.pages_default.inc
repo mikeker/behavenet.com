@@ -315,41 +315,6 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     $display->content['new-376eb690-8238-a0c4-e57a-e7e88b5e7e47'] = $pane;
     $display->panels['middle'][7] = 'new-376eb690-8238-a0c4-e57a-e7e88b5e7e47';
     $pane = new stdClass;
-    $pane->pid = 'new-eb896c1a-b12a-4a44-39df-939738f0fcce';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'drug_combos-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'node_type',
-          'settings' => array(
-            'type' => array(
-              'sources' => 'sources',
-            ),
-          ),
-          'context' => 'argument_nid_1',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_nid_1',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 8;
-    $pane->uuid = 'eb896c1a-b12a-4a44-39df-939738f0fcce';
-    $display->content['new-eb896c1a-b12a-4a44-39df-939738f0fcce'] = $pane;
-    $display->panels['middle'][8] = 'new-eb896c1a-b12a-4a44-39df-939738f0fcce';
-    $pane = new stdClass;
     $pane->pid = 'new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
@@ -381,10 +346,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
+    $pane->position = 8;
     $pane->uuid = 'acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
     $display->content['new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3'] = $pane;
-    $display->panels['middle'][9] = 'new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
+    $display->panels['middle'][8] = 'new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
     $pane = new stdClass;
     $pane->pid = 'new-bd5d60e6-524b-2894-d910-3b9e4c65a26f';
     $pane->panel = 'middle';
@@ -405,10 +370,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
+    $pane->position = 9;
     $pane->uuid = 'bd5d60e6-524b-2894-d910-3b9e4c65a26f';
     $display->content['new-bd5d60e6-524b-2894-d910-3b9e4c65a26f'] = $pane;
-    $display->panels['middle'][10] = 'new-bd5d60e6-524b-2894-d910-3b9e4c65a26f';
+    $display->panels['middle'][9] = 'new-bd5d60e6-524b-2894-d910-3b9e4c65a26f';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
