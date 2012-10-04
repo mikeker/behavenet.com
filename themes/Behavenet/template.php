@@ -22,7 +22,7 @@ function behavenet_preprocess_content_field(&$vars) {
     'field_company_url' => '',
     'field_drug_pi_url' => 'FDA Label',
     'field_drug_url' => 'Product Web site',
-    'field_generic_medline_url' => 'Medline',
+    'field_generic_medline_url' => 'MedlinePlus',
     'field_movie_blog' => '<span class="blogger-link"><img src="/'
       . drupal_get_path('theme', 'Behavenet')
       . '/images/blogger.png" alt="Blogger icon" title="Read a blog entry about this movie" />'
