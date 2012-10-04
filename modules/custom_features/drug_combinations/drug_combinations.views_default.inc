@@ -301,6 +301,7 @@ function drug_combinations_views_default_views() {
       'default_argument_fixed' => '',
       'default_argument_php' => '',
       'validate_argument_node_type' => array(
+        'sources' => 'sources',
         'generic' => 'generic',
         'drug' => 'drug',
         'directory' => 0,
@@ -312,7 +313,6 @@ function drug_combinations_views_default_views() {
         'page' => 0,
         'people' => 0,
         'preparation' => 0,
-        'sources' => 0,
         'book' => 0,
         'movie' => 0,
         'credit' => 0,

@@ -127,6 +127,7 @@ function behavenet_preprocess_content_field(&$vars) {
         continue;
       }
       $combo = node_load($item['nid']);
+      dsm($combo); dsm($item);
       $title = array();
       foreach ($combo->field_combo_drugs as $info) {
         $generic = node_load($info['nid']);
