@@ -65,23 +65,6 @@ function behavenet_preprocess_content_field(&$vars) {
     }
   }
 
-  // Link directly to company web site -- skip link to internal node
-  if ('field_drug_company' == $vars['field_name']) {
-    if (empty($vars['items'][0]['nid'])) {
-      $vars['field_empty'] = TRUE;
-    }
-    else {
-      $company = node_load($vars['items'][0]['nid']);
-      $url = $company->field_company_url[0]['value'];
-      $name = empty($company->title) ? 'Company Web site' : $company->title;
-      if (0 !== strpos($url, 'http://')) {
-        // Correct poorly formed URLs in the original dataset
-        $url = "http://$url";
-      }
-      $vars['items'][0]['view'] = l($name, $url, array('external' => TRUE));
-    }
-  }
-
   // Rewrite some Amazon links to include lowest price
   if ('field_general_asin' == $vars['field_name'] && 'inline' == $vars['element']['items'][0]['#formatter']) {
     $amzn = $vars['node']->{0};

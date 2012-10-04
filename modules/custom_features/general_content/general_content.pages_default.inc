@@ -797,6 +797,43 @@ print behavenet_display_term_children(7358);
     $display->content['new-b9bd81b9-4704-5f34-7dde-738ed56e2fb6'] = $pane;
     $display->panels['middle'][13] = 'new-b9bd81b9-4704-5f34-7dde-738ed56e2fb6';
     $pane = new stdClass;
+    $pane->pid = 'new-3da5143a-aeb0-4e64-b185-14176b3e4d64';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'trade_drugs-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'company' => 'company',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_nid_1',
+      ),
+      'override_title' => 1,
+      'override_title_text' => 'Tradenames',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 14;
+    $pane->uuid = '3da5143a-aeb0-4e64-b185-14176b3e4d64';
+    $display->content['new-3da5143a-aeb0-4e64-b185-14176b3e4d64'] = $pane;
+    $display->panels['middle'][14] = 'new-3da5143a-aeb0-4e64-b185-14176b3e4d64';
+    $pane = new stdClass;
     $pane->pid = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
     $pane->panel = 'middle';
     $pane->type = 'node_comments';
@@ -821,10 +858,10 @@ print behavenet_display_term_children(7358);
       'css_class' => 'comments-list',
     );
     $pane->extras = array();
-    $pane->position = 14;
+    $pane->position = 15;
     $pane->uuid = '75988c4b-863f-54b4-3d7b-466b8234632b';
     $display->content['new-75988c4b-863f-54b4-3d7b-466b8234632b'] = $pane;
-    $display->panels['middle'][14] = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
+    $display->panels['middle'][15] = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
     $pane = new stdClass;
     $pane->pid = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
     $pane->panel = 'middle';
@@ -860,10 +897,10 @@ print behavenet_display_term_children(7358);
       'css_class' => 'comment-form',
     );
     $pane->extras = array();
-    $pane->position = 15;
+    $pane->position = 16;
     $pane->uuid = '13588c1f-d1a1-4ed4-9586-563587ffbe75';
     $display->content['new-13588c1f-d1a1-4ed4-9586-563587ffbe75'] = $pane;
-    $display->panels['middle'][15] = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
+    $display->panels['middle'][16] = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

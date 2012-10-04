@@ -830,6 +830,88 @@ else {
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('arguments', array(
+    'field_drug_company_nid' => array(
+      'default_action' => 'ignore',
+      'style_plugin' => 'default_summary',
+      'style_options' => array(),
+      'wildcard' => 'all',
+      'wildcard_substitution' => 'All',
+      'title' => '',
+      'breadcrumb' => '',
+      'default_argument_type' => 'fixed',
+      'default_argument' => '',
+      'validate_type' => 'node',
+      'validate_fail' => 'not found',
+      'break_phrase' => 0,
+      'not' => 0,
+      'id' => 'field_drug_company_nid',
+      'table' => 'node_data_field_drug_company',
+      'field' => 'field_drug_company_nid',
+      'validate_user_argument_type' => 'uid',
+      'validate_user_roles' => array(
+        2 => 0,
+      ),
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
+      'default_options_div_prefix' => '',
+      'default_taxonomy_tid_term_page' => 0,
+      'default_taxonomy_tid_node' => 0,
+      'default_taxonomy_tid_limit' => 0,
+      'default_taxonomy_tid_vids' => array(
+        9 => 0,
+        3 => 0,
+        10 => 0,
+        11 => 0,
+        12 => 0,
+        2 => 0,
+        13 => 0,
+        5 => 0,
+      ),
+      'default_argument_user' => 0,
+      'default_argument_fixed' => '',
+      'default_argument_php' => '',
+      'validate_argument_node_type' => array(
+        'company' => 'company',
+        'directory' => 0,
+        'combinations' => 0,
+        'compound' => 0,
+        'device' => 0,
+        'indication' => 0,
+        'page' => 0,
+        'people' => 0,
+        'preparation' => 0,
+        'sources' => 0,
+        'generic' => 0,
+        'book' => 0,
+        'movie' => 0,
+        'credit' => 0,
+        'dsm' => 0,
+        'dsm_caution' => 0,
+        'tax_tweaks_extras' => 0,
+        'drug' => 0,
+        'panel' => 0,
+      ),
+      'validate_argument_node_access' => 0,
+      'validate_argument_nid_type' => 'nid',
+      'validate_argument_vocabulary' => array(
+        9 => 0,
+        3 => 0,
+        10 => 0,
+        11 => 0,
+        12 => 0,
+        2 => 0,
+        13 => 0,
+        5 => 0,
+      ),
+      'validate_argument_type' => 'tid',
+      'validate_argument_transform' => 0,
+      'validate_user_restrict_roles' => 0,
+      'validate_argument_php' => '',
+    ),
+  ));
   $handler->override_option('filters', array(
     'status' => array(
       'operator' => '=',
@@ -1074,7 +1156,16 @@ else {
     'exposed_form' => 0,
     'fields_override' => 0,
   ));
-  $handler->override_option('argument_input', array());
+  $handler->override_option('argument_input', array(
+    'field_drug_company_nid' => array(
+      'type' => 'context',
+      'context' => 'node.nid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Content: Company (field_drug_company)',
+    ),
+  ));
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
 
