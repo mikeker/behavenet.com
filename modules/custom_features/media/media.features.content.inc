@@ -928,7 +928,7 @@ function media_content_default_fields() {
         ),
       ),
       'default_value_php' => NULL,
-      'label' => 'Actors',
+      'label' => 'Cast',
       'weight' => '6',
       'description' => '',
       'type' => 'text_textfield',
@@ -1259,13 +1259,13 @@ function media_content_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Actors');
   t('Additional ASINs');
   t('Amazon ASIN');
   t('Author First Name');
   t('Author Last Name');
   t('Blog entry');
   t('Blog entry (Blogger.com)');
+  t('Cast');
   t('Chemical Class');
   t('Facebook page');
   t('Official Web site');
