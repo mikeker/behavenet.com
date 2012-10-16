@@ -60,7 +60,7 @@ function general_content_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Tradenames',
+      'override_title_text' => 'Trade names',
     );
     $pane->cache = array();
     $pane->style = array(

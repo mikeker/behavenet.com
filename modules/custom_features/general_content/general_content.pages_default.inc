@@ -821,7 +821,7 @@ print behavenet_display_term_children(7358);
         0 => 'argument_nid_1',
       ),
       'override_title' => 1,
-      'override_title_text' => 'Tradenames',
+      'override_title_text' => 'Trade names',
     );
     $pane->cache = array();
     $pane->style = array(
