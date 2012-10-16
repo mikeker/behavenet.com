@@ -136,8 +136,10 @@ function trade_name_drugs_views_default_views() {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -152,6 +154,7 @@ function trade_name_drugs_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'value' => '<?php
 if (!empty($data->node_data_field_indication_approval_field_indication_approval_value)) {
   $time = strftime(\'%m/%d/%y\', strtotime($data->node_data_field_indication_approval_field_indication_approval_value));
@@ -161,7 +164,8 @@ if (empty($data->node_revisions_body)) {
   print $data->node_title;
 }
 else {
-  print $data->node_revisions_body;
+  // Remove leading paragraph tag, introduced by WYSIWYG editors.
+  print preg_replace(\'/<p>(.*)/i\', \'$1\', $data->node_revisions_body);
 }
 ?>',
       'exclude' => 0,
