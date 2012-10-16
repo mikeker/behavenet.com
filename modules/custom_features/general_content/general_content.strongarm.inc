@@ -58,33 +58,6 @@ function general_content_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'service_links_node_types';
-  $strongarm->value = array(
-    'book' => 'book',
-    'company' => 'company',
-    'compound' => 'compound',
-    'device' => 'device',
-    'directory' => 'directory',
-    'drug' => 'drug',
-    'combinations' => 'combinations',
-    'generic' => 'generic',
-    'movie' => 'movie',
-    'page' => 'page',
-    'people' => 'people',
-    'preparation' => 'preparation',
-    'sources' => 'sources',
-    'dsm_caution' => 0,
-    'credit' => 0,
-    'dsm' => 0,
-    'indication' => 0,
-    'panel' => 0,
-    'tax_tweaks_extras' => 0,
-  );
-  $export['service_links_node_types'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_page';
   $strongarm->value = 0;
   $export['comment_form_location_page'] = $strongarm;
@@ -330,13 +303,6 @@ function general_content_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'service_links_in_links';
-  $strongarm->value = '0';
-  $export['service_links_in_links'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_company';
   $strongarm->value = 0;
   $export['comment_anonymous_company'] = $strongarm;
@@ -382,13 +348,6 @@ function general_content_strongarm() {
   $strongarm->name = 'comment_anonymous_sources';
   $strongarm->value = 0;
   $export['comment_anonymous_sources'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'service_links_page_match_for_node';
-  $strongarm->value = '';
-  $export['service_links_page_match_for_node'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -505,13 +464,6 @@ function general_content_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'service_links_visibility_for_node';
-  $strongarm->value = '0';
-  $export['service_links_visibility_for_node'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_order_company';
   $strongarm->value = 1;
   $export['comment_default_order_company'] = $strongarm;
@@ -557,13 +509,6 @@ function general_content_strongarm() {
   $strongarm->name = 'comment_default_order_sources';
   $strongarm->value = 1;
   $export['comment_default_order_sources'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'service_links_in_node';
-  $strongarm->value = '0';
-  $export['service_links_in_node'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1050,6 +995,61 @@ function general_content_strongarm() {
   $strongarm->name = 'show_preview_changes_device';
   $strongarm->value = 1;
   $export['show_preview_changes_device'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'service_links_node_types';
+  $strongarm->value = array(
+    'book' => 'book',
+    'company' => 'company',
+    'compound' => 'compound',
+    'device' => 'device',
+    'directory' => 'directory',
+    'drug' => 'drug',
+    'combinations' => 'combinations',
+    'generic' => 'generic',
+    'movie' => 'movie',
+    'page' => 'page',
+    'people' => 'people',
+    'preparation' => 'preparation',
+    'sources' => 'sources',
+    'dsm_caution' => 0,
+    'credit' => 0,
+    'dsm' => 0,
+    'indication' => 0,
+    'panel' => 0,
+    'tax_tweaks_extras' => 0,
+  );
+  $export['service_links_node_types'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'service_links_in_links';
+  $strongarm->value = '0';
+  $export['service_links_in_links'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'service_links_page_match_for_node';
+  $strongarm->value = '';
+  $export['service_links_page_match_for_node'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'service_links_visibility_for_node';
+  $strongarm->value = '0';
+  $export['service_links_visibility_for_node'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'service_links_in_node';
+  $strongarm->value = '0';
+  $export['service_links_in_node'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

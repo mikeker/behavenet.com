@@ -316,7 +316,7 @@ function behavenet_preprocess_content_field(&$vars) {
           $generics[] = $item['view'];
           $vars['items'][$index]['empty'] = TRUE;
         }
-        $vars['items'][0]['view'] = "$tradename is a combination of "
+        $vars['items'][0]['view'] = "A combination of "
           . implode_and($generics);
         $vars['items'][0]['empty'] = FALSE;
       }
