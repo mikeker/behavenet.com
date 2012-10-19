@@ -2109,6 +2109,7 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
       <li><a href="<?php print url(\'taxonomy/term/11331\'); ?>">Psychoanalytic</a></li>
       <li><a href="<?php print url(\'taxonomy/term/8603\'); ?>">Psychodynamic</a></li>
       <li><a href="<?php print url(\'taxonomy/term/9140\'); ?>">TA</a></li>
+      <li><a href="<?php print url(\'taxonomy/term/14152\'); ?>">Unified Psychotherapy</a>
     </ul>
   </li>
   <li><a href="<?php print url(\'taxonomy/term/8520\'); ?>">Reimbursement</a></li>
