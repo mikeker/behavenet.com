@@ -263,7 +263,7 @@ function behave_terms_admin_ac_submit($form, &$form_state) {
   }
 
   // Collect and compact the terms array in question
-  $term_field = $form_state['values']['behavenet_terms_field']; 
+  $term_field = $form_state['values']['behavenet_terms_field'];
   $terms = array();
   foreach ($form_state['values'][$term_field] as $entry) {
     if (!empty($entry['value']) && !in_array($entry['value'], $remove)) {
@@ -434,7 +434,7 @@ function hook_ckeditor_link_TYPE_settings() {
  *****************************************************************************/
 
 /**
- * Loads a term based on either tid or term object. Runs input filters on 
+ * Loads a term based on either tid or term object. Runs input filters on
  * the term description.
  */
 function behavenet_load_term($term) {
@@ -446,7 +446,7 @@ function behavenet_load_term($term) {
   }
   return $term;
 }
- 
+
 /**
  * Attempts to redirect page not found URLs.  Mostly these will be legacy links
  * pointing to the old site.  If an exact match is found, it will add it to the
@@ -660,7 +660,7 @@ function behavenet_get_generic_breadcrumbs($nid) {
  */
 function behavenet_get_content_breadcrumbs($nid) {
   $node = node_load($nid);
-  $valid = array('sources', 'preparation', 'compound');
+  $valid = array('sources', 'preparation', 'compound', 'combinations');
   if (in_array($node->type, $valid)) {
     return l(_behavenet_tweak_types($node->type), "list/$node->type")
       . ' &raquo; '
@@ -1242,7 +1242,7 @@ function _behavenet_tweak_types($type) {
 
     case 'generic':
       return 'Molecular entity';
-      
+
     case 'drug':
       return 'Brand';
 

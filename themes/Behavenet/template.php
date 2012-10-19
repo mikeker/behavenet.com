@@ -121,6 +121,7 @@ function behavenet_preprocess_content_field(&$vars) {
   }
 
   // Adjust the display of combination fields such that they show the generics
+  // NOTE: We've removed the trade names from the text and added a jump menu instead.
   if ('field_drug_combo' == $vars['field_name'] && $vars['items'][0]['nid']) {
     foreach ($vars['items'] as $index => $item) {
       if (empty($item['nid'])) {
@@ -132,15 +133,17 @@ function behavenet_preprocess_content_field(&$vars) {
         $generic = node_load($info['nid']);
         $title[] = l($generic->title, "node/$generic->nid");
       }
+
+      // Link to the term 'combination'
+      $combo_link = l('combination', 'taxonomy/term/8125');
+
       if (1 == count($title)) {
         $last = array_pop($title);
-        $link = l($combo->title, "node/$combo->nid");
-        $vars['items'][$index]['view'] = "$link: a combination including $last";
+        $vars['items'][$index]['view'] = "A $combo_link including $last";
       }
       else {
         $last = array_pop($title);
-        $link = l($combo->title, "node/$combo->nid");
-        $vars['items'][$index]['view'] = "$link: a combination of " . implode(', ', $title) . " and $last";
+        $vars['items'][$index]['view'] = "A $combo_link of " . implode(', ', $title) . " and $last";
       }
     }
   }

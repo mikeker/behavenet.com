@@ -143,7 +143,7 @@ function drug_combinations_views_default_views() {
     'default_value' => 0,
   ));
   $handler = $view->new_display('page', 'List all', 'page_1');
-  $handler->override_option('path', 'list/combination');
+  $handler->override_option('path', 'list/combinations');
   $handler->override_option('menu', array(
     'type' => 'none',
     'title' => '',
