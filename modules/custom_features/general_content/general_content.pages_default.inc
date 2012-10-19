@@ -1655,7 +1655,7 @@ print behavenet_display_term_children(7358);
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -27;
+  $handler->weight = -26;
   $handler->conf = array(
     'title' => 'Drugs main page',
     'no_blocks' => FALSE,
@@ -1767,7 +1767,7 @@ print behavenet_display_term_children(7358);
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Resources',
+      'override_title_text' => '<a href="/resources">Resources</a>',
     );
     $pane->cache = array();
     $pane->style = array(

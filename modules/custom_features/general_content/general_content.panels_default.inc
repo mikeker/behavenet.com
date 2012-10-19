@@ -39,7 +39,7 @@ function general_content_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Molecular entities',
+      'override_title_text' => '<a href="/drug">Molecular entities</a>',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -60,7 +60,7 @@ function general_content_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Trade names',
+      'override_title_text' => '<a href="/trade-name">Trade names</a>',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -84,7 +84,7 @@ function general_content_default_panels_mini() {
         'vid' => '9',
       ),
       'override_title' => 1,
-      'override_title_text' => 'Actions',
+      'override_title_text' => '<a href="/action">Actions</a>',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -108,7 +108,7 @@ function general_content_default_panels_mini() {
         'vid' => '3',
       ),
       'override_title' => 1,
-      'override_title_text' => 'Chemical classes',
+      'override_title_text' => '<a href="/chemical-class">Chemical classes</a>',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -132,7 +132,7 @@ function general_content_default_panels_mini() {
         'vid' => '10',
       ),
       'override_title' => 1,
-      'override_title_text' => 'Clinical classes',
+      'override_title_text' => '<a href="/clinical-class">Clinical classes</a>',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -156,7 +156,7 @@ function general_content_default_panels_mini() {
         'vid' => '12',
       ),
       'override_title' => 1,
-      'override_title_text' => 'Effect classes',
+      'override_title_text' => '<a href="/effect-class">Effect classes</a>',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -177,7 +177,7 @@ function general_content_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Combinations',
+      'override_title_text' => '<a href="/combination">Combinations</a>',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -198,7 +198,7 @@ function general_content_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Sources',
+      'override_title_text' => '<a href="/source">Sources</a>',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -219,7 +219,7 @@ function general_content_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Compounds',
+      'override_title_text' => '<a href="/compound">Compounds</a>',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -240,7 +240,7 @@ function general_content_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Preparations',
+      'override_title_text' => '<a href="/preparation-drug">Preparations</a>',
     );
     $pane->cache = array();
     $pane->style = array(
