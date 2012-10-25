@@ -1857,13 +1857,19 @@ print behavenet_display_term_children(7358);
     $display->content['new-e95ee5a7-66f1-0114-f105-8c53477c8b86'] = $pane;
     $display->panels['footer'][0] = 'new-e95ee5a7-66f1-0114-f105-8c53477c8b86';
     $pane = new stdClass;
-    $pane->pid = 'new-b8bff65a-007c-da44-e139-e8063863e996';
+    $pane->pid = 'new-1979e817-513e-2684-cd36-01133ac5dfab';
     $pane->panel = 'footer';
-    $pane->type = 'page_footer_message';
-    $pane->subtype = 'page_footer_message';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array();
+    $pane->configuration = array(
+      'admin_title' => 'Page footer message',
+      'title' => '',
+      'body' => '<p>Copyright© 1995-2012 BehaveNet® Inc | <a href="/advertisers">Advertisers</a> | <a href="/terms-of-use">Terms of Use</a> | <a href="/privacy-policy">Privacy</a> | <a href="http://imaging.ubmmedica.com/all/UBMMedica%20Network_Privacy_Statement.html">Medica Network Privacy Statement</a></p>',
+      'format' => '3',
+      'substitute' => 0,
+    );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -1871,9 +1877,9 @@ print behavenet_display_term_children(7358);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $pane->uuid = 'b8bff65a-007c-da44-e139-e8063863e996';
-    $display->content['new-b8bff65a-007c-da44-e139-e8063863e996'] = $pane;
-    $display->panels['footer'][1] = 'new-b8bff65a-007c-da44-e139-e8063863e996';
+    $pane->uuid = '1979e817-513e-2684-cd36-01133ac5dfab';
+    $display->content['new-1979e817-513e-2684-cd36-01133ac5dfab'] = $pane;
+    $display->panels['footer'][1] = 'new-1979e817-513e-2684-cd36-01133ac5dfab';
     $pane = new stdClass;
     $pane->pid = 'new-497c44d2-7cf9-e464-bd50-d6c756b73f92';
     $pane->panel = 'footer';
