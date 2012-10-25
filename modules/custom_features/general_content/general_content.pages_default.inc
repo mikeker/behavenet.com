@@ -1866,7 +1866,7 @@ print behavenet_display_term_children(7358);
     $pane->configuration = array(
       'admin_title' => 'Page footer message',
       'title' => '',
-      'body' => '<p>Copyright© 1995-2012 BehaveNet® Inc | <a href="/advertisers">Advertisers</a> | <a href="/terms-of-use">Terms of Use</a> | <a href="/privacy-policy">Privacy</a> | <a href="http://imaging.ubmmedica.com/all/UBMMedica%20Network_Privacy_Statement.html">Medica Network Privacy Statement</a></p>',
+      'body' => '<p>Copyright© 1995-2012 BehaveNet® Inc | <a href="/terms-of-use">Terms of Use</a> | <a href="/privacy-policy">Privacy</a></p>',
       'format' => '3',
       'substitute' => 0,
     );
