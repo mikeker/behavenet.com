@@ -1824,7 +1824,7 @@ print behavenet_display_term_children(7358);
     $pane->panel = 'footer';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array(
       'plugins' => array(
         0 => array(
@@ -1841,7 +1841,9 @@ print behavenet_display_term_children(7358);
       'admin_title' => 'Bottom Leaderboard Ad',
       'title' => '',
       'body' => '<?php
-  print behavenet_get_ad(\'728x90\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'bottom\');
+  // Retaining old code, just in case
+  // print behavenet_get_ad(\'728x90\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'bottom\');
+  print behavenet_get_ad(\'728x90\');
 ?>',
       'format' => '4',
       'substitute' => 1,
@@ -1885,7 +1887,7 @@ print behavenet_display_term_children(7358);
     $pane->panel = 'footer';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'admin_title' => 'Medica Registration Bar',
@@ -1909,7 +1911,7 @@ print behavenet_display_term_children(7358);
     $pane->panel = 'footer';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array(
       'plugins' => array(
         0 => array(
@@ -2010,7 +2012,9 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
       'admin_title' => 'Leaderboard Ad',
       'title' => '',
       'body' => '<?php
-  print behavenet_get_ad(\'728x90\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'top\');
+  // Retaining old code, just in case
+  // print behavenet_get_ad(\'728x90\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'top\');
+  print behavenet_get_ad(\'728x90\');
 ?>',
       'format' => '4',
       'substitute' => 1,
@@ -2186,7 +2190,9 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
       'admin_title' => 'Skyscraper Ad 1',
       'title' => '',
       'body' => '<?php
-  print behavenet_get_ad(\'160x600\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'sky1\');
+  // Retaining old code, just in case
+  // print behavenet_get_ad(\'160x600\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'sky1\');
+  print behavenet_get_ad(\'160x600\');
 ?>',
       'format' => '4',
       'substitute' => 1,
@@ -2777,7 +2783,9 @@ print behavenet_node_qr();
       'admin_title' => 'Rectangle Ad (300 x 250)',
       'title' => '',
       'body' => '<?php
-  print behavenet_get_ad(\'300x250\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'rec1\');
+  // Retaining old code, just in case
+  // print behavenet_get_ad(\'300x250\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'rec1\');
+  print behavenet_get_ad(\'300x250\');
 ?>',
       'format' => '4',
       'substitute' => 1,
@@ -2810,7 +2818,13 @@ print behavenet_node_qr();
       'format' => '4',
       'substitute' => 1,
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '7200',
+        'granularity' => 'none',
+      ),
+    );
     $pane->style = array(
       'settings' => NULL,
     );

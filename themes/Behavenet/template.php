@@ -555,8 +555,26 @@ function behavenet_show_ads() {
   return TRUE;
 }
 
+function behavenet_get_ad($size, $group = 1, $channel = 1, $slot = '') {
+  if (module_exists('adsense')) {
+    $out = adsense_display($size, $group, $channel, $slot);
+
+    list($width, $height) = explode('x', $size);
+
+    // Trim inline styles and replace with our own
+    $out = preg_replace('/ style=\'.*?\'/', " style='width:{$width}px; height:{$height}px;'", $out);
+
+    // Add additional classes for better styling
+    $out = preg_replace('/ class=\'(.*?)\'/', " class='\$1 behavenet_ad behavenet_ad_$size'", $out);
+
+    return $out;
+  }
+}
+  // Old code -- keeping for now in case we revert
+  /*
 function behavenet_get_ad($size, $tag, $location) {
   list($width, $height) = explode('x', $size);
+
   $dc_ref = 'encodeURIComponent(location.href)';
 
   $output = '
@@ -578,6 +596,7 @@ function behavenet_get_ad($size, $tag, $location) {
   ';
   return $output;
 }
+   */
 
 /*
  * Single point of entry to ad tags to make the panels code simplier
