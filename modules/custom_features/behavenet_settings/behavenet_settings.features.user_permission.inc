@@ -92,6 +92,12 @@ function behavenet_settings_user_default_permissions() {
     'roles' => array(),
   );
 
+  // Exported permission: administer adsense
+  $permissions['administer adsense'] = array(
+    'name' => 'administer adsense',
+    'roles' => array(),
+  );
+
   // Exported permission: administer advanced pane settings
   $permissions['administer advanced pane settings'] = array(
     'name' => 'administer advanced pane settings',
@@ -366,6 +372,12 @@ function behavenet_settings_user_default_permissions() {
     'roles' => array(),
   );
 
+  // Exported permission: hide adsense
+  $permissions['hide adsense'] = array(
+    'name' => 'hide adsense',
+    'roles' => array(),
+  );
+
   // Exported permission: perform backup
   $permissions['perform backup'] = array(
     'name' => 'perform backup',
@@ -453,6 +465,12 @@ function behavenet_settings_user_default_permissions() {
     ),
   );
 
+  // Exported permission: use PHP for ad visibility
+  $permissions['use PHP for ad visibility'] = array(
+    'name' => 'use PHP for ad visibility',
+    'roles' => array(),
+  );
+
   // Exported permission: use page manager
   $permissions['use page manager'] = array(
     'name' => 'use page manager',
@@ -482,6 +500,12 @@ function behavenet_settings_user_default_permissions() {
   // Exported permission: view all panes
   $permissions['view all panes'] = array(
     'name' => 'view all panes',
+    'roles' => array(),
+  );
+
+  // Exported permission: view clicks
+  $permissions['view clicks'] = array(
+    'name' => 'view clicks',
     'roles' => array(),
   );
 
