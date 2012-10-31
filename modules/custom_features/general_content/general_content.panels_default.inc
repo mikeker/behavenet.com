@@ -583,7 +583,7 @@ function general_content_default_panels_mini() {
   <a href="http://twitter.com/behavenet"><span class="social-media-icon social-media-icon-twitter"></span></a>Follow us on<br><a href="http://twitter.com/behavenet">Twitter</a>
 </div>
 <div class="social-media-links-row">
-  <a href="https://member.cmpmedica.com/register.php?campaign=SSONP&leadsource=130B7ACB-9CE9-4562-8C37-B5E3E5E49EAA&referrer=!!!aHR0cCUzQS8vYmVoYXZlbmV0LmNvbS8="><span class="social-media-icon social-media-icon-email"></span></a>Sign up for our<br><a href="https://member.cmpmedica.com/register.php?campaign=SSONP&leadsource=130B7ACB-9CE9-4562-8C37-B5E3E5E49EAA&referrer=!!!aHR0cCUzQS8vYmVoYXZlbmV0LmNvbS8=">Newletter</a>
+  <a href="http://visitor.r20.constantcontact.com/d.jsp?llr=eiiozalab&p=oi&m=1111349469444"><span class="social-media-icon social-media-icon-email"></span></a>Sign up for our<br><a href="http://visitor.r20.constantcontact.com/d.jsp?llr=eiiozalab&p=oi&m=1111349469444">Newletter</a>
 </div>
 <div class="social-media-links-row">
   <a href="http://behavenet.com/rss.xml"><span class="social-media-icon social-media-icon-rss"></span></a>Subscribe to our<br><a href="http://behavenet.com/rss.xml">RSS Feed</a>
