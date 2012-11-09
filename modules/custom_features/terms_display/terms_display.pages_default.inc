@@ -1338,6 +1338,39 @@ return $return;
     $display->content['new-7fa267d3-e878-2464-9136-3dc8b0ca96d6'] = $pane;
     $display->panels['middle'][15] = 'new-7fa267d3-e878-2464-9136-3dc8b0ca96d6';
     $pane = new stdClass;
+    $pane->pid = 'new-f6bf515e-5761-3754-a1c0-841eb2748e33';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'trade_drugs-panel_pane_3';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'taxonomy/term/14345',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Trade names',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 16;
+    $pane->uuid = 'f6bf515e-5761-3754-a1c0-841eb2748e33';
+    $display->content['new-f6bf515e-5761-3754-a1c0-841eb2748e33'] = $pane;
+    $display->panels['middle'][16] = 'new-f6bf515e-5761-3754-a1c0-841eb2748e33';
+    $pane = new stdClass;
     $pane->pid = 'new-4dc03573-e4a7-5d34-1db4-a0336561ef74';
     $pane->panel = 'middle';
     $pane->type = 'views';
@@ -1346,19 +1379,12 @@ return $return;
     $pane->access = array(
       'plugins' => array(
         0 => array(
-          'name' => 'term',
+          'name' => 'path_visibility',
           'settings' => array(
-            'vid' => '5',
-            9 => array(),
-            3 => array(),
-            10 => array(),
-            11 => array(),
-            2 => array(),
-            5 => array(
-              11872 => '11872',
-            ),
+            'visibility_setting' => '1',
+            'paths' => 'taxonomy/term/11872',
           ),
-          'context' => 'argument_terms_1',
+          'context' => 'empty',
           'not' => FALSE,
         ),
       ),
@@ -1385,10 +1411,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 16;
+    $pane->position = 17;
     $pane->uuid = '4dc03573-e4a7-5d34-1db4-a0336561ef74';
     $display->content['new-4dc03573-e4a7-5d34-1db4-a0336561ef74'] = $pane;
-    $display->panels['middle'][16] = 'new-4dc03573-e4a7-5d34-1db4-a0336561ef74';
+    $display->panels['middle'][17] = 'new-4dc03573-e4a7-5d34-1db4-a0336561ef74';
     $pane = new stdClass;
     $pane->pid = 'new-94f7bc77-3517-0724-cd7b-ac0ef909d537';
     $pane->panel = 'middle';
@@ -1398,21 +1424,12 @@ return $return;
     $pane->access = array(
       'plugins' => array(
         0 => array(
-          'name' => 'term',
+          'name' => 'path_visibility',
           'settings' => array(
-            'vid' => '5',
-            9 => array(),
-            3 => array(),
-            10 => array(),
-            11 => array(),
-            12 => array(),
-            2 => array(),
-            13 => array(),
-            5 => array(
-              10599 => '10599',
-            ),
+            'visibility_setting' => '1',
+            'paths' => 'taxonomy/term/10599',
           ),
-          'context' => 'argument_terms_1',
+          'context' => 'empty',
           'not' => FALSE,
         ),
       ),
@@ -1439,10 +1456,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 17;
+    $pane->position = 18;
     $pane->uuid = '94f7bc77-3517-0724-cd7b-ac0ef909d537';
     $display->content['new-94f7bc77-3517-0724-cd7b-ac0ef909d537'] = $pane;
-    $display->panels['middle'][17] = 'new-94f7bc77-3517-0724-cd7b-ac0ef909d537';
+    $display->panels['middle'][18] = 'new-94f7bc77-3517-0724-cd7b-ac0ef909d537';
     $pane = new stdClass;
     $pane->pid = 'new-c5d94251-ad3c-5de4-353d-764d6a044693';
     $pane->panel = 'middle';
@@ -1452,19 +1469,12 @@ return $return;
     $pane->access = array(
       'plugins' => array(
         0 => array(
-          'name' => 'term',
+          'name' => 'path_visibility',
           'settings' => array(
-            'vid' => '5',
-            9 => array(),
-            3 => array(),
-            10 => array(),
-            11 => array(),
-            2 => array(),
-            5 => array(
-              8125 => '8125',
-            ),
+            'visibility_setting' => '1',
+            'paths' => 'taxonomy/term/8125',
           ),
-          'context' => 'argument_terms_1',
+          'context' => 'empty',
           'not' => FALSE,
         ),
       ),
@@ -1491,10 +1501,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 18;
+    $pane->position = 19;
     $pane->uuid = 'c5d94251-ad3c-5de4-353d-764d6a044693';
     $display->content['new-c5d94251-ad3c-5de4-353d-764d6a044693'] = $pane;
-    $display->panels['middle'][18] = 'new-c5d94251-ad3c-5de4-353d-764d6a044693';
+    $display->panels['middle'][19] = 'new-c5d94251-ad3c-5de4-353d-764d6a044693';
     $pane = new stdClass;
     $pane->pid = 'new-d88141a7-6b29-4384-1df9-5dc687d59308';
     $pane->panel = 'middle';
@@ -1504,19 +1514,12 @@ return $return;
     $pane->access = array(
       'plugins' => array(
         0 => array(
-          'name' => 'term',
+          'name' => 'path_visibility',
           'settings' => array(
-            'vid' => '5',
-            9 => array(),
-            3 => array(),
-            10 => array(),
-            11 => array(),
-            2 => array(),
-            5 => array(
-              11873 => '11873',
-            ),
+            'visibility_setting' => '1',
+            'paths' => 'taxonomy/term/11873',
           ),
-          'context' => 'argument_terms_1',
+          'context' => 'empty',
           'not' => FALSE,
         ),
       ),
@@ -1543,10 +1546,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 19;
+    $pane->position = 20;
     $pane->uuid = 'd88141a7-6b29-4384-1df9-5dc687d59308';
     $display->content['new-d88141a7-6b29-4384-1df9-5dc687d59308'] = $pane;
-    $display->panels['middle'][19] = 'new-d88141a7-6b29-4384-1df9-5dc687d59308';
+    $display->panels['middle'][20] = 'new-d88141a7-6b29-4384-1df9-5dc687d59308';
     $pane = new stdClass;
     $pane->pid = 'new-b5b377c8-4d5b-1da4-e5bc-b5cfcd388985';
     $pane->panel = 'middle';
@@ -1567,10 +1570,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 20;
+    $pane->position = 21;
     $pane->uuid = 'b5b377c8-4d5b-1da4-e5bc-b5cfcd388985';
     $display->content['new-b5b377c8-4d5b-1da4-e5bc-b5cfcd388985'] = $pane;
-    $display->panels['middle'][20] = 'new-b5b377c8-4d5b-1da4-e5bc-b5cfcd388985';
+    $display->panels['middle'][21] = 'new-b5b377c8-4d5b-1da4-e5bc-b5cfcd388985';
     $pane = new stdClass;
     $pane->pid = 'new-ed97b4ed-550d-aa44-352c-25369a445ac6';
     $pane->panel = 'middle';
@@ -1589,10 +1592,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 21;
+    $pane->position = 22;
     $pane->uuid = 'ed97b4ed-550d-aa44-352c-25369a445ac6';
     $display->content['new-ed97b4ed-550d-aa44-352c-25369a445ac6'] = $pane;
-    $display->panels['middle'][21] = 'new-ed97b4ed-550d-aa44-352c-25369a445ac6';
+    $display->panels['middle'][22] = 'new-ed97b4ed-550d-aa44-352c-25369a445ac6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
