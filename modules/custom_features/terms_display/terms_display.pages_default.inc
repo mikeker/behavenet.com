@@ -1032,67 +1032,6 @@ print $term->description;
     $display->content['new-b5c0c580-8251-a664-f59a-1b5cb33ac0c6'] = $pane;
     $display->panels['middle'][5] = 'new-b5c0c580-8251-a664-f59a-1b5cb33ac0c6';
     $pane = new stdClass;
-    $pane->pid = 'new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'DSM_Criteria-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_terms_1',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'dsm-criteria',
-    );
-    $pane->extras = array();
-    $pane->position = 6;
-    $pane->uuid = '7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
-    $display->content['new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8'] = $pane;
-    $display->panels['middle'][6] = 'new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
-    $pane = new stdClass;
-    $pane->pid = 'new-50f15eae-8a08-27f4-a535-889f2498e949';
-    $pane->panel = 'middle';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'This term appears in (member of these lists)',
-      'title' => 'This term appears in',
-      'body' => '<?php
-$lists = _behavenet_get_lists(%term:tid);
-if (empty($lists)) {
-  return;
-}
-print \'<ul>\';
-foreach ($lists as $ltid) {
-  $term = taxonomy_get_term($ltid);
-  $url = url("taxonomy/term/$term->tid");
-  print "<li><a href=\'$url\'>$term->name</a></li>";
-}
-print \'</ul>\';
-?>',
-      'format' => '4',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 7;
-    $pane->uuid = '50f15eae-8a08-27f4-a535-889f2498e949';
-    $display->content['new-50f15eae-8a08-27f4-a535-889f2498e949'] = $pane;
-    $display->panels['middle'][7] = 'new-50f15eae-8a08-27f4-a535-889f2498e949';
-    $pane = new stdClass;
     $pane->pid = 'new-03d46673-a565-3424-1186-a2f075709f77';
     $pane->panel = 'middle';
     $pane->type = 'custom';
@@ -1101,7 +1040,7 @@ print \'</ul>\';
     $pane->access = array();
     $pane->configuration = array(
       'admin_title' => 'Members',
-      'title' => 'Members:',
+      'title' => '',
       'body' => '<?php
 $children = taxonomy_get_children(%term:tid, %term:vid);
 if (!count($children)) {
@@ -1136,10 +1075,71 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
+    $pane->position = 6;
     $pane->uuid = '03d46673-a565-3424-1186-a2f075709f77';
     $display->content['new-03d46673-a565-3424-1186-a2f075709f77'] = $pane;
-    $display->panels['middle'][8] = 'new-03d46673-a565-3424-1186-a2f075709f77';
+    $display->panels['middle'][6] = 'new-03d46673-a565-3424-1186-a2f075709f77';
+    $pane = new stdClass;
+    $pane->pid = 'new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'DSM_Criteria-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_terms_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'dsm-criteria',
+    );
+    $pane->extras = array();
+    $pane->position = 7;
+    $pane->uuid = '7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
+    $display->content['new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8'] = $pane;
+    $display->panels['middle'][7] = 'new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
+    $pane = new stdClass;
+    $pane->pid = 'new-50f15eae-8a08-27f4-a535-889f2498e949';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'This term appears in (member of these lists)',
+      'title' => 'This term appears in',
+      'body' => '<?php
+$lists = _behavenet_get_lists(%term:tid);
+if (empty($lists)) {
+  return;
+}
+print \'<ul>\';
+foreach ($lists as $ltid) {
+  $term = taxonomy_get_term($ltid);
+  $url = url("taxonomy/term/$term->tid");
+  print "<li><a href=\'$url\'>$term->name</a></li>";
+}
+print \'</ul>\';
+?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->uuid = '50f15eae-8a08-27f4-a535-889f2498e949';
+    $display->content['new-50f15eae-8a08-27f4-a535-889f2498e949'] = $pane;
+    $display->panels['middle'][8] = 'new-50f15eae-8a08-27f4-a535-889f2498e949';
     $pane = new stdClass;
     $pane->pid = 'new-adacd6c1-9e12-ab04-8dce-b56737d99c37';
     $pane->panel = 'middle';
