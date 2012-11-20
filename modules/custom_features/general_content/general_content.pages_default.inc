@@ -1969,6 +1969,7 @@ print behavenet_display_term_children(7358);
       </li>
     </ul>
   </li>
+  <li><a href="<?php print url(\'taxonomy/term/8637\'); ?>">ECT</a></li>
   <li><a href="<?php print url(\'taxonomy/term/7558\'); ?>">Forensic</a></li>
   <li><a href="<?php print url(\'taxonomy/term/7814\'); ?>">HIPAA</a></li>
   <li><a href="<?php print url(\'taxonomy/term/7885\'); ?>">Memory</a></li>
