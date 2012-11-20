@@ -156,6 +156,12 @@ function behavenet_settings_user_default_permissions() {
     'roles' => array(),
   );
 
+  // Exported permission: administer google admanager
+  $permissions['administer google admanager'] = array(
+    'name' => 'administer google admanager',
+    'roles' => array(),
+  );
+
   // Exported permission: administer imageapi
   $permissions['administer imageapi'] = array(
     'name' => 'administer imageapi',

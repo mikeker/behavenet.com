@@ -1820,33 +1820,15 @@ print behavenet_display_term_children(7358);
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->pid = 'new-e95ee5a7-66f1-0114-f105-8c53477c8b86';
+    $pane->pid = 'new-a8d428f7-6a79-9354-6dfd-eac5e5ed4bd8';
     $pane->panel = 'footer';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = FALSE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'php',
-          'settings' => array(
-            'description' => 'behavenet_show_ads()',
-            'php' => 'return behavenet_show_ads();',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-    );
+    $pane->type = 'block';
+    $pane->subtype = 'google_admanager-ded40f2a77c30efc6062db0cbd857746';
+    $pane->shown = TRUE;
+    $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Bottom Leaderboard Ad',
-      'title' => '',
-      'body' => '<?php
-  // Retaining old code, just in case
-  // print behavenet_get_ad(\'728x90\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'bottom\');
-  print behavenet_get_ad(\'728x90\');
-?>',
-      'format' => '4',
-      'substitute' => 1,
+      'override_title' => 1,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -1855,9 +1837,9 @@ print behavenet_display_term_children(7358);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $pane->uuid = 'e95ee5a7-66f1-0114-f105-8c53477c8b86';
-    $display->content['new-e95ee5a7-66f1-0114-f105-8c53477c8b86'] = $pane;
-    $display->panels['footer'][0] = 'new-e95ee5a7-66f1-0114-f105-8c53477c8b86';
+    $pane->uuid = 'a8d428f7-6a79-9354-6dfd-eac5e5ed4bd8';
+    $display->content['new-a8d428f7-6a79-9354-6dfd-eac5e5ed4bd8'] = $pane;
+    $display->panels['footer'][0] = 'new-a8d428f7-6a79-9354-6dfd-eac5e5ed4bd8';
     $pane = new stdClass;
     $pane->pid = 'new-1979e817-513e-2684-cd36-01133ac5dfab';
     $pane->panel = 'footer';
@@ -1883,96 +1865,6 @@ print behavenet_display_term_children(7358);
     $display->content['new-1979e817-513e-2684-cd36-01133ac5dfab'] = $pane;
     $display->panels['footer'][1] = 'new-1979e817-513e-2684-cd36-01133ac5dfab';
     $pane = new stdClass;
-    $pane->pid = 'new-497c44d2-7cf9-e464-bd50-d6c756b73f92';
-    $pane->panel = 'footer';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Medica Registration Bar',
-      'title' => '',
-      'body' => '<script src="https://member.cmpmedica.com/ssonp/networkbar.js.php?partnerGUID=130B7ACB-9CE9-4562-8C37-B5E3E5E49EAA" type="text/javascript" ></script>',
-      'format' => '2',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->uuid = '497c44d2-7cf9-e464-bd50-d6c756b73f92';
-    $display->content['new-497c44d2-7cf9-e464-bd50-d6c756b73f92'] = $pane;
-    $display->panels['footer'][2] = 'new-497c44d2-7cf9-e464-bd50-d6c756b73f92';
-    $pane = new stdClass;
-    $pane->pid = 'new-bc75b15e-ca9a-f964-d5cf-948878e71c95';
-    $pane->panel = 'footer';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = FALSE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'php',
-          'settings' => array(
-            'description' => '',
-            'php' => 'return behavenet_show_ads();',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'admin_title' => 'Interstitial Ad',
-      'title' => '',
-      'body' => '<script language="JavaScript" type="text/javascript">
-// <![CDATA[
-if (!behave_is_mobile()) {
-ord=Math.random()*10000000000000000;
-document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/adj/ubm.behavenet/<?php behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'); ?>;pos=interstitial;dcopt=ist;sz=10x1;ord=\' + ord + \'?" type="text/javascript"><\\/scr\' + \'ipt>\');
-}
-// ]]>
-</script>',
-      'format' => '4',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->uuid = 'bc75b15e-ca9a-f964-d5cf-948878e71c95';
-    $display->content['new-bc75b15e-ca9a-f964-d5cf-948878e71c95'] = $pane;
-    $display->panels['footer'][3] = 'new-bc75b15e-ca9a-f964-d5cf-948878e71c95';
-    $pane = new stdClass;
-    $pane->pid = 'new-7d45874d-3dc7-34f4-3d4b-3181dea146b9';
-    $pane->panel = 'header';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Mobile-only ads',
-      'title' => '',
-      'body' => '<script type="text/javascript">if(behave_is_mobile())document.write(\'\\x3cscript type="text/javascript" src="http://impel.mobiletheory.com/ad/mobiletheory.php?f=c&pid=NDY2">\\x3c/script>\');</script>',
-      'format' => '2',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->uuid = '7d45874d-3dc7-34f4-3d4b-3181dea146b9';
-    $display->content['new-7d45874d-3dc7-34f4-3d4b-3181dea146b9'] = $pane;
-    $display->panels['header'][0] = 'new-7d45874d-3dc7-34f4-3d4b-3181dea146b9';
-    $pane = new stdClass;
     $pane->pid = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
     $pane->panel = 'header';
     $pane->type = 'page_logo';
@@ -1986,52 +1878,31 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->uuid = 'a0f83f80-007e-7314-b96d-995964c370ad';
     $display->content['new-a0f83f80-007e-7314-b96d-995964c370ad'] = $pane;
-    $display->panels['header'][1] = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
+    $display->panels['header'][0] = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
     $pane = new stdClass;
-    $pane->pid = 'new-9c251e93-6d21-0304-21bd-e455c61bfd3b';
+    $pane->pid = 'new-e0b54c2d-061b-b9c4-614c-6e51ecde07cb';
     $pane->panel = 'header';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'block';
+    $pane->subtype = 'google_admanager-e02b89857b91a11b8be92fca409827ba';
     $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'php',
-          'settings' => array(
-            'description' => 'behavenet_show_ads()',
-            'php' => 'return behavenet_show_ads();',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-    );
+    $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Leaderboard Ad',
-      'title' => '',
-      'body' => '<?php
-  // Retaining old code, just in case
-  // print behavenet_get_ad(\'728x90\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'top\');
-  print behavenet_get_ad(\'728x90\');
-?>',
-      'format' => '4',
-      'substitute' => 1,
+      'override_title' => 1,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'leaderboard-ad',
-    );
+    $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
-    $pane->uuid = '9c251e93-6d21-0304-21bd-e455c61bfd3b';
-    $display->content['new-9c251e93-6d21-0304-21bd-e455c61bfd3b'] = $pane;
-    $display->panels['header'][2] = 'new-9c251e93-6d21-0304-21bd-e455c61bfd3b';
+    $pane->position = 1;
+    $pane->uuid = 'e0b54c2d-061b-b9c4-614c-6e51ecde07cb';
+    $display->content['new-e0b54c2d-061b-b9c4-614c-6e51ecde07cb'] = $pane;
+    $display->panels['header'][1] = 'new-e0b54c2d-061b-b9c4-614c-6e51ecde07cb';
     $pane = new stdClass;
     $pane->pid = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
     $pane->panel = 'header';
@@ -2050,10 +1921,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 2;
     $pane->uuid = '40097a7f-5512-0074-e136-94a39aa0726d';
     $display->content['new-40097a7f-5512-0074-e136-94a39aa0726d'] = $pane;
-    $display->panels['header'][3] = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
+    $display->panels['header'][2] = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
     $pane = new stdClass;
     $pane->pid = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $pane->panel = 'header';
@@ -2074,10 +1945,10 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
       'css_class' => 'main-tabs',
     );
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 3;
     $pane->uuid = '9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $display->content['new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3'] = $pane;
-    $display->panels['header'][4] = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
+    $display->panels['header'][3] = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $pane = new stdClass;
     $pane->pid = 'new-6fa76278-7f63-0f64-897e-3b28142a747d';
     $pane->panel = 'left_sidebar';
@@ -2169,33 +2040,15 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     $display->content['new-8ee52c91-c81d-1044-7500-81090f20a104'] = $pane;
     $display->panels['left_sidebar'][1] = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
     $pane = new stdClass;
-    $pane->pid = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
+    $pane->pid = 'new-ce4a3048-a506-6804-a1b1-ee6b08ef62e3';
     $pane->panel = 'left_sidebar';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'block';
+    $pane->subtype = 'google_admanager-e19c6cac12e9770657dc27142413bddd';
     $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'php',
-          'settings' => array(
-            'description' => 'behavenet_show_ads()',
-            'php' => 'return behavenet_show_ads();',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-    );
+    $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Skyscraper Ad 1',
-      'title' => '',
-      'body' => '<?php
-  // Retaining old code, just in case
-  // print behavenet_get_ad(\'160x600\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'sky1\');
-  print behavenet_get_ad(\'160x600\');
-?>',
-      'format' => '4',
-      'substitute' => 1,
+      'override_title' => 1,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -2204,9 +2057,9 @@ document.write(\'<script language="JavaScript" src="http://ad.doubleclick.net/ad
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
-    $pane->uuid = '3145d2d3-c226-77a4-d54a-03a442e34030';
-    $display->content['new-3145d2d3-c226-77a4-d54a-03a442e34030'] = $pane;
-    $display->panels['left_sidebar'][2] = 'new-3145d2d3-c226-77a4-d54a-03a442e34030';
+    $pane->uuid = 'ce4a3048-a506-6804-a1b1-ee6b08ef62e3';
+    $display->content['new-ce4a3048-a506-6804-a1b1-ee6b08ef62e3'] = $pane;
+    $display->panels['left_sidebar'][2] = 'new-ce4a3048-a506-6804-a1b1-ee6b08ef62e3';
     $pane = new stdClass;
     $pane->pid = 'new-a2616248-a51f-bf84-156a-6235ebe2e705';
     $pane->panel = 'main';
@@ -2762,47 +2615,26 @@ print behavenet_node_qr();
     $display->content['new-ca4a71a4-5867-f334-1143-f2b610e8b7f0'] = $pane;
     $display->panels['main_callout'][12] = 'new-ca4a71a4-5867-f334-1143-f2b610e8b7f0';
     $pane = new stdClass;
-    $pane->pid = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
+    $pane->pid = 'new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
     $pane->panel = 'main_callout';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'block';
+    $pane->subtype = 'google_admanager-ce9291906a4c3b042650b70d7f3b152e';
     $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'php',
-          'settings' => array(
-            'description' => 'behavenet_show_ads()',
-            'php' => 'return behavenet_show_ads();',
-          ),
-          'not' => FALSE,
-        ),
-      ),
-    );
+    $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Rectangle Ad (300 x 250)',
-      'title' => '',
-      'body' => '<?php
-  // Retaining old code, just in case
-  // print behavenet_get_ad(\'300x250\', behavenet_get_ad_tag(\'%node:nid\', \'%term:tid\'), \'rec1\');
-  print behavenet_get_ad(\'300x250\');
-?>',
-      'format' => '4',
-      'substitute' => 1,
+      'override_title' => 1,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'behavenet-ads',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 13;
-    $pane->uuid = '84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
-    $display->content['new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2'] = $pane;
-    $display->panels['main_callout'][13] = 'new-84bd6d7d-cfac-c114-c9cd-1126540d1ff2';
+    $pane->uuid = '1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
+    $display->content['new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c'] = $pane;
+    $display->panels['main_callout'][13] = 'new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
     $pane = new stdClass;
     $pane->pid = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
     $pane->panel = 'main_callout';

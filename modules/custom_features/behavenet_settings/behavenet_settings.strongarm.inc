@@ -794,5 +794,74 @@ function behavenet_settings_strongarm() {
   );
   $export['xmlsitemap_settings_taxonomy_term_9'] = $strongarm;
 
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'google_admanager_superslots';
+  $strongarm->value = array();
+  $export['google_admanager_superslots'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'google_admanager_noblock';
+  $strongarm->value = 0;
+  $export['google_admanager_noblock'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'google_admanager_lazy';
+  $strongarm->value = 0;
+  $export['google_admanager_lazy'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'google_admanager_autodetect';
+  $strongarm->value = 1;
+  $export['google_admanager_autodetect'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'google_admanager_nodetype_attributes';
+  $strongarm->value = 0;
+  $export['google_admanager_nodetype_attributes'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'google_admanager_vocab_attributes';
+  $strongarm->value = array(
+    5 => 5,
+    9 => 0,
+    3 => 0,
+    10 => 0,
+    11 => 0,
+    12 => 0,
+    2 => 0,
+    13 => 0,
+  );
+  $export['google_admanager_vocab_attributes'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'google_admanager_ad_slots';
+  $strongarm->value = 'Leaderboard
+Footer
+Mobile
+Rectangle
+Skyscraper';
+  $export['google_admanager_ad_slots'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'google_admanager_account';
+  $strongarm->value = 'ca-pub-6815831864107316';
+  $export['google_admanager_account'] = $strongarm;
+
   return $export;
 }
