@@ -2062,6 +2062,30 @@ print behavenet_display_term_children(7358);
     $display->content['new-ce4a3048-a506-6804-a1b1-ee6b08ef62e3'] = $pane;
     $display->panels['left_sidebar'][2] = 'new-ce4a3048-a506-6804-a1b1-ee6b08ef62e3';
     $pane = new stdClass;
+    $pane->pid = 'new-2705d65e-6f5a-f2c4-5d20-20a451ac8912';
+    $pane->panel = 'left_sidebar';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Amazon Ad',
+      'title' => '',
+      'body' => '<iframe src="http://rcm.amazon.com/e/cm?t=behavenetrinc&o=1&p=21&l=ur1&category=health&banner=0PE7YFGPS51S8D4NFP82&f=ifr" width="160" height="160" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>',
+      'format' => '2',
+      'substitute' => 0,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->uuid = '2705d65e-6f5a-f2c4-5d20-20a451ac8912';
+    $display->content['new-2705d65e-6f5a-f2c4-5d20-20a451ac8912'] = $pane;
+    $display->panels['left_sidebar'][3] = 'new-2705d65e-6f5a-f2c4-5d20-20a451ac8912';
+    $pane = new stdClass;
     $pane->pid = 'new-a2616248-a51f-bf84-156a-6235ebe2e705';
     $pane->panel = 'main';
     $pane->type = 'page_title';
@@ -2667,6 +2691,33 @@ print behavenet_node_qr();
     $pane->uuid = '3086f958-1fd4-64c4-3180-193cde5deb69';
     $display->content['new-3086f958-1fd4-64c4-3180-193cde5deb69'] = $pane;
     $display->panels['main_callout'][14] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
+    $pane = new stdClass;
+    $pane->pid = 'new-0ac010e3-8287-ace4-e902-2a5213ae5e3c';
+    $pane->panel = 'main_callout';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Amazon ad',
+      'title' => '',
+      'body' => '<iframe src="http://rcm.amazon.com/e/cm?t=behavenetrinc&o=1&p=12&l=ur1&category=kindlerotating&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>',
+      'format' => '2',
+      'substitute' => 0,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-ads',
+    );
+    $pane->extras = array();
+    $pane->position = 15;
+    $pane->uuid = '0ac010e3-8287-ace4-e902-2a5213ae5e3c';
+    $display->content['new-0ac010e3-8287-ace4-e902-2a5213ae5e3c'] = $pane;
+    $display->panels['main_callout'][15] = 'new-0ac010e3-8287-ace4-e902-2a5213ae5e3c';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
   $handler->conf['display'] = $display;
