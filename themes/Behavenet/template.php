@@ -467,7 +467,14 @@ function behavenet_get_recent_from_rss($url, $num_entries = 10) {
   }
 
   // Parse entries
-  $xml = new SimpleXMLElement($page);
+  try {
+    $xml = new SimpleXMLElement($page);
+  }
+  catch (Exception $e) {
+    print "Unable to read the blog feed at this time";
+    return;
+  }
+
   $items = array();
   $count = 1;
   foreach ($xml->entry as $entry) {
