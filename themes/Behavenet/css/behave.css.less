@@ -118,23 +118,24 @@ td {
   select {
    width: @callout-width-inner;
   }
-  // Ads run the full width of the sidebar
-  .behavenet-ads {
-    margin-left: -10px;
-  }
 }
 
 /*
- * Google AdSense styling
+ * Google's Doubleclick For Publishers (google_admanager) styling
  */
-.behavenet_ad_728x90 {
-  // Center leaderboards
+#gam-holder-Leaderboard, #gam-holder-Footer {
+  // Center wide ads
+  margin: @space-v auto;
+  width: 728px;
+}
+.behavenet-ads, #gam-holder-Rectangle {
+  // Remove padding in sidebars for ads
+  margin-left: -10px;
+}
+#page-left-sidebar .behavenet-ads {
+  width: 125px;
   margin: @space-v auto;
 }
-// .behavenet_ad_160x600 {
-// }
-// .behavenet_ad_300x250 {
-// }
 
 /*
  * Search box

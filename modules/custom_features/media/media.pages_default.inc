@@ -147,6 +147,30 @@ function media_default_page_manager_handlers() {
     $pane->uuid = '636bddd1-427d-f154-21fb-b964d9397cff';
     $display->content['new-636bddd1-427d-f154-21fb-b964d9397cff'] = $pane;
     $display->panels['middle'][3] = 'new-636bddd1-427d-f154-21fb-b964d9397cff';
+    $pane = new stdClass;
+    $pane->pid = 'new-86f9e16d-2d02-9c04-e972-c55d97a66bd1';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Amazon ad',
+      'title' => '',
+      'body' => '<iframe src="http://rcm.amazon.com/e/cm?t=behavenetrinc&o=1&p=48&l=ur1&category=dvd&banner=0DE2PBSZ1XXT9HH45SG2&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>',
+      'format' => '2',
+      'substitute' => 0,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->uuid = '86f9e16d-2d02-9c04-e972-c55d97a66bd1';
+    $display->content['new-86f9e16d-2d02-9c04-e972-c55d97a66bd1'] = $pane;
+    $display->panels['middle'][4] = 'new-86f9e16d-2d02-9c04-e972-c55d97a66bd1';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-e4a4ed4e-afe6-6024-fd58-d16cfeac4f73';
   $handler->conf['display'] = $display;

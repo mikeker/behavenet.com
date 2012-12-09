@@ -263,6 +263,137 @@ print $term->description;
     $display->content['new-aebef287-8680-4e24-713e-9e8f9fe086d5'] = $pane;
     $display->panels['middle'][3] = 'new-aebef287-8680-4e24-713e-9e8f9fe086d5';
     $pane = new stdClass;
+    $pane->pid = 'new-b5c0c580-8251-a664-f59a-1b5cb33ac0c6';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'terms_extras-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_terms_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->uuid = 'b5c0c580-8251-a664-f59a-1b5cb33ac0c6';
+    $display->content['new-b5c0c580-8251-a664-f59a-1b5cb33ac0c6'] = $pane;
+    $display->panels['middle'][4] = 'new-b5c0c580-8251-a664-f59a-1b5cb33ac0c6';
+    $pane = new stdClass;
+    $pane->pid = 'new-03d46673-a565-3424-1186-a2f075709f77';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Members',
+      'title' => '',
+      'body' => '<?php
+$children = taxonomy_get_children(%term:tid, %term:vid);
+if (!count($children)) {
+  return;
+}
+$return = \'\';
+if (count($children) <= 10) {
+  // Short lists output as lists
+  $return = \'<ul>\';
+  foreach ($children as $term) {
+    $return .= \'<li>\' . l($term->name, \'taxonomy/term/\'. $term->tid) . \'</li>\';
+  }
+  $return .= \'</ul>\';
+}
+else {
+  // Longer lists output as dropdowns
+  $items = array();
+  foreach ($children as $term) {
+    $items[url("taxonomy/term/$term->tid")] = $term->name;
+  }
+  $return = behavenet_build_jump_menu($items);
+}
+
+return $return;
+?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $pane->uuid = '03d46673-a565-3424-1186-a2f075709f77';
+    $display->content['new-03d46673-a565-3424-1186-a2f075709f77'] = $pane;
+    $display->panels['middle'][5] = 'new-03d46673-a565-3424-1186-a2f075709f77';
+    $pane = new stdClass;
+    $pane->pid = 'new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'DSM_Criteria-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_terms_1',
+      ),
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'dsm-criteria',
+    );
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->uuid = '7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
+    $display->content['new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8'] = $pane;
+    $display->panels['middle'][6] = 'new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
+    $pane = new stdClass;
+    $pane->pid = 'new-50f15eae-8a08-27f4-a535-889f2498e949';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'This term appears in (member of these lists)',
+      'title' => 'This term appears in',
+      'body' => '<?php
+$lists = _behavenet_get_lists(%term:tid);
+if (empty($lists)) {
+  return;
+}
+print \'<ul>\';
+foreach ($lists as $ltid) {
+  $term = taxonomy_get_term($ltid);
+  $url = url("taxonomy/term/$term->tid");
+  print "<li><a href=\'$url\'>$term->name</a></li>";
+}
+print \'</ul>\';
+?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 7;
+    $pane->uuid = '50f15eae-8a08-27f4-a535-889f2498e949';
+    $display->content['new-50f15eae-8a08-27f4-a535-889f2498e949'] = $pane;
+    $display->panels['middle'][7] = 'new-50f15eae-8a08-27f4-a535-889f2498e949';
+    $pane = new stdClass;
     $pane->pid = 'new-c758714a-08ec-c534-ed43-9e805addb52e';
     $pane->panel = 'middle';
     $pane->type = 'custom';
@@ -1005,141 +1136,10 @@ print $term->description;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 8;
     $pane->uuid = 'c758714a-08ec-c534-ed43-9e805addb52e';
     $display->content['new-c758714a-08ec-c534-ed43-9e805addb52e'] = $pane;
-    $display->panels['middle'][4] = 'new-c758714a-08ec-c534-ed43-9e805addb52e';
-    $pane = new stdClass;
-    $pane->pid = 'new-b5c0c580-8251-a664-f59a-1b5cb33ac0c6';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'terms_extras-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_terms_1',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 5;
-    $pane->uuid = 'b5c0c580-8251-a664-f59a-1b5cb33ac0c6';
-    $display->content['new-b5c0c580-8251-a664-f59a-1b5cb33ac0c6'] = $pane;
-    $display->panels['middle'][5] = 'new-b5c0c580-8251-a664-f59a-1b5cb33ac0c6';
-    $pane = new stdClass;
-    $pane->pid = 'new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
-    $pane->panel = 'middle';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'DSM_Criteria-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'context' => array(
-        0 => 'argument_terms_1',
-      ),
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'dsm-criteria',
-    );
-    $pane->extras = array();
-    $pane->position = 6;
-    $pane->uuid = '7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
-    $display->content['new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8'] = $pane;
-    $display->panels['middle'][6] = 'new-7f0bae84-68dd-ad34-1d1c-15fcf86944d8';
-    $pane = new stdClass;
-    $pane->pid = 'new-50f15eae-8a08-27f4-a535-889f2498e949';
-    $pane->panel = 'middle';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'This term appears in (member of these lists)',
-      'title' => 'This term appears in',
-      'body' => '<?php
-$lists = _behavenet_get_lists(%term:tid);
-if (empty($lists)) {
-  return;
-}
-print \'<ul>\';
-foreach ($lists as $ltid) {
-  $term = taxonomy_get_term($ltid);
-  $url = url("taxonomy/term/$term->tid");
-  print "<li><a href=\'$url\'>$term->name</a></li>";
-}
-print \'</ul>\';
-?>',
-      'format' => '4',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 7;
-    $pane->uuid = '50f15eae-8a08-27f4-a535-889f2498e949';
-    $display->content['new-50f15eae-8a08-27f4-a535-889f2498e949'] = $pane;
-    $display->panels['middle'][7] = 'new-50f15eae-8a08-27f4-a535-889f2498e949';
-    $pane = new stdClass;
-    $pane->pid = 'new-03d46673-a565-3424-1186-a2f075709f77';
-    $pane->panel = 'middle';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Members',
-      'title' => 'Members:',
-      'body' => '<?php
-$children = taxonomy_get_children(%term:tid, %term:vid);
-if (!count($children)) {
-  return;
-}
-$return = \'\';
-if (count($children) <= 10) {
-  // Short lists output as lists
-  $return = \'<ul>\';
-  foreach ($children as $term) {
-    $return .= \'<li>\' . l($term->name, \'taxonomy/term/\'. $term->tid) . \'</li>\';
-  }
-  $return .= \'</ul>\';
-}
-else {
-  // Longer lists output as dropdowns
-  $items = array();
-  foreach ($children as $term) {
-    $items[url("taxonomy/term/$term->tid")] = $term->name;
-  }
-  $return = behavenet_build_jump_menu($items);
-}
-
-return $return;
-?>',
-      'format' => '4',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 8;
-    $pane->uuid = '03d46673-a565-3424-1186-a2f075709f77';
-    $display->content['new-03d46673-a565-3424-1186-a2f075709f77'] = $pane;
-    $display->panels['middle'][8] = 'new-03d46673-a565-3424-1186-a2f075709f77';
+    $display->panels['middle'][8] = 'new-c758714a-08ec-c534-ed43-9e805addb52e';
     $pane = new stdClass;
     $pane->pid = 'new-adacd6c1-9e12-ab04-8dce-b56737d99c37';
     $pane->panel = 'middle';
@@ -1256,6 +1256,30 @@ return $return;
     $display->content['new-3e98813d-cbed-e5c4-892f-5b69c9058bd0'] = $pane;
     $display->panels['middle'][12] = 'new-3e98813d-cbed-e5c4-892f-5b69c9058bd0';
     $pane = new stdClass;
+    $pane->pid = 'new-92f25702-42fd-38e4-157b-c9236a65bae9';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'People-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_terms_1',
+      ),
+      'override_title' => 1,
+      'override_title_text' => 'People',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 13;
+    $pane->uuid = '92f25702-42fd-38e4-157b-c9236a65bae9';
+    $display->content['new-92f25702-42fd-38e4-157b-c9236a65bae9'] = $pane;
+    $display->panels['middle'][13] = 'new-92f25702-42fd-38e4-157b-c9236a65bae9';
+    $pane = new stdClass;
     $pane->pid = 'new-3bace9dc-df47-b024-fd2c-c5f1854c044f';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
@@ -1273,10 +1297,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 13;
+    $pane->position = 14;
     $pane->uuid = '3bace9dc-df47-b024-fd2c-c5f1854c044f';
     $display->content['new-3bace9dc-df47-b024-fd2c-c5f1854c044f'] = $pane;
-    $display->panels['middle'][13] = 'new-3bace9dc-df47-b024-fd2c-c5f1854c044f';
+    $display->panels['middle'][14] = 'new-3bace9dc-df47-b024-fd2c-c5f1854c044f';
     $pane = new stdClass;
     $pane->pid = 'new-6f92c92f-4d55-bed4-39fb-aa0d42bc4880';
     $pane->panel = 'middle';
@@ -1309,10 +1333,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 14;
+    $pane->position = 15;
     $pane->uuid = '6f92c92f-4d55-bed4-39fb-aa0d42bc4880';
     $display->content['new-6f92c92f-4d55-bed4-39fb-aa0d42bc4880'] = $pane;
-    $display->panels['middle'][14] = 'new-6f92c92f-4d55-bed4-39fb-aa0d42bc4880';
+    $display->panels['middle'][15] = 'new-6f92c92f-4d55-bed4-39fb-aa0d42bc4880';
     $pane = new stdClass;
     $pane->pid = 'new-7fa267d3-e878-2464-9136-3dc8b0ca96d6';
     $pane->panel = 'middle';
@@ -1333,10 +1357,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 15;
+    $pane->position = 16;
     $pane->uuid = '7fa267d3-e878-2464-9136-3dc8b0ca96d6';
     $display->content['new-7fa267d3-e878-2464-9136-3dc8b0ca96d6'] = $pane;
-    $display->panels['middle'][15] = 'new-7fa267d3-e878-2464-9136-3dc8b0ca96d6';
+    $display->panels['middle'][16] = 'new-7fa267d3-e878-2464-9136-3dc8b0ca96d6';
     $pane = new stdClass;
     $pane->pid = 'new-f6bf515e-5761-3754-a1c0-841eb2748e33';
     $pane->panel = 'middle';
@@ -1366,10 +1390,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 16;
+    $pane->position = 17;
     $pane->uuid = 'f6bf515e-5761-3754-a1c0-841eb2748e33';
     $display->content['new-f6bf515e-5761-3754-a1c0-841eb2748e33'] = $pane;
-    $display->panels['middle'][16] = 'new-f6bf515e-5761-3754-a1c0-841eb2748e33';
+    $display->panels['middle'][17] = 'new-f6bf515e-5761-3754-a1c0-841eb2748e33';
     $pane = new stdClass;
     $pane->pid = 'new-4dc03573-e4a7-5d34-1db4-a0336561ef74';
     $pane->panel = 'middle';
@@ -1411,10 +1435,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 17;
+    $pane->position = 18;
     $pane->uuid = '4dc03573-e4a7-5d34-1db4-a0336561ef74';
     $display->content['new-4dc03573-e4a7-5d34-1db4-a0336561ef74'] = $pane;
-    $display->panels['middle'][17] = 'new-4dc03573-e4a7-5d34-1db4-a0336561ef74';
+    $display->panels['middle'][18] = 'new-4dc03573-e4a7-5d34-1db4-a0336561ef74';
     $pane = new stdClass;
     $pane->pid = 'new-94f7bc77-3517-0724-cd7b-ac0ef909d537';
     $pane->panel = 'middle';
@@ -1456,10 +1480,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 18;
+    $pane->position = 19;
     $pane->uuid = '94f7bc77-3517-0724-cd7b-ac0ef909d537';
     $display->content['new-94f7bc77-3517-0724-cd7b-ac0ef909d537'] = $pane;
-    $display->panels['middle'][18] = 'new-94f7bc77-3517-0724-cd7b-ac0ef909d537';
+    $display->panels['middle'][19] = 'new-94f7bc77-3517-0724-cd7b-ac0ef909d537';
     $pane = new stdClass;
     $pane->pid = 'new-c5d94251-ad3c-5de4-353d-764d6a044693';
     $pane->panel = 'middle';
@@ -1501,10 +1525,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 19;
+    $pane->position = 20;
     $pane->uuid = 'c5d94251-ad3c-5de4-353d-764d6a044693';
     $display->content['new-c5d94251-ad3c-5de4-353d-764d6a044693'] = $pane;
-    $display->panels['middle'][19] = 'new-c5d94251-ad3c-5de4-353d-764d6a044693';
+    $display->panels['middle'][20] = 'new-c5d94251-ad3c-5de4-353d-764d6a044693';
     $pane = new stdClass;
     $pane->pid = 'new-d88141a7-6b29-4384-1df9-5dc687d59308';
     $pane->panel = 'middle';
@@ -1546,10 +1570,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 20;
+    $pane->position = 21;
     $pane->uuid = 'd88141a7-6b29-4384-1df9-5dc687d59308';
     $display->content['new-d88141a7-6b29-4384-1df9-5dc687d59308'] = $pane;
-    $display->panels['middle'][20] = 'new-d88141a7-6b29-4384-1df9-5dc687d59308';
+    $display->panels['middle'][21] = 'new-d88141a7-6b29-4384-1df9-5dc687d59308';
     $pane = new stdClass;
     $pane->pid = 'new-b5b377c8-4d5b-1da4-e5bc-b5cfcd388985';
     $pane->panel = 'middle';
@@ -1570,10 +1594,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 21;
+    $pane->position = 22;
     $pane->uuid = 'b5b377c8-4d5b-1da4-e5bc-b5cfcd388985';
     $display->content['new-b5b377c8-4d5b-1da4-e5bc-b5cfcd388985'] = $pane;
-    $display->panels['middle'][21] = 'new-b5b377c8-4d5b-1da4-e5bc-b5cfcd388985';
+    $display->panels['middle'][22] = 'new-b5b377c8-4d5b-1da4-e5bc-b5cfcd388985';
     $pane = new stdClass;
     $pane->pid = 'new-ed97b4ed-550d-aa44-352c-25369a445ac6';
     $pane->panel = 'middle';
@@ -1592,10 +1616,10 @@ return $return;
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 22;
+    $pane->position = 23;
     $pane->uuid = 'ed97b4ed-550d-aa44-352c-25369a445ac6';
     $display->content['new-ed97b4ed-550d-aa44-352c-25369a445ac6'] = $pane;
-    $display->panels['middle'][22] = 'new-ed97b4ed-550d-aa44-352c-25369a445ac6';
+    $display->panels['middle'][23] = 'new-ed97b4ed-550d-aa44-352c-25369a445ac6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
