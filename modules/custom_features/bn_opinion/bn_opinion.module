@@ -1,0 +1,3 @@
+<?php
+
+include_once('bn_opinion.features.inc');

@@ -876,7 +876,21 @@ print behavenet_display_term_children(7358);
     $pane->type = 'node_comments';
     $pane->subtype = 'node_comments';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'movie' => 'movie',
+              'opinion' => 'opinion',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'mode' => '2',
       'order' => '2',
@@ -912,6 +926,7 @@ print behavenet_display_term_children(7358);
           'settings' => array(
             'type' => array(
               'movie' => 'movie',
+              'opinion' => 'opinion',
             ),
           ),
           'context' => 'argument_nid_1',
@@ -2079,7 +2094,10 @@ print behavenet_display_term_children(7358);
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-ads',
+    );
     $pane->extras = array();
     $pane->position = 3;
     $pane->uuid = '2705d65e-6f5a-f2c4-5d20-20a451ac8912';
