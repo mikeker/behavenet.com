@@ -456,9 +456,93 @@ function _bh_url_replace(&$string, &$error) {
   return $success;
 }
 
+function _bh_get_entry($entry_number) {
+  static $index = array();
+  static $vals = array();
+  static $current = 0;
+
+  if (empty($index) || empty($vals)) {
+    $xml = file_get_contents('../movie-blog-12-07-2012.xml');
+    $p = xml_parser_create();
+    xml_parse_into_struct($p, $xml, $vals, $index);
+    xml_parser_free($p);
+  }
+
+  // Opening and closing <entry> tags
+  $start = $index['ENTRY'][$current++];
+  $end = $index['ENTRY'][$current++];
+  if (empty($start) || empty($end)) {
+    return NULL;
+  }
+
+  $entry = array();
+  for($i = $start; $i < $end; $i++) {
+    switch ($vals[$i]['tag']) {
+      case 'TITLE':
+        $entry['title'] = $vals[$i]['value'];
+        break;
+
+      case 'CONTENT':
+        $entry['content_original'] = $vals[$i]['value'];
+
+        // Pull ASIN from content -- it's often times in an <iframe>
+        $regex = '/<iframe.*asins=(.*)["\s].*<\/iframe>/iU';
+        preg_match($regex, $entry['content_original'], $matches);
+        $entry['asin'] = empty($matches[1]) ? '' : $matches[1];
+        $entry['content'] = preg_replace($regex, '', $entry['content_original']);
+
+        // Pull TweetChat tag from content -- it's often in a <a> tag
+        $regex = '/<a href=.*tweetchat.com\/room\/(.*)["\s].*>.*<\/a>/iU';
+        preg_match($regex, $entry['content'], $matches);
+        $entry['tweetchat'] = empty($matches[1]) ? '' : $matches[1];
+        $entry['content'] = preg_replace($regex, '', $entry['content']);
+        break;
+
+      case 'PUBLISHED':
+        $entry['pub_date'] = $vals[$i]['value'];
+        break;
+
+      case 'CATEGORY':
+        $attr = $vals[$i]['value']['attributes'];
+        if ('http://schemas.google.com/g/2005#kind' == $attr['SCHEME']) {
+          if ('http://schemas.google.com/blogger/2008/kind#post' == $attr['TERM']) {
+            $entry['type'] = 'post';
+          }
+          if ('http://schemas.google.com/blogger/2008/kind#comment' == $attr['TERM']) {
+            $entry['type'] = 'comment';
+          }
+        }
+        if ('http://www.blogger.com/atom/ns#' == $attr['SCHEME']) {
+          @$entry['terms'][] = $attr['TERM'];
+        }
+        break;
+
+      case 'ID':
+        $entry['blogger_id'] = $vals[$i]['value'];
+        break;
+
+      case 'THR:IN-REPLY-TO':
+        $entry['comment_node'] = $vals[$i]['value'];
+        break;
+    }
+  }
+
+  return $entry;
+}
+
 function bh_import_test() {
   ini_set('max_execution_time', 300);
   // bh_find_alias_dups();
+
+  // Convert Blogger export to SQL for use with Migrate API
+
+  // dpr($vals[5]);
+  // dpr($index); exit;
+  // dpr($index['TITLE']);
+  // dpr($vals[11]);
+  while ($entry = _bh_get_entry()) {
+    dpr($entry); exit;
+  }
 
   exit;
 
