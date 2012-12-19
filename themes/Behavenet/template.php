@@ -433,6 +433,10 @@ function behavenet_display_rc_and_terms($node) {
   $terms = taxonomy_link('taxonomy terms', $node);
   if ($terms) {
     foreach ($terms as $link) {
+      if (!isset($link['attributes'])) {
+        // Prevent unsupported operands error in l() (line 1592)
+        $link['attributes'] = array();
+      }
       $links[] = l($link['title'], $link['href'], $link['attributes']);
     }
   }

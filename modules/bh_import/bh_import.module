@@ -534,6 +534,113 @@ function bh_import_test() {
   ini_set('max_execution_time', 300);
   // bh_find_alias_dups();
 
+  // Load all movie entries with Blogger URL and empty body tags. Pull text from
+  // Blogger and add to Drupal
+  //     INNER JOIN {node_revisions} AS r
+      // ON m.vid = r.vid
+
+  $results = db_query("
+    SELECT DISTINCT m.nid, m.field_movie_blog_value FROM {content_type_movie} AS m
+    WHERE m.field_movie_blog_value IS NOT NULL
+      AND m.field_movie_blog_entry_value IS NULL
+  ");
+  // while ($row = db_fetch_object($results)) {
+  //   $nids[] = $row->nid;
+  // }
+  // dpr(count($nids));
+  // exit;
+
+  $success = array();
+  while ($row = db_fetch_object($results)) {
+    $node = node_load($row->nid);
+    if (!empty($node->field_movie_blog_entry[0]['value'])) {
+      continue;
+    }
+
+    // Grab blogger entry
+    $url = $row->field_movie_blog_value;
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    $page = curl_exec($ch);
+    if (!$page) {
+      dpr("Error opening $url");
+      dpr(curl_error($ch));
+      curl_close($ch);
+      continue;
+    }
+    curl_close($ch);
+
+    // Grab entry from full HTML ('s' == dot-all modifier)
+    // preg_match("/<div class='post-body entry-content'>(.*?)<div style='clear: both;'><\/div>/is", $matches);
+    preg_match("/<div class='post-body entry-content'>(.*?)<div style='clear: both;'><\/div>/is", $page, $matches);
+
+    if (empty($matches[1])) {
+      dpr("Error: poorly formed HTML at $url. row is: ");
+      dpr($row);
+      continue;
+    }
+    $entry = $matches[1];
+
+    // Strip Amazon and Tweetchat links
+    // ('U' == ungreedy * modifier)
+    $regex = '/<iframe.*asins=(.*)["\s].*<\/iframe>/iU';
+    $entry = preg_replace($regex, '', $entry);
+
+    // Pull TweetChat tag from content -- it's often in a <a> tag
+    // ('U' == ungreedy * modifier)
+    $regex = '/<a href=.*tweetchat.com\/room\/(.*)["\s].*>.*<\/a>/iU';
+    preg_match($regex, $entry, $matches);
+    if (!empty($matches[1][0])) {
+      $node->field_general_twitter[0]['value'] = $matches[1][0];
+    }
+    $entry = preg_replace($regex, '', $entry);
+
+    // Convert links to the old site to links to the new site
+    _bh_url_replace($entry, $error);
+    if (!empty($error)) {
+      dpr("Error replacing URLs in node/$row->nid: $error");
+      // dpr($entry); exit;
+      // continue;
+    }
+
+    // Remove list of terms -- we already have those as term refs.
+    // ('U' == ungreedy * modifier)
+    $regex = '/<a.*?>.*?<\/a>[\s|]*$/iU';
+    $entry = preg_replace($regex, '', $entry);
+
+    // Ditch Blogger's crappy idea that a double line-break == a paragraph
+    $regex = '/<br \/>\n<br \/>\n/i';
+    $entry = '<p>' . preg_replace($regex, "\n</p><p>\n", $entry) . '</p>';
+
+    // Grab spoiler alerts
+    // ('U' == ungreedy * modifier, 's' is dot-all modifier)
+    $regex = '/<p>\s*Spoiler alert.*<\/p>/isU';
+    preg_match_all($regex, $entry, $matches);
+    if (!empty($matches[0])) {
+      $node->field_movie_spoiler[0]['value'] = TRUE;
+    }
+    $entry = preg_replace($regex, '', $entry);
+
+    // Remove empty paragraph tags or those with only separators such as | and ,
+    $regex = '/<p>[|,\s]*<\/p>/iU';
+    $entry = preg_replace($regex, '', $entry);
+
+
+    $node->field_movie_blog_entry[0]['value'] = $entry;
+    $node->field_movie_blog_entry[0]['format'] = 3;
+    $node->field_movie_blog[0]['value'] = NULL;
+    // node_save($node);
+
+    $success[] = "Updated $node->title (node/$node->nid)";
+  }
+
+  dpr(count($success) . ' entries updated:');
+  dpr($success);
+  dpr("done.");
+  exit;
+
   // Convert Blogger export to SQL for use with Migrate API
 
   // dpr($vals[5]);
