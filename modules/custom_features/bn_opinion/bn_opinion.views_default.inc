@@ -172,6 +172,24 @@ function bn_opinion_views_default_views() {
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
   $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->override_option('items_per_page', 4);
+  $handler->override_option('offset', 2);
+  $handler->override_option('path', 'blog');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
   $handler->override_option('fields', array(
     'created' => array(
       'label' => '',
@@ -256,10 +274,10 @@ function bn_opinion_views_default_views() {
         'target' => '',
         'help' => '',
         'trim' => 1,
-        'max_length' => '250',
+        'max_length' => '600',
         'word_boundary' => 1,
         'ellipsis' => 1,
-        'html' => 0,
+        'html' => 1,
         'strip_tags' => 0,
       ),
       'empty' => '',
@@ -275,22 +293,53 @@ function bn_opinion_views_default_views() {
       ),
       'relationship' => 'none',
     ),
+    'view_node' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'text' => 'Read more...',
+      'exclude' => 0,
+      'id' => 'view_node',
+      'table' => 'node',
+      'field' => 'view_node',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
   ));
-  $handler->override_option('items_per_page', 25);
-  $handler->override_option('path', 'opinion');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
+  $handler->override_option('items_per_page', 1);
+  $handler->override_option('attachment_position', 'before');
+  $handler->override_option('inherit_arguments', TRUE);
+  $handler->override_option('inherit_exposed_filters', FALSE);
+  $handler->override_option('inherit_pager', FALSE);
+  $handler->override_option('render_pager', TRUE);
+  $handler->override_option('displays', array(
+    'page_1' => 'page_1',
+    'default' => 0,
+    'panel_pane_1' => 0,
   ));
 
   $views[$view->name] = $view;

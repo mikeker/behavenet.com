@@ -456,13 +456,13 @@ function _bh_url_replace(&$string, &$error) {
   return $success;
 }
 
-function _bh_get_entry($entry_number) {
+function _bh_get_entry() {
   static $index = array();
   static $vals = array();
   static $current = 0;
 
   if (empty($index) || empty($vals)) {
-    $xml = file_get_contents('../movie-blog-12-07-2012.xml');
+    $xml = file_get_contents('../opinion.xml');
     $p = xml_parser_create();
     xml_parse_into_struct($p, $xml, $vals, $index);
     xml_parser_free($p);
@@ -496,6 +496,10 @@ function _bh_get_entry($entry_number) {
         preg_match($regex, $entry['content'], $matches);
         $entry['tweetchat'] = empty($matches[1]) ? '' : $matches[1];
         $entry['content'] = preg_replace($regex, '', $entry['content']);
+
+        // Clean up Bloggers crappy <br>-instead-of-<p>
+        $regex = '/<br[\s\/]*>\s*<br[\s\/]*>/i';
+        $entry['content'] = '<p>' . preg_replace($regex, "\n</p><p>\n", $entry['content']) . '</p>';
         break;
 
       case 'PUBLISHED':
@@ -503,7 +507,7 @@ function _bh_get_entry($entry_number) {
         break;
 
       case 'CATEGORY':
-        $attr = $vals[$i]['value']['attributes'];
+        $attr = $vals[$i]['attributes'];
         if ('http://schemas.google.com/g/2005#kind' == $attr['SCHEME']) {
           if ('http://schemas.google.com/blogger/2008/kind#post' == $attr['TERM']) {
             $entry['type'] = 'post';
@@ -629,23 +633,29 @@ function bh_import_movie_entry($url, $nid, &$context) {
 
 function bh_import_test() {
   ini_set('max_execution_time', 300);
-  // bh_find_alias_dups();
 
-  // Load all movie entries with Blogger URL and empty body tags. Pull text from
-  // Blogger and add to Drupal
-  //     INNER JOIN {node_revisions} AS r
-      // ON m.vid = r.vid
+  while ($entry = _bh_get_entry()) {
+    if ('post' == $entry['type']) {
+      $node = new stdClass();
+      $node->body = $entry['content'];
+      $node->created = strtotime($entry['pub_date']);
+      $node->title = $entry['title'];
+      $node->type = 'opinion';
+    }
+    node_save($node);
+    dpr("Added $node->title at node/$node->nid");
+  }
 
+  exit;
+
+
+  // DONE:
+  // Import movies based on existing movie blog entries
   $results = db_query("
     SELECT DISTINCT m.nid, m.field_movie_blog_value FROM {content_type_movie} AS m
     WHERE m.field_movie_blog_value IS NOT NULL
       AND m.field_movie_blog_entry_value IS NULL
   ");
-  // while ($row = db_fetch_object($results)) {
-  //   $nids[] = $row->nid;
-  // }
-  // dpr(count($nids));
-  // exit;
 
   $operations = array();
   while ($row = db_fetch_object($results)) {
