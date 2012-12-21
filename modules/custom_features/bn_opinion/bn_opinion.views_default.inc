@@ -135,7 +135,8 @@ function bn_opinion_views_default_views() {
   ));
   $handler->override_option('title', 'Opinion');
   $handler->override_option('use_ajax', TRUE);
-  $handler->override_option('items_per_page', 5);
+  $handler->override_option('items_per_page', 4);
+  $handler->override_option('offset', 1);
   $handler->override_option('use_pager', 'mini');
   $handler->override_option('style_plugin', 'list');
   $handler->override_option('style_options', array(
@@ -151,7 +152,7 @@ function bn_opinion_views_default_views() {
     'hide_empty' => 0,
   ));
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
-  $handler->override_option('pane_title', 'Last 5 opinion blog posts');
+  $handler->override_option('pane_title', 'Last 4 minus one blog posts');
   $handler->override_option('pane_description', '');
   $handler->override_option('pane_category', array(
     'name' => 'behavenet',
@@ -171,24 +172,6 @@ function bn_opinion_views_default_views() {
   $handler->override_option('argument_input', array());
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
-  $handler = $view->new_display('page', 'Page', 'page_1');
-  $handler->override_option('items_per_page', 4);
-  $handler->override_option('offset', 2);
-  $handler->override_option('path', 'blog');
-  $handler->override_option('menu', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
-  $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
-    'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
-  ));
   $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
   $handler->override_option('fields', array(
     'created' => array(
@@ -331,15 +314,16 @@ function bn_opinion_views_default_views() {
     ),
   ));
   $handler->override_option('items_per_page', 1);
+  $handler->override_option('offset', 0);
   $handler->override_option('attachment_position', 'before');
   $handler->override_option('inherit_arguments', TRUE);
   $handler->override_option('inherit_exposed_filters', FALSE);
   $handler->override_option('inherit_pager', FALSE);
   $handler->override_option('render_pager', TRUE);
   $handler->override_option('displays', array(
-    'page_1' => 'page_1',
+    'panel_pane_1' => 'panel_pane_1',
     'default' => 0,
-    'panel_pane_1' => 0,
+    'page_1' => 0,
   ));
 
   $views[$view->name] = $view;
