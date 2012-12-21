@@ -28,7 +28,7 @@ function bn_opinion_default_page_manager_handlers() {
           'name' => 'path_visibility',
           'settings' => array(
             'visibility_setting' => '1',
-            'paths' => 'node/30242',
+            'paths' => 'node/30481',
           ),
           'context' => 'empty',
           'not' => FALSE,
