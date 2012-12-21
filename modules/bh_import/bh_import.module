@@ -566,6 +566,32 @@ function bh_import_movie_entry($url, $nid, &$context) {
 
   $node = node_load($nid);
 
+  // Grab post date, eg:
+  // <abbr class='published' title='2011-10-16T14:04:00-07:00'>2:04 PM</abbr>
+  $regex = "/<abbr class='published' title='(.*)'>/i";
+  preg_match($regex, $page, $matches);
+  if (!empty($matches[1])) {
+    $date = strtotime($matches[1]);
+    $result = db_query("
+      UPDATE {node}
+      SET created = %d
+      WHERE nid = %d
+    ", $date, $nid);
+
+    // Since we're doing this part after the initial import, we exit here.
+    if ($result) {
+      $context['results'][] = array('success' => TRUE, 'msg' => "Updated node/$nid, set created date to " . format_date($date));
+    }
+    else {
+      $context['results'][] = array('success' => FALSE, 'msg' => "Unable to update node/$nid");
+    }
+
+    return;
+  }
+  else {
+    $context['results'][] = array('success' => FALSE, 'msg' => "Couldn't find post date for $url. nid is $nid");
+  }
+
   // Grab entry from full HTML ('s' == dot-all modifier)
   // preg_match("/<div class='post-body entry-content'>(.*?)<div style='clear: both;'><\/div>/is", $matches);
   preg_match("/<div class='post-body entry-content'>(.*?)<div style='clear: both;'><\/div>/is", $page, $matches);
@@ -634,6 +660,32 @@ function bh_import_movie_entry($url, $nid, &$context) {
 function bh_import_test() {
   ini_set('max_execution_time', 300);
 
+  // Update blog entries with post date from Blogger
+  $results = db_query("
+    SELECT DISTINCT m.nid, m.field_movie_blog_value
+    FROM {content_type_movie} AS m
+    WHERE m.field_movie_blog_value IS NOT NULL
+      AND m.field_movie_blog_entry_value IS NULL
+  ");
+
+  $operations = array();
+  while ($row = db_fetch_object($results)) {
+    $operations[] = array('bh_import_movie_entry', array($row->field_movie_blog_value, $row->nid));
+  }
+  // DEBUG:
+  // $operations = array_slice($operations, 0, 5);
+
+  $batch = array(
+    'title' => 'Importing',
+    'operations' => $operations,
+    'finished' => 'bh_import_finished',
+  );
+  batch_set($batch);
+  batch_process('<front>');
+  return;
+
+  // DONE:
+  // Import opinion blog entries
   while ($entry = _bh_get_entry()) {
     if ('post' == $entry['type']) {
       $node = new stdClass();
@@ -645,8 +697,6 @@ function bh_import_test() {
     node_save($node);
     dpr("Added $node->title at node/$node->nid");
   }
-
-  exit;
 
 
   // DONE:
