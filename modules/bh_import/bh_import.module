@@ -540,7 +540,7 @@ function bh_import_finished($success, $results, $operations) {
       $error[] = $result['msg'];
     }
   }
-  dsm($success); dsm($error);
+  // dsm($success); dsm($error);
   drupal_set_message('There were ' . count($error) . ' errors:');
   drupal_set_message(implode('<br />', $error));
   drupal_set_message('There were ' . count($success) . ' successful imports:');
@@ -621,7 +621,7 @@ function bh_import_movie_entry($url, $nid, &$context) {
   $node->field_movie_blog_entry[0]['format'] = 3;
   $node->field_movie_blog[0]['value'] = NULL;
   // dsm($entry);
-  // node_save($node);
+  node_save($node);
 
   $context['results'][] = array('success' => TRUE, 'msg' => "Updated $node->title (node/$node->nid)");
 }
