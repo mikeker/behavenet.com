@@ -965,7 +965,7 @@ print behavenet_display_term_children(7358);
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -24;
+  $handler->weight = -27;
   $handler->conf = array(
     'title' => 'Disorders/Home',
     'no_blocks' => FALSE,
@@ -1008,6 +1008,44 @@ print behavenet_display_term_children(7358);
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
+    $pane->pid = 'new-782ed461-eaba-5324-e136-6805f2771a95';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'node/27648',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'admin_title' => 'Disorders Listing',
+      'title' => '',
+      'body' => '<?php
+print behavenet_display_term_children(7358);
+?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->uuid = '782ed461-eaba-5324-e136-6805f2771a95';
+    $display->content['new-782ed461-eaba-5324-e136-6805f2771a95'] = $pane;
+    $display->panels['middle'][0] = 'new-782ed461-eaba-5324-e136-6805f2771a95';
+    $pane = new stdClass;
     $pane->pid = 'new-6bfc2e2d-d0de-af84-9da0-c4872aebe680';
     $pane->panel = 'middle';
     $pane->type = 'node_content';
@@ -1032,48 +1070,10 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->uuid = '6bfc2e2d-d0de-af84-9da0-c4872aebe680';
     $display->content['new-6bfc2e2d-d0de-af84-9da0-c4872aebe680'] = $pane;
-    $display->panels['middle'][0] = 'new-6bfc2e2d-d0de-af84-9da0-c4872aebe680';
-    $pane = new stdClass;
-    $pane->pid = 'new-782ed461-eaba-5324-e136-6805f2771a95';
-    $pane->panel = 'middle';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'path_visibility',
-          'settings' => array(
-            'visibility_setting' => '1',
-            'paths' => 'node/27648',
-          ),
-          'context' => 'empty',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'admin_title' => 'Disorders Listing',
-      'title' => 'Disorders',
-      'body' => '<?php
-print behavenet_display_term_children(7358);
-?>',
-      'format' => '4',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->uuid = '782ed461-eaba-5324-e136-6805f2771a95';
-    $display->content['new-782ed461-eaba-5324-e136-6805f2771a95'] = $pane;
-    $display->panels['middle'][1] = 'new-782ed461-eaba-5324-e136-6805f2771a95';
+    $display->panels['middle'][1] = 'new-6bfc2e2d-d0de-af84-9da0-c4872aebe680';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
