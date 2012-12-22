@@ -151,7 +151,7 @@ function bn_opinion_views_default_views() {
     'separator' => ' - ',
     'hide_empty' => 0,
   ));
-  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler = $view->new_display('panel_pane', 'Next 4', 'panel_pane_1');
   $handler->override_option('pane_title', 'Last 4 minus one blog posts');
   $handler->override_option('pane_description', '');
   $handler->override_option('pane_category', array(
@@ -172,7 +172,7 @@ function bn_opinion_views_default_views() {
   $handler->override_option('argument_input', array());
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
-  $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
+  $handler = $view->new_display('page', 'Page', 'page_1');
   $handler->override_option('fields', array(
     'created' => array(
       'label' => '',
@@ -256,11 +256,11 @@ function bn_opinion_views_default_views() {
         'suffix' => '',
         'target' => '',
         'help' => '',
-        'trim' => 1,
-        'max_length' => '600',
+        'trim' => 0,
+        'max_length' => '',
         'word_boundary' => 1,
         'ellipsis' => 1,
-        'html' => 1,
+        'html' => 0,
         'strip_tags' => 0,
       ),
       'empty' => '',
@@ -276,7 +276,7 @@ function bn_opinion_views_default_views() {
       ),
       'relationship' => 'none',
     ),
-    'view_node' => array(
+    'edit_node' => array(
       'label' => '',
       'alter' => array(
         'alter_text' => 0,
@@ -302,11 +302,134 @@ function bn_opinion_views_default_views() {
       'hide_empty' => 0,
       'empty_zero' => 0,
       'hide_alter_empty' => 1,
-      'text' => 'Read more...',
+      'text' => 'Edit this entry',
       'exclude' => 0,
-      'id' => 'view_node',
+      'id' => 'edit_node',
       'table' => 'node',
-      'field' => 'view_node',
+      'field' => 'edit_node',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('items_per_page', 0);
+  $handler->override_option('offset', 0);
+  $handler->override_option('use_pager', '0');
+  $handler->override_option('path', 'blog_all');
+  $handler->override_option('menu', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler->override_option('tab_options', array(
+    'type' => 'none',
+    'title' => '',
+    'description' => '',
+    'weight' => 0,
+    'name' => 'navigation',
+  ));
+  $handler = $view->new_display('panel_pane', 'First one', 'panel_pane_2');
+  $handler->override_option('fields', array(
+    'created' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'date_format' => 'custom',
+      'custom_date_format' => 'm/d/Y',
+      'exclude' => 0,
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+      'relationship' => 'none',
+    ),
+    'title' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'link_to_node' => 1,
+      'exclude' => 0,
+      'id' => 'title',
+      'table' => 'node',
+      'field' => 'title',
+      'relationship' => 'none',
+    ),
+    'body' => array(
+      'label' => '',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'exclude' => 0,
+      'id' => 'body',
+      'table' => 'node_revisions',
+      'field' => 'body',
       'override' => array(
         'button' => 'Use default',
       ),
@@ -315,16 +438,31 @@ function bn_opinion_views_default_views() {
   ));
   $handler->override_option('items_per_page', 1);
   $handler->override_option('offset', 0);
-  $handler->override_option('attachment_position', 'before');
-  $handler->override_option('inherit_arguments', TRUE);
-  $handler->override_option('inherit_exposed_filters', FALSE);
-  $handler->override_option('inherit_pager', FALSE);
-  $handler->override_option('render_pager', TRUE);
-  $handler->override_option('displays', array(
-    'panel_pane_1' => 'panel_pane_1',
-    'default' => 0,
-    'page_1' => 0,
+  $handler->override_option('use_pager', '0');
+  $handler->override_option('style_plugin', 'default');
+  $handler->override_option('style_options', array(
+    'grouping' => '',
   ));
+  $handler->override_option('pane_title', 'First opinion blog entry');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'behavenet',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => FALSE,
+    'items_per_page' => FALSE,
+    'offset' => FALSE,
+    'link_to_view' => FALSE,
+    'more_link' => FALSE,
+    'path_override' => FALSE,
+    'title_override' => FALSE,
+    'exposed_form' => FALSE,
+    'fields_override' => FALSE,
+  ));
+  $handler->override_option('argument_input', array());
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
 
   $views[$view->name] = $view;
 

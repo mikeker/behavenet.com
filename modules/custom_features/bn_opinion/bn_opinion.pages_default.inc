@@ -52,30 +52,6 @@ function bn_opinion_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->pid = 'new-22e238ba-f486-6514-5192-2420cfc77e21';
-    $pane->panel = 'middle';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = FALSE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Intro text',
-      'title' => '',
-      'body' => '<p>A catalog of films, indexed by time, with content, themes or depictions related to psychiatry, substance abuse and their treatment.</p>',
-      'format' => '2',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->uuid = '22e238ba-f486-6514-5192-2420cfc77e21';
-    $display->content['new-22e238ba-f486-6514-5192-2420cfc77e21'] = $pane;
-    $display->panels['middle'][0] = 'new-22e238ba-f486-6514-5192-2420cfc77e21';
-    $pane = new stdClass;
     $pane->pid = 'new-636bddd1-427d-f154-21fb-b964d9397cff';
     $pane->panel = 'middle';
     $pane->type = 'node_content';
@@ -100,10 +76,28 @@ function bn_opinion_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->uuid = '636bddd1-427d-f154-21fb-b964d9397cff';
     $display->content['new-636bddd1-427d-f154-21fb-b964d9397cff'] = $pane;
-    $display->panels['middle'][1] = 'new-636bddd1-427d-f154-21fb-b964d9397cff';
+    $display->panels['middle'][0] = 'new-636bddd1-427d-f154-21fb-b964d9397cff';
+    $pane = new stdClass;
+    $pane->pid = 'new-3db5f514-7361-aa14-cd7d-4c32d03a346f';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Opinion-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->uuid = '3db5f514-7361-aa14-cd7d-4c32d03a346f';
+    $display->content['new-3db5f514-7361-aa14-cd7d-4c32d03a346f'] = $pane;
+    $display->panels['middle'][1] = 'new-3db5f514-7361-aa14-cd7d-4c32d03a346f';
     $pane = new stdClass;
     $pane->pid = 'new-8a60e83d-98f8-5be4-75d0-2c24995d57fe';
     $pane->panel = 'middle';
