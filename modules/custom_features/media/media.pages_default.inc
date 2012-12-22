@@ -157,7 +157,7 @@ function media_default_page_manager_handlers() {
     $pane->configuration = array(
       'admin_title' => 'Amazon ad',
       'title' => '',
-      'body' => '<iframe src="http://rcm.amazon.com/e/cm?t=behavenetrinc&o=1&p=48&l=ur1&category=dvd&banner=0DE2PBSZ1XXT9HH45SG2&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>',
+      'body' => '<div style="text-align:center;"><iframe src="http://rcm.amazon.com/e/cm?t=behavenetrinc&o=1&p=12&l=ur1&category=dvd&banner=1SDQVA1DWHAHX2JQR782&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe></div>',
       'format' => '2',
       'substitute' => 0,
     );
