@@ -434,6 +434,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '8',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'inline',
       ),
@@ -443,10 +447,6 @@ function media_content_default_fields() {
       ),
       'full' => array(
         'format' => 'link',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
         'exclude' => 0,
       ),
       '2' => array(
@@ -497,6 +497,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '5',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'inline',
       ),
@@ -506,10 +510,6 @@ function media_content_default_fields() {
       ),
       'full' => array(
         'format' => 'inline',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
         'exclude' => 0,
       ),
       '2' => array(
@@ -553,6 +553,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '4',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'hidden',
       ),
@@ -562,10 +566,6 @@ function media_content_default_fields() {
       ),
       'full' => array(
         'format' => 'inline',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
         'exclude' => 0,
       ),
       '2' => array(
@@ -609,6 +609,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '1',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'hidden',
       ),
@@ -617,10 +621,6 @@ function media_content_default_fields() {
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -672,6 +672,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '9',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'inline',
       ),
@@ -680,10 +684,6 @@ function media_content_default_fields() {
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -754,6 +754,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '10',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'inline',
       ),
@@ -763,10 +767,6 @@ function media_content_default_fields() {
       ),
       'full' => array(
         'format' => 'link',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
         'exclude' => 0,
       ),
       '2' => array(
@@ -817,6 +817,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '2',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'hidden',
       ),
@@ -825,10 +829,6 @@ function media_content_default_fields() {
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -880,6 +880,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '6',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'inline',
       ),
@@ -888,10 +892,6 @@ function media_content_default_fields() {
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -943,6 +943,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '12',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
       'label' => array(
         'format' => 'hidden',
       ),
@@ -951,10 +955,6 @@ function media_content_default_fields() {
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -1006,6 +1006,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '13',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'hidden',
       ),
@@ -1014,10 +1018,6 @@ function media_content_default_fields() {
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -1069,6 +1069,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '7',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'inline',
       ),
@@ -1077,10 +1081,6 @@ function media_content_default_fields() {
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -1138,6 +1138,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '11',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'hidden',
       ),
@@ -1147,10 +1151,6 @@ function media_content_default_fields() {
       ),
       'full' => array(
         'format' => 'unformatted',
-        'exclude' => 0,
-      ),
-      '4' => array(
-        'format' => 'default',
         'exclude' => 0,
       ),
       '2' => array(
@@ -1201,6 +1201,10 @@ function media_content_default_fields() {
     'display_settings' => array(
       'weight' => '3',
       'parent' => '',
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 1,
+      ),
       'label' => array(
         'format' => 'hidden',
       ),
@@ -1209,10 +1213,6 @@ function media_content_default_fields() {
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
-        'exclude' => 0,
-      ),
-      '4' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
