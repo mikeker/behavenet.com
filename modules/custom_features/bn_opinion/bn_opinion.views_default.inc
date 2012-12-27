@@ -159,7 +159,7 @@ function bn_opinion_views_default_views() {
     'weight' => '0',
   ));
   $handler->override_option('allow', array(
-    'use_pager' => 'use_pager',
+    'use_pager' => 0,
     'items_per_page' => 'items_per_page',
     'offset' => 0,
     'link_to_view' => 0,
