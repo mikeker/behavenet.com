@@ -1010,6 +1010,7 @@ function general_content_strongarm() {
     'combinations' => 'combinations',
     'generic' => 'generic',
     'movie' => 'movie',
+    'opinion' => 'opinion',
     'page' => 'page',
     'people' => 'people',
     'preparation' => 'preparation',
