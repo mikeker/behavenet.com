@@ -661,19 +661,31 @@ function bh_import_test() {
   ini_set('max_execution_time', 300);
 
   // Update blog entries with post date from Blogger
+
+  // SELECT DISTINCT m.nid, m.field_movie_blog_value
+  // FROM {content_type_movie} AS m
+  // WHERE m.field_movie_blog_value IS NOT NULL
+  // AND m.field_movie_blog_entry_value IS NULL
+
   $results = db_query("
-    SELECT DISTINCT m.nid, m.field_movie_blog_value
-    FROM {content_type_movie} AS m
-    WHERE m.field_movie_blog_value IS NOT NULL
-      AND m.field_movie_blog_entry_value IS NULL
+SELECT DISTINCT m.nid, orig.Blog
+FROM behave_content_type_movie AS m
+INNER JOIN behave_migrate_map_movies AS map
+  ON map.destid = m.nid
+INNER JOIN behave_data_movies AS orig
+  ON map.sourceid = orig.ID
+WHERE orig.Blog IS NOT NULL
   ");
 
   $operations = array();
   while ($row = db_fetch_object($results)) {
-    $operations[] = array('bh_import_movie_entry', array($row->field_movie_blog_value, $row->nid));
+    $operations[] = array('bh_import_movie_entry', array($row->Blog, $row->nid));
   }
   // DEBUG:
   // $operations = array_slice($operations, 0, 5);
+  // dpr(count($operations));
+  // dpr($operations);
+  // exit;
 
   $batch = array(
     'title' => 'Importing',
