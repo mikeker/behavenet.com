@@ -78,9 +78,13 @@ function behave_form_views_exposed_form_alter(&$form, &$form_state) {
  */
 function behave_form_alter(&$form, &$form_state, $form_id) {
 
-  // dsm('in behave_form_alter');
-  // dsm($form_id);
-  // dsm($form);
+  dsm('in behave_form_alter');
+  dsm($form_id);
+  dsm($form);
+
+  if ('movie_node_form' == $form_id) {
+    $form['field_movie_blog_entry']['#weight'] = 0;
+  }
 
   if (isset($form['field_general_terms']) || isset($form['field_terms'])) {
     $field = '';
@@ -125,6 +129,7 @@ function behave_form_alter(&$form, &$form_state, $form_id) {
           '#title' => 'Existing Terms',
           '#description' => 'Check any terms you wish to remove.',
           '#options' => $existing,
+          '#weight' => 0,
         );
       }
     }
@@ -153,40 +158,6 @@ function behave_form_alter(&$form, &$form_state, $form_id) {
     $form['term_data']['relations']['op']['add']['#autocomplete_path'] = 'behavenet/term/autocomplete_admin';
     $form['term_data']['relations']['op']['add']['#size'] = 60;
   }
-
-  //  if ('some_form_name' == $form_id) {
-  //    // Do something
-  //  }
-  //
-  //  if ('some_other_form_name' == $form_id) {
-  //
-  //    // Basic example
-  //    if (!user_access('some permission')) {
-  //      // Remove the example field
-  //      unset($form['field_example']);
-  //    }
-  //
-  //  }
-  //
-  //  // Update the "add another" text to be more descriptive
-  //  $updates = array(
-  //    'field_some_field_name' => 'Add another something',
-  //  );
-  //  foreach ($updates as $field => $text) {
-  //    if (isset($form[$field][$field .'_add_more']['#value'])) {
-  //      $form[$field][$field .'_add_more']['#value'] = t($text);
-  //    }
-  //  }
-  //
-  //  // Move description below the "add another" field by putting it in the #suffix
-  //  $fields = array('field_some_field_name');
-  //  $spacer = '<div class="spacer"></div>';
-  //  foreach($fields as $field) {
-  //    if (isset($form[$field])) {
-  //      $form[$field]['#suffix'] = $form[$field]['#description'] . $spacer . $form[$field]['#suffix'];
-  //      unset($form[$field]['#description']);
-  //    }
-  //  }
 }
 
 function behave_link_alter(&$links, $node, $comment = NULL) {
