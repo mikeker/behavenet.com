@@ -77,10 +77,9 @@ function behave_form_views_exposed_form_alter(&$form, &$form_state) {
  * @see http://api.drupal.org/api/function/hook_form_alter/6
  */
 function behave_form_alter(&$form, &$form_state, $form_id) {
-
-  dsm('in behave_form_alter');
-  dsm($form_id);
-  dsm($form);
+  // dsm('in behave_form_alter');
+  // dsm($form_id);
+  // dsm($form);
 
   if ('movie_node_form' == $form_id) {
     $form['field_movie_blog_entry']['#weight'] = 0;
