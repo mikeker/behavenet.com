@@ -1856,19 +1856,13 @@ print behavenet_display_term_children(7358);
     $display->content['new-a8d428f7-6a79-9354-6dfd-eac5e5ed4bd8'] = $pane;
     $display->panels['footer'][0] = 'new-a8d428f7-6a79-9354-6dfd-eac5e5ed4bd8';
     $pane = new stdClass;
-    $pane->pid = 'new-1979e817-513e-2684-cd36-01133ac5dfab';
+    $pane->pid = 'new-1fe6fa15-bfda-45b4-891a-25fcd16eb87e';
     $pane->panel = 'footer';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'page_footer_message';
+    $pane->subtype = 'page_footer_message';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'Page footer message',
-      'title' => '',
-      'body' => '<p>Copyright© 1995-2012 BehaveNet® Inc | <a href="/terms-of-use">Terms of Use</a> | <a href="/privacy-policy">Privacy</a></p>',
-      'format' => '3',
-      'substitute' => 0,
-    );
+    $pane->configuration = array();
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -1876,9 +1870,9 @@ print behavenet_display_term_children(7358);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $pane->uuid = '1979e817-513e-2684-cd36-01133ac5dfab';
-    $display->content['new-1979e817-513e-2684-cd36-01133ac5dfab'] = $pane;
-    $display->panels['footer'][1] = 'new-1979e817-513e-2684-cd36-01133ac5dfab';
+    $pane->uuid = '1fe6fa15-bfda-45b4-891a-25fcd16eb87e';
+    $display->content['new-1fe6fa15-bfda-45b4-891a-25fcd16eb87e'] = $pane;
+    $display->panels['footer'][1] = 'new-1fe6fa15-bfda-45b4-891a-25fcd16eb87e';
     $pane = new stdClass;
     $pane->pid = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
     $pane->panel = 'header';
