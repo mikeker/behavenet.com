@@ -917,7 +917,7 @@ function media_views_default_views() {
     'default' => 0,
     'panel_pane_1' => 0,
   ));
-  $handler = $view->new_display('page', 'all movies (temp)', 'page_1');
+  $handler = $view->new_display('page', 'All movies (admin)', 'page_1');
   $handler->override_option('fields', array(
     'path' => array(
       'label' => 'Path',
@@ -1043,6 +1043,12 @@ function media_views_default_views() {
         'button' => 'Use default',
       ),
       'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('access', array(
+    'type' => 'role',
+    'role' => array(
+      2 => 2,
     ),
   ));
   $handler->override_option('style_plugin', 'default');

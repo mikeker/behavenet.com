@@ -173,7 +173,7 @@ function bn_opinion_views_default_views() {
   $handler->override_option('argument_input', array());
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
-  $handler = $view->new_display('page', 'all entries (temp)', 'page_1');
+  $handler = $view->new_display('page', 'All entries (admin)', 'page_1');
   $handler->override_option('fields', array(
     'created' => array(
       'label' => '',
@@ -312,6 +312,12 @@ function bn_opinion_views_default_views() {
         'button' => 'Use default',
       ),
       'relationship' => 'none',
+    ),
+  ));
+  $handler->override_option('access', array(
+    'type' => 'role',
+    'role' => array(
+      2 => 2,
     ),
   ));
   $handler->override_option('items_per_page', 0);
