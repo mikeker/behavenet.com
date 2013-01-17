@@ -162,7 +162,7 @@ function bn_opinion_views_default_views() {
   $handler->override_option('allow', array(
     'use_pager' => 0,
     'items_per_page' => 'items_per_page',
-    'offset' => 0,
+    'offset' => 'offset',
     'link_to_view' => 0,
     'more_link' => 'more_link',
     'path_override' => 0,
@@ -756,6 +756,29 @@ function bn_opinion_views_default_views() {
     'weight' => 0,
     'name' => 'navigation',
   ));
+  $handler = $view->new_display('panel_pane', 'Recent entries', 'panel_pane_3');
+  $handler->override_option('items_per_page', 5);
+  $handler->override_option('offset', 0);
+  $handler->override_option('pane_title', 'Recent opinion entries');
+  $handler->override_option('pane_description', '');
+  $handler->override_option('pane_category', array(
+    'name' => 'behavenet',
+    'weight' => '0',
+  ));
+  $handler->override_option('allow', array(
+    'use_pager' => 0,
+    'items_per_page' => 'items_per_page',
+    'offset' => 'offset',
+    'link_to_view' => 0,
+    'more_link' => 0,
+    'path_override' => 0,
+    'title_override' => 'title_override',
+    'exposed_form' => 0,
+    'fields_override' => 0,
+  ));
+  $handler->override_option('argument_input', array());
+  $handler->override_option('link_to_view', 0);
+  $handler->override_option('inherit_panels_path', 0);
 
   $views[$view->name] = $view;
 

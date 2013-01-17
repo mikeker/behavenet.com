@@ -112,6 +112,7 @@ function bn_opinion_default_page_manager_handlers() {
       'items_per_page' => '4',
       'override_title' => 1,
       'override_title_text' => '',
+      'offset' => '1',
     );
     $pane->cache = array();
     $pane->style = array(

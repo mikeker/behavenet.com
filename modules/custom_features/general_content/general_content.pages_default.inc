@@ -2674,36 +2674,28 @@ print behavenet_node_qr();
     $display->content['new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c'] = $pane;
     $display->panels['main_callout'][13] = 'new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
     $pane = new stdClass;
-    $pane->pid = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
+    $pane->pid = 'new-711e2b3b-80e3-47a4-cdf7-6efb43c93f63';
     $pane->panel = 'main_callout';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Opinion-panel_pane_3';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => 'Opinion blog feed',
-      'title' => 'Opinion',
-      'body' => '<a href="http://behavenetopinion.blogspot.com/"><img src="<?php print base_path() . drupal_get_path(\'theme\', \'Behavenet\') . \'/images/blogger-rectangle.gif\'; ?>" /></a><br />
-<?php behavenet_get_recent_from_rss(\'http://behavenetopinion.blogspot.com/rss.xml\', 5); ?>',
-      'format' => '4',
-      'substitute' => 1,
+      'items_per_page' => '5',
+      'offset' => '0',
+      'override_title' => 1,
+      'override_title_text' => 'Opinion',
     );
-    $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => '7200',
-        'granularity' => 'none',
-      ),
-    );
+    $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 14;
-    $pane->uuid = '3086f958-1fd4-64c4-3180-193cde5deb69';
-    $display->content['new-3086f958-1fd4-64c4-3180-193cde5deb69'] = $pane;
-    $display->panels['main_callout'][14] = 'new-3086f958-1fd4-64c4-3180-193cde5deb69';
+    $pane->uuid = '711e2b3b-80e3-47a4-cdf7-6efb43c93f63';
+    $display->content['new-711e2b3b-80e3-47a4-cdf7-6efb43c93f63'] = $pane;
+    $display->panels['main_callout'][14] = 'new-711e2b3b-80e3-47a4-cdf7-6efb43c93f63';
     $pane = new stdClass;
     $pane->pid = 'new-0ac010e3-8287-ace4-e902-2a5213ae5e3c';
     $pane->panel = 'main_callout';
