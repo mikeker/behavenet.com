@@ -607,7 +607,10 @@ function general_content_default_panels_mini() {
   <a href="http://visitor.r20.constantcontact.com/d.jsp?llr=eiiozalab&p=oi&m=1111349469444"><span class="social-media-icon social-media-icon-email"></span></a>Sign up for our<br><a href="http://visitor.r20.constantcontact.com/d.jsp?llr=eiiozalab&p=oi&m=1111349469444">Newletter</a>
 </div>
 <div class="social-media-links-row">
-  <a href="http://behavenet.com/rss.xml"><span class="social-media-icon social-media-icon-rss"></span></a>Subscribe to our<br><a href="http://behavenet.com/rss.xml">RSS Feed</a>
+  <a href="http://behavenet.com/opinion/rss.xml"><span class="social-media-icon social-media-icon-rss"></span></a>Subscribe to our<br><a href="http://behavenet.com/opinion/rss.xml">Opinion blog</a>
+</div>
+<div class="social-media-links-row">
+  <a href="http://behavenet.com/movies/rss.xml"><span class="social-media-icon social-media-icon-rss"></span></a>Subscribe to our<br><a href="http://behavenet.com/movies/rss.xml">Movies</a>
 </div>
 </div>',
       'format' => '2',
