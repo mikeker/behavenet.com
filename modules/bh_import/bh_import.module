@@ -462,7 +462,8 @@ function _bh_get_entry() {
   static $current = 0;
 
   if (empty($index) || empty($vals)) {
-    $xml = file_get_contents('../opinion.xml');
+    $xml = file_get_contents('../movie-blog-12-07-2012.xml');
+    // $xml = file_get_contents('../opinion.xml');
     $p = xml_parser_create();
     xml_parse_into_struct($p, $xml, $vals, $index);
     xml_parser_free($p);
@@ -660,13 +661,39 @@ function bh_import_movie_entry($url, $nid, &$context) {
 function bh_import_test() {
   ini_set('max_execution_time', 300);
 
+  // $movies = build_lookup('movies');
+  $movies = array();    // Drupal title => nid
+  $results = db_query("SELECT title, nid FROM {node} WHERE type='movie'");
+  while ($row = db_fetch_object($results)) {
+    $movies[strtolower($row->title)] = $row->nid;
+  }
+  // dpr($movies); exit;
+
+  $titles = array();    // movie_title => original_id
+  $results = db_query("SELECT * FROM {data_movies} WHERE Title IS NOT NULL");
+  while ($row = db_fetch_object($results)) {
+    $titles[$row->Title] = $row->ID;
+  }
+
+  $missing = array();
+  $correct = array();
+  while($entry = _bh_get_entry()) {
+    if ('post' == $entry['type']) {
+      if (!isset($movies[strtolower($entry['title'])])) {
+        $missing[] = $entry['title'];
+      }
+      else {
+        $correct[] = $entry['title'];
+      }
+    }
+  }
+  dpr(count($missing) . ' are missing');
+  dpr($missing);
+  dpr(count($correct) . ' are verified as imported');
+  dpr($correct);
+  exit;
+
   // Update blog entries with post date from Blogger
-
-  // SELECT DISTINCT m.nid, m.field_movie_blog_value
-  // FROM {content_type_movie} AS m
-  // WHERE m.field_movie_blog_value IS NOT NULL
-  // AND m.field_movie_blog_entry_value IS NULL
-
   $results = db_query("
 SELECT DISTINCT m.nid, orig.Blog
 FROM behave_content_type_movie AS m
