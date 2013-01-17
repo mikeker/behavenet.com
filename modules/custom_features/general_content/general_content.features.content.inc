@@ -947,11 +947,11 @@ function general_content_content_default_fields() {
       ),
       'teaser' => array(
         'format' => 'Image-Standard_default',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       'full' => array(
         'format' => 'Image-Standard_default',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       '4' => array(
         'format' => 'image_plain',
