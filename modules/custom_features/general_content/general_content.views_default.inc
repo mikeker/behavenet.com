@@ -51,9 +51,40 @@ function general_content_views_default_views() {
       'relationship' => 'none',
     ),
     'path' => array(
+      'label' => 'Path',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'absolute' => 0,
+        'link_class' => '',
+        'alt' => '',
+        'rel' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'hide_alter_empty' => 1,
+      'absolute' => 0,
+      'exclude' => 1,
       'id' => 'path',
       'table' => 'node',
       'field' => 'path',
+      'override' => array(
+        'button' => 'Override',
+      ),
+      'relationship' => 'none',
     ),
   ));
   $handler->override_option('sorts', array(
@@ -180,7 +211,7 @@ function general_content_views_default_views() {
       'relationship' => 'none',
     ),
   ));
-  $handler->override_option('path', 'list/companies');
+  $handler->override_option('path', 'list/company');
   $handler->override_option('menu', array(
     'type' => 'none',
     'title' => '',
