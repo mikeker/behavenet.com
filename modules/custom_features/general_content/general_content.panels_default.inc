@@ -610,7 +610,7 @@ function general_content_default_panels_mini() {
   <a href="http://behavenet.com/opinion/rss.xml"><span class="social-media-icon social-media-icon-rss"></span></a>Subscribe to our<br><a href="http://behavenet.com/opinion/rss.xml">Opinion blog</a>
 </div>
 <div class="social-media-links-row">
-  <a href="http://behavenet.com/movies/rss.xml"><span class="social-media-icon social-media-icon-rss"></span></a>Subscribe to our<br><a href="http://behavenet.com/movies/rss.xml">Movies</a>
+  <a href="http://behavenet.com/movies/rss.xml"><span class="social-media-icon social-media-icon-rss"></span></a>Subscribe to our<br><a href="http://behavenet.com/movies/rss.xml">Movie posts</a>
 </div>
 </div>',
       'format' => '2',
