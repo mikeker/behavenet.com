@@ -163,6 +163,369 @@ print behavenet_build_jump_menu($items);
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'node_view_panel_context_11';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -21;
+  $handler->conf = array(
+    'title' => 'Companies',
+    'no_blocks' => 0,
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'node/30608',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+    'pipeline' => 'standard',
+  );
+  $display = new panels_display;
+  $display->layout = 'onecol';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'middle' => NULL,
+      'top' => NULL,
+      'left' => NULL,
+      'right' => NULL,
+      'bottom' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '%node:title';
+  $display->uuid = '0cafa6ba-881f-2df4-b1f6-37b23e1f2940';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass;
+    $pane->pid = 'new-1d3ad850-457b-d274-f5fb-4dbba92754e4';
+    $pane->panel = 'middle';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Content breadcrumbs',
+      'title' => '',
+      'body' => '<?php
+print behavenet_get_content_breadcrumbs(%node:nid);
+?>',
+      'format' => '4',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->uuid = '1d3ad850-457b-d274-f5fb-4dbba92754e4';
+    $display->content['new-1d3ad850-457b-d274-f5fb-4dbba92754e4'] = $pane;
+    $display->panels['middle'][0] = 'new-1d3ad850-457b-d274-f5fb-4dbba92754e4';
+    $pane = new stdClass;
+    $pane->pid = 'new-6bfc2e2d-d0de-af84-9da0-c4872aebe680';
+    $pane->panel = 'middle';
+    $pane->type = 'node_content';
+    $pane->subtype = 'node_content';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'links' => 0,
+      'page' => 1,
+      'no_extras' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+      'identifier' => '',
+      'link' => 0,
+      'leave_node_title' => 0,
+      'build_mode' => 'full',
+      'context' => 'argument_nid_1',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->uuid = '6bfc2e2d-d0de-af84-9da0-c4872aebe680';
+    $display->content['new-6bfc2e2d-d0de-af84-9da0-c4872aebe680'] = $pane;
+    $display->panels['middle'][1] = 'new-6bfc2e2d-d0de-af84-9da0-c4872aebe680';
+    $pane = new stdClass;
+    $pane->pid = 'new-4e4045d8-7993-3224-7d25-56cfb26c911a';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Companies-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'items_per_page' => '0',
+      'offset' => '0',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->uuid = '4e4045d8-7993-3224-7d25-56cfb26c911a';
+    $display->content['new-4e4045d8-7993-3224-7d25-56cfb26c911a'] = $pane;
+    $display->panels['middle'][2] = 'new-4e4045d8-7993-3224-7d25-56cfb26c911a';
+    $pane = new stdClass;
+    $pane->pid = 'new-0cef0ad5-71fa-14c4-e1f1-61d284db14b2';
+    $pane->panel = 'middle';
+    $pane->type = 'content_field';
+    $pane->subtype = 'field_general_terms';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'normal',
+      'formatter' => 'link',
+      'context' => 'argument_nid_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->uuid = '0cef0ad5-71fa-14c4-e1f1-61d284db14b2';
+    $display->content['new-0cef0ad5-71fa-14c4-e1f1-61d284db14b2'] = $pane;
+    $display->panels['middle'][3] = 'new-0cef0ad5-71fa-14c4-e1f1-61d284db14b2';
+    $pane = new stdClass;
+    $pane->pid = 'new-de321885-aeaa-f014-c5ac-212d46e5b65d';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'list_terms-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'node/27645',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->uuid = 'de321885-aeaa-f014-c5ac-212d46e5b65d';
+    $display->content['new-de321885-aeaa-f014-c5ac-212d46e5b65d'] = $pane;
+    $display->panels['middle'][4] = 'new-de321885-aeaa-f014-c5ac-212d46e5b65d';
+    $pane = new stdClass;
+    $pane->pid = 'new-a7d1b78a-986a-e1a4-4129-754fefec64a7';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Media-panel_pane_3';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'use_pager' => 0,
+      'pager_id' => '',
+      'items_per_page' => '0',
+      'context' => array(
+        0 => 'argument_nid_1',
+      ),
+      'override_title' => 1,
+      'override_title_text' => 'Books',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $pane->uuid = 'a7d1b78a-986a-e1a4-4129-754fefec64a7';
+    $display->content['new-a7d1b78a-986a-e1a4-4129-754fefec64a7'] = $pane;
+    $display->panels['middle'][5] = 'new-a7d1b78a-986a-e1a4-4129-754fefec64a7';
+    $pane = new stdClass;
+    $pane->pid = 'new-5daa3699-bd4d-d0c4-91c9-f820dece0d97';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'Media-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'use_pager' => 0,
+      'pager_id' => '',
+      'items_per_page' => '0',
+      'context' => array(
+        0 => 'argument_nid_1',
+      ),
+      'override_title' => 1,
+      'override_title_text' => 'Movies',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->uuid = '5daa3699-bd4d-d0c4-91c9-f820dece0d97';
+    $display->content['new-5daa3699-bd4d-d0c4-91c9-f820dece0d97'] = $pane;
+    $display->panels['middle'][6] = 'new-5daa3699-bd4d-d0c4-91c9-f820dece0d97';
+    $pane = new stdClass;
+    $pane->pid = 'new-3da5143a-aeb0-4e64-b185-14176b3e4d64';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'trade_drugs-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'company' => 'company',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_nid_1',
+      ),
+      'override_title' => 1,
+      'override_title_text' => 'Trade names',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 7;
+    $pane->uuid = '3da5143a-aeb0-4e64-b185-14176b3e4d64';
+    $display->content['new-3da5143a-aeb0-4e64-b185-14176b3e4d64'] = $pane;
+    $display->panels['middle'][7] = 'new-3da5143a-aeb0-4e64-b185-14176b3e4d64';
+    $pane = new stdClass;
+    $pane->pid = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
+    $pane->panel = 'middle';
+    $pane->type = 'node_comments';
+    $pane->subtype = 'node_comments';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'movie' => 'movie',
+              'opinion' => 'opinion',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'mode' => '2',
+      'order' => '2',
+      'comments_per_page' => '50',
+      'anchor' => 1,
+      'context' => 'argument_nid_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'comments-list',
+    );
+    $pane->extras = array();
+    $pane->position = 8;
+    $pane->uuid = '75988c4b-863f-54b4-3d7b-466b8234632b';
+    $display->content['new-75988c4b-863f-54b4-3d7b-466b8234632b'] = $pane;
+    $display->panels['middle'][8] = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
+    $pane = new stdClass;
+    $pane->pid = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
+    $pane->panel = 'middle';
+    $pane->type = 'node_comment_form';
+    $pane->subtype = 'node_comment_form';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'movie' => 'movie',
+              'opinion' => 'opinion',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'anon_links' => 0,
+      'context' => 'argument_nid_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'comment-form',
+    );
+    $pane->extras = array();
+    $pane->position = 9;
+    $pane->uuid = '13588c1f-d1a1-4ed4-9586-563587ffbe75';
+    $display->content['new-13588c1f-d1a1-4ed4-9586-563587ffbe75'] = $pane;
+    $display->panels['middle'][9] = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = '0';
+  $handler->conf['display'] = $display;
+  $export['node_view_panel_context_11'] = $handler;
+
+  $handler = new stdClass;
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'node_view_panel_context_3';
   $handler->task = 'node_view';
   $handler->subtask = '';
