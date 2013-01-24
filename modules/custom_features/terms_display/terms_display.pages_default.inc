@@ -604,6 +604,7 @@ print \'</ul>\';
 <option value="/electrophobia">electricity</option>
 <option value="/cenophobia">empty rooms</option>
 <option value="/cleithrophobia">enclosed place, being locked in an</option>
+<option value="/apocalyptophobia">end of the world</option>
 <option value="/anglophobia">English, anything</option>
 <option value="/medorthophobia">erect penis</option>
 <option value="/ithyphallophobia">erect penis: seeing, thinking about or having an</option>
@@ -757,6 +758,7 @@ print \'</ul>\';
 <option value="/astraphobia">lightning</option>
 <option value="/photoaugliaphobia">lights, glaring</option>
 <option value="/hygrophobia">liquids</option>
+<option value="/pinaciphobia">lists</option>
 <option value="/cleithrophobia">locked in an enclosed place, being</option>
 <option value="/tetanophobia">lockjaw</option>
 <option value="/eremophobia">loneliness</option>
