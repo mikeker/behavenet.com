@@ -2353,6 +2353,7 @@ print behavenet_display_term_children(7358);
       </li>
     </ul>
   </li>
+  <li><a href="<?php print url(\'taxonomy/term/7198\'); ?>">Autism</a></li>
   <li><a href="<?php print url(\'taxonomy/term/7898\'); ?>">Disability</a></li>
   <li><a href="<?php print url(\'taxonomy/term/8637\'); ?>">ECT</a></li>
   <li><a href="<?php print url(\'taxonomy/term/7558\'); ?>">Forensic</a></li>
