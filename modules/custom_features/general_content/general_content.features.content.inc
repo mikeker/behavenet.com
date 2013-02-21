@@ -14,7 +14,7 @@ function general_content_content_default_fields() {
       'weight' => '-4',
       'parent' => '',
       'label' => array(
-        'format' => 'inline',
+        'format' => 'hidden',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -890,7 +890,7 @@ function general_content_content_default_fields() {
       ),
       'full' => array(
         'format' => 'link',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       '4' => array(
         'format' => 'default',
