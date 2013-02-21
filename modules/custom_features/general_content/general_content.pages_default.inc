@@ -679,7 +679,7 @@ node/27648',
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = -22;
+  $handler->weight = -20;
   $handler->conf = array(
     'title' => 'General content',
     'no_blocks' => FALSE,
@@ -1245,7 +1245,13 @@ print behavenet_display_term_children(7358);
           'name' => 'node_type',
           'settings' => array(
             'type' => array(
+              'combinations' => 'combinations',
+              'preparation' => 'preparation',
+              'sources' => 'sources',
+              'generic' => 'generic',
+              'book' => 'book',
               'movie' => 'movie',
+              'drug' => 'drug',
               'opinion' => 'opinion',
             ),
           ),
@@ -1288,7 +1294,13 @@ print behavenet_display_term_children(7358);
           'name' => 'node_type',
           'settings' => array(
             'type' => array(
+              'combinations' => 'combinations',
+              'preparation' => 'preparation',
+              'sources' => 'sources',
+              'generic' => 'generic',
+              'book' => 'book',
               'movie' => 'movie',
+              'drug' => 'drug',
               'opinion' => 'opinion',
             ),
           ),
