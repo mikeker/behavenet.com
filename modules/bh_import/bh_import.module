@@ -661,6 +661,8 @@ function bh_import_movie_entry($url, $nid, &$context) {
 function bh_import_test() {
   ini_set('max_execution_time', 300);
 
+  exit;
+
   // $movies = build_lookup('movies');
   $movies = array();    // Drupal title => nid
   $results = db_query("SELECT title, nid FROM {node} WHERE type='movie'");
