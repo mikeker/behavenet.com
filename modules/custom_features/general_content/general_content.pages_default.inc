@@ -2999,6 +2999,27 @@ print behavenet_node_qr();
     $display->content['new-0204fb31-9f41-70c4-fdb4-efa070c15e5b'] = $pane;
     $display->panels['main_callout'][11] = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
     $pane = new stdClass;
+    $pane->pid = 'new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
+    $pane->panel = 'main_callout';
+    $pane->type = 'block';
+    $pane->subtype = 'google_admanager-ce9291906a4c3b042650b70d7f3b152e';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 12;
+    $pane->uuid = '1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
+    $display->content['new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c'] = $pane;
+    $display->panels['main_callout'][12] = 'new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
+    $pane = new stdClass;
     $pane->pid = 'new-ca4a71a4-5867-f334-1143-f2b610e8b7f0';
     $pane->panel = 'main_callout';
     $pane->type = 'custom';
@@ -3024,31 +3045,10 @@ print behavenet_node_qr();
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 12;
+    $pane->position = 13;
     $pane->uuid = 'ca4a71a4-5867-f334-1143-f2b610e8b7f0';
     $display->content['new-ca4a71a4-5867-f334-1143-f2b610e8b7f0'] = $pane;
-    $display->panels['main_callout'][12] = 'new-ca4a71a4-5867-f334-1143-f2b610e8b7f0';
-    $pane = new stdClass;
-    $pane->pid = 'new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
-    $pane->panel = 'main_callout';
-    $pane->type = 'block';
-    $pane->subtype = 'google_admanager-ce9291906a4c3b042650b70d7f3b152e';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 13;
-    $pane->uuid = '1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
-    $display->content['new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c'] = $pane;
-    $display->panels['main_callout'][13] = 'new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
+    $display->panels['main_callout'][13] = 'new-ca4a71a4-5867-f334-1143-f2b610e8b7f0';
     $pane = new stdClass;
     $pane->pid = 'new-711e2b3b-80e3-47a4-cdf7-6efb43c93f63';
     $pane->panel = 'main_callout';
