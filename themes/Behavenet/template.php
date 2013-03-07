@@ -19,7 +19,7 @@ function behavenet_preprocess_content_field(&$vars) {
    // Convert these fields from URLs entered as text to links
   $convert = array(
     // CCK_field_name => link_text (empty means use the URL)
-    'field_company_url' => '',
+    'field_company_url' => 'Company Web site',
     'field_drug_pi_url' => 'FDA Label',
     'field_drug_url' => 'Product Web site',
     'field_generic_medline_url' => 'MedlinePlus',
