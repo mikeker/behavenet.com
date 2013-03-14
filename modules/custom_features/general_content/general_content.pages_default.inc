@@ -2247,15 +2247,22 @@ print behavenet_display_term_children(7358);
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass;
-    $pane->pid = 'new-a8d428f7-6a79-9354-6dfd-eac5e5ed4bd8';
+    $pane->pid = 'new-c4c485f8-25ea-5ce4-c926-5f64c417448e';
     $pane->panel = 'footer';
-    $pane->type = 'block';
-    $pane->subtype = 'google_admanager-ded40f2a77c30efc6062db0cbd857746';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
+      'admin_title' => 'DFP Footer ad',
+      'title' => '',
+      'body' => '<div id=\'div-gpt-ad-1363274783635-0\' style=\'width:728px; height:90px;\'>
+<script type=\'text/javascript\'>
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-0\'); });
+</script>
+</div>',
+      'format' => '2',
+      'substitute' => 0,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -2264,9 +2271,9 @@ print behavenet_display_term_children(7358);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
-    $pane->uuid = 'a8d428f7-6a79-9354-6dfd-eac5e5ed4bd8';
-    $display->content['new-a8d428f7-6a79-9354-6dfd-eac5e5ed4bd8'] = $pane;
-    $display->panels['footer'][0] = 'new-a8d428f7-6a79-9354-6dfd-eac5e5ed4bd8';
+    $pane->uuid = 'c4c485f8-25ea-5ce4-c926-5f64c417448e';
+    $display->content['new-c4c485f8-25ea-5ce4-c926-5f64c417448e'] = $pane;
+    $display->panels['footer'][0] = 'new-c4c485f8-25ea-5ce4-c926-5f64c417448e';
     $pane = new stdClass;
     $pane->pid = 'new-1fe6fa15-bfda-45b4-891a-25fcd16eb87e';
     $pane->panel = 'footer';
@@ -2304,15 +2311,22 @@ print behavenet_display_term_children(7358);
     $display->content['new-a0f83f80-007e-7314-b96d-995964c370ad'] = $pane;
     $display->panels['header'][0] = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
     $pane = new stdClass;
-    $pane->pid = 'new-e0b54c2d-061b-b9c4-614c-6e51ecde07cb';
+    $pane->pid = 'new-23cc6169-4b81-8304-7922-29988c1d12a7';
     $pane->panel = 'header';
-    $pane->type = 'block';
-    $pane->subtype = 'google_admanager-e02b89857b91a11b8be92fca409827ba';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
+      'admin_title' => 'DFP Mobile ads',
+      'title' => '',
+      'body' => '<div id=\'div-gpt-ad-1363275136432-0\'>
+<script type=\'text/javascript\'>
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363275136432-0\')});
+</script>
+</div>',
+      'format' => '2',
+      'substitute' => 0,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -2321,9 +2335,37 @@ print behavenet_display_term_children(7358);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 1;
-    $pane->uuid = 'e0b54c2d-061b-b9c4-614c-6e51ecde07cb';
-    $display->content['new-e0b54c2d-061b-b9c4-614c-6e51ecde07cb'] = $pane;
-    $display->panels['header'][1] = 'new-e0b54c2d-061b-b9c4-614c-6e51ecde07cb';
+    $pane->uuid = '23cc6169-4b81-8304-7922-29988c1d12a7';
+    $display->content['new-23cc6169-4b81-8304-7922-29988c1d12a7'] = $pane;
+    $display->panels['header'][1] = 'new-23cc6169-4b81-8304-7922-29988c1d12a7';
+    $pane = new stdClass;
+    $pane->pid = 'new-64d70374-b224-c2e4-e1fd-522fc13c4598';
+    $pane->panel = 'header';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Leaderboard DFP ad',
+      'title' => '',
+      'body' => '<div id=\'div-gpt-ad-1363274783635-1\' style=\'width:728px; height:90px;\'>
+<script type=\'text/javascript\'>
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-1\'); });
+</script>
+</div>',
+      'format' => '2',
+      'substitute' => 0,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->uuid = '64d70374-b224-c2e4-e1fd-522fc13c4598';
+    $display->content['new-64d70374-b224-c2e4-e1fd-522fc13c4598'] = $pane;
+    $display->panels['header'][2] = 'new-64d70374-b224-c2e4-e1fd-522fc13c4598';
     $pane = new stdClass;
     $pane->pid = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
     $pane->panel = 'header';
@@ -2342,10 +2384,10 @@ print behavenet_display_term_children(7358);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->uuid = '40097a7f-5512-0074-e136-94a39aa0726d';
     $display->content['new-40097a7f-5512-0074-e136-94a39aa0726d'] = $pane;
-    $display->panels['header'][2] = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
+    $display->panels['header'][3] = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
     $pane = new stdClass;
     $pane->pid = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $pane->panel = 'header';
@@ -2366,10 +2408,10 @@ print behavenet_display_term_children(7358);
       'css_class' => 'main-tabs',
     );
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 4;
     $pane->uuid = '9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $display->content['new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3'] = $pane;
-    $display->panels['header'][3] = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
+    $display->panels['header'][4] = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $pane = new stdClass;
     $pane->pid = 'new-6fa76278-7f63-0f64-897e-3b28142a747d';
     $pane->panel = 'left_sidebar';
@@ -2464,15 +2506,22 @@ print behavenet_display_term_children(7358);
     $display->content['new-8ee52c91-c81d-1044-7500-81090f20a104'] = $pane;
     $display->panels['left_sidebar'][1] = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
     $pane = new stdClass;
-    $pane->pid = 'new-ce4a3048-a506-6804-a1b1-ee6b08ef62e3';
+    $pane->pid = 'new-57996730-f2b4-ead4-a96e-e3693f157926';
     $pane->panel = 'left_sidebar';
-    $pane->type = 'block';
-    $pane->subtype = 'google_admanager-e19c6cac12e9770657dc27142413bddd';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
+      'admin_title' => 'DFP Skyscraper ad',
+      'title' => '',
+      'body' => '<div id=\'div-gpt-ad-1363274783635-3\' style=\'width:160px; height:600px;\'>
+<script type=\'text/javascript\'>
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-3\'); });
+</script>
+</div>',
+      'format' => '2',
+      'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -2481,9 +2530,9 @@ print behavenet_display_term_children(7358);
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
-    $pane->uuid = 'ce4a3048-a506-6804-a1b1-ee6b08ef62e3';
-    $display->content['new-ce4a3048-a506-6804-a1b1-ee6b08ef62e3'] = $pane;
-    $display->panels['left_sidebar'][2] = 'new-ce4a3048-a506-6804-a1b1-ee6b08ef62e3';
+    $pane->uuid = '57996730-f2b4-ead4-a96e-e3693f157926';
+    $display->content['new-57996730-f2b4-ead4-a96e-e3693f157926'] = $pane;
+    $display->panels['left_sidebar'][2] = 'new-57996730-f2b4-ead4-a96e-e3693f157926';
     $pane = new stdClass;
     $pane->pid = 'new-2705d65e-6f5a-f2c4-5d20-20a451ac8912';
     $pane->panel = 'left_sidebar';
@@ -3036,15 +3085,22 @@ print behavenet_node_qr();
     $display->content['new-0204fb31-9f41-70c4-fdb4-efa070c15e5b'] = $pane;
     $display->panels['main_callout'][11] = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
     $pane = new stdClass;
-    $pane->pid = 'new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
+    $pane->pid = 'new-6688c4bf-32d7-b234-a950-195d4e82c770';
     $pane->panel = 'main_callout';
-    $pane->type = 'block';
-    $pane->subtype = 'google_admanager-ce9291906a4c3b042650b70d7f3b152e';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => '',
+      'admin_title' => 'DFP Rectangle ad',
+      'title' => '',
+      'body' => '<div id=\'div-gpt-ad-1363274783635-2\' style=\'width:300px; height:250px;\'>
+<script type=\'text/javascript\'>
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-2\'); });
+</script>
+</div>',
+      'format' => '2',
+      'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -3053,9 +3109,9 @@ print behavenet_node_qr();
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 12;
-    $pane->uuid = '1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
-    $display->content['new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c'] = $pane;
-    $display->panels['main_callout'][12] = 'new-1d1814f9-ee40-5ed4-1d15-cd66eb24090c';
+    $pane->uuid = '6688c4bf-32d7-b234-a950-195d4e82c770';
+    $display->content['new-6688c4bf-32d7-b234-a950-195d4e82c770'] = $pane;
+    $display->panels['main_callout'][12] = 'new-6688c4bf-32d7-b234-a950-195d4e82c770';
     $pane = new stdClass;
     $pane->pid = 'new-ca4a71a4-5867-f334-1143-f2b610e8b7f0';
     $pane->panel = 'main_callout';
