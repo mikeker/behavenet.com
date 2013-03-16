@@ -2256,9 +2256,9 @@ print behavenet_display_term_children(7358);
     $pane->configuration = array(
       'admin_title' => 'DFP Footer ad',
       'title' => '',
-      'body' => '<div id=\'div-gpt-ad-1363274783635-0\' style=\'width:728px; height:90px;\'>
+      'body' => '<div id=\'div-gpt-ad-1363386745962-0\' style=\'width:728px; height:90px;\'>
 <script type=\'text/javascript\'>
-googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-0\'); });
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-0\'); });
 </script>
 </div>',
       'format' => '2',
@@ -2268,7 +2268,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-0\'
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-ads behavenet-banner-ad',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->uuid = 'c4c485f8-25ea-5ce4-c926-5f64c417448e';
@@ -2320,9 +2323,9 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-0\'
     $pane->configuration = array(
       'admin_title' => 'DFP Mobile ads',
       'title' => '',
-      'body' => '<div id=\'div-gpt-ad-1363275136432-0\'>
+      'body' => '<div id=\'div-gpt-ad-1363387960662-0\'>
 <script type=\'text/javascript\'>
-googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363275136432-0\')});
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363387960662-0\')});
 </script>
 </div>',
       'format' => '2',
@@ -2332,7 +2335,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363275136432-0\'
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-mobile-ads',
+    );
     $pane->extras = array();
     $pane->position = 1;
     $pane->uuid = '23cc6169-4b81-8304-7922-29988c1d12a7';
@@ -2348,9 +2354,9 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363275136432-0\'
     $pane->configuration = array(
       'admin_title' => 'Leaderboard DFP ad',
       'title' => '',
-      'body' => '<div id=\'div-gpt-ad-1363274783635-1\' style=\'width:728px; height:90px;\'>
+      'body' => '<div id=\'div-gpt-ad-1363386745962-1\' style=\'width:728px; height:90px;\'>
 <script type=\'text/javascript\'>
-googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-1\'); });
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-1\'); });
 </script>
 </div>',
       'format' => '2',
@@ -2360,7 +2366,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-1\'
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-ads behavenet-banner-ad',
+    );
     $pane->extras = array();
     $pane->position = 2;
     $pane->uuid = '64d70374-b224-c2e4-e1fd-522fc13c4598';
@@ -2515,9 +2524,9 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-1\'
     $pane->configuration = array(
       'admin_title' => 'DFP Skyscraper ad',
       'title' => '',
-      'body' => '<div id=\'div-gpt-ad-1363274783635-3\' style=\'width:160px; height:600px;\'>
+      'body' => '<div id=\'div-gpt-ad-1363386745962-3\' style=\'width:160px; height:600px;\'>
 <script type=\'text/javascript\'>
-googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-3\'); });
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-3\'); });
 </script>
 </div>',
       'format' => '2',
@@ -2527,7 +2536,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-3\'
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-ads behavenet-skyscraper-ad',
+    );
     $pane->extras = array();
     $pane->position = 2;
     $pane->uuid = '57996730-f2b4-ead4-a96e-e3693f157926';
@@ -3078,7 +3090,10 @@ print behavenet_node_qr();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'share-links',
+    );
     $pane->extras = array();
     $pane->position = 11;
     $pane->uuid = '0204fb31-9f41-70c4-fdb4-efa070c15e5b';
@@ -3094,11 +3109,12 @@ print behavenet_node_qr();
     $pane->configuration = array(
       'admin_title' => 'DFP Rectangle ad',
       'title' => '',
-      'body' => '<div id=\'div-gpt-ad-1363274783635-2\' style=\'width:300px; height:250px;\'>
+      'body' => '<div id=\'div-gpt-ad-1363386745962-2\' style=\'width:300px; height:250px;\'>
 <script type=\'text/javascript\'>
-googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-2\'); });
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-2\'); });
 </script>
-</div>',
+</div>
+',
       'format' => '2',
       'substitute' => 1,
     );
@@ -3106,7 +3122,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-2\'
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-ads behavenet-rectangle-ad',
+    );
     $pane->extras = array();
     $pane->position = 12;
     $pane->uuid = '6688c4bf-32d7-b234-a950-195d4e82c770';
@@ -3136,7 +3155,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363274783635-2\'
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-ads',
+    );
     $pane->extras = array();
     $pane->position = 13;
     $pane->uuid = 'ca4a71a4-5867-f334-1143-f2b610e8b7f0';

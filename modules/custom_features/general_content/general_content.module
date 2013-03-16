@@ -1,3 +1,51 @@
 <?php
 
 include_once('general_content.features.inc');
+
+function general_content_init() {
+  // Add Google Ads code
+  $js1 = <<< EOC
+    if (behave_is_mobile()) {
+      (function() {
+        var useSSL = 'https:' == document.location.protocol;
+        var src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt_mobile.js';
+        document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+      })();
+    }
+    else {
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+      (function() {
+        var gads = document.createElement('script');
+        gads.async = true;
+        gads.type = 'text/javascript';
+        var useSSL = 'https:' == document.location.protocol;
+        gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+        var node = document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+      })();
+    }
+EOC;
+
+  $js2 = <<< EOC
+    if (behave_is_mobile()) {
+      googletag.cmd.push(function() {
+        googletag.defineSlot('/57419576/Mobile', [320, 50], 'div-gpt-ad-1363387960662-0').addService(googletag.pubads());
+        googletag.enableServices();
+      });
+    }
+    else {
+      googletag.cmd.push(function() {
+        googletag.defineSlot('/57419576/Footer', [728, 90], 'div-gpt-ad-1363386745962-0').addService(googletag.pubads());
+        googletag.defineSlot('/57419576/Leaderboard', [728, 90], 'div-gpt-ad-1363386745962-1').addService(googletag.pubads());
+        googletag.defineSlot('/57419576/Rectangle', [300, 250], 'div-gpt-ad-1363386745962-2').addService(googletag.pubads());
+        googletag.defineSlot('/57419576/Skyscraper', [160, 600], 'div-gpt-ad-1363386745962-3').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+      });
+    }
+EOC;
+
+  drupal_add_js($js1, 'inline', 'header');
+  drupal_add_js($js2, 'inline', 'header');
+}

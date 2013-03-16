@@ -121,20 +121,30 @@ td {
 }
 
 /*
- * Google's Doubleclick For Publishers styling
+ * Ad styling
  */
-#div-gpt-ad-1363274783635-1, #div-gpt-ad-1363275136432-0, #div-gpt-ad-1363274783635-0,  {
+/* Good Therapy now showing centered on Resources page */
+#mini-panel-goodtherapy_250_160 {
+  margin-right: 300px;
+}
+#gt-widget {
+  margin: 0 auto;
+}
+.behavenet-banner-ad {
   // Center wide ads
+  width: 728px;
   margin: @space-v auto;
 }
-.behavenet-ads, #div-gpt-ad-1363274783635-2 {
-  // Remove padding in sidebars for ads
-  margin-left: -10px;
+#page-main-callout {
+  .panel-region-separator {
+    clear: both;
+  }
+  .behavenet-ads {
+    // Remove padding in sidebars for ads
+    margin-left: -10px;
+  }
 }
-#page-left-sidebar .behavenet-ads {
-  width: 125px;
-  margin: @space-v auto;
-}
+
 
 /*
  * Search box
@@ -394,6 +404,11 @@ div.field-type-asin {
 /*
  * Social media links
  */
+.share-links {
+  // Negate the clear:both in the pane divider since we want the share links
+  // and QR image to show next to each other.
+  margin-top: -150px;
+}
 .social-media-links {
   font-size: 85%;
   padding-left: 38px;
@@ -444,23 +459,6 @@ div.field-type-asin {
   margin-top: 2em;
   margin-bottom: 10px;
 }
-
-/*
- * Ad styling
- */
-/* Good Therapy now showing centered on Resources page */
-#mini-panel-goodtherapy_250_160 {
-  margin-right: 300px;
-}
-#gt-widget {
-  margin: 0 auto;
-}
-.behavenet-goodtherapy {
-  /* Right-hand sidebar GT signup */
-  width: 300px;
-  margin: 10px 0 10px -10px;
-}
-
 
 /*
  * Misc fixes
