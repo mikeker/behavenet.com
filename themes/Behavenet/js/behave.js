@@ -154,7 +154,7 @@ if (Drupal.jsEnabled) {
       Drupal.settings.behavenet = {};
     }
     if ('undefined' == typeof Drupal.settings.behavenet.is_mobile) {
-      if (navigator.userAgent.match(/iphone|ipod|android/i)) {
+      if (navigator.userAgent.match(/iphone|ipod|ipad|android/i)) {
         Drupal.settings.behavenet.is_mobile = true;
       }
       else {
