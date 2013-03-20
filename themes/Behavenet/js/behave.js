@@ -22,6 +22,15 @@ if (Drupal.jsEnabled) {
     behave_collasible_menu_init($('ul.bef-tree:not(.processed)'), true);
     behave_collasible_menu_init($('.behavenet-collapsible-menu ul:not(processed)'), false);
 
+    if (behave_is_mobile()) {
+      $('.behavenet-ads:not(.behavenet-ads-hidden)').hide().addClass('behavenet-ads-hidden');
+    }
+    else {
+      $('.behavenet-mobile-ads:not(.behavenet-mobile-ads-hidden)').hide().addClass('behavenet-mobile-ads-hidden');
+    }
+
+
+
     // Handle Behavenet admin links
     $('.behavenet-admin-links').hover(
       function() {
@@ -163,4 +172,5 @@ if (Drupal.jsEnabled) {
     }
     return Drupal.settings.behavenet.is_mobile;
   }
+
 }

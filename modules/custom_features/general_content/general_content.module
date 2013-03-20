@@ -31,6 +31,7 @@ EOC;
     if (behave_is_mobile()) {
       googletag.cmd.push(function() {
         googletag.defineSlot('/57419576/Mobile', [320, 50], 'div-gpt-ad-1363387960662-0').addService(googletag.pubads());
+        googletag.defineSlot('/57419576/Mobile-tablet', [728, 90], 'div-gpt-ad-1363387960662-1').addService(googletag.pubads());
         googletag.enableServices();
       });
     }

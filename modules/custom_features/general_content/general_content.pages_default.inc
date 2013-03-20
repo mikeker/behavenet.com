@@ -2345,6 +2345,37 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363387960662-0\'
     $display->content['new-23cc6169-4b81-8304-7922-29988c1d12a7'] = $pane;
     $display->panels['header'][1] = 'new-23cc6169-4b81-8304-7922-29988c1d12a7';
     $pane = new stdClass;
+    $pane->pid = 'new-2133626f-816d-4544-c1b9-323a961b2c98';
+    $pane->panel = 'header';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => 'Mobile tablet ad',
+      'title' => '',
+      'body' => '<div id=\'div-gpt-ad-1363387960662-1\'>
+<script type=\'text/javascript\'>
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363387960662-1\')});
+</script>
+</div>',
+      'format' => '2',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-mobile-ads',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->uuid = '2133626f-816d-4544-c1b9-323a961b2c98';
+    $display->content['new-2133626f-816d-4544-c1b9-323a961b2c98'] = $pane;
+    $display->panels['header'][2] = 'new-2133626f-816d-4544-c1b9-323a961b2c98';
+    $pane = new stdClass;
     $pane->pid = 'new-64d70374-b224-c2e4-e1fd-522fc13c4598';
     $pane->panel = 'header';
     $pane->type = 'custom';
@@ -2371,10 +2402,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-1\'
       'css_class' => 'behavenet-ads behavenet-banner-ad',
     );
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->uuid = '64d70374-b224-c2e4-e1fd-522fc13c4598';
     $display->content['new-64d70374-b224-c2e4-e1fd-522fc13c4598'] = $pane;
-    $display->panels['header'][2] = 'new-64d70374-b224-c2e4-e1fd-522fc13c4598';
+    $display->panels['header'][3] = 'new-64d70374-b224-c2e4-e1fd-522fc13c4598';
     $pane = new stdClass;
     $pane->pid = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
     $pane->panel = 'header';
@@ -2393,10 +2424,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-1\'
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 4;
     $pane->uuid = '40097a7f-5512-0074-e136-94a39aa0726d';
     $display->content['new-40097a7f-5512-0074-e136-94a39aa0726d'] = $pane;
-    $display->panels['header'][3] = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
+    $display->panels['header'][4] = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
     $pane = new stdClass;
     $pane->pid = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $pane->panel = 'header';
@@ -2417,10 +2448,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-1\'
       'css_class' => 'main-tabs',
     );
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 5;
     $pane->uuid = '9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $display->content['new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3'] = $pane;
-    $display->panels['header'][4] = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
+    $display->panels['header'][5] = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $pane = new stdClass;
     $pane->pid = 'new-6fa76278-7f63-0f64-897e-3b28142a747d';
     $pane->panel = 'left_sidebar';
