@@ -3089,7 +3089,10 @@ print behavenet_node_qr();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'share-links',
+    );
     $pane->extras = array();
     $pane->position = 10;
     $pane->uuid = '299a99be-4a6a-6b34-65b6-e19b28a8020c';
