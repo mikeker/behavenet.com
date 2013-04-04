@@ -1,0 +1,474 @@
+@import "compass/css3";
+
+// Defaults
+$space-v: 10px;
+$space-h: 10px;
+$highlight: #EAF3F8;
+$background: #F6F6F6;
+$contrast: #7E0E00;
+$contrast-dark: #535353;
+$callout-width-inner: 300px;
+$callout-width-outer: $callout-width-inner + (3 * $space-h);
+$left-sidebar-width-inner: 160px;
+$left-sidebar-width-outer: 180px;
+
+
+/*
+ * General styling
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+a:link, a:visited, a:focus, a:active {
+  text-decoration: none;
+  color: $contrast;
+}
+a:hover {
+  text-decoration: underline;
+}
+select {
+  /* Keep drop downs from getting out of hand */
+  width: 99%;
+  max-width: 600px;
+}
+body {
+  font-size: 90%;
+}
+.view-content {
+  clear:left;
+}
+thead th {
+  text-align: center;
+}
+td {
+  padding: ($space-v / 2) $space-h;
+}
+#page-title, .page-title {
+  margin-top: $space-v;
+  margin-bottom: $space-v;
+}
+.comments-list {
+  margin-top: (2 * $space-v);
+}
+.comment-form {
+  max-width: 700px;
+}
+.pane-content {
+  margin-top: .667em;
+}
+
+/*
+ * Major zone styling
+ */
+#page {
+  margin: $space-v $space-h;
+}
+.clear-block:after {
+  content: none;
+}
+
+/*
+ * Header
+ */
+#page-header {
+  position: relative;
+  min-height: 120px;
+
+  #logo {
+    position: absolute;
+    top: 0; left: 0;
+  }
+  .leaderboard-ad {
+    width: 730px;
+    margin: 0 auto;
+    padding-left: $left-sidebar-width-outer;
+  }
+}
+
+
+/*
+ * Right-hand callout
+ */
+#page-main-callout {
+  background: $background;
+  // .rounded();
+  width: $callout-width-inner;
+
+  // Extend background color to the footer
+  padding-bottom: 9999px;
+  margin-bottom: -9999px;
+
+  #page-main-callout-inner {
+    margin: $space-v $space-h;
+  }
+  .field-type-filefield,
+  .field-field-general-asin,
+  h4
+  {
+    text-align: center;
+    margin-bottom: $space-v;
+  }
+
+  select {
+   width: $callout-width-inner;
+  }
+}
+
+/*
+ * Ad styling
+ */
+/* Good Therapy now showing centered on Resources page */
+#mini-panel-goodtherapy_250_160 {
+  margin-right: 300px;
+}
+#gt-widget {
+  margin: 0 auto;
+}
+.behavenet-banner-ad {
+  // Center wide ads
+  width: 728px;
+  margin: $space-v auto;
+}
+#page-main-callout {
+  .panel-region-separator {
+    clear: both;
+  }
+  .behavenet-ads {
+    // Remove padding in sidebars for ads
+    margin-left: -10px;
+  }
+}
+
+
+/*
+ * Search box
+ */
+#views-exposed-form-search-default {
+  float: right;
+  width: ($callout-width-inner + 10);
+}
+#views-exposed-form-search-default .views-exposed-form .views-exposed-widget {
+  float: left;
+  padding: 0;
+}
+#views-exposed-form-search-default input {
+  margin: 0;
+}
+#views-exposed-form-search-default .views-widget-filter-keys input {
+  width: ($callout-width-inner - 70);
+}
+#views-exposed-form-search-default #edit-submit-search {
+  width: 70px;
+}
+
+/*
+ * Autocomplete window
+ */
+#autocomplete {
+  z-index: 150;   /* Higher than right callout */
+  width: (2 * $callout-width-outer);
+}
+
+/*
+ * Page footer
+ *
+ * NOTE: as per Wikipedia-like styling, the page footer does not go below the
+ * left sidebar, but under the main content area
+ */
+#page-footer {
+  margin-top: 2 * $space-v;
+  margin-bottom: 2 * $space-v;
+  text-align: center;
+  font-size: 80%;
+}
+
+/*
+ * These are elements that should be flush left or, in the case of
+ * panel-region-separator, provide an easy proxy for what needs to be flushed
+ * left.
+ */
+#page-title,
+.page-title,
+.panel-region-separator,
+.clear-fix
+{
+  clear: left;
+}
+
+
+/*
+ * Main content area
+ */
+#page-main h2 {
+  margin-bottom: 0;
+}
+
+/*
+ * Pods: used mostly on main menu landing pages to help divide content
+ * into small groupings similar to how a grid system works, but using
+ * percentage to keep the fluid wikipedia-like style
+ */
+.pods-three-wide,
+.pods-two-wide,
+.pods-four-wide
+{
+  clear: left;
+  margin: 0 $callout-width-outer 0 0;
+  padding: 0;
+}
+.pod {
+  display: inline-block;
+  margin: 0;
+  float: left; // Removes 4px margin-right on inline-block elements
+  min-width: 150px;
+}
+.pod-inner {
+  padding: $space-v $space-h;
+}
+.pod h4 {
+  text-align: center;
+  font-weight: bold;
+}
+.pods-four-wide .pod {
+  width: 24.75%;
+}
+.pods-three-wide .pod {
+  width: 33%;
+}
+.pods-two-wide .pod {
+  width: 49.5%;
+}
+#mini-panel-opinion_and_movies {
+  margin: 0 $callout-width-outer 0 0;
+}
+
+/*
+ * Show credits in italics
+ */
+.field-field-people-credit
+{
+  font-style: italic;
+}
+
+/*
+ * Find/Follow us links
+ */
+.follow-us-links {
+  margin-top: ($space-v * 2);
+  margin-bottom: $space-v;
+  text-align: center;
+}
+.follow-us-links img {
+  margin-bottom: ($space-v / 2);
+}
+
+
+/*
+ * Terms and Related content display for People, Movies, Books
+ */
+.terms-and-related-content {
+  margin-top: $space-v;
+  margin-bottom: $space-v;
+}
+
+/*
+ * Behavenet admin links
+ */
+#admin-menu {
+  /* Keep admin menu on top of registration bar */
+  z-index: 200000000;
+}
+.pane-content {
+  position: relative;
+}
+.behavenet-admin-links {
+  display: none;
+  position: absolute;
+  top: 0; left: 0;
+  font-size: 85%;
+  z-index: 200;
+  padding: ($space-v / 2) ($space-h / 2);
+}
+.behavenet-admin-links-highlight .panel-panel {
+  background-color: $highlight;
+}
+.behavenet-admin-links-active {
+  display: block;
+}
+
+
+/*
+ * Menus
+ */
+div.admin-links,
+div.views-admin-links,
+div.panel-pane:hover div.panel-hide
+{
+  display: none
+}
+/* Except for the edit node links on the Daily Tweets */
+.daily-tweets:hover div.panel-hide {
+  display: block;
+}
+
+div.tabs {
+  // page-based contextual links
+  clear: left;
+}
+div.main-tabs {
+  display: inline-block;
+  margin-left: $left-sidebar-width-outer;
+
+  a {
+    font-weight: bold;
+  }
+}
+ul.menu {
+  overflow: hidden;
+}
+ul.menu li {
+  float: left;
+  list-style: none;
+}
+ul.menu li a {
+  text-decoration: none;
+  padding: ($space-v / 2) $space-h;
+  display: block;
+}
+ul.menu li a:hover {
+  background-color: $highlight;
+}
+
+
+/*
+ * Left hand sidebar collapsible menu
+ */
+.behavenet-collapsible-menu ul {
+  list-style: none;
+  margin-left: -15px;   /* Push to far left of div so we have as much room as possible */
+}
+.behavenet-collapsible-menu li.hasChildren {
+  /* Removes space added by arrow character */
+  margin-left: -14px;
+}
+.behavenet-collapsible-menu li.hasChildren ul {
+  margin-left: 0;
+}
+.behavenet-collapsible-menu li {
+  margin-bottom: ($space-h / 2);
+}
+
+/*
+ * YouTube (and other outside media) display
+ */
+.field-field-outside-video, .views-field-field-outside-video-embed {
+  margin-top: 2 * $space-v;
+}
+
+/*
+ * Books and Movies view (Media view)
+ */
+.view-Movies .attachment-after {
+  margin-top: $space-h;
+}
+div.field-type-asin {
+  border: 0;
+}
+div.field-type-asin {
+  clear: none;
+}
+.field-field-movie-spoiler {
+  font-weight: bold;
+  margin: $space-h 0;
+}
+#page-main-callout .field-field-general-asin {
+  margin-bottom: $space-h;
+}
+
+
+/*
+ * Icons
+ */
+.blogger-link img {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+}
+
+/*
+ * Social media links
+ */
+.share-links {
+  // Negate the clear:both in the pane divider since we want the share links
+  // and QR image to show next to each other.
+  margin-top: -150px;
+}
+.social-media-links {
+  font-size: 85%;
+  padding-left: 38px;
+  margin-bottom: $space-v;
+
+  .social-media-links-row {
+    margin-top: $space-v;
+    clear: left;
+  }
+  .social-media-icon {
+    display: block;
+    float: left;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    margin-left: -38px
+  }
+  .social-media-icon-facebook {
+    background-image: url(../images/facebook.png);
+  }
+  .social-media-icon-twitter {
+    background-image: url(../images/twitter.png);
+  }
+  .social-media-icon-email {
+    background-image: url(../images/email.png);
+  }
+  .social-media-icon-rss {
+    background-image: url(../images/rss.png);
+  }
+}
+
+/*
+ * Service links
+ */
+.service-links {
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+
+/*
+ * Behavenet QR code
+ */
+.behavenet-url-qr {
+  float: right;
+  margin-top: 2em;
+  margin-bottom: 10px;
+}
+
+/*
+ * Misc fixes
+ */
+
+// $TODO: Should do this by resizing the image, but waiting until we have a final design
+#logo img {
+  width: 160px;
+}
+
+
+//
+// Responsive layout
+//
+
+// Mobile first
+#page {
+  @include zen-grid-container();
+}
