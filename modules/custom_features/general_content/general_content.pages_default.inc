@@ -2525,27 +2525,6 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-1\'
     $display->content['new-6fa76278-7f63-0f64-897e-3b28142a747d'] = $pane;
     $display->panels['left_sidebar'][0] = 'new-6fa76278-7f63-0f64-897e-3b28142a747d';
     $pane = new stdClass;
-    $pane->pid = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
-    $pane->panel = 'left_sidebar';
-    $pane->type = 'panels_mini';
-    $pane->subtype = 'social_media_block';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->uuid = '8ee52c91-c81d-1044-7500-81090f20a104';
-    $display->content['new-8ee52c91-c81d-1044-7500-81090f20a104'] = $pane;
-    $display->panels['left_sidebar'][1] = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
-    $pane = new stdClass;
     $pane->pid = 'new-57996730-f2b4-ead4-a96e-e3693f157926';
     $pane->panel = 'left_sidebar';
     $pane->type = 'custom';
@@ -2572,10 +2551,31 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-3\'
       'css_class' => 'behavenet-ads behavenet-skyscraper-ad',
     );
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->uuid = '57996730-f2b4-ead4-a96e-e3693f157926';
     $display->content['new-57996730-f2b4-ead4-a96e-e3693f157926'] = $pane;
-    $display->panels['left_sidebar'][2] = 'new-57996730-f2b4-ead4-a96e-e3693f157926';
+    $display->panels['left_sidebar'][1] = 'new-57996730-f2b4-ead4-a96e-e3693f157926';
+    $pane = new stdClass;
+    $pane->pid = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
+    $pane->panel = 'left_sidebar';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'social_media_block';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->uuid = '8ee52c91-c81d-1044-7500-81090f20a104';
+    $display->content['new-8ee52c91-c81d-1044-7500-81090f20a104'] = $pane;
+    $display->panels['left_sidebar'][2] = 'new-8ee52c91-c81d-1044-7500-81090f20a104';
     $pane = new stdClass;
     $pane->pid = 'new-2705d65e-6f5a-f2c4-5d20-20a451ac8912';
     $pane->panel = 'left_sidebar';
@@ -2973,56 +2973,23 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-3\'
     $display->content['new-6ba974f7-a60b-a974-01e9-f0e0872e61da'] = $pane;
     $display->panels['main_callout'][6] = 'new-6ba974f7-a60b-a974-01e9-f0e0872e61da';
     $pane = new stdClass;
-    $pane->pid = 'new-d76ecdc1-5ef5-d4b4-cd64-9b36a6494322';
+    $pane->pid = 'new-6688c4bf-32d7-b234-a950-195d4e82c770';
     $pane->panel = 'main_callout';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'perm',
-          'settings' => array(
-            'perm' => 'administer behavenet',
-          ),
-          'context' => 'logged-in-user',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'admin_title' => 'Edit Daily Tweets link',
-      'title' => '',
-      'body' => 'Admin: <a href="/node/27767/edit">Edit Daily Tweets</a>',
-      'format' => '1',
-      'substitute' => 0,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 7;
-    $pane->uuid = 'd76ecdc1-5ef5-d4b4-cd64-9b36a6494322';
-    $display->content['new-d76ecdc1-5ef5-d4b4-cd64-9b36a6494322'] = $pane;
-    $display->panels['main_callout'][7] = 'new-d76ecdc1-5ef5-d4b4-cd64-9b36a6494322';
-    $pane = new stdClass;
-    $pane->pid = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
-    $pane->panel = 'main_callout';
-    $pane->type = 'node';
-    $pane->subtype = 'node';
-    $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'nid' => '27767',
-      'links' => 0,
-      'leave_node_title' => 0,
-      'identifier' => '',
-      'build_mode' => 'full',
-      'link_node_title' => 0,
-      'override_title' => 1,
-      'override_title_text' => 'Daily Tweets',
+      'admin_title' => 'DFP Rectangle ad',
+      'title' => '',
+      'body' => '<div id=\'div-gpt-ad-1363386745962-2\' style=\'width:300px; height:250px;\'>
+<script type=\'text/javascript\'>
+googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-2\'); });
+</script>
+</div>
+',
+      'format' => '2',
+      'substitute' => 1,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -3030,13 +2997,13 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-3\'
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'daily-tweets',
+      'css_class' => 'behavenet-ads behavenet-rectangle-ad',
     );
     $pane->extras = array();
-    $pane->position = 8;
-    $pane->uuid = '45ad5814-ce2b-8314-49ca-946ae623b75d';
-    $display->content['new-45ad5814-ce2b-8314-49ca-946ae623b75d'] = $pane;
-    $display->panels['main_callout'][8] = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
+    $pane->position = 7;
+    $pane->uuid = '6688c4bf-32d7-b234-a950-195d4e82c770';
+    $display->content['new-6688c4bf-32d7-b234-a950-195d4e82c770'] = $pane;
+    $display->panels['main_callout'][7] = 'new-6688c4bf-32d7-b234-a950-195d4e82c770';
     $pane = new stdClass;
     $pane->pid = 'new-5ac9c293-7333-84b4-99ab-abd9744d4659';
     $pane->panel = 'main_callout';
@@ -3059,10 +3026,10 @@ print behavenet_node_qr();
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
+    $pane->position = 8;
     $pane->uuid = '5ac9c293-7333-84b4-99ab-abd9744d4659';
     $display->content['new-5ac9c293-7333-84b4-99ab-abd9744d4659'] = $pane;
-    $display->panels['main_callout'][9] = 'new-5ac9c293-7333-84b4-99ab-abd9744d4659';
+    $display->panels['main_callout'][8] = 'new-5ac9c293-7333-84b4-99ab-abd9744d4659';
     $pane = new stdClass;
     $pane->pid = 'new-299a99be-4a6a-6b34-65b6-e19b28a8020c';
     $pane->panel = 'main_callout';
@@ -3094,10 +3061,10 @@ print behavenet_node_qr();
       'css_class' => 'share-links',
     );
     $pane->extras = array();
-    $pane->position = 10;
+    $pane->position = 9;
     $pane->uuid = '299a99be-4a6a-6b34-65b6-e19b28a8020c';
     $display->content['new-299a99be-4a6a-6b34-65b6-e19b28a8020c'] = $pane;
-    $display->panels['main_callout'][10] = 'new-299a99be-4a6a-6b34-65b6-e19b28a8020c';
+    $display->panels['main_callout'][9] = 'new-299a99be-4a6a-6b34-65b6-e19b28a8020c';
     $pane = new stdClass;
     $pane->pid = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
     $pane->panel = 'main_callout';
@@ -3129,42 +3096,10 @@ print behavenet_node_qr();
       'css_class' => 'share-links',
     );
     $pane->extras = array();
-    $pane->position = 11;
+    $pane->position = 10;
     $pane->uuid = '0204fb31-9f41-70c4-fdb4-efa070c15e5b';
     $display->content['new-0204fb31-9f41-70c4-fdb4-efa070c15e5b'] = $pane;
-    $display->panels['main_callout'][11] = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
-    $pane = new stdClass;
-    $pane->pid = 'new-6688c4bf-32d7-b234-a950-195d4e82c770';
-    $pane->panel = 'main_callout';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'admin_title' => 'DFP Rectangle ad',
-      'title' => '',
-      'body' => '<div id=\'div-gpt-ad-1363386745962-2\' style=\'width:300px; height:250px;\'>
-<script type=\'text/javascript\'>
-googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-2\'); });
-</script>
-</div>
-',
-      'format' => '2',
-      'substitute' => 1,
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'behavenet-ads behavenet-rectangle-ad',
-    );
-    $pane->extras = array();
-    $pane->position = 12;
-    $pane->uuid = '6688c4bf-32d7-b234-a950-195d4e82c770';
-    $display->content['new-6688c4bf-32d7-b234-a950-195d4e82c770'] = $pane;
-    $display->panels['main_callout'][12] = 'new-6688c4bf-32d7-b234-a950-195d4e82c770';
+    $display->panels['main_callout'][10] = 'new-0204fb31-9f41-70c4-fdb4-efa070c15e5b';
     $pane = new stdClass;
     $pane->pid = 'new-ca4a71a4-5867-f334-1143-f2b610e8b7f0';
     $pane->panel = 'main_callout';
@@ -3194,10 +3129,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-2\'
       'css_class' => 'behavenet-ads',
     );
     $pane->extras = array();
-    $pane->position = 13;
+    $pane->position = 11;
     $pane->uuid = 'ca4a71a4-5867-f334-1143-f2b610e8b7f0';
     $display->content['new-ca4a71a4-5867-f334-1143-f2b610e8b7f0'] = $pane;
-    $display->panels['main_callout'][13] = 'new-ca4a71a4-5867-f334-1143-f2b610e8b7f0';
+    $display->panels['main_callout'][11] = 'new-ca4a71a4-5867-f334-1143-f2b610e8b7f0';
     $pane = new stdClass;
     $pane->pid = 'new-711e2b3b-80e3-47a4-cdf7-6efb43c93f63';
     $pane->panel = 'main_callout';
@@ -3217,10 +3152,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-2\'
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 14;
+    $pane->position = 12;
     $pane->uuid = '711e2b3b-80e3-47a4-cdf7-6efb43c93f63';
     $display->content['new-711e2b3b-80e3-47a4-cdf7-6efb43c93f63'] = $pane;
-    $display->panels['main_callout'][14] = 'new-711e2b3b-80e3-47a4-cdf7-6efb43c93f63';
+    $display->panels['main_callout'][12] = 'new-711e2b3b-80e3-47a4-cdf7-6efb43c93f63';
     $pane = new stdClass;
     $pane->pid = 'new-0ac010e3-8287-ace4-e902-2a5213ae5e3c';
     $pane->panel = 'main_callout';
@@ -3244,10 +3179,75 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-2\'
       'css_class' => 'behavenet-ads',
     );
     $pane->extras = array();
-    $pane->position = 15;
+    $pane->position = 13;
     $pane->uuid = '0ac010e3-8287-ace4-e902-2a5213ae5e3c';
     $display->content['new-0ac010e3-8287-ace4-e902-2a5213ae5e3c'] = $pane;
-    $display->panels['main_callout'][15] = 'new-0ac010e3-8287-ace4-e902-2a5213ae5e3c';
+    $display->panels['main_callout'][13] = 'new-0ac010e3-8287-ace4-e902-2a5213ae5e3c';
+    $pane = new stdClass;
+    $pane->pid = 'new-d76ecdc1-5ef5-d4b4-cd64-9b36a6494322';
+    $pane->panel = 'main_callout';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'perm',
+          'settings' => array(
+            'perm' => 'administer behavenet',
+          ),
+          'context' => 'logged-in-user',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'admin_title' => 'Edit Daily Tweets link',
+      'title' => '',
+      'body' => 'Admin: <a href="/node/27767/edit">Edit Daily Tweets</a>',
+      'format' => '1',
+      'substitute' => 0,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 14;
+    $pane->uuid = 'd76ecdc1-5ef5-d4b4-cd64-9b36a6494322';
+    $display->content['new-d76ecdc1-5ef5-d4b4-cd64-9b36a6494322'] = $pane;
+    $display->panels['main_callout'][14] = 'new-d76ecdc1-5ef5-d4b4-cd64-9b36a6494322';
+    $pane = new stdClass;
+    $pane->pid = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
+    $pane->panel = 'main_callout';
+    $pane->type = 'node';
+    $pane->subtype = 'node';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'nid' => '27767',
+      'links' => 0,
+      'leave_node_title' => 0,
+      'identifier' => '',
+      'build_mode' => 'full',
+      'link_node_title' => 0,
+      'override_title' => 1,
+      'override_title_text' => 'Daily Tweets',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'daily-tweets',
+    );
+    $pane->extras = array();
+    $pane->position = 15;
+    $pane->uuid = '45ad5814-ce2b-8314-49ca-946ae623b75d';
+    $display->content['new-45ad5814-ce2b-8314-49ca-946ae623b75d'] = $pane;
+    $display->panels['main_callout'][15] = 'new-45ad5814-ce2b-8314-49ca-946ae623b75d';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
   $handler->conf['display'] = $display;
