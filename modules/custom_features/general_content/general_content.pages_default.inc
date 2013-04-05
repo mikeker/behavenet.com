@@ -2307,12 +2307,40 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-0\'
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'site-logo',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->uuid = 'a0f83f80-007e-7314-b96d-995964c370ad';
     $display->content['new-a0f83f80-007e-7314-b96d-995964c370ad'] = $pane;
     $display->panels['header'][0] = 'new-a0f83f80-007e-7314-b96d-995964c370ad';
+    $pane = new stdClass;
+    $pane->pid = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
+    $pane->panel = 'header';
+    $pane->type = 'block';
+    $pane->subtype = 'views--exp-search-default';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'inherit_path' => 0,
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'site-search',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->uuid = '40097a7f-5512-0074-e136-94a39aa0726d';
+    $display->content['new-40097a7f-5512-0074-e136-94a39aa0726d'] = $pane;
+    $display->panels['header'][1] = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
     $pane = new stdClass;
     $pane->pid = 'new-23cc6169-4b81-8304-7922-29988c1d12a7';
     $pane->panel = 'header';
@@ -2340,10 +2368,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363387960662-0\'
       'css_class' => 'behavenet-mobile-ads',
     );
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->uuid = '23cc6169-4b81-8304-7922-29988c1d12a7';
     $display->content['new-23cc6169-4b81-8304-7922-29988c1d12a7'] = $pane;
-    $display->panels['header'][1] = 'new-23cc6169-4b81-8304-7922-29988c1d12a7';
+    $display->panels['header'][2] = 'new-23cc6169-4b81-8304-7922-29988c1d12a7';
     $pane = new stdClass;
     $pane->pid = 'new-2133626f-816d-4544-c1b9-323a961b2c98';
     $pane->panel = 'header';
@@ -2371,10 +2399,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363387960662-1\'
       'css_class' => 'behavenet-mobile-ads',
     );
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 3;
     $pane->uuid = '2133626f-816d-4544-c1b9-323a961b2c98';
     $display->content['new-2133626f-816d-4544-c1b9-323a961b2c98'] = $pane;
-    $display->panels['header'][2] = 'new-2133626f-816d-4544-c1b9-323a961b2c98';
+    $display->panels['header'][3] = 'new-2133626f-816d-4544-c1b9-323a961b2c98';
     $pane = new stdClass;
     $pane->pid = 'new-64d70374-b224-c2e4-e1fd-522fc13c4598';
     $pane->panel = 'header';
@@ -2402,32 +2430,10 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-1\'
       'css_class' => 'behavenet-ads behavenet-banner-ad',
     );
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 4;
     $pane->uuid = '64d70374-b224-c2e4-e1fd-522fc13c4598';
     $display->content['new-64d70374-b224-c2e4-e1fd-522fc13c4598'] = $pane;
-    $display->panels['header'][3] = 'new-64d70374-b224-c2e4-e1fd-522fc13c4598';
-    $pane = new stdClass;
-    $pane->pid = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
-    $pane->panel = 'header';
-    $pane->type = 'block';
-    $pane->subtype = 'views--exp-search-default';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'inherit_path' => 0,
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 4;
-    $pane->uuid = '40097a7f-5512-0074-e136-94a39aa0726d';
-    $display->content['new-40097a7f-5512-0074-e136-94a39aa0726d'] = $pane;
-    $display->panels['header'][4] = 'new-40097a7f-5512-0074-e136-94a39aa0726d';
+    $display->panels['header'][4] = 'new-64d70374-b224-c2e4-e1fd-522fc13c4598';
     $pane = new stdClass;
     $pane->pid = 'new-9d0438ab-9bbc-48a4-194b-1d23cc5ffed3';
     $pane->panel = 'header';

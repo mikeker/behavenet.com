@@ -1,8 +1,10 @@
-@import "compass/css3";
+@import "compass";
+@import "zen";
 
 // Defaults
 $space-v: 10px;
 $space-h: 10px;
+$space: 10px;
 $highlight: #EAF3F8;
 $background: #F6F6F6;
 $contrast: #7E0E00;
@@ -58,63 +60,6 @@ td {
 }
 
 /*
- * Major zone styling
- */
-#page {
-  margin: $space-v $space-h;
-}
-.clear-block:after {
-  content: none;
-}
-
-/*
- * Header
- */
-#page-header {
-  position: relative;
-  min-height: 120px;
-
-  #logo {
-    position: absolute;
-    top: 0; left: 0;
-  }
-  .leaderboard-ad {
-    width: 730px;
-    margin: 0 auto;
-    padding-left: $left-sidebar-width-outer;
-  }
-}
-
-
-/*
- * Right-hand callout
- */
-#page-main-callout {
-  background: $background;
-  // .rounded();
-  width: $callout-width-inner;
-
-  // Extend background color to the footer
-  padding-bottom: 9999px;
-  margin-bottom: -9999px;
-
-  #page-main-callout-inner {
-    margin: $space-v $space-h;
-  }
-  .field-type-filefield,
-  .field-field-general-asin,
-  h4
-  {
-    text-align: center;
-    margin-bottom: $space-v;
-  }
-
-  select {
-   width: $callout-width-inner;
-  }
-}
-
-/*
  * Ad styling
  */
 /* Good Therapy now showing centered on Resources page */
@@ -123,11 +68,6 @@ td {
 }
 #gt-widget {
   margin: 0 auto;
-}
-.behavenet-banner-ad {
-  // Center wide ads
-  width: 728px;
-  margin: $space-v auto;
 }
 #page-main-callout {
   .panel-region-separator {
@@ -144,11 +84,9 @@ td {
  * Search box
  */
 #views-exposed-form-search-default {
-  float: right;
   width: ($callout-width-inner + 10);
 }
 #views-exposed-form-search-default .views-exposed-form .views-exposed-widget {
-  float: left;
   padding: 0;
 }
 #views-exposed-form-search-default input {
@@ -183,63 +121,10 @@ td {
 }
 
 /*
- * These are elements that should be flush left or, in the case of
- * panel-region-separator, provide an easy proxy for what needs to be flushed
- * left.
- */
-#page-title,
-.page-title,
-.panel-region-separator,
-.clear-fix
-{
-  clear: left;
-}
-
-
-/*
  * Main content area
  */
 #page-main h2 {
   margin-bottom: 0;
-}
-
-/*
- * Pods: used mostly on main menu landing pages to help divide content
- * into small groupings similar to how a grid system works, but using
- * percentage to keep the fluid wikipedia-like style
- */
-.pods-three-wide,
-.pods-two-wide,
-.pods-four-wide
-{
-  clear: left;
-  margin: 0 $callout-width-outer 0 0;
-  padding: 0;
-}
-.pod {
-  display: inline-block;
-  margin: 0;
-  float: left; // Removes 4px margin-right on inline-block elements
-  min-width: 150px;
-}
-.pod-inner {
-  padding: $space-v $space-h;
-}
-.pod h4 {
-  text-align: center;
-  font-weight: bold;
-}
-.pods-four-wide .pod {
-  width: 24.75%;
-}
-.pods-three-wide .pod {
-  width: 33%;
-}
-.pods-two-wide .pod {
-  width: 49.5%;
-}
-#mini-panel-opinion_and_movies {
-  margin: 0 $callout-width-outer 0 0;
 }
 
 /*
@@ -274,10 +159,6 @@ td {
 /*
  * Behavenet admin links
  */
-#admin-menu {
-  /* Keep admin menu on top of registration bar */
-  z-index: 200000000;
-}
 .pane-content {
   position: relative;
 }
@@ -316,15 +197,13 @@ div.tabs {
   clear: left;
 }
 div.main-tabs {
-  display: inline-block;
-  margin-left: $left-sidebar-width-outer;
-
   a {
     font-weight: bold;
   }
 }
 ul.menu {
   overflow: hidden;
+  padding-left: 0;
 }
 ul.menu li {
   float: left;
@@ -458,7 +337,7 @@ div.field-type-asin {
  * Misc fixes
  */
 
-// $TODO: Should do this by resizing the image, but waiting until we have a final design
+// @TODO: Should do this by resizing the image, but waiting until we have a final design
 #logo img {
   width: 160px;
 }
@@ -468,7 +347,204 @@ div.field-type-asin {
 // Responsive layout
 //
 
+// DEBUG:
+// .behavenet-ads { display: none; }
+
+$zen-gutter-width: 20px;
+
 // Mobile first
-#page {
-  @include zen-grid-container();
+@media (max-width: 719px) {
+  $zen-column-count: 1;
+  #page {
+    @include zen-grid-container();
+  }
+  #page-header, #page-footer, #content-wrapper {
+    @include zen-grid-item(1, 1);
+    @include zen-clear(both);
+    @include zen-nested-container();
+  }
+  #page-header {
+    .site-logo, .site-search, .main-tabs, .behavenet-banner-ad {
+      @include zen-grid-item(1, 1);
+      @include zen-clear(both);
+    }
+    .site-logo {
+      width: 180px;
+      height: 115px;
+
+      // Center the logo
+      margin-left: auto;
+      margin-right: auto;
+      float: none;
+    }
+    .site-search {
+      width: 300px;
+
+      // Center search
+      margin-left: auto;
+      margin-right: auto;
+      float: none;
+    }
+  }
+  #content-wrapper {
+    #page-main, #page-left-sidebar, #page-main-callout {
+      @include zen-grid-item(1, 1);
+      @include zen-clear(both);
+    }
+  }
 }
+
+@media (min-width: 720px) and (max-width: 959px) {
+  $zen-column-count: 12;
+  $zen-gutter-width: 20px;
+  #page {
+    @include zen-grid-container();
+    width: 720px;
+    margin: 0 auto;
+  }
+  #page-header, #page-footer, #content-wrapper {
+    @include zen-grid-item($zen-column-count, 1);
+    @include zen-clear(both);
+    @include zen-nested-container();
+  }
+  #page-header {
+    .main-tabs, .behavenet-banner-ad {
+      @include zen-grid-item($zen-column-count, 1);
+      @include zen-clear(both);
+    }
+    .site-logo {
+      @include zen-grid-item(3, 1);
+      @include zen-clear(left);
+    }
+    .site-search {
+      @include zen-grid-item(5, 1, right);
+    }
+  }
+  #content-wrapper {
+    #page-main, #page-left-sidebar, #page-main-callout {
+      @include zen-grid-item(7, 1, left);
+    }
+    #page-main-callout {
+      @include zen-grid-item(5, 1, right);
+    }
+    #page-left-sidebar {
+      @include zen-grid-item($zen-column-count, 1);
+      @include zen-clear(both);
+    }
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1079px) {
+  $zen-column-count: 16;
+  $zen-gutter-width: 20px;
+  $zen-grid-width: 960px;
+
+  #page {
+    @include zen-grid-container();
+    width: $zen-grid-width;
+    margin: 0 auto;
+  }
+  #page-header, #page-footer, #content-wrapper {
+    @include zen-grid-item($zen-column-count, 1);
+    @include zen-clear(both);
+    @include zen-nested-container();
+  }
+  #page-header {
+    .main-tabs {
+      @include zen-grid-item(12, 4);
+      @include zen-clear();
+    }
+    .site-logo {
+      @include zen-grid-item(3, 1);
+      @include zen-clear();
+    }
+    .behavenet-banner-ad {
+      @include zen-grid-item(13, 1, right);
+    }
+    .site-search {
+      @include zen-grid-item(5, 1, right);
+
+      // Push below the banner ad
+      margin-top: 100px;
+    }
+  }
+  #content-wrapper {
+    #page-main-callout {
+      @include zen-grid-item(5, 1, right);
+    }
+    #page-left-sidebar {
+      @include zen-grid-item(3, 1);
+    }
+    #page-main {
+      @include zen-grid-item(8, 6, right);
+    }
+  }
+
+  #page-footer {
+    .behavenet-banner-ad {
+      @include zen-grid-item(12, 4);
+    }
+    div {
+      clear:both;
+    }
+  }
+}
+
+@media (min-width: 1080px) {
+  $zen-column-count: 18;
+  $zen-gutter-width: 20px;
+  $zen-grid-width: 1080px;
+
+  #page {
+    @include zen-grid-container();
+    width: $zen-grid-width;
+    margin: 0 auto;
+  }
+  #page-header, #page-footer, #content-wrapper {
+    @include zen-grid-item($zen-column-count, 1);
+    @include zen-clear(both);
+    @include zen-nested-container();
+  }
+  #page-header {
+    .main-tabs {
+      @include zen-grid-item(16, 4);
+      @include zen-clear();
+    }
+    .site-logo {
+      @include zen-grid-item(3, 1);
+      @include zen-clear();
+    }
+    .behavenet-banner-ad {
+      @include zen-grid-item(13, 3, right);
+    }
+    .site-search {
+      @include zen-grid-item(5, 1, right);
+
+      // Push below the banner ad
+      margin-top: 100px;
+    }
+  }
+  #content-wrapper {
+    #page-main-callout {
+      @include zen-grid-item(5, 1, right);
+    }
+    #page-left-sidebar {
+      @include zen-grid-item(3, 1);
+    }
+    #page-main {
+      @include zen-grid-item(10, 6, right);
+    }
+  }
+
+  #page-footer {
+    .behavenet-banner-ad {
+      @include zen-grid-item(12, 4);
+    }
+    div {
+      clear:both;
+    }
+
+  }
+
+}
+
