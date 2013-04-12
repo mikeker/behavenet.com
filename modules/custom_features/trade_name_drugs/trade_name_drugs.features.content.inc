@@ -76,7 +76,7 @@ function trade_name_drugs_content_default_fields() {
       'label' => 'Combination',
       'weight' => '-1',
       'description' => '',
-      'type' => 'nodereference_select',
+      'type' => 'nodereference_buttons',
       'module' => 'nodereference',
     ),
   );
