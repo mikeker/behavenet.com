@@ -481,11 +481,21 @@ div.node .column-side .column-wrapper {
   }
 
 
-// http://drupal.org/node/960642
+/* http://drupal.org/node/960642 */
 fieldset.collapsed{
   height:1em;
   overflow:hidden!important;
 }
 fieldset.collapsed .fieldset-wrapper{
   display:none;
+}
+
+
+/*
+ * Custom Behavenet admin styling
+ */
+div.form-checkboxes {
+  /* Keep long lists manageable */
+  max-height: 300px;
+  overflow-y: scroll;
 }
