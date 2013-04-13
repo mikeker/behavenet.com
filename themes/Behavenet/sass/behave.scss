@@ -277,10 +277,25 @@ div.field-type-asin {
 /*
  * Social media links
  */
+.service-links {
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+.behavenet-url-qr {
+  float: left;
+  margin-top: 3em;
+  margin-bottom: 10px;
+}
+
 .share-links {
   // Negate the clear:both in the pane divider since we want the share links
   // and QR image to show next to each other.
-  margin-top: -150px;
+  margin-top: -175px;
+  .pane-content {
+    margin-left: 135px;
+  }
 }
 .social-media-links {
   font-size: 85%;
@@ -312,25 +327,6 @@ div.field-type-asin {
   .social-media-icon-rss {
     background-image: url(../images/rss.png);
   }
-}
-
-/*
- * Service links
- */
-.service-links {
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-}
-
-/*
- * Behavenet QR code
- */
-.behavenet-url-qr {
-  float: right;
-  margin-top: 2em;
-  margin-bottom: 10px;
 }
 
 /*
