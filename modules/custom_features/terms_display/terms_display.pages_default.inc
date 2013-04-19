@@ -971,6 +971,7 @@ print \'</ul>\';
 <option value="/cathisophobia">sitting down</option>
 <option value="/topophobia">situations, certain</option>
 <option value="/hexakosioihexekontahexaphobia">six hundred sixty-six, the number</option>
+<option value="/dermatophobia">skin</option>
 <option value="/dermatosiophobia">skin disease</option>
 <option value="/dermatophobia">skin lesions</option>
 <option value="/doraphobia">skins of animals</option>
