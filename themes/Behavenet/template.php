@@ -135,7 +135,7 @@ function behavenet_preprocess_content_field(&$vars) {
       }
 
       // Link to the term 'combination'
-      $combo_link = l('combination', 'taxonomy/term/8125');
+      $combo_link = l('combination', "node/$combo->nid");
 
       if (1 == count($title)) {
         $last = array_pop($title);
