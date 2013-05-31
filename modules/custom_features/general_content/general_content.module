@@ -3,6 +3,10 @@
 include_once('general_content.features.inc');
 
 function general_content_init() {
+  if (strstr(path_to_theme(), 'rubik')) {
+    return;
+  }
+
   // Add Google Ads code
   $js1 = <<< EOC
     if (behave_is_mobile()) {

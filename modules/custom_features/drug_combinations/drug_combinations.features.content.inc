@@ -212,7 +212,7 @@ function drug_combinations_content_default_fields() {
         ),
       ),
       'default_value_php' => NULL,
-      'label' => 'Combination Title(s)',
+      'label' => 'Slang and Alternate Title(s)',
       'weight' => '-4',
       'description' => '',
       'type' => 'text_textfield',
@@ -808,7 +808,6 @@ function drug_combinations_content_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Combination Title(s)');
   t('Credit');
   t('DEA Number');
   t('Description');
@@ -818,6 +817,7 @@ function drug_combinations_content_default_fields() {
   t('Medline Plus Web site');
   t('Outside media');
   t('Schedule');
+  t('Slang and Alternate Title(s)');
   t('Source');
 
   return $fields;
