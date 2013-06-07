@@ -68,6 +68,12 @@ function behave_form_views_exposed_form_alter(&$form, &$form_state) {
   $form['submit']['#value'] = t('Search');
 }
 
+function behave_after_build($form, &$form_state) {
+  // dsm($form, 'form');
+  // dsm($form_state, 'state');
+  return $form;
+}
+
 /**
  * Implements hook_form_alter
  * @param $form - array containing the form structure
@@ -77,9 +83,18 @@ function behave_form_views_exposed_form_alter(&$form, &$form_state) {
  * @see http://api.drupal.org/api/function/hook_form_alter/6
  */
 function behave_form_alter(&$form, &$form_state, $form_id) {
-  // dsm('in behave_form_alter');
-  // dsm($form_id);
+  // dsm($form_id, 'behave_form_alter');
   // dsm($form);
+
+  // For performance reasons, remove tabledrag from the slang field since a)
+  // it's automatically alphabetized, and b) occasionally has 100's of entries
+  // which causes tabledrag to slow to a crawl. Since this is part of the admin
+  // theme, we have to inject our theme's admin JS
+  if (isset($form['field_gen_slang_terms'])) {
+    $form['#after_build'][] = 'behave_after_build';
+    $form['field_gen_slang_terms']['#after_build'][] = 'behave_after_build';
+    // drupal_add_js('$("#field_gen_slang_terms_values").addClass("tabledrag-processsed");', 'inline', 'footer');
+  }
 
   if ('movie_node_form' == $form_id) {
     $form['field_movie_blog_entry']['#weight'] = 0;
@@ -1221,8 +1236,39 @@ function _behavenet_tweak_types($type) {
   }
 }
 
-function behavenet_views_pre_render(&$view) {
+function behave_views_pre_execute(&$view) {
+  if ('drug_combos' == $view->name) {
+    $view->build_info['query'] = '
+      SELECT node.nid AS nid, node.title AS node_title
+      FROM {node} AS node
+      WHERE (node.status = 1) AND (node.type IN ("%s"))
 
+      UNION ALL
+      SELECT node.nid, alt.field_combo_titles_value
+      FROM {node} AS node
+      JOIN {content_field_combo_titles} AS alt
+        ON alt.vid = node.vid
+      WHERE (node.status = 1) AND (node.type in ("%s")) AND alt.field_combo_titles_value IS NOT NULL
+
+      UNION ALL
+      SELECT node.nid, node2.title
+      FROM {node} AS node
+      JOIN {content_field_combo_tradename} AS trade
+        ON trade.vid = node.vid
+      JOIN {node} AS node2
+        ON trade.field_combo_tradename_nid = node2.nid
+      WHERE (node.status = 1) AND (node.type in ("%s"))
+
+      ORDER BY node_title ASC
+    ';
+
+    // Two more instances of node.type in the query
+    $view->build_info['query_args'][] = $view->build_info['query_args'][0];
+    $view->build_info['query_args'][] = $view->build_info['query_args'][0];
+  }
+}
+
+function behave_views_pre_render(&$view) {
   if ('search' == $view->name) {
 
     // Grab search terms
