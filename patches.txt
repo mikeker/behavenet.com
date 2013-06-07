@@ -1,4 +1,4 @@
 Lists patches needed for Behavenet.com
 
-  https://drupal.org/files/1224340-d6-backport-with-comment-8.patch
+  https://drupal.org/files/1224340-17-d6-jump_menu.patch
     - Allows multiple jump menu entries to point at the same destination
