@@ -1237,7 +1237,7 @@ function _behavenet_tweak_types($type) {
 }
 
 function behave_views_pre_execute(&$view) {
-  if ('drug_combos' == $view->name && 'page_1' == $view->current_display) {
+  if ('drug_combos' == $view->name && ('page_1' == $view->current_display || 'panel_pane_3' == $view->current_display)) {
     $view->build_info['query'] = '
       SELECT node.nid AS nid, node.title AS node_title
       FROM {node} AS node
