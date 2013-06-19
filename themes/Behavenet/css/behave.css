@@ -35,32 +35,43 @@ body {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000342}}
-thead th {
-  text-align: center;
+table {
+  border-collapse: collapse;
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000345}}
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000348}}
+thead th {
+  text-align: center;
+  padding: 5px 10px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000352}}
 td {
   padding: 5px 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000355}}
 #page-title, .page-title {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000359}}
 .comments-list {
   margin-top: 20px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000355}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000362}}
 .comment-form {
   max-width: 700px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000365}}
 .pane-content {
   margin-top: .667em;
 }
@@ -69,21 +80,21 @@ td {
  * Ad styling
  */
 /* Good Therapy now showing centered on Resources page */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000366}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000373}}
 #mini-panel-goodtherapy_250_160 {
   margin-right: 300px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000369}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000376}}
 #gt-widget {
   margin: 0 auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000373}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000380}}
 #page-main-callout .panel-region-separator {
   clear: both;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000383}}
 #page-main-callout .behavenet-ads {
   margin-left: -10px;
 }
@@ -91,27 +102,27 @@ td {
 /*
  * Search box
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000393}}
 #views-exposed-form-search-default {
   width: 310px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000389}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000396}}
 #views-exposed-form-search-default .views-exposed-form .views-exposed-widget {
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000399}}
 #views-exposed-form-search-default input {
   margin: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003102}}
 #views-exposed-form-search-default .views-widget-filter-keys input {
   width: 230px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\0000398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003105}}
 #views-exposed-form-search-default #edit-submit-search {
   width: 70px;
 }
@@ -119,7 +130,7 @@ td {
 /*
  * Autocomplete window
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003105}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003112}}
 #autocomplete {
   z-index: 150;
   /* Higher than right callout */
@@ -132,7 +143,7 @@ td {
  * NOTE: as per Wikipedia-like styling, the page footer does not go below the
  * left sidebar, but under the main content area
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003116}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003123}}
 #page-footer {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -143,7 +154,7 @@ td {
 /*
  * Main content area
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003126}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003133}}
 #page-main h2 {
   margin-bottom: 0;
 }
@@ -151,7 +162,7 @@ td {
 /*
  * Show credits in italics
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003134}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003141}}
 .field-field-people-credit {
   font-style: italic;
 }
@@ -159,14 +170,14 @@ td {
 /*
  * Find/Follow us links
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003141}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003148}}
 .follow-us-links {
   margin-top: 20px;
   margin-bottom: 10px;
   text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003146}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003153}}
 .follow-us-links img {
   margin-bottom: 5px;
 }
@@ -174,7 +185,7 @@ td {
 /*
  * Terms and Related content display for People, Movies, Books
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003154}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003161}}
 .terms-and-related-content {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -183,12 +194,12 @@ td {
 /*
  * Behavenet admin links
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003162}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003169}}
 .pane-content {
   position: relative;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003165}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003172}}
 .behavenet-admin-links {
   display: none;
   position: absolute;
@@ -199,12 +210,12 @@ td {
   padding: 5px 5px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003173}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003180}}
 .behavenet-admin-links-highlight .panel-panel {
   background-color: #eaf3f8;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003176}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003183}}
 .behavenet-admin-links-active {
   display: block;
 }
@@ -212,7 +223,7 @@ td {
 /*
  * Menus
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003187}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003194}}
 div.admin-links,
 div.views-admin-links,
 div.panel-pane:hover div.panel-hide {
@@ -220,41 +231,41 @@ div.panel-pane:hover div.panel-hide {
 }
 
 /* Except for the edit node links on the Daily Tweets */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003191}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003198}}
 .daily-tweets:hover div.panel-hide {
   display: block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003195}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003202}}
 div.tabs {
   clear: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003200}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003207}}
 div.main-tabs a {
   font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003204}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003211}}
 ul.menu {
   overflow: hidden;
   padding-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003208}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003215}}
 ul.menu li {
   float: left;
   list-style: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003212}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003219}}
 ul.menu li a {
   text-decoration: none;
   padding: 5px 10px;
   display: block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003217}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003224}}
 ul.menu li a:hover {
   background-color: #eaf3f8;
 }
@@ -262,25 +273,25 @@ ul.menu li a:hover {
 /*
  * Left hand sidebar collapsible menu
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003225}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003232}}
 .behavenet-collapsible-menu ul {
   list-style: none;
   margin-left: -15px;
   /* Push to far left of div so we have as much room as possible */
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003229}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003236}}
 .behavenet-collapsible-menu li.hasChildren {
   /* Removes space added by arrow character */
   margin-left: -14px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003233}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003240}}
 .behavenet-collapsible-menu li.hasChildren ul {
   margin-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003236}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003243}}
 .behavenet-collapsible-menu li {
   margin-bottom: 5px;
 }
@@ -288,7 +299,7 @@ ul.menu li a:hover {
 /*
  * YouTube (and other outside media) display
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003243}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003250}}
 .field-field-outside-video, .views-field-field-outside-video-embed {
   margin-top: 20px;
 }
@@ -296,28 +307,28 @@ ul.menu li a:hover {
 /*
  * Books and Movies view (Media view)
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003250}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003257}}
 .view-Movies .attachment-after {
   margin-top: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003253}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003260}}
 div.field-type-asin {
   border: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003256}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003263}}
 div.field-type-asin {
   clear: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003259}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003266}}
 .field-field-movie-spoiler {
   font-weight: bold;
   margin: 10px 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003263}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003270}}
 #page-main-callout .field-field-general-asin {
   margin-bottom: 10px;
 }
@@ -325,7 +336,7 @@ div.field-type-asin {
 /*
  * Icons
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003271}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003278}}
 .blogger-link img {
   width: 32px;
   height: 32px;
@@ -335,40 +346,40 @@ div.field-type-asin {
 /*
  * Social media links
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003281}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003288}}
 .service-links ul {
   list-style: none;
   padding-left: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003286}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003293}}
 .behavenet-url-qr {
   float: left;
   margin-top: 3em;
   margin-bottom: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003292}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003299}}
 .share-links {
   margin-top: -175px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003296}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003303}}
 .share-links .pane-content {
   margin-left: 135px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003300}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003307}}
 .social-media-links {
   font-size: 85%;
   padding-left: 38px;
   margin-bottom: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003305}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003312}}
 .social-media-links .social-media-links-row {
   margin-top: 10px;
   clear: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003309}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003316}}
 .social-media-links .social-media-icon {
   display: block;
   float: left;
@@ -378,19 +389,19 @@ div.field-type-asin {
   background-position: top left;
   margin-left: -38px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003325}}
 .social-media-links .social-media-icon-facebook {
   background-image: url(../images/facebook.png);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003328}}
 .social-media-links .social-media-icon-twitter {
   background-image: url(../images/twitter.png);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003324}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003331}}
 .social-media-links .social-media-icon-email {
   background-image: url(../images/email.png);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003334}}
 .social-media-links .social-media-icon-rss {
   background-image: url(../images/rss.png);
 }
@@ -398,13 +409,13 @@ div.field-type-asin {
 /*
  * Misc fixes
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003344}}
 #logo img {
   width: 160px;
 }
 
 @media (max-width: 719px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003354}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003361}}
   #page {
     *position: relative;
     *zoom: 1;
@@ -419,7 +430,7 @@ div.field-type-asin {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003364}}
   #page-header, #page-footer, #content-wrapper {
     float: left;
     width: 100%;
@@ -440,7 +451,7 @@ div.field-type-asin {
     padding-right: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003363}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003370}}
   #page-header .site-logo, #page-header .site-search, #page-header .main-tabs, #page-header .behavenet-banner-ad {
     float: left;
     width: 100%;
@@ -458,7 +469,7 @@ div.field-type-asin {
     _overflow-y: visible;
     clear: both;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003367}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003374}}
   #page-header .site-logo {
     width: 180px;
     height: 115px;
@@ -466,7 +477,7 @@ div.field-type-asin {
     margin-right: auto;
     float: none;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003376}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003383}}
   #page-header .site-search {
     width: 300px;
     margin-left: auto;
@@ -474,7 +485,7 @@ div.field-type-asin {
     float: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003386}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003393}}
   #content-wrapper #page-main, #content-wrapper #page-left-sidebar, #content-wrapper #page-main-callout {
     float: left;
     width: 100%;
@@ -494,7 +505,7 @@ div.field-type-asin {
   }
 }
 @media (min-width: 720px) and (max-width: 959px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003396}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003403}}
   #page {
     *position: relative;
     *zoom: 1;
@@ -511,7 +522,7 @@ div.field-type-asin {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003401}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003408}}
   #page-header, #page-footer, #content-wrapper {
     float: left;
     width: 100%;
@@ -532,7 +543,7 @@ div.field-type-asin {
     padding-right: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003407}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003414}}
   #page-header .main-tabs, #page-header .behavenet-banner-ad {
     float: left;
     width: 100%;
@@ -550,7 +561,7 @@ div.field-type-asin {
     _overflow-y: visible;
     clear: both;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003411}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003418}}
   #page-header .site-logo {
     float: left;
     width: 25%;
@@ -568,7 +579,7 @@ div.field-type-asin {
     _overflow-y: visible;
     clear: left;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003415}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003422}}
   #page-header .site-search {
     float: right;
     width: 41.66667%;
@@ -586,7 +597,7 @@ div.field-type-asin {
     _overflow-y: visible;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003420}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003427}}
   #content-wrapper #page-main, #content-wrapper #page-left-sidebar, #content-wrapper #page-main-callout {
     float: left;
     width: 58.33333%;
@@ -603,7 +614,7 @@ div.field-type-asin {
     _overflow: hidden;
     _overflow-y: visible;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003423}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003430}}
   #content-wrapper #page-main-callout {
     float: right;
     width: 41.66667%;
@@ -620,7 +631,7 @@ div.field-type-asin {
     _overflow: hidden;
     _overflow-y: visible;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003426}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003433}}
   #content-wrapper #page-left-sidebar {
     float: left;
     width: 100%;
@@ -640,7 +651,7 @@ div.field-type-asin {
   }
 }
 @media (min-width: 960px) and (max-width: 1079px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003438}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003445}}
   #page {
     *position: relative;
     *zoom: 1;
@@ -657,7 +668,7 @@ div.field-type-asin {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003443}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003450}}
   #page-header, #page-footer, #content-wrapper {
     float: left;
     width: 960px;
@@ -678,7 +689,7 @@ div.field-type-asin {
     padding-right: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003449}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003456}}
   #page-header .main-tabs {
     float: left;
     width: 720px;
@@ -696,7 +707,7 @@ div.field-type-asin {
     _overflow-y: visible;
     clear: left;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003453}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003460}}
   #page-header .site-logo {
     float: left;
     width: 180px;
@@ -714,7 +725,7 @@ div.field-type-asin {
     _overflow-y: visible;
     clear: left;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003457}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003464}}
   #page-header .behavenet-banner-ad {
     float: right;
     width: 780px;
@@ -731,7 +742,7 @@ div.field-type-asin {
     _overflow: hidden;
     _overflow-y: visible;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003460}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003467}}
   #page-header .site-search {
     float: right;
     width: 300px;
@@ -750,7 +761,7 @@ div.field-type-asin {
     margin-top: 100px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003468}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003475}}
   #content-wrapper #page-main-callout {
     float: right;
     width: 300px;
@@ -767,7 +778,7 @@ div.field-type-asin {
     _overflow: hidden;
     _overflow-y: visible;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003471}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003478}}
   #content-wrapper #page-left-sidebar {
     float: left;
     width: 180px;
@@ -784,7 +795,7 @@ div.field-type-asin {
     _overflow: hidden;
     _overflow-y: visible;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003474}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003481}}
   #content-wrapper #page-main {
     float: right;
     width: 480px;
@@ -802,7 +813,7 @@ div.field-type-asin {
     _overflow-y: visible;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003480}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003487}}
   #page-footer .behavenet-banner-ad {
     float: left;
     width: 720px;
@@ -819,13 +830,13 @@ div.field-type-asin {
     _overflow: hidden;
     _overflow-y: visible;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003483}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003490}}
   #page-footer div {
     clear: both;
   }
 }
 @media (min-width: 1080px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003494}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003501}}
   #page {
     *position: relative;
     *zoom: 1;
@@ -842,7 +853,7 @@ div.field-type-asin {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003499}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003506}}
   #page-header, #page-footer, #content-wrapper {
     float: left;
     width: 1080px;
@@ -863,7 +874,7 @@ div.field-type-asin {
     padding-right: 0;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003505}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003512}}
   #page-header .main-tabs {
     float: left;
     width: 960px;
@@ -881,7 +892,7 @@ div.field-type-asin {
     _overflow-y: visible;
     clear: left;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003509}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003516}}
   #page-header .site-logo {
     float: left;
     width: 180px;
@@ -899,7 +910,7 @@ div.field-type-asin {
     _overflow-y: visible;
     clear: left;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003513}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003520}}
   #page-header .behavenet-banner-ad {
     float: right;
     width: 780px;
@@ -916,7 +927,7 @@ div.field-type-asin {
     _overflow: hidden;
     _overflow-y: visible;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003516}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003523}}
   #page-header .site-search {
     float: right;
     width: 300px;
@@ -935,7 +946,7 @@ div.field-type-asin {
     margin-top: 100px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003524}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003531}}
   #content-wrapper #page-main-callout {
     float: right;
     width: 300px;
@@ -952,7 +963,7 @@ div.field-type-asin {
     _overflow: hidden;
     _overflow-y: visible;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003527}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003534}}
   #content-wrapper #page-left-sidebar {
     float: left;
     width: 180px;
@@ -969,7 +980,7 @@ div.field-type-asin {
     _overflow: hidden;
     _overflow-y: visible;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003530}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003537}}
   #content-wrapper #page-main {
     float: right;
     width: 600px;
@@ -987,7 +998,7 @@ div.field-type-asin {
     _overflow-y: visible;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003536}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003543}}
   #page-footer .behavenet-banner-ad {
     float: left;
     width: 720px;
@@ -1004,7 +1015,7 @@ div.field-type-asin {
     _overflow: hidden;
     _overflow-y: visible;
   }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003539}}
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003546}}
   #page-footer div {
     clear: both;
   }

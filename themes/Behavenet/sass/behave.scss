@@ -39,8 +39,15 @@ body {
 .view-content {
   clear:left;
 }
+table {
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid #ccc;
+}
 thead th {
   text-align: center;
+  padding: ($space-v / 2) $space-h;
 }
 td {
   padding: ($space-v / 2) $space-h;
