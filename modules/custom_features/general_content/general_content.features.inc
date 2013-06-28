@@ -5,13 +5,7 @@
  */
 function general_content_ctools_plugin_api() {
   list($module, $api) = func_get_args();
-  if ($module == "mobile_codes" && $api == "default_mobile_codes_presets") {
-    return array("version" => 2);
-  }
-  elseif ($module == "mobile_codes" && $api == "default_mobile_codes_providers") {
-    return array("version" => 2);
-  }
-  elseif ($module == "page_manager" && $api == "pages_default") {
+  if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => 1);
   }
   elseif ($module == "panels_mini" && $api == "panels_default") {
