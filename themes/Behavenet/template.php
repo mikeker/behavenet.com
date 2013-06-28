@@ -550,8 +550,10 @@ function behavenet_node_qr($url = '') {
     $url .= '?' . $query;
   }
 
+  // @TODO: we should probably cache the image locally...
+  $qr = "https://chart.googleapis.com/chart?chs=125x125&cht=qr&chl=$url&choe=UTF-8&chld=L|1";
   return '<div class="behavenet-url-qr">'
-    . theme('mobilecode', $url, array('#preset' => 'behavenet_qr'))
+    . '<img src="' . $qr . '" alt="QR code" title="Link to this page" />'
     . '</div>';
 }
 
