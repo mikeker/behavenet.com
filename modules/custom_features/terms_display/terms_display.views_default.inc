@@ -82,11 +82,14 @@ function terms_display_views_default_views() {
       'empty_zero' => 0,
       'hide_alter_empty' => 1,
       'link_to_node' => 0,
-      'exclude' => 0,
+      'exclude' => 1,
       'id' => 'title',
       'table' => 'node',
       'field' => 'title',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
     'phpcode_3' => array(
       'label' => '',
@@ -126,11 +129,14 @@ else if (11773 == $version) {
 }
 ?>
 </span>',
-      'exclude' => 0,
+      'exclude' => 1,
       'id' => 'phpcode_3',
       'table' => 'customfield',
       'field' => 'phpcode',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
     'phpcode' => array(
       'label' => '',
@@ -174,8 +180,10 @@ if ($user->uid) {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -190,13 +198,14 @@ if ($user->uid) {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'value' => '<?php
 $nid = bh_get_cautionary_id($data->node_data_field_dsm_version_field_dsm_version_value[0][\'value\']);
 if (!empty($nid)) {
   print \'(\' . l(\'cautionary statement\', "node/$nid") . \')\';
 }
 ?>',
-      'exclude' => 0,
+      'exclude' => 1,
       'id' => 'phpcode_2',
       'table' => 'customfield',
       'field' => 'phpcode',
@@ -212,8 +221,10 @@ if (!empty($nid)) {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -228,6 +239,7 @@ if (!empty($nid)) {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'link_to_node' => 0,
       'label_type' => 'none',
       'format' => 'default',
@@ -237,11 +249,14 @@ if (!empty($nid)) {
         'multiple_from' => '0',
         'multiple_reversed' => 0,
       ),
-      'exclude' => 0,
+      'exclude' => 1,
       'id' => 'field_dsm_body_value',
       'table' => 'node_data_field_dsm_body',
       'field' => 'field_dsm_body_value',
       'relationship' => 'none',
+      'override' => array(
+        'button' => 'Override',
+      ),
     ),
     'phpcode_1' => array(
       'label' => '',
