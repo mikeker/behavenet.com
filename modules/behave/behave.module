@@ -68,10 +68,24 @@ function behave_form_views_exposed_form_alter(&$form, &$form_state) {
   $form['submit']['#value'] = t('Search');
 }
 
-function behave_after_build($form, &$form_state) {
-  // dsm($form, 'form');
-  // dsm($form_state, 'state');
-  return $form;
+function behave_unpack_slang($form, &$form_state) {
+  $values = &$form_state['values'];
+
+  // Sanity check...
+  if (!isset($values['field_gen_slang_terms']) || !isset($values['slang_replacement'])) {
+    return;
+  }
+
+  $slangs = explode("\n", $values['slang_replacement']);
+  $values['field_gen_slang_terms'] = array();
+  foreach ($slangs as $index => $slang) {
+    $values['field_gen_slang_terms'][] = array(
+      'value' => $slang,
+      '_weight' => $index,
+      '_remove' => 0,
+      '_error_element' => "field_gen_slang_terms][$index][value",
+    );
+  }
 }
 
 /**
@@ -86,14 +100,27 @@ function behave_form_alter(&$form, &$form_state, $form_id) {
   // dsm($form_id, 'behave_form_alter');
   // dsm($form);
 
-  // For performance reasons, remove tabledrag from the slang field since a)
-  // it's automatically alphabetized, and b) occasionally has 100's of entries
-  // which causes tabledrag to slow to a crawl. Since this is part of the admin
-  // theme, we have to inject our theme's admin JS
-  if (isset($form['field_gen_slang_terms'])) {
-    $form['#after_build'][] = 'behave_after_build';
-    $form['field_gen_slang_terms']['#after_build'][] = 'behave_after_build';
-    // drupal_add_js('$("#field_gen_slang_terms_values").addClass("tabledrag-processsed");', 'inline', 'footer');
+  if (isset($form['field_gen_slang_terms']) && count($form['field_gen_slang_terms']) > 50) {
+    // Rewrite the slang field as a textarea since the "add another" option
+    // with regular textfields craps out if there are lots of current entries.
+    $slang = $form['field_gen_slang_terms'];
+    $form['#submit'][] = 'behave_unpack_slang';
+    $textarea = array(
+      '#title' => $slang['#title'],
+      '#description' => $slang['#description'],
+      '#weight' => $slang['#weight'],
+      '#type' => 'textarea',
+    );
+    $form['field_gen_slang_terms']['#access'] = FALSE;
+    $values = array();
+    foreach (element_children($form['field_gen_slang_terms']) as $child) {
+      if (!is_numeric($child)) {
+        continue;
+      }
+      $values[] = $form['field_gen_slang_terms'][$child]['#default_value']['value'];
+    }
+    $textarea['#default_value'] = join("\n", $values);
+    $form['slang_replacement'] = $textarea;
   }
 
   if ('movie_node_form' == $form_id) {
