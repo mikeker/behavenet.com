@@ -44,7 +44,7 @@ function behavenet_preprocess_content_field(&$vars) {
     if ('field_general_twitter' == $vars['field_name']) {
       // @hashtag goes to Twitter, #hashtag goes to TweetChat
       if ('#' == substr($url, 0, 1)) {
-        $url = 'http://tweetchat.com/room/' . substr($url, 1);
+        $url = 'http://www.tchat.io/rooms/' . substr($url, 1);
       }
       else if ('@' == substr($url, 0, 1)) {
         $url = "https://twitter.com/$url";
