@@ -181,7 +181,7 @@ if (!empty($syn)) {
       'body' => '<?php
 $crumbs = behavenet_get_parents_breadcrumbs(%term:tid);
 if (!empty($crumbs)) {
-  print "$crumbs";
+  print "<em>is a kind of</em> $crumbs";
 }
 ?>',
       'format' => '4',
@@ -302,7 +302,7 @@ if (!count($children)) {
 $return = \'\';
 if (count($children) <= 10) {
   // Short lists output as lists
-  $return = \'<ul>\';
+  $return = \'<em>includes</em><ul>\';
   foreach ($children as $term) {
     $return .= \'<li>\' . l($term->name, \'taxonomy/term/\'. $term->tid) . \'</li>\';
   }
@@ -314,7 +314,7 @@ else {
   foreach ($children as $term) {
     $items[url("taxonomy/term/$term->tid")] = $term->name;
   }
-  $return = behavenet_build_jump_menu($items);
+  $return = \'<h2 class="pane-title">Includes</h2>\' . behavenet_build_jump_menu($items);
 }
 
 return $return;
