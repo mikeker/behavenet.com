@@ -256,7 +256,10 @@ print $term->description;
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behave-term-description',
+    );
     $pane->extras = array();
     $pane->position = 3;
     $pane->uuid = 'aebef287-8680-4e24-713e-9e8f9fe086d5';
@@ -299,24 +302,11 @@ $children = taxonomy_get_children(%term:tid, %term:vid);
 if (!count($children)) {
   return;
 }
-$return = \'\';
-if (count($children) <= 10) {
-  // Short lists output as lists
-  $return = \'<em>includes</em><ul>\';
-  foreach ($children as $term) {
-    $return .= \'<li>\' . l($term->name, \'taxonomy/term/\'. $term->tid) . \'</li>\';
-  }
-  $return .= \'</ul>\';
+$return = \'<em>includes</em><ul>\';
+foreach ($children as $term) {
+  $return .= \'<li>\' . l($term->name, \'taxonomy/term/\'. $term->tid) . \'</li>\';
 }
-else {
-  // Longer lists output as dropdowns
-  $items = array();
-  foreach ($children as $term) {
-    $items[url("taxonomy/term/$term->tid")] = $term->name;
-  }
-  $return = \'<h2 class="pane-title">Includes</h2>\' . behavenet_build_jump_menu($items);
-}
-
+$return .= \'</ul>\';
 return $return;
 ?>',
       'format' => '4',
