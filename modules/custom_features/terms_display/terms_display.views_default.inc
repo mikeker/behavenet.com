@@ -284,7 +284,7 @@ if (!empty($nid)) {
       'value' => '<?php
 if (count($data->node_data_field_dsm_version_field_dsm_version_value) > 1) {
   print \'<p class="dsm-older-criteria">\';
-  print l(\'Older criteria for this diagnosis\', "node/$data->nid");
+  print l(\'Old criteria for this diagnosis\', "node/$data->nid");
   print \'</p>\';
 }
 ?>',
