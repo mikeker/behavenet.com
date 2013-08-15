@@ -302,12 +302,22 @@ $children = taxonomy_get_children(%term:tid, %term:vid);
 if (!count($children)) {
   return;
 }
-$return = \'<em>includes</em><ul>\';
-foreach ($children as $term) {
-  $return .= \'<li>\' . l($term->name, \'taxonomy/term/\'. $term->tid) . \'</li>\';
+if (count($children) <= 10) {
+  $return = \'<ul>\';
+  foreach ($children as $term) {
+    $return .= \'<li>\' . l($term->name, \'taxonomy/term/\'. $term->tid) . \'</li>\';
+  }
+  $return .= \'</ul>\';
 }
-$return .= \'</ul>\';
-return $return;
+else {
+  $items = array();
+  foreach ($children as $term) {
+    $items[url(\'taxonomy/term/\' . $term->tid)] = $term->name;
+  }
+  $return = behavenet_build_jump_menu($items);
+}
+
+return "<em>includes</em>$return";
 ?>',
       'format' => '4',
       'substitute' => 1,
