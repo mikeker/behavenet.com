@@ -265,8 +265,10 @@ if (!empty($nid)) {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -281,10 +283,11 @@ if (!empty($nid)) {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'value' => '<?php
 if (count($data->node_data_field_dsm_version_field_dsm_version_value) > 1) {
   print \'<p class="dsm-older-criteria">\';
-  print l(\'Older criteria for this diagnosis\', "node/$data->nid");
+  print l(\'Old criteria for this diagnosis\', "node/$data->nid");
   print \'</p>\';
 }
 ?>',
@@ -546,8 +549,10 @@ if (count($data->node_data_field_dsm_version_field_dsm_version_value) > 1) {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -562,7 +567,9 @@ if (count($data->node_data_field_dsm_version_field_dsm_version_value) > 1) {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
-      'value' => '<?php
+      'hide_alter_empty' => 1,
+      'value' => '<h3 class="error">These criteria are obsolete.</h3>
+<?php
 $output = array();
 foreach ($data->node_data_field_dsm_version_field_dsm_version_value as $index => $version_tid) {
   $line = \'\';
