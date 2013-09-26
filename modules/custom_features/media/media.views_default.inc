@@ -471,6 +471,25 @@ function media_views_default_views() {
       'field' => 'type',
       'relationship' => 'none',
     ),
+    'created' => array(
+      'operator' => '<=',
+      'value' => array(
+        'type' => 'offset',
+        'value' => '+1 hour',
+        'min' => '',
+        'max' => '',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'created',
+      'table' => 'node',
+      'field' => 'created',
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('access', array(
     'type' => 'none',
