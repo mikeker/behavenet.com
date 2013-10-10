@@ -82,7 +82,7 @@ function general_content_fieldgroup_default_groups() {
         ),
         'full' => array(
           'format' => 'no_style',
-          'exclude' => 0,
+          'exclude' => 1,
         ),
         'description' => '',
         '4' => array(

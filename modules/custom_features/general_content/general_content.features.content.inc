@@ -1303,7 +1303,7 @@ function general_content_content_default_fields() {
       ),
       'full' => array(
         'format' => 'video_video',
-        'exclude' => 0,
+        'exclude' => 1,
       ),
       '4' => array(
         'format' => 'default',
