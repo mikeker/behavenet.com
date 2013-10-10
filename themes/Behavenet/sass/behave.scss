@@ -337,9 +337,11 @@ div.field-type-asin {
 }
 
 /*
- * Terms display
+ * Highlight the main content on a page.
  */
-.behave-term-description {
+.behave-term-description, .field-field-movie-blog-entry,
+#behavenet-people .node
+{
   margin: 1em 0;
   background-color: #EEE;
   padding: .75em 2em;
