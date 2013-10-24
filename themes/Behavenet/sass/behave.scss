@@ -9,11 +9,6 @@ $highlight: #EAF3F8;
 $background: #F6F6F6;
 $contrast: #7E0E00;
 $contrast-dark: #535353;
-$callout-width-inner: 300px;
-$callout-width-outer: $callout-width-inner + (3 * $space-h);
-$left-sidebar-width-inner: 160px;
-$left-sidebar-width-outer: 180px;
-
 
 /*
  * General styling
@@ -91,7 +86,7 @@ td {
  * Search box
  */
 #views-exposed-form-search-default {
-  width: ($callout-width-inner + 10);
+  width: 310px;
 }
 #views-exposed-form-search-default .views-exposed-form .views-exposed-widget {
   padding: 0;
@@ -100,7 +95,7 @@ td {
   margin: 0;
 }
 #views-exposed-form-search-default .views-widget-filter-keys input {
-  width: ($callout-width-inner - 70);
+  width: 230px;
 }
 #views-exposed-form-search-default #edit-submit-search {
   width: 70px;
@@ -111,7 +106,7 @@ td {
  */
 #autocomplete {
   z-index: 150;   /* Higher than right callout */
-  width: (2 * $callout-width-outer);
+  width: 660px;
 }
 
 /*
@@ -364,11 +359,11 @@ div.field-type-asin {
 // DEBUG:
 // .behavenet-ads { display: none; }
 
-$zen-gutter-width: 20px;
-
 // Mobile first
-@media (max-width: 719px) {
+@media (max-width: 680px) {
+  $zen-gutter-width: 20px;
   $zen-column-count: 1;
+
   #page {
     @include zen-grid-container();
   }
@@ -399,6 +394,12 @@ $zen-gutter-width: 20px;
       margin-right: auto;
       float: none;
     }
+    .behavenet-banner-ad {
+      // Crazy-wide banner ad doesn't fit on small screens for crap... But we
+      // do our best.
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
   #content-wrapper {
     #page-main, #page-left-sidebar, #page-main-callout {
@@ -408,12 +409,14 @@ $zen-gutter-width: 20px;
   }
 }
 
-@media (min-width: 720px) and (max-width: 959px) {
-  $zen-column-count: 12;
+@media (min-width: 680px) and (max-width: 935px) {
+  $zen-column-count: 8;
   $zen-gutter-width: 20px;
+  $zen-grid-width: 680px;
+
   #page {
     @include zen-grid-container();
-    width: 720px;
+    width: 680px;
     margin: 0 auto;
   }
   #page-header, #page-footer, #content-wrapper {
@@ -422,24 +425,36 @@ $zen-gutter-width: 20px;
     @include zen-nested-container();
   }
   #page-header {
+    .site-logo {
+      @include zen-grid-item(2, 1);
+      @include zen-clear(left);
+    }
+    .site-search {
+      @include zen-grid-item(4, 1, right);
+      @include zen-clear(right);
+
+      // Vertically center with logo
+      margin-top: 50px;
+    }
     .main-tabs, .behavenet-banner-ad {
       @include zen-grid-item($zen-column-count, 1);
       @include zen-clear(both);
     }
-    .site-logo {
-      @include zen-grid-item(3, 1);
-      @include zen-clear(left);
-    }
-    .site-search {
-      @include zen-grid-item(5, 1, right);
+    .behavenet-banner-ad {
+      // Crazy-wide banner ad doesn't fit on small screens for crap... But we
+      // do our best.
+      padding-left: 0;
+      padding-right: 0;
     }
   }
   #content-wrapper {
-    #page-main, #page-left-sidebar, #page-main-callout {
-      @include zen-grid-item(7, 1, left);
+    #page-main {
+      @include zen-grid-item(4, 1, left);
+      @include zen-clear(none);
     }
     #page-main-callout {
-      @include zen-grid-item(5, 1, right);
+      @include zen-grid-item(4, 1, right);
+      @include zen-clear(none);
     }
     #page-left-sidebar {
       @include zen-grid-item($zen-column-count, 1);
@@ -448,10 +463,10 @@ $zen-gutter-width: 20px;
   }
 }
 
-@media (min-width: 960px) and (max-width: 1079px) {
-  $zen-column-count: 16;
+@media (min-width: 935px) and (max-width: 1020px) {
+  $zen-column-count: 10;
   $zen-gutter-width: 20px;
-  $zen-grid-width: 960px;
+  $zen-grid-width: 935px;
 
   #page {
     @include zen-grid-container();
@@ -465,18 +480,23 @@ $zen-gutter-width: 20px;
   }
   #page-header {
     .main-tabs {
-      @include zen-grid-item(12, 4);
-      @include zen-clear();
+      @include zen-grid-item(7, 3);
+      @include zen-clear(both);
     }
     .site-logo {
-      @include zen-grid-item(3, 1);
-      @include zen-clear();
+      @include zen-grid-item(2, 1);
+      @include zen-clear(left);
+      margin-top: 0;
     }
     .behavenet-banner-ad {
-      @include zen-grid-item(13, 1, right);
+      @include zen-grid-item(8, 3, left);
+      @include zen-clear(none);
+      padding-left: 0;
+      padding-right: 0;
+      width: 728px;
     }
     .site-search {
-      @include zen-grid-item(5, 1, right);
+      @include zen-grid-item(4, 1, right);
 
       // Push below the banner ad
       margin-top: 100px;
@@ -484,19 +504,22 @@ $zen-gutter-width: 20px;
   }
   #content-wrapper {
     #page-main-callout {
-      @include zen-grid-item(5, 1, right);
+      @include zen-grid-item(4, 1, right);
+      @include zen-clear(none);
     }
     #page-left-sidebar {
-      @include zen-grid-item(3, 1);
+      @include zen-grid-item(2, 1);
+      @include zen-clear(none);
     }
     #page-main {
-      @include zen-grid-item(8, 6, right);
+      @include zen-grid-item(4, 5, right);
+      @include zen-clear(none);
     }
   }
 
   #page-footer {
     .behavenet-banner-ad {
-      @include zen-grid-item(12, 4);
+      @include zen-grid-item(8, 2);
     }
     div {
       clear:both;
@@ -504,10 +527,10 @@ $zen-gutter-width: 20px;
   }
 }
 
-@media (min-width: 1080px) {
-  $zen-column-count: 18;
+@media (min-width: 1020px) {
+  $zen-column-count: 12;
   $zen-gutter-width: 20px;
-  $zen-grid-width: 1080px;
+  $zen-grid-width: 1020px;
 
   #page {
     @include zen-grid-container();
@@ -521,18 +544,18 @@ $zen-gutter-width: 20px;
   }
   #page-header {
     .main-tabs {
-      @include zen-grid-item(16, 4);
+      @include zen-grid-item(10, 3);
       @include zen-clear();
     }
     .site-logo {
-      @include zen-grid-item(3, 1);
+      @include zen-grid-item(2, 1);
       @include zen-clear();
     }
     .behavenet-banner-ad {
-      @include zen-grid-item(13, 3, right);
+      @include zen-grid-item(8, 3);
     }
     .site-search {
-      @include zen-grid-item(5, 1, right);
+      @include zen-grid-item(3, 9);
 
       // Push below the banner ad
       margin-top: 100px;
@@ -540,19 +563,19 @@ $zen-gutter-width: 20px;
   }
   #content-wrapper {
     #page-main-callout {
-      @include zen-grid-item(5, 1, right);
+      @include zen-grid-item(4, 1, right);
     }
     #page-left-sidebar {
-      @include zen-grid-item(3, 1);
+      @include zen-grid-item(2, 1);
     }
     #page-main {
-      @include zen-grid-item(10, 6, right);
+      @include zen-grid-item(6, 5, right);
     }
   }
 
   #page-footer {
     .behavenet-banner-ad {
-      @include zen-grid-item(12, 4);
+      @include zen-grid-item(8, 3);
     }
     div {
       clear:both;
