@@ -859,7 +859,10 @@ print behavenet_get_birth_death_dates(%node:nid);
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'general-content',
+    );
     $pane->extras = array();
     $pane->position = 4;
     $pane->uuid = '6bfc2e2d-d0de-af84-9da0-c4872aebe680';

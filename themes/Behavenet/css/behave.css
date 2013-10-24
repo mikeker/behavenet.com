@@ -411,7 +411,7 @@ div.field-type-asin {
  */
 @media -sass-debug-info{filename{font-family:file\:\/\/d\:\/documents\/dev\/Behavenet\/drupal\/sites\/behavenet\.com\/themes\/Behavenet\/sass\/behave\.scss}line{font-family:\00003339}}
 .behave-term-description, .field-field-movie-blog-entry,
-#behavenet-people .node {
+#behavenet-people .node, .general-content {
   margin: 1em 0;
   background-color: #EEE;
   padding: .75em 2em;
