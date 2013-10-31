@@ -3016,7 +3016,7 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-3\'
     $pane->configuration = array(
       'admin_title' => 'DFP Rectangle ad',
       'title' => '',
-      'body' => '<div id=\'div-gpt-ad-1363386745962-2\' style=\'width:300px; height:250px;\'>
+      'body' => '<div id=\'div-gpt-ad-1363386745962-2\'>
 <script type=\'text/javascript\'>
 googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-2\'); });
 </script>
