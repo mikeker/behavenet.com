@@ -206,7 +206,10 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'behavenet-indications-by-drug',
+    );
     $pane->extras = array();
     $pane->position = 3;
     $pane->uuid = '1a6e4b0e-bacd-9a24-a577-fa1b9ebb8d17';
