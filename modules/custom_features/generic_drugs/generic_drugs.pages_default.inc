@@ -39,6 +39,7 @@ function generic_drugs_default_page_manager_handlers() {
           'name' => 'node_type',
           'settings' => array(
             'type' => array(
+              'combinations' => 'combinations',
               'compound' => 'compound',
               'sources' => 'sources',
               'generic' => 'generic',
