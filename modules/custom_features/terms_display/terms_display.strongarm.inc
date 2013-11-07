@@ -525,7 +525,7 @@ function terms_display_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_taxonomy_11_pattern';
-  $strongarm->value = 'dsm-admin/[cat-raw]';
+  $strongarm->value = '';
   $export['pathauto_taxonomy_11_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
