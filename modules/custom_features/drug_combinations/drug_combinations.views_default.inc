@@ -50,7 +50,7 @@ function drug_combinations_views_default_views() {
     'path' => array(
       'label' => 'Path',
       'alter' => array(
-        'alter_text' => 1,
+        'alter_text' => 0,
         'text' => '[title]::[path]',
         'make_link' => 0,
         'path' => '',
