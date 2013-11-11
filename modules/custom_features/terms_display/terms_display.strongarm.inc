@@ -518,21 +518,21 @@ function terms_display_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_taxonomy_10_pattern';
-  $strongarm->value = '';
+  $strongarm->value = '[cat-raw]';
   $export['pathauto_taxonomy_10_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_taxonomy_11_pattern';
-  $strongarm->value = '';
+  $strongarm->value = 'dsm-admin/[cat-raw]';
   $export['pathauto_taxonomy_11_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_taxonomy_12_pattern';
-  $strongarm->value = '';
+  $strongarm->value = '[cat-raw]';
   $export['pathauto_taxonomy_12_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -553,35 +553,35 @@ function terms_display_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_taxonomy_2_pattern';
-  $strongarm->value = '';
+  $strongarm->value = '[cat-raw]';
   $export['pathauto_taxonomy_2_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_taxonomy_3_pattern';
-  $strongarm->value = '';
+  $strongarm->value = '[cat-raw]';
   $export['pathauto_taxonomy_3_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_taxonomy_5_pattern';
-  $strongarm->value = '';
+  $strongarm->value = '[cat-raw]';
   $export['pathauto_taxonomy_5_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_taxonomy_9_pattern';
-  $strongarm->value = '';
+  $strongarm->value = '[cat-raw]';
   $export['pathauto_taxonomy_9_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_taxonomy_pattern';
-  $strongarm->value = '[cat-raw]';
+  $strongarm->value = '';
   $export['pathauto_taxonomy_pattern'] = $strongarm;
 
   $strongarm = new stdClass;
