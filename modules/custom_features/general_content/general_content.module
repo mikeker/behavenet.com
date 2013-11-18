@@ -51,8 +51,14 @@ EOC;
     }
 EOC;
 
-  // Cross-site tracker
-  $js3 = <<< EOC
+
+  drupal_add_js($js1, 'inline', 'header');
+  drupal_add_js($js2, 'inline', 'header');
+}
+
+function general_content_footer() {
+  // Cross-site tracker. Cannot use drupal_add_js because of the noscript tag.
+  $tracker = <<< EOC
     <script type="text/javascript">
       _bizo_data_partner_id = "5347";
     </script>
@@ -69,10 +75,7 @@ EOC;
     <noscript>
       <img height="1" width="1" alt="" style="display:none;" src="//www.bizographics.com/collect/?pid=5347&fmt=gif" />
     </noscript>
-    }
 EOC;
 
-  drupal_add_js($js1, 'inline', 'header');
-  drupal_add_js($js2, 'inline', 'header');
-  drupal_add_js($js3, 'inline', 'footer');
+  return $tracker;
 }
