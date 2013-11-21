@@ -30,6 +30,8 @@ function behavenet_preprocess_content_field(&$vars) {
     'field_general_facebook_page' => 'Facebook',
     'field_general_twitter' => '%value',
     'field_movie_url' => 'Official Web site',
+    'field_device_manual_url' => 'Device manual',
+    'field_device_url' => 'Device Web site',
   );
   if (in_array($vars['field_name'], array_keys($convert))) {
     // Convert to a clickable link
