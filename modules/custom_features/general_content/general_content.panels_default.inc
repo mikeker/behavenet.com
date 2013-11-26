@@ -598,6 +598,9 @@ function general_content_default_panels_mini() {
       'title' => '',
       'body' => '<div class="social-media-links">
 <div class="social-media-links-row">
+  <a href="https://plus.google.com/115229808208707341778"><span class="social-media-icon social-media-icon-gplus"></span></a>Follow us on<br><a href="http://www.facebook.com/pages/BehaveNet/121151723906">Google+</a>
+</div>
+<div class="social-media-links-row">
   <a href="http://www.facebook.com/pages/BehaveNet/121151723906"><span class="social-media-icon social-media-icon-facebook"></span></a>Become a fan on<br><a href="http://www.facebook.com/pages/BehaveNet/121151723906">Facebook</a>
 </div>
 <div class="social-media-links-row">
