@@ -2513,7 +2513,11 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-1\'
   <li><a href="<?php print url(\'taxonomy/term/7814\'); ?>">HIPAA</a></li>
   <li><a href="<?php print url(\'taxonomy/term/7885\'); ?>">Memory</a></li>
   <li><a href="<?php print url(\'taxonomy/term/7390\'); ?>">OCD</a></li>
-  <li><a href="<?php print url(\'taxonomy/term/8171\'); ?>">Pharmacology</a></li>
+  <li><a href="<?php print url(\'taxonomy/term/8171\'); ?>">Pharmacology</a>
+    <ul>
+      <li><a href="<?php print url(\'taxonomy/term/9102\'); ?>">Psychopharmacology</a></li>
+    </ul>
+  </li>
   <li><a href="<?php print url(\'taxonomy/term/8041\'); ?>">Psychopathology</a></li>
   <li><a href="<?php print url(\'taxonomy/term/7084\'); ?>">Psychotherapy</a>
     <ul>
