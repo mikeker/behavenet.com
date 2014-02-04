@@ -291,6 +291,31 @@ function behave_terms_admin_ac_submit($form, &$form_state) {
   $form_state['values'][$term_field] = $terms;
 }
 
+/**
+ * Implementation of hook_views_api
+ */
+function behave_api_version() {
+  return 2.0;
+}
+
+/**
+ * Implementation of hook_views_plugins
+ */
+function behave_views_plugins() {
+  $plugins['style']['behave_jump_menu'] = array(
+    'title' => t('Behavenet jump menu'),
+    'help' => t('Puts all of the results into a select box and allows the user to go to a different page based upon the results. Allows for multiple entries to point to the same URL.'),
+    'handler' => 'behave_plugin_style_jump_menu',
+    // 'theme' => 'views_view_jump_menu',
+    'uses row plugin' => TRUE,
+    'uses fields' => TRUE,
+    'uses options' => TRUE,
+    'type' => 'normal',
+    // 'help topic' => 'style-jump-menu',
+  );
+  return $plugins;
+}
+
 
 /*****************************************************************************
 
@@ -1265,33 +1290,70 @@ function _behavenet_tweak_types($type) {
 
 function behave_views_pre_execute(&$view) {
   if ('drug_combos' == $view->name && ('page_1' == $view->current_display || 'panel_pane_3' == $view->current_display)) {
-    $view->build_info['query'] = '
-      SELECT node.nid AS nid, node.title AS node_title
-      FROM {node} AS node
-      WHERE (node.status = 1) AND (node.type IN ("%s"))
+    $view->build_info['query'] = "
+      SELECT DISTINCT nid, node_title
+      FROM (
+        SELECT node2.nid AS nid, alt.field_combo_titles_value AS node_title
+        FROM behave_node AS node2
+        JOIN behave_content_field_combo_titles AS alt
+          ON alt.vid = node2.vid
+        WHERE (node2.status = 1) AND (node2.type in ('%s')) AND alt.field_combo_titles_value IS NOT NULL
 
-      UNION ALL
-      SELECT node.nid, alt.field_combo_titles_value
-      FROM {node} AS node
-      JOIN {content_field_combo_titles} AS alt
-        ON alt.vid = node.vid
-      WHERE (node.status = 1) AND (node.type in ("%s")) AND alt.field_combo_titles_value IS NOT NULL
+        UNION ALL
+        SELECT node2.nid AS nid, alt.field_combo_titles_value AS node_title
+        FROM behave_node AS node2
+        JOIN behave_content_field_combo_titles AS alt
+          ON alt.vid = node2.vid
+        WHERE (node2.status = 1) AND (node2.type in ('%s')) AND alt.field_combo_titles_value IS NOT NULL
 
-      UNION ALL
-      SELECT node.nid, node2.title
-      FROM {node} AS node
-      JOIN {content_field_combo_tradename} AS trade
-        ON trade.vid = node.vid
-      JOIN {node} AS node2
-        ON trade.field_combo_tradename_nid = node2.nid
-      WHERE (node.status = 1) AND (node.type in ("%s"))
+        UNION ALL
+        SELECT node.nid AS nid, node2.title AS node_title
+        FROM behave_node AS node
+        JOIN behave_content_field_combo_tradename AS trade
+          ON trade.vid = node.vid
+        JOIN behave_node AS node2
+          ON trade.field_combo_tradename_nid = node2.nid
+        WHERE (node.status = 1) AND (node.type in ('%s'))
+      ) AS master
+      ORDER BY master.node_title ASC";
 
-      ORDER BY node_title ASC
-    ';
+        // UNION ALL
+        // SELECT node2.nid AS nid, alt.field_combo_titles_value AS node_title
+        // FROM behave_node AS node2
+        // JOIN behave_content_field_combo_titles AS alt
+        //   ON alt.vid = node2.vid
+        // WHERE (node2.status = 1) AND (node2.type in ('%s')) AND alt.field_combo_titles_value IS NOT NULL
+  //     UNION ALL
+  //     SELECT node.nid AS nid, node2.title AS node_title
+  //     FROM behave_node AS node
+  //     JOIN behave_content_field_combo_tradename AS trade
+  //       ON trade.vid = node.vid
+  //     JOIN behave_node AS node2
+  //       ON trade.field_combo_tradename_nid = node2.nid
+  //     WHERE (node.status = 1) AND (node.type in ("combinations"))
 
-    // Two more instances of node.type in the query
-    $view->build_info['query_args'][] = $view->build_info['query_args'][0];
-    $view->build_info['query_args'][] = $view->build_info['query_args'][0];
+    // $view->build_info['query'] = "
+    // SELECT DISTINCT nid, node_title
+    // FROM (
+    //   SELECT node.nid AS nid, node.title AS node_title FROM behave_node AS node
+    //   WHERE (node.status = 1) AND (node.type IN ('%s'))
+
+    //   UNION ALL
+    //   SELECT node.nid AS nid, alt.field_combo_titles_value AS node_title
+    //   FROM behave_node AS node
+    //   JOIN behave_content_field_combo_titles AS alt
+    //     ON alt.vid = node.vid
+    //   WHERE (node.status = 1) AND (node.type in ('%s')) AND alt.field_combo_titles_value IS NOT NULL
+
+    // ) AS master
+    // ORDER BY master.node_title ASC";
+  //   dsm($view->build_info);
+  //   // Two more instances of node.type in the query
+    // $view->build_info['query_args'][] = $view->build_info['query_args'][0];
+    // $view->build_info['query_args'][] = $view->build_info['query_args'][0];
+    $view->build_info['query_args'][] = 'combinations';
+    $view->build_info['query_args'][] = 'combinations';
+    $view->build_info['query_args'][] = 'combinations';
   }
 }
 

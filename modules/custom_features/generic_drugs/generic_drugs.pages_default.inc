@@ -379,11 +379,32 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     $display->content['new-bd5d60e6-524b-2894-d910-3b9e4c65a26f'] = $pane;
     $display->panels['middle'][9] = 'new-bd5d60e6-524b-2894-d910-3b9e4c65a26f';
     $pane = new stdClass;
+    $pane->pid = 'new-99133150-b5b9-ed34-a9fd-f0086743b890';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'disqus-disqus_comments';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 10;
+    $pane->uuid = '99133150-b5b9-ed34-a9fd-f0086743b890';
+    $display->content['new-99133150-b5b9-ed34-a9fd-f0086743b890'] = $pane;
+    $display->panels['middle'][10] = 'new-99133150-b5b9-ed34-a9fd-f0086743b890';
+    $pane = new stdClass;
     $pane->pid = 'new-16255f71-9f52-b154-61e3-c379ba8e8547';
     $pane->panel = 'middle';
     $pane->type = 'node_comments';
     $pane->subtype = 'node_comments';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'mode' => '2',
@@ -400,16 +421,16 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
+    $pane->position = 11;
     $pane->uuid = '16255f71-9f52-b154-61e3-c379ba8e8547';
     $display->content['new-16255f71-9f52-b154-61e3-c379ba8e8547'] = $pane;
-    $display->panels['middle'][10] = 'new-16255f71-9f52-b154-61e3-c379ba8e8547';
+    $display->panels['middle'][11] = 'new-16255f71-9f52-b154-61e3-c379ba8e8547';
     $pane = new stdClass;
     $pane->pid = 'new-f6faae05-9ada-0b54-4dc3-92fa726e09e0';
     $pane->panel = 'middle';
     $pane->type = 'node_comment_form';
     $pane->subtype = 'node_comment_form';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'anon_links' => 0,
@@ -423,10 +444,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 11;
+    $pane->position = 12;
     $pane->uuid = 'f6faae05-9ada-0b54-4dc3-92fa726e09e0';
     $display->content['new-f6faae05-9ada-0b54-4dc3-92fa726e09e0'] = $pane;
-    $display->panels['middle'][11] = 'new-f6faae05-9ada-0b54-4dc3-92fa726e09e0';
+    $display->panels['middle'][12] = 'new-f6faae05-9ada-0b54-4dc3-92fa726e09e0';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

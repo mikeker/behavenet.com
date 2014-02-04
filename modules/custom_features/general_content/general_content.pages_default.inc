@@ -1274,11 +1274,53 @@ print behavenet_display_term_children(7358);
     $display->content['new-7f62f8bd-5af8-4624-9d9d-acfef7d92bde'] = $pane;
     $display->panels['middle'][16] = 'new-7f62f8bd-5af8-4624-9d9d-acfef7d92bde';
     $pane = new stdClass;
+    $pane->pid = 'new-bedc6270-0b95-f284-fd8a-dc9c0266b9e3';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'disqus-disqus_comments';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'opinion' => 'opinion',
+              'combinations' => 'combinations',
+              'compound' => 'compound',
+              'preparation' => 'preparation',
+              'sources' => 'sources',
+              'generic' => 'generic',
+              'book' => 'book',
+              'movie' => 'movie',
+              'drug' => 'drug',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Comments',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 17;
+    $pane->uuid = 'bedc6270-0b95-f284-fd8a-dc9c0266b9e3';
+    $display->content['new-bedc6270-0b95-f284-fd8a-dc9c0266b9e3'] = $pane;
+    $display->panels['middle'][17] = 'new-bedc6270-0b95-f284-fd8a-dc9c0266b9e3';
+    $pane = new stdClass;
     $pane->pid = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
     $pane->panel = 'middle';
     $pane->type = 'node_comments';
     $pane->subtype = 'node_comments';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array(
       'plugins' => array(
         0 => array(
@@ -1318,16 +1360,16 @@ print behavenet_display_term_children(7358);
       'css_class' => 'comments-list',
     );
     $pane->extras = array();
-    $pane->position = 17;
+    $pane->position = 18;
     $pane->uuid = '75988c4b-863f-54b4-3d7b-466b8234632b';
     $display->content['new-75988c4b-863f-54b4-3d7b-466b8234632b'] = $pane;
-    $display->panels['middle'][17] = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
+    $display->panels['middle'][18] = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
     $pane = new stdClass;
     $pane->pid = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
     $pane->panel = 'middle';
     $pane->type = 'node_comment_form';
     $pane->subtype = 'node_comment_form';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array(
       'plugins' => array(
         0 => array(
@@ -1364,10 +1406,10 @@ print behavenet_display_term_children(7358);
       'css_class' => 'comment-form',
     );
     $pane->extras = array();
-    $pane->position = 18;
+    $pane->position = 19;
     $pane->uuid = '13588c1f-d1a1-4ed4-9586-563587ffbe75';
     $display->content['new-13588c1f-d1a1-4ed4-9586-563587ffbe75'] = $pane;
-    $display->panels['middle'][18] = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
+    $display->panels['middle'][19] = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
@@ -2017,87 +2059,6 @@ print behavenet_display_term_children(7358);
     $pane->uuid = 'b9bd81b9-4704-5f34-7dde-738ed56e2fb6';
     $display->content['new-b9bd81b9-4704-5f34-7dde-738ed56e2fb6'] = $pane;
     $display->panels['middle'][14] = 'new-b9bd81b9-4704-5f34-7dde-738ed56e2fb6';
-    $pane = new stdClass;
-    $pane->pid = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
-    $pane->panel = 'middle';
-    $pane->type = 'node_comments';
-    $pane->subtype = 'node_comments';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'node_type',
-          'settings' => array(
-            'type' => array(
-              'movie' => 'movie',
-            ),
-          ),
-          'context' => 'argument_nid_1',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'mode' => '2',
-      'order' => '2',
-      'comments_per_page' => '50',
-      'anchor' => 1,
-      'context' => 'argument_nid_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'comments-list',
-    );
-    $pane->extras = array();
-    $pane->position = 15;
-    $pane->uuid = '75988c4b-863f-54b4-3d7b-466b8234632b';
-    $display->content['new-75988c4b-863f-54b4-3d7b-466b8234632b'] = $pane;
-    $display->panels['middle'][15] = 'new-75988c4b-863f-54b4-3d7b-466b8234632b';
-    $pane = new stdClass;
-    $pane->pid = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
-    $pane->panel = 'middle';
-    $pane->type = 'node_comment_form';
-    $pane->subtype = 'node_comment_form';
-    $pane->shown = TRUE;
-    $pane->access = array(
-      'plugins' => array(
-        0 => array(
-          'name' => 'node_type',
-          'settings' => array(
-            'type' => array(
-              'movie' => 'movie',
-            ),
-          ),
-          'context' => 'argument_nid_1',
-          'not' => FALSE,
-        ),
-      ),
-    );
-    $pane->configuration = array(
-      'anon_links' => 0,
-      'context' => 'argument_nid_1',
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'comment-form',
-    );
-    $pane->extras = array();
-    $pane->position = 16;
-    $pane->uuid = '13588c1f-d1a1-4ed4-9586-563587ffbe75';
-    $display->content['new-13588c1f-d1a1-4ed4-9586-563587ffbe75'] = $pane;
-    $display->panels['middle'][16] = 'new-13588c1f-d1a1-4ed4-9586-563587ffbe75';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
