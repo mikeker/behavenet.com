@@ -1361,6 +1361,9 @@ else {
       'relationship' => 'none',
     ),
   ));
+  $handler->override_option('header', '<div class="field-label-inline-first"><strong>Brand names </strong></div>');
+  $handler->override_option('header_format', '2');
+  $handler->override_option('header_empty', 0);
   $handler->override_option('use_ajax', FALSE);
   $handler->override_option('items_per_page', 0);
   $handler->override_option('use_pager', '0');

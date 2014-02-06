@@ -222,7 +222,20 @@ print behavenet_get_content_breadcrumbs(%node:nid);
     $pane->type = 'custom';
     $pane->subtype = 'custom';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'combinations' => 'combinations',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => TRUE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'admin_title' => 'Generic drug breadcrumbs',
       'title' => '',
@@ -242,6 +255,43 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     $pane->uuid = '8b1758b4-2398-0ea4-1985-bae7881ef2cc';
     $display->content['new-8b1758b4-2398-0ea4-1985-bae7881ef2cc'] = $pane;
     $display->panels['middle'][4] = 'new-8b1758b4-2398-0ea4-1985-bae7881ef2cc';
+    $pane = new stdClass;
+    $pane->pid = 'new-c498172f-94ce-f194-2905-b49a43552b96';
+    $pane->panel = 'middle';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'trade_drugs-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'combinations' => 'combinations',
+            ),
+          ),
+          'context' => 'argument_nid_1',
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'context' => array(
+        0 => 'argument_nid_1',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $pane->uuid = 'c498172f-94ce-f194-2905-b49a43552b96';
+    $display->content['new-c498172f-94ce-f194-2905-b49a43552b96'] = $pane;
+    $display->panels['middle'][5] = 'new-c498172f-94ce-f194-2905-b49a43552b96';
     $pane = new stdClass;
     $pane->pid = 'new-8a22db34-9630-c5d4-4183-480b42fd0c38';
     $pane->panel = 'middle';
@@ -263,10 +313,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 6;
     $pane->uuid = '8a22db34-9630-c5d4-4183-480b42fd0c38';
     $display->content['new-8a22db34-9630-c5d4-4183-480b42fd0c38'] = $pane;
-    $display->panels['middle'][5] = 'new-8a22db34-9630-c5d4-4183-480b42fd0c38';
+    $display->panels['middle'][6] = 'new-8a22db34-9630-c5d4-4183-480b42fd0c38';
     $pane = new stdClass;
     $pane->pid = 'new-74fe7855-41f4-20c4-ed85-edc76e43a55d';
     $pane->panel = 'middle';
@@ -290,10 +340,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 7;
     $pane->uuid = '74fe7855-41f4-20c4-ed85-edc76e43a55d';
     $display->content['new-74fe7855-41f4-20c4-ed85-edc76e43a55d'] = $pane;
-    $display->panels['middle'][6] = 'new-74fe7855-41f4-20c4-ed85-edc76e43a55d';
+    $display->panels['middle'][7] = 'new-74fe7855-41f4-20c4-ed85-edc76e43a55d';
     $pane = new stdClass;
     $pane->pid = 'new-376eb690-8238-a0c4-e57a-e7e88b5e7e47';
     $pane->panel = 'middle';
@@ -314,10 +364,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 7;
+    $pane->position = 8;
     $pane->uuid = '376eb690-8238-a0c4-e57a-e7e88b5e7e47';
     $display->content['new-376eb690-8238-a0c4-e57a-e7e88b5e7e47'] = $pane;
-    $display->panels['middle'][7] = 'new-376eb690-8238-a0c4-e57a-e7e88b5e7e47';
+    $display->panels['middle'][8] = 'new-376eb690-8238-a0c4-e57a-e7e88b5e7e47';
     $pane = new stdClass;
     $pane->pid = 'new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
     $pane->panel = 'middle';
@@ -350,10 +400,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 8;
+    $pane->position = 9;
     $pane->uuid = 'acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
     $display->content['new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3'] = $pane;
-    $display->panels['middle'][8] = 'new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
+    $display->panels['middle'][9] = 'new-acefa8d4-919e-8c64-09d0-ca62e1d6adb3';
     $pane = new stdClass;
     $pane->pid = 'new-bd5d60e6-524b-2894-d910-3b9e4c65a26f';
     $pane->panel = 'middle';
@@ -374,10 +424,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 9;
+    $pane->position = 10;
     $pane->uuid = 'bd5d60e6-524b-2894-d910-3b9e4c65a26f';
     $display->content['new-bd5d60e6-524b-2894-d910-3b9e4c65a26f'] = $pane;
-    $display->panels['middle'][9] = 'new-bd5d60e6-524b-2894-d910-3b9e4c65a26f';
+    $display->panels['middle'][10] = 'new-bd5d60e6-524b-2894-d910-3b9e4c65a26f';
     $pane = new stdClass;
     $pane->pid = 'new-99133150-b5b9-ed34-a9fd-f0086743b890';
     $pane->panel = 'middle';
@@ -395,10 +445,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 10;
+    $pane->position = 11;
     $pane->uuid = '99133150-b5b9-ed34-a9fd-f0086743b890';
     $display->content['new-99133150-b5b9-ed34-a9fd-f0086743b890'] = $pane;
-    $display->panels['middle'][10] = 'new-99133150-b5b9-ed34-a9fd-f0086743b890';
+    $display->panels['middle'][11] = 'new-99133150-b5b9-ed34-a9fd-f0086743b890';
     $pane = new stdClass;
     $pane->pid = 'new-16255f71-9f52-b154-61e3-c379ba8e8547';
     $pane->panel = 'middle';
@@ -421,10 +471,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 11;
+    $pane->position = 12;
     $pane->uuid = '16255f71-9f52-b154-61e3-c379ba8e8547';
     $display->content['new-16255f71-9f52-b154-61e3-c379ba8e8547'] = $pane;
-    $display->panels['middle'][11] = 'new-16255f71-9f52-b154-61e3-c379ba8e8547';
+    $display->panels['middle'][12] = 'new-16255f71-9f52-b154-61e3-c379ba8e8547';
     $pane = new stdClass;
     $pane->pid = 'new-f6faae05-9ada-0b54-4dc3-92fa726e09e0';
     $pane->panel = 'middle';
@@ -444,10 +494,10 @@ print behavenet_get_generic_breadcrumbs(%node:nid);
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 12;
+    $pane->position = 13;
     $pane->uuid = 'f6faae05-9ada-0b54-4dc3-92fa726e09e0';
     $display->content['new-f6faae05-9ada-0b54-4dc3-92fa726e09e0'] = $pane;
-    $display->panels['middle'][12] = 'new-f6faae05-9ada-0b54-4dc3-92fa726e09e0';
+    $display->panels['middle'][13] = 'new-f6faae05-9ada-0b54-4dc3-92fa726e09e0';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
