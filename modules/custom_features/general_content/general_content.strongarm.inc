@@ -780,12 +780,14 @@ function general_content_strongarm() {
   $strongarm->name = 'content_extra_weights_device';
   $strongarm->value = array(
     'title' => '-5',
-    'revision_information' => '4',
-    'author' => '3',
-    'options' => '5',
-    'comment_settings' => '6',
-    'menu' => '2',
-    'path' => '7',
+    'revision_information' => '5',
+    'author' => '4',
+    'options' => '6',
+    'comment_settings' => '7',
+    'menu' => '3',
+    'path' => '8',
+    'path_redirect' => '9',
+    'xmlsitemap' => '10',
   );
   $export['content_extra_weights_device'] = $strongarm;
 
@@ -8131,13 +8133,6 @@ function general_content_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'disqus_domain';
-  $strongarm->value = 'behavenet';
-  $export['disqus_domain'] = $strongarm;
-
-  $strongarm = new stdClass;
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'disqus_nodetypes';
   $strongarm->value = array(
     'book' => 'book',
@@ -8162,6 +8157,13 @@ function general_content_strongarm() {
     'tax_tweaks_extras' => 0,
   );
   $export['disqus_nodetypes'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'disqus_domain';
+  $strongarm->value = 'behavenet';
+  $export['disqus_domain'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

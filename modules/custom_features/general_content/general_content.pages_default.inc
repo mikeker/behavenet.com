@@ -2751,6 +2751,7 @@ googletag.cmd.push(function() { googletag.display(\'div-gpt-ad-1363386745962-3\'
           'name' => 'node_type',
           'settings' => array(
             'type' => array(
+              'device' => 'device',
               'book' => 'book',
               'movie' => 'movie',
             ),

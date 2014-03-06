@@ -874,6 +874,62 @@ function general_content_content_default_fields() {
     ),
   );
 
+  // Exported field: field_general_asin
+  $fields['device-field_general_asin'] = array(
+    'field_name' => 'field_general_asin',
+    'type_name' => 'device',
+    'display_settings' => array(
+      'weight' => '-4',
+      'parent' => '',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'inline',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'inline',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '2' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '3' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'asin',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'asin',
+    'active' => '1',
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'asin' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Amazon ASIN',
+      'weight' => '1',
+      'description' => '',
+      'type' => 'asin_text',
+      'module' => 'asin',
+    ),
+  );
+
   // Exported field: field_general_terms
   $fields['device-field_general_terms'] = array(
     'field_name' => 'field_general_terms',
@@ -928,7 +984,7 @@ function general_content_content_default_fields() {
       'default_value' => NULL,
       'default_value_php' => NULL,
       'label' => 'Terms',
-      'weight' => '1',
+      'weight' => '2',
       'description' => '',
       'type' => 'content_taxonomy_autocomplete',
       'module' => 'content_taxonomy_autocomplete',
@@ -3482,6 +3538,7 @@ function general_content_content_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Alternate Names');
+  t('Amazon ASIN');
   t('Approval Date');
   t('Back references from Drug in Drug Combinations');
   t('Back references from Related content in People');
