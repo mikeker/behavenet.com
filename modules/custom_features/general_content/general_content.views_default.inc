@@ -759,7 +759,16 @@ function general_content_views_default_views() {
     'exposed_form' => 0,
     'fields_override' => 0,
   ));
-  $handler->override_option('argument_input', array());
+  $handler->override_option('argument_input', array(
+    'tid' => array(
+      'type' => 'context',
+      'context' => 'term.tid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Taxonomy: Term ID',
+    ),
+  ));
   $handler->override_option('link_to_view', 0);
   $handler->override_option('inherit_panels_path', 0);
 
