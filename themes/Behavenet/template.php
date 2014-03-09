@@ -1,4 +1,4 @@
- <?php
+<?php
 function cmp_values($a, $b) {
   return strnatcasecmp($a['value'], $b['value']);
 }
