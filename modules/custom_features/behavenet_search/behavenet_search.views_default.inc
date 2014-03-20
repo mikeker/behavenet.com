@@ -259,7 +259,7 @@ if (isset($data->score)) {
     'type' => 'none',
   ));
   $handler->override_option('css_class', 'search-results-hide');
-  $handler->override_option('items_per_page', 50);
+  $handler->override_option('items_per_page', 250);
   $handler->override_option('use_pager', '1');
   $handler->override_option('distinct', 1);
   $handler->override_option('style_plugin', 'table');
