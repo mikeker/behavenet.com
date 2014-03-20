@@ -1382,7 +1382,7 @@ function behave_views_pre_render(&$view) {
           SELECT t.tid, t.*
           FROM   {term_data} t
           WHERE  LOWER(t.name) LIKE ('%s')
-          LIMIT  0, 20
+          LIMIT  0, 10
         ", strtolower($key));
         while($row = db_fetch_object($db_results)) {
           $possible[] = $row;
@@ -1454,12 +1454,37 @@ function behave_views_pre_render(&$view) {
           array_push($results[$key], $output);
         }               // foreach ($possible as $term) {
 
-        // Next is the results returned by views
         $existing = array();    // Don't show dups later...
+
+        // Next search for combination alternate titles
+        $db_results = db_query("
+          SELECT n.nid, n.title AS combo_title, c.field_combo_titles_value AS alt_title
+          FROM {node} n
+          LEFT JOIN {content_field_combo_titles} c ON n.vid = c.vid
+          WHERE n.type = 'combinations'
+            AND LOWER(c.field_combo_titles_value) LIKE ('%s%%')
+          LIMIT 0, 20
+        ", strtolower($key));
+        while($row = db_fetch_object($db_results)) {
+          if (isset($existing[$row->nid])) {
+            continue;
+          }
+          if (!isset($results[$key])) {
+            $results[$key] = array();
+          }
+          $item = l($row->combo_title, "node/$row->nid");
+          if ($row->combo_title != $row->alt_title) {
+            $item .= " (a.k.a. $row->alt_title)";
+          }
+          array_push($results[$key], $item);
+          $existing[$row->nid] = TRUE;
+        }
+
+        // Next is the results returned by views
         foreach ($view->result as $index => $row) {
           if ('combinations' == $row->node_type) {
-            // Don't show combinations in case we're matched an alternate title
-            // We handle these below...
+            // Don't show combinations in case we've matched an alternate title.
+            // We've handled these above...
             unset($view->result[$index]);
             continue;
           }
@@ -1547,30 +1572,6 @@ function behave_views_pre_render(&$view) {
           }
           $type = _behavenet_tweak_types($row->type);
           array_push($results[$key], "$type " . l($row->title, "node/$row->nid"));
-        }
-
-        // Next search for combination alternate titles
-        $db_results = db_query("
-          SELECT n.nid, n.title AS combo_title, c.field_combo_titles_value AS alt_title
-          FROM {node} n
-          LEFT JOIN {content_field_combo_titles} c ON n.vid = c.vid
-          WHERE n.type = 'combinations'
-            AND LOWER(c.field_combo_titles_value) LIKE ('%s%%')
-          LIMIT 0, 20
-        ", strtolower($key));
-        while($row = db_fetch_object($db_results)) {
-          if (isset($existing[$row->nid])) {
-            continue;
-          }
-          if (!isset($results[$key])) {
-            $results[$key] = array();
-          }
-          $item = l($row->combo_title, "node/$row->nid");
-          if ($row->combo_title != $row->alt_title) {
-            $item .= " (a.k.a. $row->alt_title)";
-          }
-          array_push($results[$key], $item);
-          $existing[$row->nid] = TRUE;
         }
       }
 
