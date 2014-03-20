@@ -993,6 +993,25 @@ function behavenet_term_autocomplete($string) {
       $matches[$prefix . $n] = check_plain($node->title);
     }
 
+    // Next people's alt names.
+    $result = db_query_range(db_rewrite_sql("
+      SELECT n.nid, n.title
+      FROM {node} AS n
+      INNER JOIN {content_type_people} AS p
+        ON p.vid = n.vid
+      WHERE n.type = 'people'
+        AND LOWER(p.field_people_alt_names_value) LIKE LOWER('%%%s%%')
+      ", 'n', 'nid'), $last_string, 0, 10);
+
+    while ($node = db_fetch_object($result)) {
+      $n = $node->title;
+      // Commas and quotes in terms are special cases, so encode 'em.
+      if (strpos($node->title, ',') !== FALSE || strpos($node->title, '"') !== FALSE) {
+        $n = '"'. str_replace('"', '""', $node->title) .'"';
+      }
+      $matches[$prefix . $n] = check_plain($node->title) . t(' (alt. name)');
+    }
+
     // Authors
     $result = db_query_range("
       SELECT n.nid, n.title, book.field_book_lastname_value AS last, book.field_book_firstname_value AS first
@@ -1553,6 +1572,22 @@ function behave_views_pre_render(&$view) {
                 array_push($results[$key], "$type "
                   . l($row->node_title, "node/$row->nid")
                   . ' (slang ' . implode(', ', $slang_terms) . ')'
+                );
+                $displayed = TRUE;
+              }
+            }
+
+            if (isset($node->field_people_alt_names)) {
+              $alts = array();
+              foreach ($node->field_people_alt_names as $entry) {
+                if (FALSE !== stristr($entry['value'], $key)) {
+                  $alts[] = trim($entry['value']);
+                }
+              }
+              if (count($alts)) {
+                array_push($results[$key], "$type "
+                  . l($row->node_title, "node/$row->nid")
+                  . ' (alt. name ' . implode(', ', $alts) . ')'
                 );
                 $displayed = TRUE;
               }
