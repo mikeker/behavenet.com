@@ -592,14 +592,40 @@ function behavenet_not_found() {
  * Helper function for better indexing Behavenet content
  */
 function behavenet_node_update_index($node) {
+  $return = '';
+
   // Add synonyms to taxonomy terms (handled by taxonomy.module) associated with this node
-  $output = array();
+  $terms = array();
   foreach ($node->taxonomy as $term) {
-    $output += taxonomy_get_synonyms($term->tid);
+    $terms += taxonomy_get_synonyms($term->tid);
   }
-  if (count($output)) {
-    return '<strong>('. implode(', ', $output) .')</strong>';
+  if (count($terms)) {
+    $return .= '<strong>('. implode(', ', $terms) .')</strong>';
   }
+
+  // Slang terms need to show higher in the search results.
+  if (isset($node->field_gen_slang_terms)) {
+    $slangs = array();
+    foreach ($node->field_gen_slang_terms as $entry) {
+      if (!empty($entry['value'])) {
+        $slangs[] = trim($entry['value']);
+      }
+    }
+    $return .= '<h2>' . implode(', ', $slangs) . '</h2>';
+  }
+
+  // Alternate names should be given the same weight as the node title.
+  if (isset($node->field_people_alt_names)) {
+    $alts = array();
+    foreach ($node->field_people_alt_names as $entry) {
+      if (!empty($entry['value'])) {
+        $alts[] = trim($entry['value']);
+      }
+    }
+    $return .= '<h1>' . implode(', ', $alts) . '</h1>';
+  }
+
+  return $return;
 }
 
 
