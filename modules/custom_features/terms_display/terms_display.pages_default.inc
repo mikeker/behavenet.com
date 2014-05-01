@@ -739,6 +739,7 @@ print \'</ul>\';
 <option value="/ankylophobia">joint immobility</option>
 <option value="/catapedaphobia">jumping from high or low places</option>
 <option value="/dikephobia">justice</option>
+<option value="/litigious-mania">justice for persecution</option>
 <option value="/albuminurophobia">kidney disease</option>
 <option value="/philemaphobia">kissing</option>
 <option value="/genuphobia">knees</option>
