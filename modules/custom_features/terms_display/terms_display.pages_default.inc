@@ -739,7 +739,6 @@ print \'</ul>\';
 <option value="/ankylophobia">joint immobility</option>
 <option value="/catapedaphobia">jumping from high or low places</option>
 <option value="/dikephobia">justice</option>
-<option value="/litigious-mania">justice for persecution</option>
 <option value="/albuminurophobia">kidney disease</option>
 <option value="/philemaphobia">kissing</option>
 <option value="/genuphobia">knees</option>
@@ -1336,6 +1335,7 @@ print \'</ul>\';
 <option value="/Italomania">Italy and all things Italian</option>
 <option value="/poriomania">journeying away from home</option>
 <option value="/catapedamania">jumping down from high places</option>
+<option value="/litigious-mania">justice for persecution</option>
 <option value="/dacnomania">killing</option>
 <option value="/macromania">larger than life objects</option>
 <option value="/phyllomania">leaf production by plants, excessive or abnormal </option>
