@@ -1242,6 +1242,7 @@ print \'</ul>\';
       'body' => '<select class="jump-menu"><option selected>- Choose -</option>
 <option value="/acronymania">acronyms</option>
 <option value="/dipsomania">alcohol, drinking</option>
+<option value="/mania-a-potu">alcohol intoxication, violent behavior with</option>
 <option value="/zoomania">animals</option>
 <option value="/balletomania">ballet</option>
 <option value="/Beatlemania">Beatles, the</option>
@@ -1435,6 +1436,7 @@ print \'</ul>\';
 <option value="/enosimania">unforgivable sins, belief that one has committed </option>
 <option value="/tomomania">unnecessary surgery</option>
 <option value="/planomania">unrestrained wandering</option>
+<option value="/mania-a-potu">violent behavior with alcohol intoxication</option>
 <option value="/emetomania">vomiting</option>
 <option value="/ecdemomania">wandering</option>
 <option value="/poriomania">wandering away from home</option>
