@@ -1166,6 +1166,7 @@ print \'</ul>\';
       'admin_title' => 'Manias by Madness',
       'title' => 'Manias by Madness',
       'body' => '<select class="jump-menu"><option selected>- Choose -</option>
+  <option value="/mania-a-potu">alcohol intoxication, violent behavior with</option>
   <option value="/callomania">beauty, delusional conviction of one\'s own</option>
   <option value="/thanatomania">death magic has resulted in one\'s illness, delusional belief that </option>
   <option value="/dysmorphomania">deformity, delusion of</option>
@@ -1203,7 +1204,9 @@ print \'</ul>\';
   <option value="/sebastomania">religious insanity</option>
   <option value="/syphilomania">syphilis, delusional belief that one is infected with </option>
   <option value="/typhomania">typhus fever delirium</option>
-</select>',
+  <option value="/mania-a-potu">violent behavior with alcohol intoxication</option>
+</select>
+',
       'format' => '2',
       'substitute' => 1,
     );
@@ -1242,7 +1245,6 @@ print \'</ul>\';
       'body' => '<select class="jump-menu"><option selected>- Choose -</option>
 <option value="/acronymania">acronyms</option>
 <option value="/dipsomania">alcohol, drinking</option>
-<option value="/mania-a-potu">alcohol intoxication, violent behavior with</option>
 <option value="/zoomania">animals</option>
 <option value="/balletomania">ballet</option>
 <option value="/Beatlemania">Beatles, the</option>
@@ -1436,7 +1438,6 @@ print \'</ul>\';
 <option value="/enosimania">unforgivable sins, belief that one has committed </option>
 <option value="/tomomania">unnecessary surgery</option>
 <option value="/planomania">unrestrained wandering</option>
-<option value="/mania-a-potu">violent behavior with alcohol intoxication</option>
 <option value="/emetomania">vomiting</option>
 <option value="/ecdemomania">wandering</option>
 <option value="/poriomania">wandering away from home</option>
