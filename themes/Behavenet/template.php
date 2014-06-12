@@ -280,9 +280,9 @@ function behavenet_preprocess_content_field(&$vars) {
   if ('combinations' == $vars['node']->type) {
     // Only show alternate combo names if more than one name is listed
     if ('field_combo_titles' == $vars['field_name']) {
-      if (1 == count($vars['items'])) {
-        $vars['field_empty'] = TRUE;
-      }
+      // if (1 == count($vars['items'])) {
+      //   $vars['field_empty'] = TRUE;
+      // }
       if (count($vars['items'] > 10)) {
         // Rewrite as dropdown list
         $output = '<select>';
