@@ -1930,6 +1930,7 @@ print implode(\'<hr />\', $output);
       'relationship' => 'field_tt_extras_credit_nid',
     ),
   ));
+  $handler->override_option('items_per_page', 1);
   $handler->override_option('pane_title', 'Credit by Term');
   $handler->override_option('pane_description', '');
   $handler->override_option('pane_category', array(
