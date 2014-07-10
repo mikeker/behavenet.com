@@ -446,6 +446,7 @@ print \'</ul>\';
 <option value="/scelerophobia">bad men</option>
 <option value="/peladophobia">bald headed people</option>
 <option value="/phalacrophobia">bald, becoming</option>
+<option value="/bananaphobia">bananas</option>
 <option value="/ablutophobia">bathing</option>
 <option value="/chiroptophobia">bats</option>
 <option value="/pogonophobia">beards</option>
@@ -658,6 +659,7 @@ print \'</ul>\';
 <option value="/ranidaphobia">frogs</option>
 <option value="/cryophobia">frost</option>
 <option value="/pagophobia">frost or ice</option>
+<option value="/carpophobia">fruit</option>
 <option value="/doraphobia">fur of animals</option>
 <option value="/cherophobia">gaiety</option>
 <option value="/obesophobia">gaining weight </option>
@@ -746,6 +748,7 @@ print \'</ul>\';
 <option value="/limnophobia">lakes</option>
 <option value="/megalophobia">large things</option>
 <option value="/geliophobia">laughter</option>
+<option value="/launderettephobia">launderettes</option>
 <option value="/liticaphobia">lawsuits</option>
 <option value="/sophophobia">learning</option>
 <option value="/sinistrophobia">left side of the body, objects at the </option>
@@ -835,6 +838,7 @@ print \'</ul>\';
 <option value="/octophobia">number 8</option>
 <option value="/arithmophobia">numbers</option>
 <option value="/polyphobia">numerous things</option>
+<option value="/nucisophobia">nuts</option>
 <option value="/tapinophobia">objects, small</option>
 <option value="/pornophobia">obscenity</option>
 <option value="/nautophobia">ocean</option>
