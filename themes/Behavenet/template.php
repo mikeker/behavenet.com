@@ -49,7 +49,9 @@ function behavenet_preprocess_content_field(&$vars) {
         $url = 'http://www.tchat.io/rooms/' . substr($url, 1);
       }
       else if ('@' == substr($url, 0, 1)) {
-        $url = "https://twitter.com/$url";
+        // Remove the '@' for the URL. It works, but it looks bad and isn't
+        // standard.
+        $url = 'https://twitter.com/' . substr($url, 1);
       }
     }
 
