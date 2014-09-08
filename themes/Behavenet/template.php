@@ -265,10 +265,13 @@ function behavenet_preprocess_content_field(&$vars) {
     if ('field_terms' == $vars['field_name'] || 'field_general_terms' == $vars['field_name']) {
       if (count($vars['items']) > 10) {
         $options = array();
-        $regex = '/^<a href="(.*?)".*?\>(.*)<\/a\>$/';
+        $regex = '/^<a href="(.*?)"[\s\S]*?\>(.*)<\/a\>$/';
         foreach ($vars['items'] as $item) {
           if (preg_match($regex, $item['view'], $matches)) {
             $options[$matches[1]] = $matches[2];
+          }
+          else {
+            watchdog('Behavenet', 'Unable to build jump-menu item for %string.', array('%string' => $item['view']), WATCHDOG_ERROR);
           }
         }
         $vars['items'] = array(0 => array('view' => behavenet_build_jump_menu($options)));
