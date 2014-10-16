@@ -1220,11 +1220,17 @@ function behavenet_is_list($tid) {
  * @return array of tids
  */
 function _behavenet_get_lists($tid) {
-  $lists = variable_get('behave_lists_tids', '');
+  // Poor-mans's caching
+  static $related = array();
+  if (empty($related)) {
+    $lists = variable_get('behave_lists_tids', '');
+    foreach ($lists as $ltid) {
+      $related[$ltid] = taxonomy_get_related($ltid);
+    }
+  }
   $result = array();
-  foreach ($lists as $ltid) {
-    $related = taxonomy_get_related($ltid);
-    if (isset($related[$tid])) {
+  foreach ($related as $ltid => $related_tids) {
+    if (isset($related_tids[$tid])) {
       $result[] = $ltid;
     }
   }
