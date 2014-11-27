@@ -134,20 +134,21 @@ function behavenet_preprocess_content_field(&$vars) {
       $combo = node_load($item['nid']);
       $title = array();
       foreach ($combo->field_combo_drugs as $info) {
-        $generic = node_load($info['nid']);
-        $title[] = l($generic->title, "node/$generic->nid");
+        if ($generic = node_load($info['nid'])) {
+          $title[] = l($generic->title, "node/$generic->nid");
+        }
       }
 
-      // Link to the term 'combination'
-      $combo_link = l('combination', "node/$combo->nid");
-
-      if (1 == count($title)) {
-        $last = array_pop($title);
-        $vars['items'][$index]['view'] = "A $combo_link including $last";
-      }
-      else {
-        $last = array_pop($title);
-        $vars['items'][$index]['view'] = "A $combo_link of " . implode(', ', $title) . " and $last";
+      if (count($title)) {
+        $vars['items'][$index]['view'] = format_plural(count($title),
+          'A !combo_link including !last',
+          'A !combo_link of !list and !last',
+          array(
+            '!combo_link' => l('combination', "node/$combo->nid"),
+            '!last' => array_pop($title),
+            '!list' => implode(', ', $title),
+          )
+        );
       }
     }
   }

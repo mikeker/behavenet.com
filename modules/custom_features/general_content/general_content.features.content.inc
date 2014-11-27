@@ -738,7 +738,7 @@ function general_content_content_default_fields() {
       'weight' => '-2',
       'parent' => '',
       'label' => array(
-        'format' => 'inline',
+        'format' => 'hidden',
       ),
       'teaser' => array(
         'format' => 'default',
@@ -879,7 +879,7 @@ function general_content_content_default_fields() {
     'field_name' => 'field_general_asin',
     'type_name' => 'device',
     'display_settings' => array(
-      'weight' => '-4',
+      'weight' => '1',
       'parent' => '',
       'label' => array(
         'format' => 'hidden',
@@ -935,7 +935,7 @@ function general_content_content_default_fields() {
     'field_name' => 'field_general_terms',
     'type_name' => 'device',
     'display_settings' => array(
-      'weight' => '1',
+      'weight' => '2',
       'parent' => '',
       'label' => array(
         'format' => 'inline',
